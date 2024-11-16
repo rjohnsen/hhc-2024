@@ -5,16 +5,16 @@
     <lastmod>2024-11-10T12:19:21+01:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/prologue/elf-connect/index.html</loc>
-    <lastmod>2024-11-10T10:51:56+01:00</lastmod>
-  </url>
-  <url>
     <loc>http://localhost:1313/prologue/welcome/index.html</loc>
     <lastmod>2024-11-10T09:59:39+01:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/prologue/orientation-challenge/index.html</loc>
     <lastmod>2024-11-10T09:59:39+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/prologue/elf-connect/index.html</loc>
+    <lastmod>2024-11-10T10:51:56+01:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/prologue/elf-minder-9000/index.html</loc>
