@@ -9,13 +9,6 @@
     <lastBuildDate>Sun, 10 Nov 2024 12:19:21 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/prologue/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Welcome</title>
-      <link>http://localhost:1313/prologue/welcome/index.html</link>
-      <pubDate>Sun, 10 Nov 2024 09:59:39 +0100</pubDate>
-      <guid>http://localhost:1313/prologue/welcome/index.html</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Orientation Challenge</title>
       <link>http://localhost:1313/prologue/orientation-challenge/index.html</link>
       <pubDate>Sun, 10 Nov 2024 09:59:39 +0100</pubDate>

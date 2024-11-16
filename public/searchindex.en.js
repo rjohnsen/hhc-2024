@@ -9,14 +9,6 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "HHC 2024 \u003e Prologue",
-    "content": "",
-    "description": "",
-    "tags": [],
-    "title": "Welcome",
-    "uri": "/prologue/welcome/index.html"
-  },
-  {
-    "breadcrumb": "HHC 2024 \u003e Prologue",
     "content": "Objective Talk to Jingle Ringford on Christmas Island and get your bearings at Geese Islands\nQuestion Answer",
     "description": "Objective Talk to Jingle Ringford on Christmas Island and get your bearings at Geese Islands\nQuestion Answer",
     "tags": [],
