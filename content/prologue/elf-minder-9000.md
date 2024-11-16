@@ -2,7 +2,7 @@
 title = 'Elf Minder 9000'
 date = 2024-11-10T12:19:21+01:00
 draft = false
-weight = 4
+weight = 3
 +++
 
 ## Objective
