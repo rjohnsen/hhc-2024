@@ -2,7 +2,12 @@
 title = 'Elf Connect'
 date = 2024-11-10T10:51:56+01:00
 draft = true
+weight = 3
 +++
+
+## Objective
+
+> Help Angel Candysalt connect the dots in a game of connections.
 
 ## Observations
 

@@ -5,6 +5,10 @@ draft = true
 weight = 2
 +++
 
+## Objective
+
+> Talk to Jingle Ringford on Christmas Island and get your bearings at Geese Islands
+
 ## Question
 
 ![Welcome orientation](/images/prologue/prologue-cranberry-welcome-orientation.png)

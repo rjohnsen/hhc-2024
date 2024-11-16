@@ -5,40 +5,44 @@
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.131.0">
     <meta name="generator" content="Relearn 7.1.1">
-    <meta name="description" content="https://hhc24-elfminder.holidayhackchallenge.com/game2.js
-if (isEditor) { adminControls.classList.remove(&#39;hidden&#39;); console.log(&#39;⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡&#39;); console.log(&#39;⚡ Hey, I noticed you are in edit mode! Awesome!&#39;); console.log(&#39;⚡ Use the tools to create your own level.&#39;); console.log(&#39;⚡ Level data is saved to a variable called `game.entities`.&#39;); console.log(&#39;⚡ I\&#39;d love to check out your level--&#39;); console.log(&#39;⚡ Email `JSON.stringify(game.entities)` to evan@counterhack.com&#39;); console.log(&#39;⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡&#39;); } Mapping Movement Y-axis Position Value Content game.entities[0][1] 1 First dot from upper right corner game.entities[0][1] 10 Last dot from upper right corner, max.">
+    <meta name="description" content="Objective Assist Poinsettia McMittens with playing a game of Elf Minder 9000.
+Solution pr. level. Sandy Start Waves and crates Tidal Treasures Dune Dash In order to solve this, we must turn the trajectory path for the elf once he has gone back into the tunnel, so that on the return he’ll hook up to the path leading to the goal flag.
+Coral Cove Shell Seekers Palm Gove Shuffle Once the elf has gone through the tunnel, we change the trajectory path so upon return the elf will head for the spring instead.">
     <meta name="author" content="Roger C.B. Johnsen">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Elf Minder 9000 - HHC 2024">
-    <meta name="twitter:description" content="https://hhc24-elfminder.holidayhackchallenge.com/game2.js
-if (isEditor) { adminControls.classList.remove(&#39;hidden&#39;); console.log(&#39;⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡&#39;); console.log(&#39;⚡ Hey, I noticed you are in edit mode! Awesome!&#39;); console.log(&#39;⚡ Use the tools to create your own level.&#39;); console.log(&#39;⚡ Level data is saved to a variable called `game.entities`.&#39;); console.log(&#39;⚡ I\&#39;d love to check out your level--&#39;); console.log(&#39;⚡ Email `JSON.stringify(game.entities)` to evan@counterhack.com&#39;); console.log(&#39;⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡&#39;); } Mapping Movement Y-axis Position Value Content game.entities[0][1] 1 First dot from upper right corner game.entities[0][1] 10 Last dot from upper right corner, max.">
+    <meta name="twitter:description" content="Objective Assist Poinsettia McMittens with playing a game of Elf Minder 9000.
+Solution pr. level. Sandy Start Waves and crates Tidal Treasures Dune Dash In order to solve this, we must turn the trajectory path for the elf once he has gone back into the tunnel, so that on the return he’ll hook up to the path leading to the goal flag.
+Coral Cove Shell Seekers Palm Gove Shuffle Once the elf has gone through the tunnel, we change the trajectory path so upon return the elf will head for the spring instead.">
     <meta property="og:url" content="http://localhost:1313/prologue/elf-minder-9000/index.html">
     <meta property="og:site_name" content="HHC 2024">
     <meta property="og:title" content="Elf Minder 9000 - HHC 2024">
-    <meta property="og:description" content="https://hhc24-elfminder.holidayhackchallenge.com/game2.js
-if (isEditor) { adminControls.classList.remove(&#39;hidden&#39;); console.log(&#39;⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡&#39;); console.log(&#39;⚡ Hey, I noticed you are in edit mode! Awesome!&#39;); console.log(&#39;⚡ Use the tools to create your own level.&#39;); console.log(&#39;⚡ Level data is saved to a variable called `game.entities`.&#39;); console.log(&#39;⚡ I\&#39;d love to check out your level--&#39;); console.log(&#39;⚡ Email `JSON.stringify(game.entities)` to evan@counterhack.com&#39;); console.log(&#39;⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡&#39;); } Mapping Movement Y-axis Position Value Content game.entities[0][1] 1 First dot from upper right corner game.entities[0][1] 10 Last dot from upper right corner, max.">
+    <meta property="og:description" content="Objective Assist Poinsettia McMittens with playing a game of Elf Minder 9000.
+Solution pr. level. Sandy Start Waves and crates Tidal Treasures Dune Dash In order to solve this, we must turn the trajectory path for the elf once he has gone back into the tunnel, so that on the return he’ll hook up to the path leading to the goal flag.
+Coral Cove Shell Seekers Palm Gove Shuffle Once the elf has gone through the tunnel, we change the trajectory path so upon return the elf will head for the spring instead.">
     <meta property="og:locale" content="en_us">
     <meta property="og:type" content="article">
     <meta property="article:section" content="Prologue">
     <meta property="article:published_time" content="2024-11-10T12:19:21+01:00">
     <meta property="article:modified_time" content="2024-11-10T12:19:21+01:00">
     <meta itemprop="name" content="Elf Minder 9000 - HHC 2024">
-    <meta itemprop="description" content="https://hhc24-elfminder.holidayhackchallenge.com/game2.js
-if (isEditor) { adminControls.classList.remove(&#39;hidden&#39;); console.log(&#39;⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡&#39;); console.log(&#39;⚡ Hey, I noticed you are in edit mode! Awesome!&#39;); console.log(&#39;⚡ Use the tools to create your own level.&#39;); console.log(&#39;⚡ Level data is saved to a variable called `game.entities`.&#39;); console.log(&#39;⚡ I\&#39;d love to check out your level--&#39;); console.log(&#39;⚡ Email `JSON.stringify(game.entities)` to evan@counterhack.com&#39;); console.log(&#39;⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡&#39;); } Mapping Movement Y-axis Position Value Content game.entities[0][1] 1 First dot from upper right corner game.entities[0][1] 10 Last dot from upper right corner, max.">
+    <meta itemprop="description" content="Objective Assist Poinsettia McMittens with playing a game of Elf Minder 9000.
+Solution pr. level. Sandy Start Waves and crates Tidal Treasures Dune Dash In order to solve this, we must turn the trajectory path for the elf once he has gone back into the tunnel, so that on the return he’ll hook up to the path leading to the goal flag.
+Coral Cove Shell Seekers Palm Gove Shuffle Once the elf has gone through the tunnel, we change the trajectory path so upon return the elf will head for the spring instead.">
     <meta itemprop="datePublished" content="2024-11-10T12:19:21+01:00">
     <meta itemprop="dateModified" content="2024-11-10T12:19:21+01:00">
-    <meta itemprop="wordCount" content="211">
+    <meta itemprop="wordCount" content="430">
     <title>Elf Minder 9000 - HHC 2024</title>
-    <link href="/css/fontawesome-all.min.css?1731245253" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1731245253" rel="stylesheet"></noscript>
-    <link href="/css/nucleus.css?1731245253" rel="stylesheet">
-    <link href="/css/auto-complete.css?1731245253" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1731245253" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1731245253" rel="stylesheet">
-    <link href="/css/fonts.css?1731245253" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1731245253" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1731245253" rel="stylesheet">
-    <link href="/css/theme-christmas.css?1731245253" rel="stylesheet" id="R-variant-style">
-    <link href="/css/chroma-relearn-light.css?1731245253" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="/css/print.css?1731245253" rel="stylesheet" media="print">
-    <script src="/js/variant.js?1731245253"></script>
+    <link href="/css/fontawesome-all.min.css?1731776822" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1731776822" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1731776822" rel="stylesheet">
+    <link href="/css/auto-complete.css?1731776822" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1731776822" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1731776822" rel="stylesheet">
+    <link href="/css/fonts.css?1731776822" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1731776822" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1731776822" rel="stylesheet">
+    <link href="/css/theme-christmas.css?1731776822" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-relearn-light.css?1731776822" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/print.css?1731776822" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1731776822"></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..\/..';
@@ -73,6 +77,23 @@ if (isEditor) { adminControls.classList.remove(&#39;hidden&#39;); console.log(&#
                 <div class="topbar-content-wrapper">
 <nav class="TableOfContents">
   <ul>
+    <li><a href="#objective">Objective</a></li>
+    <li><a href="#solution-pr-level">Solution pr. level.</a>
+      <ul>
+        <li><a href="#sandy-start">Sandy Start</a></li>
+        <li><a href="#waves-and-crates">Waves and crates</a></li>
+        <li><a href="#tidal-treasures">Tidal Treasures</a></li>
+        <li><a href="#dune-dash">Dune Dash</a></li>
+        <li><a href="#coral-cove">Coral Cove</a></li>
+        <li><a href="#shell-seekers">Shell Seekers</a></li>
+        <li><a href="#palm-gove-shuffle">Palm Gove Shuffle</a></li>
+        <li><a href="#crate-caper">Crate Caper</a></li>
+        <li><a href="#shoreline-shuffle">Shoreline Shuffle</a></li>
+        <li><a href="#beach-bounty">Beach Bounty</a></li>
+        <li><a href="#driftwood-dunes">Driftwood Dunes</a></li>
+        <li><a href="#a-real-pickle">A real pickle</a></li>
+      </ul>
+    </li>
     <li><a href="#mapping">Mapping</a>
       <ul>
         <li><a href="#movement">Movement</a></li>
@@ -109,6 +130,67 @@ if (isEditor) { adminControls.classList.remove(&#39;hidden&#39;); console.log(&#
 
 <h1 id="elf-minder-9000">Elf Minder 9000</h1>
 
+<h2 id="objective">Objective</h2>
+<blockquote>
+<p>Assist Poinsettia McMittens with playing a game of Elf Minder 9000.</p>
+</blockquote>
+<h2 id="solution-pr-level">Solution pr. level.</h2>
+<h3 id="sandy-start">Sandy Start</h3>
+<p><a href="#R-image-1ff7d91caf10b59230e7f86b0ca884c1" class="lightbox-link"><img alt="Sandy Start" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/prologue/elf-minder-9000-sandy-start.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-1ff7d91caf10b59230e7f86b0ca884c1"><img alt="Sandy Start" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/prologue/elf-minder-9000-sandy-start.png"></a></p>
+<h3 id="waves-and-crates">Waves and crates</h3>
+<p><a href="#R-image-4331d63056f419a396d816f840ab26eb" class="lightbox-link"><img alt="Waves and Crates" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/prologue/elf-minder-9000-waves-and-crates.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-4331d63056f419a396d816f840ab26eb"><img alt="Waves and Crates" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/prologue/elf-minder-9000-waves-and-crates.png"></a></p>
+<h3 id="tidal-treasures">Tidal Treasures</h3>
+<p><a href="#R-image-09b1f06864605229a975d93f7ad1a49b" class="lightbox-link"><img alt="Tidal Treasures" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/prologue/elf-minder-9000-tidal-treasures.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-09b1f06864605229a975d93f7ad1a49b"><img alt="Tidal Treasures" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/prologue/elf-minder-9000-tidal-treasures.png"></a></p>
+<h3 id="dune-dash">Dune Dash</h3>
+<p>In order to solve this, we must turn the trajectory path for the elf once he has gone back into the tunnel, so that on the return he&rsquo;ll hook up to the path leading to the goal flag.</p>
+<p><a href="#R-image-a8bb516e847679b21de2adcf7c5a5471" class="lightbox-link"><img alt="Dune Dash" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/prologue/elf-minder-9000-dune-dash.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-a8bb516e847679b21de2adcf7c5a5471"><img alt="Dune Dash" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/prologue/elf-minder-9000-dune-dash.png"></a></p>
+<h3 id="coral-cove">Coral Cove</h3>
+<p><a href="#R-image-48b814a3cc1a95553add9d7bec38d3c3" class="lightbox-link"><img alt="Coral Cove" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/prologue/elf-minder-9000-coral-cove.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-48b814a3cc1a95553add9d7bec38d3c3"><img alt="Coral Cove" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/prologue/elf-minder-9000-coral-cove.png"></a></p>
+<h3 id="shell-seekers">Shell Seekers</h3>
+<p><a href="#R-image-0eaf5d2fb3a9071866df025f5c58b42f" class="lightbox-link"><img alt="Shell Seekers" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/prologue/elf-minder-9000-shell-seekers.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-0eaf5d2fb3a9071866df025f5c58b42f"><img alt="Shell Seekers" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/prologue/elf-minder-9000-shell-seekers.png"></a></p>
+<h3 id="palm-gove-shuffle">Palm Gove Shuffle</h3>
+<p>Once the elf has gone through the tunnel, we change the trajectory path so upon return the elf will head for the spring instead.</p>
+<p><a href="#R-image-8e1ec67dec6fedcd8d493911ecd7306b" class="lightbox-link"><img alt="Palm Grove Shuffle" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/prologue/elf-minder-9000-palm-grove-shuffle.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-8e1ec67dec6fedcd8d493911ecd7306b"><img alt="Palm Grove Shuffle" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/prologue/elf-minder-9000-palm-grove-shuffle.png"></a></p>
+<h4 id="tropical-tangle">Tropical Tangle</h4>
+<p>For this level we must change trajectory two times in order to traverse into the goal flag.</p>
+<p><a href="#R-image-1797de8468ae1267cfb2055e65d362b4" class="lightbox-link"><img alt="Tropical Tangle" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/prologue/elf-minder-9000-tropical-tangle.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-1797de8468ae1267cfb2055e65d362b4"><img alt="Tropical Tangle" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/prologue/elf-minder-9000-tropical-tangle.png"></a></p>
+<h3 id="crate-caper">Crate Caper</h3>
+<p>In this level we must change the trajectory multiple times. The elf has to be routed to the goal flag and back using multiple routes in order to collect the crates.</p>
+<p><a href="#R-image-b63266020f5ac3a1ff68b1f427f52537" class="lightbox-link"><img alt="Crate Caper" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/prologue/elf-minder-9000-crate-caper.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-b63266020f5ac3a1ff68b1f427f52537"><img alt="Crate Caper" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/prologue/elf-minder-9000-crate-caper.png"></a></p>
+<h3 id="shoreline-shuffle">Shoreline Shuffle</h3>
+<p>Yet again, this level consists of multiple trajectory path changes in order to collec the crates</p>
+<p><a href="#R-image-5b2266191d539e8a29652f15f76cd0ac" class="lightbox-link"><img alt="Shoreline Shuffle" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/prologue/elf-minder-9000-shoreline-shuffle.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-5b2266191d539e8a29652f15f76cd0ac"><img alt="Shoreline Shuffle" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/prologue/elf-minder-9000-shoreline-shuffle.png"></a></p>
+<h3 id="beach-bounty">Beach Bounty</h3>
+<p><a href="#R-image-0a44c64de958079b4c31a75fc91317ed" class="lightbox-link"><img alt="Beach Bounty" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/prologue/elf-minder-9000-beach-bounty.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-0a44c64de958079b4c31a75fc91317ed"><img alt="Beach Bounty" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/prologue/elf-minder-9000-beach-bounty.png"></a></p>
+<h3 id="driftwood-dunes">Driftwood Dunes</h3>
+<p>This was pretty straight forward, no change of trajectory neeeded</p>
+<p><a href="#R-image-acc522f37ca16c36a2bbb3a63a7b3df0" class="lightbox-link"><img alt="Driftwood Dunes" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/prologue/elf-minder-9000-driftwood-dunes.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-acc522f37ca16c36a2bbb3a63a7b3df0"><img alt="Driftwood Dunes" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/prologue/elf-minder-9000-driftwood-dunes.png"></a></p>
+<h3 id="a-real-pickle">A real pickle</h3>
+<p>Stumbled on this part in the HTML source code, apparently it is an editor:</p>
+<p><a href="#R-image-8dfe6eaa2970f87777e525a66f9cb491" class="lightbox-link"><img alt="A real pickle 1" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/prologue/elf-minder-9000-a-real-pickle-1.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-8dfe6eaa2970f87777e525a66f9cb491"><img alt="A real pickle 1" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/prologue/elf-minder-9000-a-real-pickle-1.png"></a></p>
+<p>Removed the &ldquo;hidden&rdquo; stylesheet tag to make it visible:</p>
+<p><a href="#R-image-d573aae28059702ca855b65d6227e028" class="lightbox-link"><img alt="A real pickle 2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/prologue/elf-minder-9000-a-real-pickle-2.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-d573aae28059702ca855b65d6227e028"><img alt="A real pickle 2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/prologue/elf-minder-9000-a-real-pickle-2.png"></a></p>
+<p>Clicked the &ldquo;Clear Entities&rdquo; button, and placed a tunnel at the goal flag:</p>
+<p><a href="#R-image-3fb94ed2507e4941ffe8fb1844740e74" class="lightbox-link"><img alt="A real pickle 3" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/prologue/elf-minder-9000-a-real-pickle-3.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-3fb94ed2507e4941ffe8fb1844740e74"><img alt="A real pickle 3" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/prologue/elf-minder-9000-a-real-pickle-3.png"></a></p>
+<p>Then clicked restart:</p>
+<p><a href="#R-image-1ebfeb4080a9ace2e66c44dc1c73ad2c" class="lightbox-link"><img alt="A real pickle 4" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/prologue/elf-minder-9000-a-real-pickle-4.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-1ebfeb4080a9ace2e66c44dc1c73ad2c"><img alt="A real pickle 4" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/prologue/elf-minder-9000-a-real-pickle-4.png"></a></p>
+<hr>
 <p><a href="https://hhc24-elfminder.holidayhackchallenge.com/game2.js" rel="external" target="_blank">https://hhc24-elfminder.holidayhackchallenge.com/game2.js</a></p>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">isEditor</span>) {
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">adminControls</span>.<span style="color:#a6e22e">classList</span>.<span style="color:#a6e22e">remove</span>(<span style="color:#e6db74">&#39;hidden&#39;</span>);
@@ -273,7 +355,7 @@ HHC 2024
           </a>
         </div>
         <script>
-          window.index_js_url="/searchindex.en.js?1731245253";
+          window.index_js_url="/searchindex.en.js?1731776822";
         </script>
         <search><form action="/search/index.html" method="get">
           <div class="searchbox default-animation">
@@ -286,12 +368,12 @@ HHC 2024
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1731245253" defer></script>
-        <script src="/js/lunr/lunr.min.js?1731245253" defer></script>
-        <script src="/js/lunr/lunr.stemmer.support.min.js?1731245253" defer></script>
-        <script src="/js/lunr/lunr.multi.min.js?1731245253" defer></script>
-        <script src="/js/lunr/lunr.en.min.js?1731245253" defer></script>
-        <script src="/js/search.js?1731245253" defer></script>
+        <script src="/js/auto-complete.js?1731776822" defer></script>
+        <script src="/js/lunr/lunr.min.js?1731776822" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1731776822" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1731776822" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1731776822" defer></script>
+        <script src="/js/search.js?1731776822" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation">
         <hr class="padding">
@@ -302,8 +384,8 @@ HHC 2024
             <li class="parent " data-nav-id="/prologue/index.html"><a class="padding" href="/prologue/index.html">Prologue</a><ul id="R-subsections-79f8c3758567434c5ed9379b17ae831b" class="collapsible-menu">
             <li class="" data-nav-id="/prologue/welcome/index.html"><a class="padding" href="/prologue/welcome/index.html">Welcome</a></li>
             <li class="" data-nav-id="/prologue/orientation-challenge/index.html"><a class="padding" href="/prologue/orientation-challenge/index.html">Orientation Challenge</a></li>
-            <li class="active " data-nav-id="/prologue/elf-minder-9000/index.html"><a class="padding" href="/prologue/elf-minder-9000/index.html">Elf Minder 9000</a></li>
-            <li class="" data-nav-id="/prologue/elf-connect/index.html"><a class="padding" href="/prologue/elf-connect/index.html">Elf Connect</a></li></ul></li>
+            <li class="" data-nav-id="/prologue/elf-connect/index.html"><a class="padding" href="/prologue/elf-connect/index.html">Elf Connect</a></li>
+            <li class="active " data-nav-id="/prologue/elf-minder-9000/index.html"><a class="padding" href="/prologue/elf-minder-9000/index.html">Elf Minder 9000</a></li></ul></li>
           </ul>
         </div>
     
@@ -357,22 +439,22 @@ HHC 2024
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1731245253" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1731245253" defer></script>
-    <script src="/js/d3/d3-color.min.js?1731245253" defer></script>
-    <script src="/js/d3/d3-dispatch.min.js?1731245253" defer></script>
-    <script src="/js/d3/d3-drag.min.js?1731245253" defer></script>
-    <script src="/js/d3/d3-ease.min.js?1731245253" defer></script>
-    <script src="/js/d3/d3-interpolate.min.js?1731245253" defer></script>
-    <script src="/js/d3/d3-selection.min.js?1731245253" defer></script>
-    <script src="/js/d3/d3-timer.min.js?1731245253" defer></script>
-    <script src="/js/d3/d3-transition.min.js?1731245253" defer></script>
-    <script src="/js/d3/d3-zoom.min.js?1731245253" defer></script>
-    <script src="/js/js-yaml.min.js?1731245253" defer></script>
-    <script src="/js/mermaid.min.js?1731245253" defer></script>
+    <script src="/js/clipboard.min.js?1731776822" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1731776822" defer></script>
+    <script src="/js/d3/d3-color.min.js?1731776822" defer></script>
+    <script src="/js/d3/d3-dispatch.min.js?1731776822" defer></script>
+    <script src="/js/d3/d3-drag.min.js?1731776822" defer></script>
+    <script src="/js/d3/d3-ease.min.js?1731776822" defer></script>
+    <script src="/js/d3/d3-interpolate.min.js?1731776822" defer></script>
+    <script src="/js/d3/d3-selection.min.js?1731776822" defer></script>
+    <script src="/js/d3/d3-timer.min.js?1731776822" defer></script>
+    <script src="/js/d3/d3-transition.min.js?1731776822" defer></script>
+    <script src="/js/d3/d3-zoom.min.js?1731776822" defer></script>
+    <script src="/js/js-yaml.min.js?1731776822" defer></script>
+    <script src="/js/mermaid.min.js?1731776822" defer></script>
     <script>
       window.themeUseMermaid = JSON.parse("{}");
     </script>
-    <script src="/js/theme.js?1731245253" defer></script>
+    <script src="/js/theme.js?1731776822" defer></script>
   </body>
 </html>

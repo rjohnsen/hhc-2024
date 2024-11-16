@@ -1,86 +1,103 @@
-:root{
-    
-    --MAIN-TEXT-color: #ffffff; /* Bright white for main text */
-    --MAIN-TITLES-TEXT-color: #e63946; /* Vivid Christmas red for headers */
-    --MAIN-LINK-color: #0fc588; /* Bright green for links */
-    --MAIN-LINK-HOVER-color: #ffd166; /* Festive gold for link hover effect */
-    --MAIN-ANCHOR-color: #0fc588; /* Matching green for anchors */
-    --MAIN-BG-color: #2a2c3b;
+:root {
+    --MAIN-TEXT-color: #e1e1e1; /* Soft off-white for main text */
+    --MAIN-TITLES-TEXT-color: #ff8c42; /* Muted warm orange for headers */
+    --MAIN-LINK-color: #5cd6a8; /* Cool pastel green for links */
+    --MAIN-LINK-HOVER-color: #ffd166; /* Warm gold for hover effect */
+    --MAIN-ANCHOR-color: var(--MAIN-LINK-color); /* Consistent anchor/link color */
+    --MAIN-BG-color: #1e2029; /* Cool dark gray for main background */
 
-    --MENU-HEADER-BG-color: #2a2c3b; /* Dark blue background for the menu header */
-    --MENU-HEADER-BORDER-color: #e63946; /* Red border for visual emphasis */
+    --MENU-HEADER-BG-color: #1e2029; /* Dark gray for the menu header */
+    --MENU-HEADER-BORDER-color: #ff8c42; /* Warm orange for header border */
 
-    --MENU-SEARCH-BG-color: #2a2c3b; /* Soft dark background for the search box */
-    --MENU-SEARCH-BOX-color: #ffffff; /* White for search box border */
-    --MENU-SEARCH-BOX-ICONS-color: #e63946; /* Red icons for search field */
+    --MENU-SEARCH-BG-color: #272932; /* Slightly lighter gray for search box */
+    --MENU-SEARCH-BOX-color: #e1e1e1; /* Soft white for search box border */
+    --MENU-SEARCH-BOX-ICONS-color: #ff8c42; /* Muted orange for search icons */
 
-    --MENU-SECTIONS-ACTIVE-BG-color: #1a2e38; /* Deep blue-gray for active menu section */
-    --MENU-SECTIONS-BG-color: #2a2c3b; /* Dark gray background for menu sections */
-    --MENU-SECTIONS-LINK-color: #ffffff; /* White links in the menu */
+    --MENU-SECTIONS-ACTIVE-BG-color: #2b2d38; /* Slightly lighter gray for active sections */
+    --MENU-SECTIONS-BG-color: #1e2029; /* Unified gray background for menu sections */
+    --MENU-SECTIONS-LINK-color: #e1e1e1; /* Clean, soft white links */
     --MENU-SECTIONS-LINK-HOVER-color: #ffd166; /* Gold for hovered links */
-    --MENU-SECTION-ACTIVE-CATEGORY-color: #e63946; /* Red for active category text */
-    --MENU-SECTION-ACTIVE-CATEGORY-BG-color: #f8f9fa; /* Light gray background for the active category */
+    --MENU-SECTION-ACTIVE-CATEGORY-color: #ff8c42; /* Muted orange for active text */
+    --MENU-SECTION-ACTIVE-CATEGORY-BG-color: #333542; /* Soft muted blue-gray for active background */
 
-    --MENU-VISITED-color: #ffd166; /* Golden color for 'page visited' icons in menu */
-    --MENU-SECTION-HR-color: #ffffff; /* Light separator for clean divisions */   
-    
+    --MENU-VISITED-color: #ffd166; /* Gold for visited items */
+    --MENU-SECTION-HR-color: rgba(255, 255, 255, 0.2); /* Subtle, clean dividers */
 }
 
 body {
     color: var(--MAIN-TEXT-color) !important;
-    background-color: #1d3557; /* Dark blue background to match the image theme */
+    background-color: var(--MAIN-BG-color); /* Dark, cool background for a relaxed feel */
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Hip, modern font stack */
+    line-height: 1.6; /* Improve readability with more line spacing */
+    letter-spacing: 0.03em; /* Subtle spacing for legibility */
 }
 
-textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, select[multiple=multiple]:focus {
-    border-color: #e63946; /* Red border for focus */
-    box-shadow: 0 0 5px #ffd166; /* Gold glow for focus */
+textarea:focus,
+input:focus {
+    border-color: var(--MAIN-TITLES-TEXT-color); /* Warm orange border on focus */
+    box-shadow: 0 0 5px var(--MAIN-LINK-HOVER-color); /* Gold glow for focus */
 }
 
 h2, h3, h4, h5 {
     color: var(--MAIN-TITLES-TEXT-color) !important;
+    font-weight: 600; /* Bold but not too heavy */
+    text-transform: capitalize; /* Modern style for headings */
+    letter-spacing: 0.02em; /* Subtle spacing for elegance */
 }
 
 a {
     color: var(--MAIN-LINK-color);
+    text-decoration: none; /* Clean, minimalist links */
+}
+
+a:hover {
+    color: var(--MAIN-LINK-HOVER-color);
+    text-decoration: underline; /* Gentle hover indication */
 }
 
 .anchor {
     color: var(--MAIN-ANCHOR-color);
 }
 
-a:hover {
-    color: var(--MAIN-LINK-HOVER-color);
-}
-
-#sidebar ul li.visited > a .read-icon {
-	color: var(--MENU-VISITED-color);
-}
-
-#body a.highlight:after {
-    display: block;
-    content: "";
-    height: 1px;
-    width: 0%;
-    transition: width 0.5s ease;
-    background-color: var(--MAIN-LINK-HOVER-color);
-}
 #sidebar {
-	background-color: var(--MENU-SECTIONS-BG-color);
+    background-color: var(--MENU-SECTIONS-BG-color);
+    border-radius: 10px; /* Slight rounding for a modern, soft look */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Cool shadow for depth */
+    padding: 20px; /* Spacious and airy design */
 }
+
 #sidebar #header-wrapper {
     background: var(--MENU-HEADER-BG-color);
     color: var(--MENU-SEARCH-BOX-color);
-    border-color: var(--MENU-HEADER-BORDER-color);
+    border-bottom: 1px solid var(--MENU-HEADER-BORDER-color);
+    padding: 15px 20px; /* Spacious header */
 }
+
 #sidebar .searchbox {
-	border-color: var(--MENU-SEARCH-BOX-color);
+    border: 1px solid var(--MENU-SEARCH-BOX-color);
     background: var(--MENU-SEARCH-BG-color);
+    border-radius: 6px;
+    padding: 8px 12px; /* Comfortable input spacing */
 }
-#sidebar ul.topics > li.parent, #sidebar ul.topics > li.active {
+
+#sidebar ul li.active > a {
+    background: var(--MENU-SECTION-ACTIVE-CATEGORY-BG-color);
+    color: var(--MENU-SECTION-ACTIVE-CATEGORY-color) !important;
+    font-weight: bold; /* Highlight active link */
+}
+
+#sidebar ul li.visited > a .read-icon {
+    color: var(--MENU-VISITED-color);
+}
+
+#sidebar hr {
+    border-color: var(--MENU-SECTION-HR-color);
+    margin: 16px 0; /* Clean spacing between sections */
+}
+
+#sidebar ul li.parent, #sidebar ul li.active {
     background: var(--MENU-SECTIONS-ACTIVE-BG-color);
-}
-#sidebar .searchbox * {
-    color: var(--MENU-SEARCH-BOX-ICONS-color);
+    border-radius: 6px; /* Rounding for active items */
 }
 
 #sidebar a {
@@ -89,13 +106,4 @@ a:hover {
 
 #sidebar a:hover {
     color: var(--MENU-SECTIONS-LINK-HOVER-color);
-}
-
-#sidebar ul li.active > a {
-    background: var(--MENU-SECTION-ACTIVE-CATEGORY-BG-color);
-    color: var(--MENU-SECTION-ACTIVE-CATEGORY-color) !important;
-}
-
-#sidebar hr {
-    border-color: var(--MENU-SECTION-HR-color);
 }
