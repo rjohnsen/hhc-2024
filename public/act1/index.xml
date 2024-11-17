@@ -27,7 +27,7 @@
       <link>http://localhost:1313/act1/hardware-hacking/index.html</link>
       <pubDate>Sun, 17 Nov 2024 14:19:45 +0100</pubDate>
       <guid>http://localhost:1313/act1/hardware-hacking/index.html</guid>
-      <description>import os import numpy as np from PIL import Image def load_images(folder): images = [] filenames = sorted(os.listdir(folder)) for filename in filenames: if filename.endswith(&#39;.png&#39;) or filename.endswith(&#39;.jpg&#39;): img = Image.open(os.path.join(folder, filename)).convert(&#39;RGB&#39;) images.append(np.array(img)) return images def calculate_difference(slice1, slice2): # Calculate the sum of squared differences between the right edge of slice1 and the left edge of slice2 return np.sum((slice1[:, -1] - slice2[:, 0]) ** 2) def find_best_match(slices): n = len(slices) matched_slices = [slices[0]] slices.</description>
+      <description>In the hint section I found this helpful hint:&#xA;On the Cutting Edge From: Morcel Nougat Terminal: Hardware Part 1 Hey, I just caught wind of this neat way to piece back shredded paper! It’s a fancy heuristic detection technique—sharp as an elf’s wit, I tell ya! Got a sample Python script right here, courtesy of Arnydo. Check it out when you have a sec: heuristic_edge_detection.py.&#34;&#xA;I downloaded the script:</description>
     </item>
   </channel>
 </rss>
