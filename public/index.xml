@@ -6,28 +6,21 @@
     <description></description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Nov 2024 12:19:21 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 17 Nov 2024 14:19:45 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Prologue</title>
       <link>http://localhost:1313/prologue/index.html</link>
       <pubDate>Sun, 10 Nov 2024 12:19:21 +0100</pubDate>
       <guid>http://localhost:1313/prologue/index.html</guid>
-      <description>This is a new chapter at the Frosty Beach&#xA;Jingle Ringford (Frosty’s Beach)&#xA;Welcome to the Geese Islands and the 2023 SANS Holiday Hack Challenge!&#xA;I’m Jingle Ringford, one of Santa’s many elves.&#xA;…&#xA;Just kidding! It’s actually the 2024 SANS Holiday Hack Challenge!&#xA;And although we’re on Frosty’s Beach on Christmas Island, we’ll soon be on our way back to the North Pole.&#xA;I thought it best to wait here for people that heard we’re on the Geese Islands but may not know we’re leaving.</description>
-    </item>
-    <item>
-      <title>About</title>
-      <link>http://localhost:1313/about/index.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/about/index.html</guid>
-      <description>This is a new chapter.</description>
+      <description>Welcome back to the Geese Islands! Let’s help the elves pack up to return to the North Pole.&#xA;Talk to Jingle, Angel, and Poinsettia about their challenges.&#xA;This is a new chapter at the Frosty Beach&#xA;Jingle Ringford (Frosty’s Beach)&#xA;Welcome to the Geese Islands and the 2023 SANS Holiday Hack Challenge!&#xA;I’m Jingle Ringford, one of Santa’s many elves.&#xA;…&#xA;Just kidding! It’s actually the 2024 SANS Holiday Hack Challenge!</description>
     </item>
     <item>
       <title>Act1</title>
       <link>http://localhost:1313/act1/index.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 17 Nov 2024 14:19:45 +0100</pubDate>
       <guid>http://localhost:1313/act1/index.html</guid>
-      <description>This is a new chapter.</description>
+      <description>This is a new chapter at the Front Yard.&#xA;With Santa away, Wombley Cube and Alabaster Snowball have each tried to lead. Surely they won’t mess up the naughty and nice list…&#xA;Help Bow, Morcel, and Jewell solve their challenges.</description>
     </item>
     <item>
       <title>Act2</title>
@@ -41,6 +34,13 @@
       <link>http://localhost:1313/act3/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/act3/index.html</guid>
+      <description>This is a new chapter.</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/index.html</guid>
       <description>This is a new chapter.</description>
     </item>
   </channel>

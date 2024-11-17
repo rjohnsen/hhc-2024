@@ -3,9 +3,31 @@
   <channel>
     <title>Act1 - HHC 2024</title>
     <link>http://localhost:1313/act1/index.html</link>
-    <description>This is a new chapter.</description>
+    <description>This is a new chapter at the Front Yard.&#xA;With Santa away, Wombley Cube and Alabaster Snowball have each tried to lead. Surely they won’t mess up the naughty and nice list…&#xA;Help Bow, Morcel, and Jewell solve their challenges.</description>
     <generator>Hugo</generator>
     <language>en-us</language>
+    <lastBuildDate>Sun, 17 Nov 2024 14:19:45 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/act1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Curling</title>
+      <link>http://localhost:1313/act1/curling/index.html</link>
+      <pubDate>Sun, 17 Nov 2024 14:18:57 +0100</pubDate>
+      <guid>http://localhost:1313/act1/curling/index.html</guid>
+      <description>Objective Team up with Bow Ninecandle to send web requests from the command line using Curl, learning how to interact directly with web servers and retrieve information like a pro!&#xA;Solution Easy mode Assignment 1 Unlike the defined standards of a curling sheet, embedded devices often have web servers on non-standard ports. Use curl to retrieve the web page on host “curlingfun” port 8080. If you need help, run the ‘hint’ command.</description>
+    </item>
+    <item>
+      <title>Frosty Keypad</title>
+      <link>http://localhost:1313/act1/frosty-keypad/index.html</link>
+      <pubDate>Sun, 17 Nov 2024 14:19:14 +0100</pubDate>
+      <guid>http://localhost:1313/act1/frosty-keypad/index.html</guid>
+      <description>Numbers found from lighting at the keypad using the UV light:&#xA;2 6 7 8</description>
+    </item>
+    <item>
+      <title>Hardware Hacking</title>
+      <link>http://localhost:1313/act1/hardware-hacking/index.html</link>
+      <pubDate>Sun, 17 Nov 2024 14:19:45 +0100</pubDate>
+      <guid>http://localhost:1313/act1/hardware-hacking/index.html</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

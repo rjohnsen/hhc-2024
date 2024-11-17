@@ -4,6 +4,10 @@ type = "chapter"
 weight = 1
 +++
 
+> Welcome back to the Geese Islands! Let's help the elves pack up to return to the North Pole.
+>
+> Talk to Jingle, Angel, and Poinsettia about their challenges.
+
 This is a new chapter at the Frosty Beach
 
 ![Welcome Screen](/images/prologue/prologue-welcome.png)
