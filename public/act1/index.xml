@@ -23,11 +23,11 @@
       <description>Objective In a swirl of shredded paper, lies the key. Can you unlock the shredder’s code and uncover Santa’s lost secrets?&#xA;Hints UV light Numbers found from lighting at the keypad using the UV light:&#xA;[ 2, 6, 7, 8 ] Hint from the book This is the hint we get:&#xA;Thinking about it, it appears to correpond to&#xA;page:word:letter Using this formula I got:&#xA;Sequence From book 2:6:1 S 4:19:3 A 6:1:1 N 3:10:4 T 14:8:3 A Somehow I got “SANTA”.</description>
     </item>
     <item>
-      <title>Hardware Hacking</title>
+      <title>Hardware Hacking 101</title>
       <link>http://localhost:1313/act1/hardware-hacking/index.html</link>
       <pubDate>Sun, 17 Nov 2024 14:19:45 +0100</pubDate>
       <guid>http://localhost:1313/act1/hardware-hacking/index.html</guid>
-      <description></description>
+      <description>import os import numpy as np from PIL import Image def load_images(folder): images = [] filenames = sorted(os.listdir(folder)) for filename in filenames: if filename.endswith(&#39;.png&#39;) or filename.endswith(&#39;.jpg&#39;): img = Image.open(os.path.join(folder, filename)).convert(&#39;RGB&#39;) images.append(np.array(img)) return images def calculate_difference(slice1, slice2): # Calculate the sum of squared differences between the right edge of slice1 and the left edge of slice2 return np.sum((slice1[:, -1] - slice2[:, 0]) ** 2) def find_best_match(slices): n = len(slices) matched_slices = [slices[0]] slices.</description>
     </item>
   </channel>
 </rss>

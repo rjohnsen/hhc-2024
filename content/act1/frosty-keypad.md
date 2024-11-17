@@ -5,6 +5,9 @@ draft = true
 weight = 2
 +++
 
+## Objective
+
+> In a swirl of shredded paper, lies the key. Can you unlock the shredder’s code and uncover Santa's lost secrets?
 
 ## Hints
 
@@ -81,5 +84,7 @@ After just a couple of seconds, it produced the correct pin code:
 ```
 72682
 ```
+
+As evident here, the pincode got accepted: 
 
 ![Frosty Keypad 3](/images/act1/frosty-keypad-3.png)
