@@ -20,7 +20,7 @@
       <link>http://localhost:1313/act1/frosty-keypad/index.html</link>
       <pubDate>Sun, 17 Nov 2024 14:19:14 +0100</pubDate>
       <guid>http://localhost:1313/act1/frosty-keypad/index.html</guid>
-      <description>Numbers found from lighting at the keypad using the UV light:&#xA;2 6 7 8</description>
+      <description>Objective In a swirl of shredded paper, lies the key. Can you unlock the shredder’s code and uncover Santa’s lost secrets?&#xA;Hints UV light Numbers found from lighting at the keypad using the UV light:&#xA;[ 2, 6, 7, 8 ] Hint from the book This is the hint we get:&#xA;Thinking about it, it appears to correpond to&#xA;page:word:letter Using this formula I got:&#xA;Sequence From book 2:6:1 S 4:19:3 A 6:1:1 N 3:10:4 T 14:8:3 A Somehow I got “SANTA”.</description>
     </item>
     <item>
       <title>Hardware Hacking</title>
