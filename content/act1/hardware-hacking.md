@@ -1,10 +1,21 @@
 +++
 title = 'Hardware Hacking 101'
 date = 2024-11-17T14:19:45+01:00
-draft = true
+draft = false
 weight = 3
 +++
 
+## Objective (main)
+
+> Ready your tools and sharpen your wits—only the cleverest can untangle the wires and unlock Santa’s hidden secrets!
+
+## Hardware Hacking 101 Part 1
+
+### Objective
+
+> Jingle all the wires and connect to Santa's Little Helper to reveal the merry secrets locked in his chest!
+
+### Solution for silver
 
 In the hint section I found this helpful hint: 
 
@@ -84,3 +95,48 @@ Image isn't particularly easy to read. Thus some manual work needs to be done:
 2. After mirroring the image, I used https://www.photopea.com/ to rearrange the elements in the picture, making the whole lot readable: 
 
 ![Hardware hacking 101 fixed image ](/images/act1/Hardware-Hacking-101-assembled_image-mirrored.png)
+
+Opening the task itself, we are presented a book: 
+
+![Hardware hacking 101 part 1 part 1](/images/act1/hardware-hacking-101-part-1-1.png)
+
+And by closing the book we are presented with a nifty play area: 
+
+![Hardware hacking 101 part 1 part 2](/images/act1/hardware-hacking-101-part-1-2.png)
+
+Connecting the wires game! The way I solved was to 
+
+1. Power up the controller (upper right corner)
+2. Enter the values from the shredded note (see controllers screen)
+3. Conenct USB from controller to UART bridge.
+4. Connecting the wires completely willy-nillingly from UART bridge.
+5. Selecting a port on the controller. 
+6. Hit "S" button on the controller to see if it worked.
+
+Well. That was the general recipe. In real life, though, I had forgotten to flip the 5V switch over to 3V - so things got a bit toasty here and there. And I also had to cycle the com ports before eventually landing on using USB0. 
+
+![Hardware hacking 101 part 1 part 3](/images/act1/hardware-hacking-101-part-1-3.png)
+
+And by this silver was won! 
+
+![Hardware hacking 101 part 1 part 4](/images/act1/hardware-hacking-101-part-1-4.png)
+
+### Solution for gold
+
+For going for gold, I first found the Iframe source:
+
+![Hardware hacking 101 part 1 part 5](/images/act1/hardware-hacking-101-part-1-5.png)
+
+Then ran that URL through BurpSuite Browser, where I found a reference to V1 of the API. This hint was located in "main.js" script file. 
+
+![Hardware hacking 101 part 1 part 6](/images/act1/hardware-hacking-101-part-1-6.png)
+
+Having captured the post request to solve the game using V2 of the API (basically the same as the GUI game), I just changed the text to refer to V1 of the API: 
+
+![Hardware hacking 101 part 1 part 7](/images/act1/hardware-hacking-101-part-1-7.png)
+
+Done.
+
+## Hardware Hacking 101 Part 2
+
+> Santa’s gone missing, and the only way to track him is by accessing the Wish List in his chest—modify the access_cards database to gain entry!
