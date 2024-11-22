@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Prologue - HHC 2024</title>
-    <link>http://localhost:1313/prologue/index.html</link>
+    <link>http://localhost:36781/prologue/index.html</link>
     <description>Welcome back to the Geese Islands! Let’s help the elves pack up to return to the North Pole.&#xA;Talk to Jingle, Angel, and Poinsettia about their challenges.&#xA;This is a new chapter at the Frosty Beach&#xA;Jingle Ringford (Frosty’s Beach)&#xA;Welcome to the Geese Islands and the 2023 SANS Holiday Hack Challenge!&#xA;I’m Jingle Ringford, one of Santa’s many elves.&#xA;…&#xA;Just kidding! It’s actually the 2024 SANS Holiday Hack Challenge!</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 10 Nov 2024 12:19:21 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/prologue/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:36781/prologue/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Orientation Challenge</title>
-      <link>http://localhost:1313/prologue/orientation-challenge/index.html</link>
+      <link>http://localhost:36781/prologue/orientation-challenge/index.html</link>
       <pubDate>Sun, 10 Nov 2024 09:59:39 +0100</pubDate>
-      <guid>http://localhost:1313/prologue/orientation-challenge/index.html</guid>
+      <guid>http://localhost:36781/prologue/orientation-challenge/index.html</guid>
       <description>Objective Talk to Jingle Ringford on Christmas Island and get your bearings at Geese Islands&#xA;Question Answer</description>
     </item>
     <item>
       <title>Elf Connect</title>
-      <link>http://localhost:1313/prologue/elf-connect/index.html</link>
+      <link>http://localhost:36781/prologue/elf-connect/index.html</link>
       <pubDate>Sun, 10 Nov 2024 10:51:56 +0100</pubDate>
-      <guid>http://localhost:1313/prologue/elf-connect/index.html</guid>
+      <guid>http://localhost:36781/prologue/elf-connect/index.html</guid>
       <description>Objective Help Angel Candysalt connect the dots in a game of connections.&#xA;Observations # Observation 1 Inspected network traffic, game is hosted at https://hhc24-elfconnect.holidayhackchallenge.com/ 2 Playing game through Burpsuite we can get hold of the Javascript controlling the game 3 In Javascript, variable “wordSets” holds the words 4 In Javascript, variable “correctSets” holds the correct words for each round 5 Round is controlled by https://hhc24-elfconnect.holidayhackchallenge.com/?round=2 6 It appears that “correctSets” isn’t updated between rounds.</description>
     </item>
     <item>
       <title>Elf Minder 9000</title>
-      <link>http://localhost:1313/prologue/elf-minder-9000/index.html</link>
+      <link>http://localhost:36781/prologue/elf-minder-9000/index.html</link>
       <pubDate>Sun, 10 Nov 2024 12:19:21 +0100</pubDate>
-      <guid>http://localhost:1313/prologue/elf-minder-9000/index.html</guid>
+      <guid>http://localhost:36781/prologue/elf-minder-9000/index.html</guid>
       <description>Objective Assist Poinsettia McMittens with playing a game of Elf Minder 9000.&#xA;Solution pr. level. Sandy Start Waves and crates Tidal Treasures Dune Dash In order to solve this, we must turn the trajectory path for the elf once he has gone back into the tunnel, so that on the return he’ll hook up to the path leading to the goal flag.&#xA;Coral Cove Shell Seekers Palm Gove Shuffle Once the elf has gone through the tunnel, we change the trajectory path so upon return the elf will head for the spring instead.</description>
     </item>
   </channel>
