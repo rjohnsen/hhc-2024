@@ -140,3 +140,88 @@ Done.
 ## Hardware Hacking 101 Part 2
 
 > Santa’s gone missing, and the only way to track him is by accessing the Wish List in his chest—modify the access_cards database to gain entry!
+
+### Solution for Silver
+
+Jewel Loggins also gives the following tips: 
+
+> Fantastic! You managed to connect to the UART interface—great work with those tricky wires! I couldn't figure it out myself…
+>
+> Rumor has it you might be able to bypass the hardware altogether for the gold medal. Why not see if you can find that shortcut?
+> 
+> Next, we need to access the terminal and modify the access database. We're looking to grant access to card number 42.
+> 
+> Start by using the slh application—that’s the key to getting into the access database. Problem is, the ‘slh’ tool is password-protected, so we need to find it first.
+> 
+> Search the terminal thoroughly; passwords sometimes get left out in the open.
+> 
+> Once you've found it, modify the entry for card number 42 to grant access. Sounds simple, right? Let’s get to it!
+
+Opening the terminal, selecting option 1 ("Startup system ..."):
+
+![Hardware hacking 101 part 2 part 1](/images/act1/hardware-hacking-101-part-2-1.png)
+
+Taking a look around the folder I am currently in, I find a SQLite database:
+
+![Hardware hacking 101 part 2 part 2](/images/act1/hardware-hacking-101-part-2-2.png)
+
+Taking a look at the bash history, I found a password (in a command string): 
+
+![Hardware hacking 101 part 2 part 3](/images/act1/hardware-hacking-101-part-2-3.png)
+
+The command string is:
+
+```bash
+slh --passcode CandyCaneCrunch77 --set-access 1 --id 143
+```
+
+To solve this I consulted the help section using the command ```slh --help```, which then made me better understand how to use it: 
+
+![Hardware hacking 101 part 2 part 4](/images/act1/hardware-hacking-101-part-2-4.png)
+
+### Solution for Gold
+
+Jewel Loggins gives following hint regarding the Gold solution: 
+
+> There’s a tougher route if you're up for the challenge to earn the Gold medal. It involves directly modifying the database and generating your own HMAC signature.
+
+We already know the location and name of the SQLite database, so let's connect: 
+
+```bash
+sqlite3 access_cards
+.tables
+select * from config;
+select * from access_cards where id = 42;
+PRAGMA table_info([access_cards]);
+```
+
+![Hardware hacking 101 part 2 part 5](/images/act1/hardware-hacking-101-part-2-5.png)
+
+From the content of table of "config" and "access_cards", we'll be using the following information to craft our HMAC signature:
+
+| What | Value | Comment | 
+| ---- | ----- | ------- |
+| hmac_secret | 9ed1515819dec61fd361d5fdabb57f41ecce1a5fe1fe263b98c0d6943b9b232e |
+| hmac_message_format | {access}{uuid} |
+| UUID | c06018b6-5e80-4395-ab71-ae5124560189 | From table "access_cards" where ID is 42 |
+
+In order for this to work, we have to use the following formula for input into the HMAC function in Cyberchef: 
+
+```
+access_levelUUID
+```
+
+Thus, concatening the access_level and UUDI without an delimiter. Then we can apply it like so in Cyberchef:
+
+![Hardware hacking 101 part 2 part 7](/images/act1/hardware-hacking-101-part-2-7.png)
+
+It took me forever to figure out that HMAC function was set up using Hex for key, which gave me the wrong output. Switched to UTF-8 as key format and that gave me the correct results. I then could run the following SQL update statement:
+
+```sql
+update access_cards set sig="135a32d5026c5628b1753e6c67015c0f04e26051ef7391c2552de2816b1b7096", access=1 where id = 42;
+```
+
+And Bob's your uncle! :) 
+
+![Hardware hacking 101 part 2 part 7](/images/act1/hardware-hacking-101-part-2-7.png)
+
