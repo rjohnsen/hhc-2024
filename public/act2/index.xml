@@ -2,10 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Act2 - HHC 2024</title>
-    <link>http://localhost:36781/act2/index.html</link>
+    <link>http://localhost:1313/act2/index.html</link>
     <description>This is a new chapter.</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:36781/act2/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Nov 2024 13:18:55 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/act2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mobile Analysis</title>
+      <link>http://localhost:1313/act2/mobile-analysis/index.html</link>
+      <pubDate>Sat, 23 Nov 2024 13:18:24 +0100</pubDate>
+      <guid>http://localhost:1313/act2/mobile-analysis/index.html</guid>
+      <description>Hints Mobile Analysis Easy - Tools&#xA;From Objective Description Eve Snowshoes Mobile Analysis Try using apktool or jadx Mobile Analysis Easy - Missing&#xA;From Objective Description Eve Snowshoes Mobile Analysis Maybe look for what names are included and work back from that? Mobile Analysis Hard - Format&#xA;From Objective Description Eve Snowshoes Mobile Analysis So yeah, have you heard about this new Android app format? Want to convert it to an APK file?</description>
+    </item>
+    <item>
+      <title>Drone Path</title>
+      <link>http://localhost:1313/act2/drone-path/index.html</link>
+      <pubDate>Sat, 23 Nov 2024 13:18:31 +0100</pubDate>
+      <guid>http://localhost:1313/act2/drone-path/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Powershell</title>
+      <link>http://localhost:1313/act2/powershell/index.html</link>
+      <pubDate>Sat, 23 Nov 2024 13:18:37 +0100</pubDate>
+      <guid>http://localhost:1313/act2/powershell/index.html</guid>
+      <description>Silver Task 1 There is a file in the current directory called ‘welcome.txt’. Read the contents of this file Get-Content -Path &#34;.\welcome.txt&#34; Output&#xA;System Overview The Elf Weaponry Multi-Factor Authentication (MFA) system safeguards access to a classified armory containing elf weapons. This high-security system is equipped with advanced defense mechanisms, including canaries, retinal scanner and keystroke analyzing, to prevent unauthorized access. In the event of suspicious activity, the system automatically initiates a lockdown, restricting all access until manual override by authorized personnel.</description>
+    </item>
+    <item>
+      <title>Snowball Showdown</title>
+      <link>http://localhost:1313/act2/snowball-showdown/index.html</link>
+      <pubDate>Sat, 23 Nov 2024 13:18:46 +0100</pubDate>
+      <guid>http://localhost:1313/act2/snowball-showdown/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Microsoft Kc7</title>
+      <link>http://localhost:1313/act2/microsoft-kc7/index.html</link>
+      <pubDate>Sat, 23 Nov 2024 13:18:55 +0100</pubDate>
+      <guid>http://localhost:1313/act2/microsoft-kc7/index.html</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

