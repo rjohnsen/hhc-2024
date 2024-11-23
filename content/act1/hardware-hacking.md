@@ -208,12 +208,12 @@ From the content of table of "config" and "access_cards", we'll be using the fol
 In order for this to work, we have to use the following formula for input into the HMAC function in Cyberchef: 
 
 ```
-access_levelUUID
+access_levelUUID = 1 + c06018b6-5e80-4395-ab71-ae5124560189	== 1c06018b6-5e80-4395-ab71-ae5124560189	
 ```
 
 Thus, concatening the access_level and UUDI without an delimiter. Then we can apply it like so in Cyberchef:
 
-![Hardware hacking 101 part 2 part 7](/images/act1/hardware-hacking-101-part-2-7.png)
+![Hardware hacking 101 part 2 part 6](/images/act1/hardware-hacking-101-part-2-6.png)
 
 It took me forever to figure out that HMAC function was set up using Hex for key, which gave me the wrong output. Switched to UTF-8 as key format and that gave me the correct results. I then could run the following SQL update statement:
 
