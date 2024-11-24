@@ -27,19 +27,19 @@ System Overview The Elf Weaponry Multi-Factor Authentication (MFA) system safegu
 System Overview The Elf Weaponry Multi-Factor Authentication (MFA) system safeguards access to a classified armory containing elf weapons. This high-security system is equipped with advanced defense mechanisms, including canaries, retinal scanner and keystroke analyzing, to prevent unauthorized access. In the event of suspicious activity, the system automatically initiates a lockdown, restricting all access until manual override by authorized personnel.">
     <meta itemprop="datePublished" content="2024-11-23T13:18:37+01:00">
     <meta itemprop="dateModified" content="2024-11-23T13:18:37+01:00">
-    <meta itemprop="wordCount" content="1343">
+    <meta itemprop="wordCount" content="1947">
     <title>Powershell - HHC 2024</title>
-    <link href="/images/logo.png?1732383767" rel="icon" type="image/png">
-    <link href="/css/fontawesome-all.min.css?1732383767" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1732383767" rel="stylesheet"></noscript>
-    <link href="/css/nucleus.css?1732383767" rel="stylesheet">
-    <link href="/css/auto-complete.css?1732383767" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1732383767" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1732383767" rel="stylesheet">
-    <link href="/css/fonts.css?1732383767" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1732383767" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1732383767" rel="stylesheet">
-    <link href="/css/theme-christmas.css?1732383767" rel="stylesheet" id="R-variant-style">
-    <link href="/css/chroma-relearn-light.css?1732383767" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="/css/print.css?1732383767" rel="stylesheet" media="print">
-    <script src="/js/variant.js?1732383767"></script>
+    <link href="/images/logo.png?1732444056" rel="icon" type="image/png">
+    <link href="/css/fontawesome-all.min.css?1732444056" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1732444056" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1732444056" rel="stylesheet">
+    <link href="/css/auto-complete.css?1732444056" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1732444056" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1732444056" rel="stylesheet">
+    <link href="/css/fonts.css?1732444056" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1732444056" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1732444056" rel="stylesheet">
+    <link href="/css/theme-christmas.css?1732444056" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-relearn-light.css?1732444056" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/print.css?1732444056" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1732444056"></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..\/..';
@@ -206,7 +206,33 @@ Use a loop to download the contents of each page. What page has 138 words?
 When you find it, communicate with the URL and print the contents to the terminal.</li>
 </ol>
 </blockquote>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$response = Invoke-WebRequest -Uri <span style="color:#e6db74">&#34;http://127.0.0.1:1225&#34;</span> -Headers @{ Authorization = <span style="color:#e6db74">&#34;Basic </span>$([<span style="color:#66d9ef">Convert</span>]::ToBase64String([<span style="color:#66d9ef">Text.Encoding</span>]::ASCII.GetBytes(<span style="color:#e6db74">&#39;admin:admin&#39;</span>)))<span style="color:#e6db74">&#34;</span> } -UseBasicParsing; $response.Links | Where-Object { $_.href <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;http://localhost:1225/endpoints/*&#34;</span> } | ForEach-Object { $pageContent = Invoke-WebRequest -Uri $_.href -Headers @{ Authorization = <span style="color:#e6db74">&#34;Basic </span>$([<span style="color:#66d9ef">Convert</span>]::ToBase64String([<span style="color:#66d9ef">Text.Encoding</span>]::ASCII.GetBytes(<span style="color:#e6db74">&#39;admin:admin&#39;</span>)))<span style="color:#e6db74">&#34;</span> } -UseBasicParsing; <span style="color:#66d9ef">if</span> (($pageContent.Content -split <span style="color:#e6db74">&#39;\s+&#39;</span>).Count <span style="color:#f92672">-eq</span> <span style="color:#ae81ff">138</span>) { Write-Output <span style="color:#e6db74">&#34;Found page with 138 words: </span>$($_.href)<span style="color:#e6db74">&#34;</span>; Write-Output $pageContent.Content; <span style="color:#66d9ef">break</span> } }</span></span></code></pre></div>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e"># Define the base URL and credentials</span>
+</span></span><span style="display:flex;"><span>$baseUrl = <span style="color:#e6db74">&#34;http://127.0.0.1:1225&#34;</span>
+</span></span><span style="display:flex;"><span>$credentials = <span style="color:#e6db74">&#34;admin:admin&#34;</span>
+</span></span><span style="display:flex;"><span>$encodedAuth = [<span style="color:#66d9ef">Convert</span>]::ToBase64String([<span style="color:#66d9ef">Text.Encoding</span>]::ASCII.GetBytes($credentials))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set the headers for authorization</span>
+</span></span><span style="display:flex;"><span>$headers = @{ Authorization = <span style="color:#e6db74">&#34;Basic </span>$encodedAuth<span style="color:#e6db74">&#34;</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Perform the initial web request to get the main page content</span>
+</span></span><span style="display:flex;"><span>$response = Invoke-WebRequest -Uri $baseUrl -Headers $headers -UseBasicParsing
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Filter the links to those that match the endpoint pattern</span>
+</span></span><span style="display:flex;"><span>$endpointLinks = $response.Links | Where-Object { $_.href <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;http://localhost:1225/endpoints/*&#34;</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Loop through each endpoint link</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">foreach</span> ($link <span style="color:#66d9ef">in</span> $endpointLinks) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Request the content of the current endpoint</span>
+</span></span><span style="display:flex;"><span>    $pageContent = Invoke-WebRequest -Uri $link.href -Headers $headers -UseBasicParsing
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Split the content into words and check if it contains exactly 138 words</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (($pageContent.Content -split <span style="color:#e6db74">&#39;\s+&#39;</span>).Count <span style="color:#f92672">-eq</span> <span style="color:#ae81ff">138</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Output the found page and its content</span>
+</span></span><span style="display:flex;"><span>        Write-Output <span style="color:#e6db74">&#34;Found page with 138 words: </span>$($link.href)<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        Write-Output $pageContent.Content
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span>  <span style="color:#75715e"># Stop searching after finding the first matching page</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
 <p><strong>Output</strong></p>
 <div class="highlight wrap-code"><pre tabindex="0"><code>Found page with 138 words: http://localhost:1225/endpoints/13                                                           
 &lt;html&gt;&lt;head&gt;&lt;title&gt;MFA token scrambler&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;Yuletide cheer fills the air,&lt;br&gt;    A season of love, of care.&lt;br&gt;    The world is bright, full of light,&lt;br&gt;    As we celebrate this special night.&lt;br&gt;    The tree is trimmed, the stockings hung,&lt;br&gt;    Carols are sung, bells are rung.&lt;br&gt;    Families gather, friends unite,&lt;br&gt;    In the glow of the fire’s light.&lt;br&gt;    The air is filled with joy and peace,&lt;br&gt;    As worries and cares find release.&lt;br&gt;    Yuletide cheer, a gift so dear,&lt;br&gt;    Brings warmth and love to all near.&lt;br&gt;    May we carry it in our hearts,&lt;br&gt;    As the season ends, as it starts.&lt;br&gt;    Yuletide cheer, a time to share,&lt;br&gt;    The love, the joy, the care.&lt;br&gt;    May it guide us through the year,&lt;br&gt;    In every laugh, in every tear.&lt;br&gt;    Yuletide cheer, a beacon bright,&lt;br&gt;    Guides us through the winter night &lt;/p&gt;&lt;p&gt; Note to self, remember to remove temp csvfile at http://127.0.0.1:1225/token_overview.csv&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</code></pre></div>
@@ -217,17 +243,35 @@ When you find it, communicate with the URL and print the contents to the termina
 That could be valuable, read the contents of that csv-file!</li>
 </ol>
 </blockquote>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$response = Invoke-WebRequest -Uri <span style="color:#e6db74">&#34;http://127.0.0.1:1225&#34;</span> -Headers @{ Authorization = <span style="color:#e6db74">&#34;Basic </span>$([<span style="color:#66d9ef">Convert</span>]::ToBase64String([<span style="color:#66d9ef">Text.Encoding</span>]::ASCII.GetBytes(<span style="color:#e6db74">&#39;admin:admin&#39;</span>)))<span style="color:#e6db74">&#34;</span> } -UseBasicParsing; 
-</span></span><span style="display:flex;"><span>$response.Links | Where-Object { $_.href <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;http://localhost:1225/endpoints/*&#34;</span> } | ForEach-Object { 
-</span></span><span style="display:flex;"><span>    $pageContent = Invoke-WebRequest -Uri $_.href -Headers @{ Authorization = <span style="color:#e6db74">&#34;Basic </span>$([<span style="color:#66d9ef">Convert</span>]::ToBase64String([<span style="color:#66d9ef">Text.Encoding</span>]::ASCII.GetBytes(<span style="color:#e6db74">&#39;admin:admin&#39;</span>)))<span style="color:#e6db74">&#34;</span> } -UseBasicParsing; 
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (($pageContent.Content -split <span style="color:#e6db74">&#39;\s+&#39;</span>).Count <span style="color:#f92672">-eq</span> <span style="color:#ae81ff">138</span>) { 
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> ($pageContent.Content <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#39;(http[^&#34;]+\.csv)&#39;</span>) { 
-</span></span><span style="display:flex;"><span>            $csvUrl = $matches[<span style="color:#ae81ff">1</span>]; 
-</span></span><span style="display:flex;"><span>            $csvContent = Invoke-WebRequest -Uri $csvUrl -Headers @{ Authorization = <span style="color:#e6db74">&#34;Basic </span>$([<span style="color:#66d9ef">Convert</span>]::ToBase64String([<span style="color:#66d9ef">Text.Encoding</span>]::ASCII.GetBytes(<span style="color:#e6db74">&#39;admin:admin&#39;</span>)))<span style="color:#e6db74">&#34;</span> } -UseBasicParsing; 
-</span></span><span style="display:flex;"><span>            $csvContent.Content | Write-Output; 
-</span></span><span style="display:flex;"><span>        } 
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span> 
-</span></span><span style="display:flex;"><span>    } 
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e"># Define the base URL and credentials</span>
+</span></span><span style="display:flex;"><span>$baseUrl = <span style="color:#e6db74">&#34;http://127.0.0.1:1225&#34;</span>
+</span></span><span style="display:flex;"><span>$credentials = <span style="color:#e6db74">&#34;admin:admin&#34;</span>
+</span></span><span style="display:flex;"><span>$encodedAuth = [<span style="color:#66d9ef">Convert</span>]::ToBase64String([<span style="color:#66d9ef">Text.Encoding</span>]::ASCII.GetBytes($credentials))
+</span></span><span style="display:flex;"><span>$headers = @{ Authorization = <span style="color:#e6db74">&#34;Basic </span>$encodedAuth<span style="color:#e6db74">&#34;</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Perform the initial web request to get the main page content</span>
+</span></span><span style="display:flex;"><span>$response = Invoke-WebRequest -Uri $baseUrl -Headers $headers -UseBasicParsing
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Filter the links to those that match the endpoint pattern</span>
+</span></span><span style="display:flex;"><span>$endpointLinks = $response.Links | Where-Object { $_.href <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;http://localhost:1225/endpoints/*&#34;</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Loop through each endpoint link</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">foreach</span> ($link <span style="color:#66d9ef">in</span> $endpointLinks) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Request the content of the current endpoint</span>
+</span></span><span style="display:flex;"><span>    $pageContent = Invoke-WebRequest -Uri $link.href -Headers $headers -UseBasicParsing
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Check if the content has exactly 138 words</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (($pageContent.Content -split <span style="color:#e6db74">&#39;\s+&#39;</span>).Count <span style="color:#f92672">-eq</span> <span style="color:#ae81ff">138</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Search for a CSV URL in the content</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> ($pageContent.Content <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#39;(http[^&#34;]+\.csv)&#39;</span>) {
+</span></span><span style="display:flex;"><span>            $csvUrl = $matches[<span style="color:#ae81ff">1</span>]  <span style="color:#75715e"># Extract the CSV URL from the match</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Fetch the CSV content from the extracted URL</span>
+</span></span><span style="display:flex;"><span>            $csvContent = Invoke-WebRequest -Uri $csvUrl -Headers $headers -UseBasicParsing
+</span></span><span style="display:flex;"><span>            $csvContent.Content | Write-Output  <span style="color:#75715e"># Output the CSV content</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span>  <span style="color:#75715e"># Stop searching after finding the first matching page</span>
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
 <p><strong>Output</strong></p>
 <div class="highlight wrap-code"><pre tabindex="0"><code>6ef5570cd43a3ec9f43c57f662201e55,REDACTED
@@ -336,7 +380,7 @@ There seems to be one api-endpoint that still isn&rsquo;t redacted! Communicate 
 </span></span><span style="display:flex;"><span>    Cookie = <span style="color:#e6db74">&#34;token=</span>$md5Sum<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>} -UseBasicParsing</span></span></code></pre></div>
 <p>Alternatively, I also used this - but the challenge text didn&rsquo;t change, but the output is nevertheless the same:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Invoke-WebRequest -Uri <span style="color:#e6db74">&#34;http://127.0.0.1:1225/tokens/4216B4FAF4391EE4D3E0EC53A372B2F24876ED5D124FE08E227F84D687A7E06C&#34;</span> -Headers @{ <span style="color:#e6db74">&#39;Cookie&#39;</span> = <span style="color:#e6db74">&#34;token=5f8dd236f862f4507835b0e418907ffc&#34;</span> } -Credential <span style="color:#e6db74">&#34;admin&#34;</span> -AllowUnencryptedAuthentication </span></span></code></pre></div>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Invoke-WebRequest -Uri <span style="color:#e6db74">&#34;http://127.0.0.1:1225/tokens/4216B4FAF4391EE4D3E0EC53A372B2F24876ED5D124FE08E227F84D687A7E06C&#34;</span> -Headers @{ <span style="color:#e6db74">&#39;Cookie&#39;</span> = <span style="color:#e6db74">&#34;token=5f8dd236f862f4507835b0e418907ffc&#34;</span> } -Credential <span style="color:#e6db74">&#34;admin&#34;</span> -AllowUnencryptedAuthentication;</span></span></code></pre></div>
 <p><strong>Output</strong></p>
 <div class="highlight wrap-code"><pre tabindex="0"><code>StatusCode        : 200
 StatusDescription : OK
@@ -361,16 +405,107 @@ RawContentLength  : 149
 RelationLink      : {}</code></pre></div>
 <h4 id="task-10">Task 10</h4>
 <blockquote>
+<ol start="10">
+<li>Sweet we got a MFA token! We might be able to get access to the system.
+Validate that token at the endpoint!</li>
+</ol>
 </blockquote>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"></code></pre></div>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e"># Fetch the content from the URL</span>
+</span></span><span style="display:flex;"><span>$response = Invoke-WebRequest -Uri <span style="color:#e6db74">&#34;http://127.0.0.1:1225/token_overview.csv&#34;</span> -Headers @{
+</span></span><span style="display:flex;"><span>    Authorization = <span style="color:#e6db74">&#34;Basic </span>$([<span style="color:#66d9ef">Convert</span>]::ToBase64String([<span style="color:#66d9ef">Text.Encoding</span>]::ASCII.GetBytes(<span style="color:#e6db74">&#39;admin:admin&#39;</span>)))<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>} -UseBasicParsing
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Split the content into lines, filter out lines containing &#39;REDACTED&#39;, &#39;#&#39;, &#39;file_MD5hash&#39;, or &#39;Sha256(file_MD5hash)&#39;</span>
+</span></span><span style="display:flex;"><span>$filteredContent = $response.Content -split <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">`n</span><span style="color:#e6db74">&#34;</span> | Where-Object { 
+</span></span><span style="display:flex;"><span>    $_ <span style="color:#f92672">-notmatch</span> <span style="color:#e6db74">&#34;REDACTED&#34;</span> <span style="color:#f92672">-and</span> 
+</span></span><span style="display:flex;"><span>    $_ <span style="color:#f92672">-notmatch</span> <span style="color:#e6db74">&#34;#&#34;</span> <span style="color:#f92672">-and</span> 
+</span></span><span style="display:flex;"><span>    $_ <span style="color:#f92672">-notmatch</span> <span style="color:#e6db74">&#34;file_MD5hash&#34;</span> <span style="color:#f92672">-and</span> 
+</span></span><span style="display:flex;"><span>    $_ <span style="color:#f92672">-notmatch</span> <span style="color:#e6db74">&#34;Sha256\(file_MD5hash\)&#34;</span> 
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Convert the filtered lines into an object (in-memory CSV structure)</span>
+</span></span><span style="display:flex;"><span>$csvData = $filteredContent | ForEach-Object {
+</span></span><span style="display:flex;"><span>    $fields = $_ -split <span style="color:#e6db74">&#34;,&#34;</span>  <span style="color:#75715e"># Split each line by commas into an array of fields</span>
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">PSCustomObject</span>]@{
+</span></span><span style="display:flex;"><span>        Column1 = $fields[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>        Column2 = $fields[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$sha256Sum = $csvData.Column2
+</span></span><span style="display:flex;"><span>$md5Sum = $csvData.Column1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$response = Invoke-WebRequest -Uri <span style="color:#e6db74">&#34;http://127.0.0.1:1225/tokens/</span>$sha256Sum<span style="color:#e6db74">&#34;</span> -Headers @{
+</span></span><span style="display:flex;"><span>    Authorization = <span style="color:#e6db74">&#34;Basic </span>$([<span style="color:#66d9ef">Convert</span>]::ToBase64String([<span style="color:#66d9ef">Text.Encoding</span>]::ASCII.GetBytes(<span style="color:#e6db74">&#39;admin:admin&#39;</span>)))<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    Cookie = <span style="color:#e6db74">&#34;token=</span>$md5Sum<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>} -UseBasicParsing
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$time_code = [<span style="color:#66d9ef">regex</span>]::match($response.Content,<span style="color:#e6db74">&#34;href=&#39;(.+)&#39;&#34;</span>).Groups[<span style="color:#ae81ff">1</span>].Value
+</span></span><span style="display:flex;"><span>$urlpath = [<span style="color:#66d9ef">regex</span>]::match($response.Content,<span style="color:#e6db74">&#34;&#39;&gt;(.+)&lt;/a&gt;&#34;</span>).Groups[<span style="color:#ae81ff">1</span>].Value
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$response = Invoke-WebRequest -Uri <span style="color:#e6db74">&#34;http://127.0.0.1:1225</span>$urlpath<span style="color:#e6db74">&#34;</span> -Headers @{
+</span></span><span style="display:flex;"><span>    Authorization = <span style="color:#e6db74">&#34;Basic </span>$([<span style="color:#66d9ef">Convert</span>]::ToBase64String([<span style="color:#66d9ef">Text.Encoding</span>]::ASCII.GetBytes(<span style="color:#e6db74">&#39;admin:admin&#39;</span>)))<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    Cookie = <span style="color:#e6db74">&#34;mfa_code=</span>$time_code<span style="color:#e6db74">; token=</span>$md5Sum<span style="color:#e6db74">; mfa_token=</span>$time_code<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>} -UseBasicParsing
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$response.Content</span></span></code></pre></div>
 <p><strong>Output</strong></p>
-<div class="highlight wrap-code"><pre tabindex="0"><code></code></pre></div>
-<h4 id="task-x">Task X</h4>
+<div class="highlight wrap-code"><pre tabindex="0"><code>Q29ycmVjdCBUb2tlbiBzdXBwbGllZCwgeW91IGFyZSBncmFudGVkIGFjY2VzcyB0byB0aGUgc25vdyBjYW5ub24gdGVybWluYWwuIEhlcmUgaXMgeW91ciBwZXJzb25hbCBwYXNzd29yZCBmb3IgYWNjZXNzOiBTbm93TGVvcGFyZDJSZWFkeUZvckFjdGlvbg==</code></pre></div>
+<p>Inside the HTML there is a Base64 string, which decodes to:</p>
+<div class="highlight wrap-code"><pre tabindex="0"><code>Correct Token supplied, you are granted access to the snow cannon terminal. Here is your personal password for access: SnowLeopard2ReadyForAction</code></pre></div>
+<h4 id="task-11">Task 11</h4>
 <blockquote>
+<ol start="11">
+<li>That looks like base64! Decode it so we can get the final secret!</li>
+</ol>
 </blockquote>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"></code></pre></div>
-<p><strong>Output</strong></p>
-<div class="highlight wrap-code"><pre tabindex="0"><code></code></pre></div>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e"># Fetch the content from the URL</span>
+</span></span><span style="display:flex;"><span>$response = Invoke-WebRequest -Uri <span style="color:#e6db74">&#34;http://127.0.0.1:1225/token_overview.csv&#34;</span> -Headers @{
+</span></span><span style="display:flex;"><span>    Authorization = <span style="color:#e6db74">&#34;Basic </span>$([<span style="color:#66d9ef">Convert</span>]::ToBase64String([<span style="color:#66d9ef">Text.Encoding</span>]::ASCII.GetBytes(<span style="color:#e6db74">&#39;admin:admin&#39;</span>)))<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>} -UseBasicParsing
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Split the content into lines, filter out lines containing &#39;REDACTED&#39;, &#39;#&#39;, &#39;file_MD5hash&#39;, or &#39;Sha256(file_MD5hash)&#39;</span>
+</span></span><span style="display:flex;"><span>$filteredContent = $response.Content -split <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">`n</span><span style="color:#e6db74">&#34;</span> | Where-Object { 
+</span></span><span style="display:flex;"><span>    $_ <span style="color:#f92672">-notmatch</span> <span style="color:#e6db74">&#34;REDACTED&#34;</span> <span style="color:#f92672">-and</span> 
+</span></span><span style="display:flex;"><span>    $_ <span style="color:#f92672">-notmatch</span> <span style="color:#e6db74">&#34;#&#34;</span> <span style="color:#f92672">-and</span> 
+</span></span><span style="display:flex;"><span>    $_ <span style="color:#f92672">-notmatch</span> <span style="color:#e6db74">&#34;file_MD5hash&#34;</span> <span style="color:#f92672">-and</span> 
+</span></span><span style="display:flex;"><span>    $_ <span style="color:#f92672">-notmatch</span> <span style="color:#e6db74">&#34;Sha256\(file_MD5hash\)&#34;</span> 
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Convert the filtered lines into an object (in-memory CSV structure)</span>
+</span></span><span style="display:flex;"><span>$csvData = $filteredContent | ForEach-Object {
+</span></span><span style="display:flex;"><span>    $fields = $_ -split <span style="color:#e6db74">&#34;,&#34;</span>  <span style="color:#75715e"># Split each line by commas into an array of fields</span>
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">PSCustomObject</span>]@{
+</span></span><span style="display:flex;"><span>        Column1 = $fields[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>        Column2 = $fields[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$sha256Sum = $csvData.Column2
+</span></span><span style="display:flex;"><span>$md5Sum = $csvData.Column1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$response = Invoke-WebRequest -Uri <span style="color:#e6db74">&#34;http://127.0.0.1:1225/tokens/</span>$sha256Sum<span style="color:#e6db74">&#34;</span> -Headers @{
+</span></span><span style="display:flex;"><span>    Authorization = <span style="color:#e6db74">&#34;Basic </span>$([<span style="color:#66d9ef">Convert</span>]::ToBase64String([<span style="color:#66d9ef">Text.Encoding</span>]::ASCII.GetBytes(<span style="color:#e6db74">&#39;admin:admin&#39;</span>)))<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    Cookie = <span style="color:#e6db74">&#34;token=</span>$md5Sum<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>} -UseBasicParsing
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$time_code = [<span style="color:#66d9ef">regex</span>]::match($response.Content,<span style="color:#e6db74">&#34;href=&#39;(.+)&#39;&#34;</span>).Groups[<span style="color:#ae81ff">1</span>].Value
+</span></span><span style="display:flex;"><span>$urlpath = [<span style="color:#66d9ef">regex</span>]::match($response.Content,<span style="color:#e6db74">&#34;&#39;&gt;(.+)&lt;/a&gt;&#34;</span>).Groups[<span style="color:#ae81ff">1</span>].Value
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$response = Invoke-WebRequest -Uri <span style="color:#e6db74">&#34;http://127.0.0.1:1225</span>$urlpath<span style="color:#e6db74">&#34;</span> -Headers @{
+</span></span><span style="display:flex;"><span>    Authorization = <span style="color:#e6db74">&#34;Basic </span>$([<span style="color:#66d9ef">Convert</span>]::ToBase64String([<span style="color:#66d9ef">Text.Encoding</span>]::ASCII.GetBytes(<span style="color:#e6db74">&#39;admin:admin&#39;</span>)))<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    Cookie = <span style="color:#e6db74">&#34;mfa_code=</span>$time_code<span style="color:#e6db74">; token=</span>$md5Sum<span style="color:#e6db74">; mfa_token=</span>$time_code<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>} -UseBasicParsing
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#66d9ef">Text.Encoding</span>]::UTF8.GetString([<span style="color:#66d9ef">Convert</span>]::FromBase64String([<span style="color:#66d9ef">regex</span>]::match($response.Content,<span style="color:#e6db74">&#34;&lt;p&gt;(.+)&lt;/p&gt;&#34;</span>).Groups[<span style="color:#ae81ff">1</span>].Value))</span></span></code></pre></div>
+<p><strong>Output 1</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0"><code>Correct Token supplied, you are granted access to the snow cannon terminal. Here is your personal password for access: SnowLeopard2ReadyForAction</code></pre></div>
+<h4 id="final">Final</h4>
+<blockquote>
+<p>Hurray! You have thwarted their defenses!
+Alabaster can now access their weaponry and put a stop to it.
+Once HHC grants your achievement, you can close this terminal.</p>
+</blockquote>
 
   <footer class="footline">
   </footer>
@@ -386,7 +521,7 @@ RelationLink      : {}</code></pre></div>
 
         </div>
         <script>
-          window.index_js_url="/searchindex.en.js?1732383767";
+          window.index_js_url="/searchindex.en.js?1732444056";
         </script>
         <search><form action="/search/index.html" method="get">
           <div class="searchbox default-animation">
@@ -399,12 +534,12 @@ RelationLink      : {}</code></pre></div>
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1732383767" defer></script>
-        <script src="/js/lunr/lunr.min.js?1732383767" defer></script>
-        <script src="/js/lunr/lunr.stemmer.support.min.js?1732383767" defer></script>
-        <script src="/js/lunr/lunr.multi.min.js?1732383767" defer></script>
-        <script src="/js/lunr/lunr.en.min.js?1732383767" defer></script>
-        <script src="/js/search.js?1732383767" defer></script>
+        <script src="/js/auto-complete.js?1732444056" defer></script>
+        <script src="/js/lunr/lunr.min.js?1732444056" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1732444056" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1732444056" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1732444056" defer></script>
+        <script src="/js/search.js?1732444056" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation">
         <hr class="padding">
@@ -475,22 +610,22 @@ RelationLink      : {}</code></pre></div>
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1732383767" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1732383767" defer></script>
-    <script src="/js/d3/d3-color.min.js?1732383767" defer></script>
-    <script src="/js/d3/d3-dispatch.min.js?1732383767" defer></script>
-    <script src="/js/d3/d3-drag.min.js?1732383767" defer></script>
-    <script src="/js/d3/d3-ease.min.js?1732383767" defer></script>
-    <script src="/js/d3/d3-interpolate.min.js?1732383767" defer></script>
-    <script src="/js/d3/d3-selection.min.js?1732383767" defer></script>
-    <script src="/js/d3/d3-timer.min.js?1732383767" defer></script>
-    <script src="/js/d3/d3-transition.min.js?1732383767" defer></script>
-    <script src="/js/d3/d3-zoom.min.js?1732383767" defer></script>
-    <script src="/js/js-yaml.min.js?1732383767" defer></script>
-    <script src="/js/mermaid.min.js?1732383767" defer></script>
+    <script src="/js/clipboard.min.js?1732444056" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1732444056" defer></script>
+    <script src="/js/d3/d3-color.min.js?1732444056" defer></script>
+    <script src="/js/d3/d3-dispatch.min.js?1732444056" defer></script>
+    <script src="/js/d3/d3-drag.min.js?1732444056" defer></script>
+    <script src="/js/d3/d3-ease.min.js?1732444056" defer></script>
+    <script src="/js/d3/d3-interpolate.min.js?1732444056" defer></script>
+    <script src="/js/d3/d3-selection.min.js?1732444056" defer></script>
+    <script src="/js/d3/d3-timer.min.js?1732444056" defer></script>
+    <script src="/js/d3/d3-transition.min.js?1732444056" defer></script>
+    <script src="/js/d3/d3-zoom.min.js?1732444056" defer></script>
+    <script src="/js/js-yaml.min.js?1732444056" defer></script>
+    <script src="/js/mermaid.min.js?1732444056" defer></script>
     <script>
       window.themeUseMermaid = JSON.parse("{}");
     </script>
-    <script src="/js/theme.js?1732383767" defer></script>
+    <script src="/js/theme.js?1732444056" defer></script>
   </body>
 </html>
