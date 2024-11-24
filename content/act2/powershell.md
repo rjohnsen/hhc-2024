@@ -313,10 +313,12 @@ $csvData = $filteredContent | ForEach-Object {
 $sha256Sum = $csvData.Column2
 $md5Sum = $csvData.Column1
 
-Invoke-WebRequest -Uri "http://127.0.0.1:1225/tokens/$sha256Sum" -Headers @{
+$response = Invoke-WebRequest -Uri "http://127.0.0.1:1225/tokens/$sha256Sum" -Headers @{
     Authorization = "Basic $([Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes('admin:admin')))"
     Cookie = "token=$md5Sum"
 } -UseBasicParsing
+
+$response.Content
 ```
 
 Alternatively, I also used this - but the challenge text didn't change, but the output is nevertheless the same:
@@ -468,4 +470,6 @@ Correct Token supplied, you are granted access to the snow cannon terminal. Here
 > Hurray! You have thwarted their defenses!
 > Alabaster can now access their weaponry and put a stop to it.
 > Once HHC grants your achievement, you can close this terminal.
+
+![Powershell silver final](/images/act2/powershell-1.png)
 

@@ -224,6 +224,510 @@ Answer: 8
 
 ### Section 2: Operation Surrender: Alabaster's Espionage
 
+#### Question 1
+
+> Eve Snowshoes approaches with a focused expression. "Welcome to Operation Surrender: Alabaster's Espionage. In this phase, Team Alabaster has executed a covert operation, and your mission is to unravel their tactics. You'll need to piece together the clues and analyze the data to understand how they gained an advantage."
+> 
+> Type surrender to get started!
+
+#### Question 2
+
+> Team Alabaster, with their limited resources, was growing desperate for an edge over Team Wombley. Knowing that a direct attack would be costly and difficult, they turned to espionage. Their plan? A carefully crafted phishing email that appeared harmless but was designed to deceive Team Wombley into downloading a malicious file. The email contained a deceptive message with the keyword “surrender” urging Wombley’s members to click on a link.
+>
+> Now, it's up to you to trace the origins of this operation.
+> 
+> Who was the sender of the phishing email that set this plan into motion?
+> 
+> Try checking out the email table using the knowledge you gained in the previous section!
+
+Answer:
+
+```sql
+Email
+    | where subject has "surrender"
+    | distinct sender
+```
+
+Sender is: surrender@northpolemail.com
+
+#### Question 3
+
+> Team Alabaster’s phishing attack wasn’t just aimed at a single target—it was a coordinated assault on all of Team Wombley. Every member received the cleverly disguised email, enticing them to click the malicious link that would compromise their systems.
+> 
+> Hint: the distinct operator would help here Your mission is to determine the full scale of this operation.
+> 
+> How many elves from Team Wombley received the phishing email?
+
+Answer:
+
+```sql
+Email
+    | where subject has "surrender"
+    | distinct recipient
+    | summarize count()
+```
+
+Number is: 22
+
+#### Question 4
+
+> The phishing email from Team Alabaster included a link to a file that appeared legitimate to Team Wombley. This document, disguised as an important communication, was part of a carefully orchestrated plan to deceive Wombley’s members into taking the bait.
+> 
+> To understand the full extent of this operation, we need to identify the file where the link led to in the email.
+> 
+> What was the filename of the document that Team Alabaster distributed in their phishing email?
+
+Answer
+
+```sql
+Email
+    | where subject has "surrender"
+    | project document_name=tostring(split(link, '/')[-1])
+    | distinct document_name
+```
+
+Document name is: Team_Wombley_Surrender.doc
+
+#### Question 5
+
+> As the phishing emails landed in the inboxes of Team Wombley, one elf was the first to click the URL, unknowingly triggering the start of Team Alabaster’s plan. By connecting the employees to their network activity, we can trace who fell for the deception first. To find the answer, you'll need to join two tables: Employees and OutboundNetworkEvents. The goal is to match employees with the outbound network events they initiated by using their IP addresses.
+> 
+> Here’s an example query to help you:
+
+```sql
+Employees
+| join kind=inner (
+    OutboundNetworkEvents
+) on $left.ip_addr == $right.src_ip // condition to match rows
+| where url contains "< maybe a filename :) >"
+| project name, ip_addr, url, timestamp // project returns only the information you select
+| sort by timestamp asc //sorts time ascending
+```
+
+> This query will give you a list of employees who clicked on the phishing URL. The first person to click will be at the top of the list!
+
+Who was the first person from Team Wombley to click the URL in the phishing email?
+
+Answer:
+
+```sql
+Employees
+| join kind=inner (
+    OutboundNetworkEvents
+) on $left.ip_addr == $right.src_ip // condition to match rows
+| where url contains "Team_Wombley_Surrender.doc"
+| project name, ip_addr, url, timestamp // project returns only the information you select
+| sort by timestamp asc //sorts time ascending
+| take 1
+```
+
+The one that clicked the link first was: Joyelle Tinseltoe
+
+#### Question 6
+
+> Once the phishing email was clicked and the malicious document was downloaded, another file was created upon execution of the .doc. This file allowed Team Alabaster to gain further insight into Team Wombley’s operations. To uncover this, you’ll need to investigate the processes that were executed on Joyelle Tinseltoe’s machine.
+> 
+> Your mission is to determine the name of the file that was created after the .doc was executed.
+> 
+> Focus on Joyelle Tinseltoe’s hostname and explore the ProcessEvents table. This table tracks which processes were started and by which machines. By filtering for Joyelle’s hostname and looking at the timestamps around the time the file was executed, you should find what you’re looking for. Here’s an example to help guide you:
+
+```sql
+ProcessEvents
+| where timestamp between(datetime("2024-11-25T09:00:37Z") .. datetime("2024-11-26T17:20:37Z")) //you’ll need to modify this
+| where hostname == "<Joyelle's hostname>"
+```
+
+> This query will show processes that ran on Joyelle Tinseltoe’s machine within the given timeframe.
+
+What was the filename that was created after the .doc was downloaded and executed?
+
+Answer:
+
+```sql
+let TIMESTART = toscalar(Employees
+    | join kind=inner (
+        OutboundNetworkEvents
+    ) on $left.ip_addr == $right.src_ip // condition to match rows
+    | where url contains "Team_Wombley_Surrender.doc"
+    | project name, ip_addr, url, timestamp // project returns only the information you select
+    | sort by timestamp asc //sorts time ascending
+    | take 1
+    | project timestamp)
+;
+let HOSTNAME = toscalar(Employees
+| where  name == "Joyelle Tinseltoe"
+| project hostname
+);
+ProcessEvents
+    | where timestamp between(TIMESTART .. TIMESTART+1h) //you’ll need to modify this
+    | where hostname == HOSTNAME
+    | summarize count() by process_name
+```
+
+Output:
+
+| process_name | count_ |
+| ------------ | ------ |
+| cmd.exe | 1 |
+| keylogger.exe | 4 |
+| Explorer.exe | 2 |
+
+keylogger.exe (since it has the most entries)
+
+#### Question 7
+
+> Well done on piecing together the clues and unraveling the operation!
+> 
+> Team Alabaster's phishing email, sent from surrender@northpolemail.com, targeted 22 elves from Team Wombley. The email contained a malicious document named Team_Wombley_Surrender.doc, which led to the first click by Joyelle Tinseltoe.
+> 
+> After the document was downloaded and executed, a malicious file was created, impacting the entire Team Wombley as it ran on all their machines, giving Team Alabaster access to their keystokes!
+>
+> To obtain your flag use the KQL below with your last answer!
+
+```sql
+let flag = "Change This!";
+let base64_encoded = base64_encode_tostring(flag);
+print base64_encoded
+````
+
+Solution
+
+```sql
+let TIMESTART = toscalar(Employees
+    | join kind=inner (
+        OutboundNetworkEvents
+    ) on $left.ip_addr == $right.src_ip // condition to match rows
+    | where url contains "Team_Wombley_Surrender.doc"
+    | project name, ip_addr, url, timestamp // project returns only the information you select
+    | sort by timestamp asc //sorts time ascending
+    | take 1
+    | project timestamp)
+;
+let HOSTNAME = toscalar(Employees
+| where  name == "Joyelle Tinseltoe"
+| project hostname
+);
+let flag = toscalar(ProcessEvents
+    | where timestamp between(TIMESTART .. TIMESTART+1h) //you’ll need to modify this
+    | where hostname == HOSTNAME
+    | summarize count() by process_name
+    | where count_ >= 4
+    | project process_name
+);
+let base64_encoded = base64_encode_tostring(flag);
+print base64_encoded
+```
+
+a2V5bG9nZ2VyLmV4ZQ==
+
+#### Question 8
+
+> "Fantastic work on completing Section 2!" Eve Snowshoes, Senior Security Analyst, says with a proud smile.
+>
+>"You’ve demonstrated sharp investigative skills, uncovering every detail of Team Wombley’s attack on Alabaster. Your ability to navigate the complexities of cyber warfare has been impressive.
+>
+>But now, we embark on Operation Snowfall: Team Wombley’s Ransomware Raid. This time, the difficulty will increase as we dive into more sophisticated attacks. Stay sharp, and let’s see if you can rise to the occasion once again!"
+>
+> Type snowfall to begin
+
 ### Section 3: Operation Snowfall: Team Wombley's Ransomware Raid
 
+#### Qustion 1
+
+> Team Wombley’s assault began with a password spray attack, targeting several accounts within Team Alabaster. This attack relied on repeated login attempts using common passwords, hoping to find weak entry points. The key to uncovering this tactic is identifying the source of the attack. Alt text Authentication events can be found in the AuthenticationEvents table. Look for a pattern of failed login attempts.
+> 
+> Here’s a query to guide you:
+
+```sql
+AuthenticationEvents
+| where result == "Failed Login"
+| summarize FailedAttempts = count() by username, src_ip, result
+| where FailedAttempts >= 5
+| sort by FailedAttempts desc
+```
+
+What was the IP address associated with the password spray?
+
+Solution
+
+```sql
+AuthenticationEvents
+| where result == "Failed Login"
+| summarize FailedAttempts = count() by username, src_ip, result
+| where FailedAttempts >= 5
+| sort by FailedAttempts desc
+| summarize count() by src_ip
+| limit 1
+```
+
+59.171.58.12
+
+#### Question 2
+
+> After launching the password spray attack, Team Wombley potentially had success and logged into several accounts, gaining access to sensitive systems.
+> 
+> Eve Snowshoes weighs in: "This is where things start to get dangerous. The number of compromised accounts will show us just how far they’ve infiltrated."
+>
+> How many unique accounts were impacted where there was a successful login from 59.171.58.12?
+
+Solution
+
+```sql
+AuthenticationEvents
+| where src_ip == "59.171.58.12"
+| where description !has "failed"
+| distinct username
+| summarize count()
+```
+
+23
+
+#### Question 3
+
+> In order to login to the compromised accounts, Team Wombley leveraged a service that was accessible externally to gain control over Alabaster’s devices.
+> 
+> Eve Snowshoes remarks, "Identifying the service that was open externally is critical. It shows us how the attackers were able to bypass defenses and access the network. This is a common weak point in many systems."
+> 
+> What service was used to access these accounts/devices?
+
+Solution
+
+The answer was found by inspecting the output from the query:
+
+```
+User successfully logged onto Elf-Lap-A-Snowflakebreeze via RDP.
+```
+
+#### Question 4
+
+> Once Team Wombley gained access to Alabaster's system, they targeted sensitive files for exfiltration. Eve Snowshoes emphasizes, "When critical files are exfiltrated, it can lead to devastating consequences. Knowing exactly what was taken will allow us to assess the damage and prepare a response."
+> 
+> The ProcessEvents table will help you track activities that occurred on Alabaster’s laptop. By narrowing down the events by timestamp and hostname, you’ll be able to pinpoint the file that was exfiltrated.
+> 
+> What file was exfiltrated from Alabaster’s laptop?
+
+Solution
+
+```sql
+let HOSTNAME = toscalar(Employees
+    | where name has "Alabaster"
+    | project hostname
+);
+let TIMEWINDOW = toscalar(AuthenticationEvents
+    | where src_ip == "59.171.58.12"
+    | where description !has "failed"
+    | order by timestamp asc
+    | limit 1
+    | project timestamp
+);
+ProcessEvents
+| where timestamp >= TIMEWINDOW+10m
+| where hostname == HOSTNAME
+| extend filename = tostring(split(process_commandline, "\\")[-1])
+| summarize count() by filename
+| order by count_ desc
+```
+
+Secret_Files.zip
+
+#### Question 5
+
+> After exfiltrating critical files from Alabaster’s system, Team Wombley deployed a malicious payload to encrypt the device, leaving Alabaster locked out and in disarray.
+> 
+> Eve Snowshoes comments, "The final blow in this attack was the ransomware they unleashed. Finding the name of the malicious file will help us figure out how they crippled the system."
+> 
+> What is the name of the malicious file that was run on Alabaster's laptop?
+
+Solution (same as previous solution due to statistics made):
+
+```sql
+let HOSTNAME = toscalar(Employees
+    | where name has "Alabaster"
+    | project hostname
+);
+let TIMEWINDOW = toscalar(AuthenticationEvents
+    | where src_ip == "59.171.58.12"
+    | where description !has "failed"
+    | order by timestamp asc
+    | limit 1
+    | project timestamp
+);
+ProcessEvents
+| where timestamp >= TIMEWINDOW+10m
+| where hostname == HOSTNAME
+| extend filename = tostring(split(process_commandline, "\\")[-1])
+| summarize count() by filename
+| order by count_ desc
+```
+
+EncryptEverything.exe
+
+#### Question 6
+
+> Outstanding work! You've successfully pieced together the full scope of Team Wombley’s attack. Your investigative skills are truly impressive, and you've uncovered every critical detail.
+> 
+> Just to recap: Team Wombley launched a cyber assault on Alabaster, beginning with a password spray attack that allowed them to gain access to several accounts. Using an external service over RDP, they infiltrated Alabaster’s system, exfiltrating sensitive files including the blueprints for snowball cannons and drones. To further their attack, Wombley executed a malicious file, which encrypted Alabaster’s entire system leaving them locked out and in chaos.
+> 
+> To obtain your flag use the KQL below with your last answer!
+
+```sql
+let flag = "Change This!";
+let base64_encoded = base64_encode_tostring(flag);
+print base64_encoded
+```
+
+Solution
+
+```sql
+let flag = "EncryptEverything.exe";
+let base64_encoded = base64_encode_tostring(flag);
+print base64_encoded
+```
+
+RW5jcnlwdEV2ZXJ5dGhpbmcuZXhl
+
 ### Section 4: Echoes in the Frost: Tracking the Unknown Threat
+
+#### Question 1
+
+> As you close out the investigation into Team Wombley’s attack, Eve Snowshoes meets you with a serious expression. "You’ve done an incredible job so far, but now we face our most elusive adversary yet. This isn’t just another team—it’s an unknown, highly skilled threat actor who has been operating in the shadows, leaving behind only whispers of their presence. We’ve seen traces of their activity, but they’ve covered their tracks well."
+> 
+> She pauses, the weight of the challenge ahead clear. "This is where things get even more difficult. We’re entering uncharted territory—prepare yourself for the toughest investigation yet. Follow the clues, stay sharp, and let’s uncover the truth behind these Echoes in the Frost."
+> 
+> Type stay frosty to begin
+
+#### Question 2
+
+> Noel Boetie, the IT administrator, reported receiving strange emails about a breach from colleagues. These emails might hold the first clue in uncovering the unknown threat actor’s methods. Your task is to identify when the first of these suspicious emails was received.
+> 
+> Eve Snowshoes remarks, "The timing of these phishing emails is critical. If we can identify the first one, we’ll have a better chance of tracing the threat actor’s initial moves."
+> 
+> What was the timestamp of first phishing email about the breached credentials received by Noel Boetie?
+
+Solution
+
+```sql
+Email
+| where subject contains "breach"
+| order by timestamp asc
+```
+
+```
+2024-12-12T14:48:55Z
+```
+
+#### Question 3
+
+> Noel Boetie followed the instructions in the phishing email, downloading and running the file, but reported that nothing seemed to happen afterward. However, this might have been the key moment when the unknown threat actor infiltrated the system.
+> 
+> When did Noel Boetie click the link to the first file?
+
+Solution
+
+```sql
+let FIRST_TIMESTAMP = toscalar(Email
+    | where subject contains "breach"
+    | order by timestamp asc
+);
+let BOETIE_IP = toscalar(Employees
+| where username contains "boetie"
+| project ip_addr
+);
+OutboundNetworkEvents
+| where timestamp >= FIRST_TIMESTAMP
+| where src_ip == BOETIE_IP
+| order by timestamp asc
+| limit 1
+```
+
+```
+2024-12-12T15:13:55Z
+```
+
+#### Question 4
+
+> The phishing email directed Noel Boetie to download a file from an external domain.
+> 
+> Eve Snowshoes, "The domain and IP they used to host the malicious file is a key piece of evidence. It might lead us to other parts of their operation, so let’s find it."
+> 
+> What was the IP for the domain where the file was hosted?
+
+Solution
+
+```
+let FIRST_TIMESTAMP = toscalar(Email
+    | where subject contains "breach"
+    | order by timestamp asc
+);
+let BOETIE_IP = toscalar(Employees
+    | where username contains "boetie"
+    | project ip_addr
+);
+let MALWARE_IP = OutboundNetworkEvents
+    | where timestamp >= FIRST_TIMESTAMP
+    | where src_ip == BOETIE_IP
+    | order by timestamp asc
+    | limit 1
+    | extend domain = tostring(split(url, "/")[2])
+    | join PassiveDns on $left.domain == $right.domain
+    | distinct ip
+;
+MALWARE_IP
+```
+
+```
+182.56.23.122
+```
+
+#### Question 5
+
+> Let’s back up for a moment. Now that we’re thinking this through, how did the unknown threat actor gain the credentials to execute this attack? We know that three users have been sending phishing emails, and we’ve identified the domain they used.
+> 
+> It’s time to dig deeper into the AuthenticationEvents and see if anything else unusual happened that might explain how these accounts were compromised.
+> 
+> Eve Snowshoes suggests, "We need to explore the AuthenticationEvents for these users. Attackers often use compromised accounts to blend in and send phishing emails internally. This might reveal how they gained access to the credentials."
+> 
+> Let’s take a closer look at the authentication events. I wonder if any connection events from 182.56.23.122. If so what hostname was accessed?
+
+Solution
+
+```sql
+let FIRST_TIMESTAMP = toscalar(Email
+    | where subject contains "breach"
+    | order by timestamp asc
+);
+let BOETIE_IP = toscalar(Employees
+    | where username contains "boetie"
+    | project ip_addr
+);
+let MALWARE_IP = toscalar(OutboundNetworkEvents
+    | where timestamp >= FIRST_TIMESTAMP
+    | where src_ip == BOETIE_IP
+    | order by timestamp asc
+    | limit 1
+    | extend domain = tostring(split(url, "/")[2])
+    | join PassiveDns on $left.domain == $right.domain
+    | distinct ip
+);
+AuthenticationEvents
+    | where src_ip == MALWARE_IP
+    | project hostname
+```
+
+```
+WebApp-ElvesWorkshop
+```
+
+#### Question 6
+
+> It appears someone accessed the WebApp-ElvesWorkshop from the IP address 182.56.23.122. This could be a key moment in the attack. We need to investigate what was run on the app server and, more importantly, if the threat actor dumped any credentials from it.
+> 
+> Eve Snowshoes, "Accessing the web app from an external IP is a major red flag. If they managed to dump credentials from the app server, that could explain how they gained access to other parts of the system."
+> 
+> What was the script that was run to obtain credentials?
+
+Solution
+
+```sql
+
+```
