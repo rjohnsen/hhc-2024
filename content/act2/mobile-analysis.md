@@ -219,99 +219,142 @@ From this folder I uploaded the extracted APK and loaded it into https://appetiz
 
 ### Gold
 
-
-
-
-
-
-
-
-
-
-------------- BELOW ARE NOTES ------------
-
-
-
-
-
-
-As always when approacing files I haven't seen before, run the file through ```file``` command:
+With the file ```output.apks``` from silver solution, I decompile it using ```apktool```:
 
 ```bash
-file SantaSwipeSecure.aab
-    SantaSwipeSecure.aab: Zip archive data, at least v0.0 to extract, compression method=deflate
+cd universal
+apktool d universal.apk
+cd universal
 ```
 
-Unpacking it:
-
-```bash
-unzip SantaSwipeSecure.aab -d SantaSwipeSecure
-```
-
-See if I still can find a reference to the ```naughty``` list: 
+Now standing inside the decompiled APK, I retry to find a point I can work on:
 
 ```bash
 grep -Rni naughty *
 
-grep: base/dex/classes.dex: binary file matches
-base/assets/index.html:85:            <li class="list-group-item list-group-item-danger illumination" onclick="showNaughtyList()">Naughty</li>
-base/assets/index.html:94:    <p id="instructions">Swipe right to grant a spot on the Nice List, or swipe left to send them straight to the Naughty List.</p>
-base/assets/index.html:140:            Android.addToNaughtyList(item.textContent); // Call Android interface to add to Naughty List
-base/assets/index.html:166:    function showNaughtyList() {
-base/assets/index.html:167:        Android.getNaughtyList();
-base/assets/index.html:168:        document.getElementById('header').innerHTML = '<h2 class="illumination">Naughty</h2>';
-```
-
-Well yeah - kinda. Found the ```base/dex/classes.dex``` file interesting. For this stunt I will use ```jadx``` (skipping notes on installing Jadx):
-
-```bash
-mkdir ~/HHC/DEX
-cp base/dex/classes.dex ~/HHC/DEX/
-cd ~/HHC/DEX/
-jadx -d ~/HHC/DEX/out ~/HHC/DEX/classes.dex
-```
-
-Finding references to ```naughty```:
-
-```bash
-grep -Rni naughty out
-
 ...
-out/sources/com/northpole/santaswipe/DatabaseHelper.java:55:        db.execSQL("CREATE TABLE IF NOT EXISTS NaughtyList (Item TEXT);");
+smali/com/northpole/santaswipe/DatabaseHelper.smali
 ...
 ```
 
+Inside this file I found several interesting lines, first something that loads "ek" and "iv" from R class as string:
 
-------
-
-Bundletool route: 
-
-````bash
-wget https://github.com/google/bundletool/releases/download/1.17.2/bundletool-all-1.17.2.jar
-java -jar bundletool-all-1.17.2.jar build-apks --bundle=SantaSwipeSecure.aab --output=output.apks --mode universal
-unzip output.apks -d output
-apktool d output/universal.apk
-strings -n 15 smali/com/northpole/santaswipe/DatabaseHelper.smali | grep "const-string v2" | sed 's/^[^,]*, //; s/"//g'
-strings smali/com/northpole/santaswipe/DatabaseHelper.smali > smali/com/northpole/santaswipe/DatabaseHelper.readable
+```java
+.line 25
+sget v0, Lcom/northpole/santaswipe/R$string;->ek:I
+...
+.line 26
+sget v2, Lcom/northpole/santaswipe/R$string;->iv:I
+...
+.line 335
+:try_start_0
+const-string v0, "AES/GCM/NoPadding"
 ```
 
+It appears that we got a decrypt function utilzing "AES/GCM/NoPadding", using "ek" and "iv". In file res/values/strings.xml I found the following interesting values, which seems to correspond well to the above: 
 
+```xml
+<string name="ek">rmDJ1wJ7ZtKy3lkLs6X9bZ2Jvpt6jL6YWiDsXtgjkXw=</string>
+...
+<string name="iv">Q2hlY2tNYXRlcml4</string>
+```
 
-
-
-
-
-
-Google the crap out of it to find a decent decompiler. Landed on ```BundleDecompiler```:
+And a bunch of Base64 looking strings (which I extracted into a file):
 
 ```bash
-git clone git clone https://github.com/TamilanPeriyasamy/BundleDecompiler.git
+strings smali/com/northpole/santaswipe/DatabaseHelper.smali | grep "const-string v" | sed 's/^[^,]*, //; s/"//g' > ~/HHC/b64.txt
 ```
 
-Decompiling the AAB:
+The list looking like this: 
 
 ```
-
+I2DF3+Y1t50nWMN2K9MV6Qx+1mbIOp5nPzrOusVi9a3n/50=
+O2nb1+t38vJmctBqZpE87xttw59XDIVWsL+jOGYAZSakGQcwH9LkY0MNP74=
+Lm3H1K45zb8hQ9R7K9MT/Bpv1toWCeg3YKGO+eApkQGBF09JMw==
+JG3E0/o1t5MzX9h6b99wyRB8z9IZOEuf/8PQJ7tJYwF2ZBYDZDY=
+MWfO0+M1t58yWdR3dN9wyQdrx9AS/R916miej6pBB+UB54ZZ1g==
+...
 ```
 
-### Gold
+Okay. I have much information. On this point I asked ChatGPT to give me a decryptor for "AES/GCM/NoPadding" in Python, giving it also the EK and IV. With the code it gave me, I made some changes to make it read the hashes from my text file of hases (b64.txt). The code ended up like this: 
+
+```python
+from Crypto.Cipher import AES
+from Crypto.Util.Padding import unpad
+import base64
+
+def decrypt_aes_gcm(encrypted_data_b64, key_b64, iv_b64):
+    try:
+        # Decode the Base64-encoded key, IV, and encrypted data
+        key = base64.b64decode(key_b64)
+        iv = base64.b64decode(iv_b64)
+        encrypted_data = base64.b64decode(encrypted_data_b64)
+        
+        # Initialize the AES-GCM cipher for decryption
+        cipher = AES.new(key, AES.MODE_GCM, nonce=iv)
+        
+        # Decrypt and verify the data (GCM mode doesn't use explicit padding)
+        decrypted_data = cipher.decrypt_and_verify(encrypted_data[:-16], encrypted_data[-16:])
+        
+        # Return the decrypted string
+        return decrypted_data.decode('utf-8')
+    
+    except Exception as e:
+        print(f"Decryption failed: {e}")
+        return None
+
+key_b64 = "rmDJ1wJ7ZtKy3lkLs6X9bZ2Jvpt6jL6YWiDsXtgjkXw="
+iv_b64 = "Q2hlY2tNYXRlcml4"
+
+with open("b64.txt", "r") as infile:
+    for line in infile.readlines():
+        # Decrypt and print the result
+        decrypted_result = decrypt_aes_gcm(line, key_b64, iv_b64)
+        print("Decrypted:", decrypted_result)
+```
+
+The first run it presented me with this output:
+
+```bash
+...
+Decrypted: Leila, Algiers, Algeria
+Decrypted: Omar, Doha, Qatar
+Decrypted: Marie, Luxembourg, Luxembourg
+Decrypted: Tom, Los Angeles, USA
+Decrypted: Edwards, New Jersey, USA
+Decryption failed: Incorrect padding
+Decrypted: None
+Decryption failed: MAC check failed
+Decrypted: None
+Decryption failed: Incorrect padding
+Decrypted: None
+Decryption failed: Incorrect padding
+Decrypted: None
+Decryption failed: Incorrect padding
+Decrypted: None
+Decryption failed: Invalid base64-encoded string: number of data characters (41) cannot be 1 more than a multiple of 4
+Decrypted: None
+Decryption failed: MAC check failed
+Decrypted: None
+Decrypted: CREATE TRIGGER DeleteIfInsertedSpecificValue
+    AFTER INSERT ON NormalList
+    FOR EACH ROW
+    BEGIN
+        DELETE FROM NormalList WHERE Item = 'KGfb0vd4u/4EWMN0bp035hRjjpMiL4NQurjgHIQHNaRaDnIYbKQ9JusGaa1aAkGEVV8=';
+    END;
+```
+
+Clearly the list isn't exactly properly cleaned. Anyhow, it appears there's an encrypted value in the DELETE statement at the very end. I simply copied that encrypted value into my "b64.txt" file and re-ran my Python script, which gave me the following output:
+
+```bash
+...
+Decrypted: CREATE TRIGGER DeleteIfInsertedSpecificValue
+    AFTER INSERT ON NormalList
+    FOR EACH ROW
+    BEGIN
+        DELETE FROM NormalList WHERE Item = 'KGfb0vd4u/4EWMN0bp035hRjjpMiL4NQurjgHIQHNaRaDnIYbKQ9JusGaa1aAkGEVV8=';
+    END;
+Decrypted: Joshua, Birmingham, United Kingdom
+```
+
+The answer for gold is ```Joshua```
