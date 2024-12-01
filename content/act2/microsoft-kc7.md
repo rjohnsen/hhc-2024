@@ -921,3 +921,5 @@ ZnJvc3R5
 #### Flag
 
 The flag is the last question answered. Thus, ```ZnJvc3R5``` is the flag.
+
+![Microsoft KC7 Final](/images/act2/act2-microsoft-kc7-final.png)
