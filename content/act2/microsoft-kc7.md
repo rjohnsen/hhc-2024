@@ -13,13 +13,23 @@ weight = 5
 
 ### Section 1: KQL 101
 
+#### Question 1
+
+> Welcome to your mission to solve the The Great Elf Conflict! To do so, you'll need to harness the power of KQL (Kusto Query Language) to navigate through the data and uncover crucial evidence.
+> 
+> Your next step is to meet with Eve Snowshoes, Cyber Engineer, at the at the North Pole Cyber Defense Unit. Eve is known for unmatched expertise in KQL and has been eagerly awaiting your arrival. Alt text
+> 
+> Eve greets you with a nod and gestures toward the terminal. "KQL is like a key, unlocking the hidden secrets buried within the data."
+> 
+> Type let’s do this to begin your KQL training.
+
 #### Question 2
 
 > The first command Eve Snowshoes teaches you is one of the most useful in querying data with KQL. It helps you peek inside each table, which is critical for understanding the structure and the kind of information you're dealing with. By knowing what's in each table, you’ll be able to create more precise queries and uncover exactly what you need.
 
 ```sql
 Employees
-| take 10
+    | take 10
 ```
 
 > Eve has shared the first table with you. Now, run a take 10 on all the other tables to see what they contain.
@@ -49,7 +59,7 @@ Employees
 
 ```sql
 Employees
-| count 
+    | count 
 ```
 
 How many elves did you find?
@@ -58,7 +68,7 @@ Used the example query:
 
 ```sql
 Employees
-| count 
+    | count 
 ```
 
 The answer is 90
@@ -69,7 +79,7 @@ The answer is 90
 
 ```sql
 Employees
-| where <field><operator><value>
+    | where <field><operator><value>
 ```
 
 > **Field:** The column you want to filter by (e.g., role).
@@ -80,7 +90,7 @@ Can you find out the name of the Chief Toy Maker?
 
 ```sql
 Employees
-| where role has "toy"
+    | where role has "toy"
 ```
 
 Answer: Shinny Upatree
@@ -101,8 +111,8 @@ Answer: Shinny Upatree
 
 ```sql
 Email
-| where recipient == "<insert Angel Candysalt’s email address here>"
-| count
+    | where recipient == "<insert Angel Candysalt’s email address here>"
+    | count
 ```
 
 How many emails did Angel Candysalt receive?
@@ -125,9 +135,9 @@ Answer: 31.
 
 ```sql
 Email
-| where sender has "<insert domain name here>"
-| distinct <field you need>
-| count
+    | where sender has "<insert domain name here>"
+    | distinct <field you need>
+    | count
 ```
 
 How many distinct recipients were seen in the email logs from twinkle_frostington@santaworkshopgeeseislands.org?
@@ -147,9 +157,9 @@ Answer: 32
 
 ```sql
 OutboundNetworkEvents
-| where src_ip == "<insert IP here>"
-| <operator> <field>
-| <operator>
+    | where src_ip == "<insert IP here>"
+    | <operator> <field>
+    | <operator>
 ```
 
 How many distinct websites did Twinkle Frostington visit?
@@ -171,9 +181,9 @@ Answer: 4
 
 ```sql
 PassiveDns
-| where <field> contains “<value>”
-| <operator> <field>
-| <operator>
+    | where <field> contains “<value>”
+    | <operator> <field>
+    | <operator>
 ```
 
 > You may have notice we’re using contains instead of has here. That’s because has will look for an exact match (the word on its own), while contains will look for the specified sequence of letters, regardless of what comes before or after it. You can try both on your query to see the difference!
@@ -194,18 +204,19 @@ Answer: 10
 
 ```sql
 let twinkle_ips =
-Employees
-| where name has "<the name we’re looking for>"
-| distinct ip_addr;
+    Employees
+    | where name has "<the name we’re looking for>"
+    | distinct ip_addr
+;
 ```
 
 > This saves the result of the query into a variable. Now, you can use that result easily in another query:
 
 ```sql
 OutboundNetworkEvents  
-| where src_ip in (twinkle_ips)  
-| distinct <field>
-````
+    | where src_ip in (twinkle_ips)  
+    | distinct <field>
+```
 
 How many distinct URLs did elves with the first name Twinkle visit?
 
@@ -213,7 +224,8 @@ How many distinct URLs did elves with the first name Twinkle visit?
 let twinkle_ips =
     Employees
     | where name has "twinkle"
-    | distinct ip_addr;
+    | distinct ip_addr
+;
 OutboundNetworkEvents  
     | where src_ip in (twinkle_ips)  
     | distinct url
@@ -221,6 +233,10 @@ OutboundNetworkEvents
 ```
 
 Answer: 8
+
+#### Flag
+
+The flag is the last question answered. Thus, ```8``` is the flag.
 
 ### Section 2: Operation Surrender: Alabaster's Espionage
 
@@ -296,12 +312,12 @@ Document name is: Team_Wombley_Surrender.doc
 
 ```sql
 Employees
-| join kind=inner (
-    OutboundNetworkEvents
-) on $left.ip_addr == $right.src_ip // condition to match rows
-| where url contains "< maybe a filename :) >"
-| project name, ip_addr, url, timestamp // project returns only the information you select
-| sort by timestamp asc //sorts time ascending
+    | join kind=inner (
+        OutboundNetworkEvents
+    ) on $left.ip_addr == $right.src_ip // condition to match rows
+    | where url contains "< maybe a filename :) >"
+    | project name, ip_addr, url, timestamp // project returns only the information you select
+    | sort by timestamp asc //sorts time ascending
 ```
 
 > This query will give you a list of employees who clicked on the phishing URL. The first person to click will be at the top of the list!
@@ -312,13 +328,13 @@ Answer:
 
 ```sql
 Employees
-| join kind=inner (
-    OutboundNetworkEvents
-) on $left.ip_addr == $right.src_ip // condition to match rows
-| where url contains "Team_Wombley_Surrender.doc"
-| project name, ip_addr, url, timestamp // project returns only the information you select
-| sort by timestamp asc //sorts time ascending
-| take 1
+    | join kind=inner (
+        OutboundNetworkEvents
+    ) on $left.ip_addr == $right.src_ip // condition to match rows
+    | where url contains "Team_Wombley_Surrender.doc"
+    | project name, ip_addr, url, timestamp // project returns only the information you select
+    | sort by timestamp asc //sorts time ascending
+    | take 1
 ```
 
 The one that clicked the link first was: Joyelle Tinseltoe
@@ -333,8 +349,8 @@ The one that clicked the link first was: Joyelle Tinseltoe
 
 ```sql
 ProcessEvents
-| where timestamp between(datetime("2024-11-25T09:00:37Z") .. datetime("2024-11-26T17:20:37Z")) //you’ll need to modify this
-| where hostname == "<Joyelle's hostname>"
+    | where timestamp between(datetime("2024-11-25T09:00:37Z") .. datetime("2024-11-26T17:20:37Z")) //you’ll need to modify this
+    | where hostname == "<Joyelle's hostname>"
 ```
 
 > This query will show processes that ran on Joyelle Tinseltoe’s machine within the given timeframe.
@@ -355,8 +371,8 @@ let TIMESTART = toscalar(Employees
     | project timestamp)
 ;
 let HOSTNAME = toscalar(Employees
-| where  name == "Joyelle Tinseltoe"
-| project hostname
+    | where  name == "Joyelle Tinseltoe"
+    | project hostname
 );
 ProcessEvents
     | where timestamp between(TIMESTART .. TIMESTART+1h) //you’ll need to modify this
@@ -388,7 +404,7 @@ keylogger.exe (since it has the most entries)
 let flag = "Change This!";
 let base64_encoded = base64_encode_tostring(flag);
 print base64_encoded
-````
+```
 
 Solution
 
@@ -418,7 +434,14 @@ let base64_encoded = base64_encode_tostring(flag);
 print base64_encoded
 ```
 
+```
 a2V5bG9nZ2VyLmV4ZQ==
+```
+
+#### Flag
+
+The flag is the last question answered. Thus, ```a2V5bG9nZ2VyLmV4ZQ==``` is the flag.
+
 
 #### Question 8
 
@@ -440,10 +463,10 @@ a2V5bG9nZ2VyLmV4ZQ==
 
 ```sql
 AuthenticationEvents
-| where result == "Failed Login"
-| summarize FailedAttempts = count() by username, src_ip, result
-| where FailedAttempts >= 5
-| sort by FailedAttempts desc
+    | where result == "Failed Login"
+    | summarize FailedAttempts = count() by username, src_ip, result
+    | where FailedAttempts >= 5
+    | sort by FailedAttempts desc
 ```
 
 What was the IP address associated with the password spray?
@@ -452,12 +475,12 @@ Solution
 
 ```sql
 AuthenticationEvents
-| where result == "Failed Login"
-| summarize FailedAttempts = count() by username, src_ip, result
-| where FailedAttempts >= 5
-| sort by FailedAttempts desc
-| summarize count() by src_ip
-| limit 1
+    | where result == "Failed Login"
+    | summarize FailedAttempts = count() by username, src_ip, result
+    | where FailedAttempts >= 5
+    | sort by FailedAttempts desc
+    | summarize count() by src_ip
+    | limit 1
 ```
 
 59.171.58.12
@@ -474,10 +497,10 @@ Solution
 
 ```sql
 AuthenticationEvents
-| where src_ip == "59.171.58.12"
-| where description !has "failed"
-| distinct username
-| summarize count()
+    | where src_ip == "59.171.58.12"
+    | where description !has "failed"
+    | distinct username
+    | summarize count()
 ```
 
 23
@@ -521,11 +544,11 @@ let TIMEWINDOW = toscalar(AuthenticationEvents
     | project timestamp
 );
 ProcessEvents
-| where timestamp >= TIMEWINDOW+10m
-| where hostname == HOSTNAME
-| extend filename = tostring(split(process_commandline, "\\")[-1])
-| summarize count() by filename
-| order by count_ desc
+    | where timestamp >= TIMEWINDOW+10m
+    | where hostname == HOSTNAME
+    | extend filename = tostring(split(process_commandline, "\\")[-1])
+    | summarize count() by filename
+    | order by count_ desc
 ```
 
 Secret_Files.zip
@@ -553,11 +576,11 @@ let TIMEWINDOW = toscalar(AuthenticationEvents
     | project timestamp
 );
 ProcessEvents
-| where timestamp >= TIMEWINDOW+10m
-| where hostname == HOSTNAME
-| extend filename = tostring(split(process_commandline, "\\")[-1])
-| summarize count() by filename
-| order by count_ desc
+    | where timestamp >= TIMEWINDOW+10m
+    | where hostname == HOSTNAME
+    | extend filename = tostring(split(process_commandline, "\\")[-1])
+    | summarize count() by filename
+    | order by count_ desc
 ```
 
 EncryptEverything.exe
@@ -584,7 +607,13 @@ let base64_encoded = base64_encode_tostring(flag);
 print base64_encoded
 ```
 
+```
 RW5jcnlwdEV2ZXJ5dGhpbmcuZXhl
+```
+
+#### Flag
+
+The flag is the last question answered. Thus, ```RW5jcnlwdEV2ZXJ5dGhpbmcuZXhl``` is the flag.
 
 ### Section 4: Echoes in the Frost: Tracking the Unknown Threat
 
@@ -608,8 +637,8 @@ Solution
 
 ```sql
 Email
-| where subject contains "breach"
-| order by timestamp asc
+    | where subject contains "breach"
+    | order by timestamp asc
 ```
 
 ```
@@ -630,14 +659,14 @@ let FIRST_TIMESTAMP = toscalar(Email
     | order by timestamp asc
 );
 let BOETIE_IP = toscalar(Employees
-| where username contains "boetie"
-| project ip_addr
+    | where username contains "boetie"
+    | project ip_addr
 );
 OutboundNetworkEvents
-| where timestamp >= FIRST_TIMESTAMP
-| where src_ip == BOETIE_IP
-| order by timestamp asc
-| limit 1
+    | where timestamp >= FIRST_TIMESTAMP
+    | where src_ip == BOETIE_IP
+    | order by timestamp asc
+    | limit 1
 ```
 
 ```
@@ -654,7 +683,7 @@ OutboundNetworkEvents
 
 Solution
 
-```
+```sql
 let FIRST_TIMESTAMP = toscalar(Email
     | where subject contains "breach"
     | order by timestamp asc
@@ -729,5 +758,166 @@ WebApp-ElvesWorkshop
 Solution
 
 ```sql
+let TIMEWINDOW = InboundNetworkEvents
+    | where src_ip == "182.56.23.122"
+    | order by timestamp asc
+    | summarize minTime = min(timestamp), maxTime = max(timestamp)+1h
+;
+ProcessEvents
+    | where timestamp between (toscalar(TIMEWINDOW | project minTime) .. toscalar(TIMEWINDOW | project maxTime) )
+    | where hostname has "WebApp-ElvesWorkshop"
+    | order by timestamp asc
+    | take 1
+```
 
 ```
+Invoke-Mimikatz.ps1
+```
+
+#### Question 7
+
+> Okay back to Noel, after downloading the file, Noel Boetie followed the instructions in the email and ran it, but mentioned that nothing appeared to happen.
+> 
+> Since the email came from an internal source, Noel assumed it was safe - yet this may have been the moment the unknown threat actor silently gained access. We need to identify exactly when Noel executed the file to trace the beginning of the attack.
+> 
+> Eve Snowshoes, "It’s easy to see why Noel thought the email was harmless - it came from an internal account. But attackers often use compromised internal sources to make their phishing attempts more believable."
+> 
+> What is the timestamp where Noel executed the file? 
+
+Solution
+
+```sql
+let FIRST_TIMESTAMP = Email
+    | where subject contains "breach"
+    | order by timestamp asc
+;
+let BOETIE_DATA = Employees
+    | where username contains "boetie"
+    | project ip_addr, username
+;
+ProcessEvents
+    | where username == toscalar(BOETIE_DATA | project username)
+    | where timestamp > toscalar(FIRST_TIMESTAMP | project timestamp)
+    | order by timestamp asc
+```
+
+```
+2024-12-12T15:14:38Z
+```
+
+#### Question 9
+
+> After Noel ran the file, strange activity began on the system, including the download of a file called holidaycandy.hta. Keep in mind that attackers often use multiple domains to host different pieces of malware.
+>
+> Eve explains, "Attackers frequently spread their operations across several domains to evade detection."
+> 
+> What domain was the holidaycandy.hta file downloaded from?
+
+Solution
+
+```sql
+OutboundNetworkEvents
+    | where url has "holidaycandy.hta"
+    | extend domain = tostring(split(url, "/")[2])
+    | distinct domain
+```
+
+```
+compromisedchristmastoys.com
+```
+
+#### Question 10
+
+> An interesting series of events has occurred: the attacker downloaded a copy of frosty.txt, decoded it into a zip file, and used tar to extract the contents of frosty.zip into the Tasks directory.
+> 
+> This suggests the possibility that additional payloads or tools were delivered to Noel’s laptop. We need to investigate if any additional files appeared after this sequence.
+> 
+> Eve Snowshoes, "When an attacker drops files like this, it’s often the prelude to more malicious actions. Let’s see if we can find out what else landed on Noel’s laptop."
+> 
+> Did any additional files end up on Noel’s laptop after the attacker extracted frosty.zip?
+> 
+> what was the first file that was created after extraction? 
+
+Solution
+
+```sql
+let BOETIE_DATA = Employees
+    | where username contains "boetie"
+    | project ip_addr, username, hostname
+;
+let TIMEWINDOW = ProcessEvents
+    | where hostname in (BOETIE_DATA | project hostname)
+    | where process_commandline contains "frosty.zip"
+    | summarize maxTimestamp = max(timestamp)
+;
+FileCreationEvents
+    | where hostname in (BOETIE_DATA | project hostname)
+    | where timestamp >= toscalar(TIMEWINDOW | project maxTimestamp)
+```
+
+```
+sqlwriter.exe
+```
+
+#### Question 11
+
+> In the previous question, we discovered that two files, sqlwriter.exe and frost.dll, were downloaded onto Noel’s laptop. Immediately after, a registry key was added that ensures sqlwriter.exe will run every time Noel’s computer boots.
+> 
+> This persistence mechanism indicates the attacker’s intent to maintain long-term control over the system.
+> 
+> Eve Snowshoes, "Adding a registry key for persistence is a classic move by attackers to ensure their malicious software runs automatically. It’s crucial to understand how this persistence is set up to prevent further damage."
+> 
+> What is the name of the property assigned to the new registry key?
+
+Solution
+
+```sql
+let BOETIE_DATA = Employees
+    | where username contains "boetie"
+    | project ip_addr, username, hostname
+;
+let TIMEWINDOW = ProcessEvents
+    | where hostname in (BOETIE_DATA | project hostname)
+    | where process_commandline contains "frosty.zip"
+    | summarize maxTimestamp = max(timestamp)
+;
+let FILECREATEDWINDOW = FileCreationEvents
+    | where hostname in (BOETIE_DATA | project hostname)
+    | where timestamp >= toscalar(TIMEWINDOW | project maxTimestamp)
+    | take 1
+    | project timestamp
+;
+ProcessEvents
+    | where hostname in (BOETIE_DATA | project hostname)
+    | where timestamp >= toscalar(FILECREATEDWINDOW | project timestamp)
+```
+
+```
+frosty
+```
+
+#### Question 12
+
+> Congratulations! You've successfully identified the threat actor's tactics. The attacker gained access to WebApp-ElvesWorkshop from the IP address 182.56.23.122, dumped credentials, and used those to send phishing emails internally to Noel.
+> 
+> The malware family they used is called Wineloader, which employs a technique known as DLL sideloading. This technique works by placing a malicious DLL in the same directory as a legitimate executable (in this case, sqlwriter.exe).
+> 
+> When Windows tries to load a referenced DLL without a full path, it checks the executable's current directory first, causing the malicious DLL to load automatically. Additionally, the attacker created a scheduled task to ensure sqlwriter.exe runs on system boot, allowing the malicious DLL to maintain persistence on the system.
+> 
+> To obtain your FINAL flag use the KQL below with your last answer! 
+
+Solution
+
+```sql
+let finalflag = "frosty";
+let base64_encoded = base64_encode_tostring(finalflag);
+print base64_encoded
+```
+
+```
+ZnJvc3R5
+```
+
+#### Flag
+
+The flag is the last question answered. Thus, ```ZnJvc3R5``` is the flag.

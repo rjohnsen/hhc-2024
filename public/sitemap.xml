@@ -1,54 +1,75 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:36781/act1/curling/index.html</loc>
+    <loc>http://localhost:1313/act2/mobile-analysis/index.html</loc>
+    <lastmod>2024-11-23T13:18:24+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/act1/curling/index.html</loc>
     <lastmod>2024-11-17T14:18:57+01:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:36781/prologue/index.html</loc>
+    <loc>http://localhost:1313/prologue/index.html</loc>
     <lastmod>2024-11-10T12:19:21+01:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:36781/prologue/orientation-challenge/index.html</loc>
+    <loc>http://localhost:1313/prologue/orientation-challenge/index.html</loc>
     <lastmod>2024-11-10T09:59:39+01:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:36781/act1/index.html</loc>
+    <loc>http://localhost:1313/act2/drone-path/index.html</loc>
+    <lastmod>2024-11-23T13:18:31+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/act1/index.html</loc>
     <lastmod>2024-11-17T14:19:45+01:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:36781/act1/frosty-keypad/index.html</loc>
+    <loc>http://localhost:1313/act1/frosty-keypad/index.html</loc>
     <lastmod>2024-11-17T14:19:14+01:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:36781/prologue/elf-connect/index.html</loc>
+    <loc>http://localhost:1313/prologue/elf-connect/index.html</loc>
     <lastmod>2024-11-10T10:51:56+01:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:36781/act1/hardware-hacking/index.html</loc>
+    <loc>http://localhost:1313/act2/index.html</loc>
+    <lastmod>2024-11-23T13:18:55+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/act2/powershell/index.html</loc>
+    <lastmod>2024-11-23T13:18:37+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/act1/hardware-hacking/index.html</loc>
     <lastmod>2024-11-17T14:19:45+01:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:36781/prologue/elf-minder-9000/index.html</loc>
+    <loc>http://localhost:1313/prologue/elf-minder-9000/index.html</loc>
     <lastmod>2024-11-10T12:19:21+01:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:36781/act2/index.html</loc>
+    <loc>http://localhost:1313/act2/snowball-showdown/index.html</loc>
+    <lastmod>2024-11-23T13:18:46+01:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:36781/act3/index.html</loc>
+    <loc>http://localhost:1313/act3/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:36781/about/index.html</loc>
+    <loc>http://localhost:1313/act2/microsoft-kc7/index.html</loc>
+    <lastmod>2024-11-23T13:18:55+01:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:36781/index.html</loc>
-    <lastmod>2024-11-17T14:19:45+01:00</lastmod>
+    <loc>http://localhost:1313/about/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:36781/categories/index.html</loc>
+    <loc>http://localhost:1313/index.html</loc>
+    <lastmod>2024-11-23T13:18:55+01:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:36781/tags/index.html</loc>
+    <loc>http://localhost:1313/categories/index.html</loc>
+  </url>
+  <url>
+    <loc>http://localhost:1313/tags/index.html</loc>
   </url>
 </urlset>

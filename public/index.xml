@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HHC 2024</title>
-    <link>http://localhost:36781/index.html</link>
+    <link>http://localhost:1313/index.html</link>
     <description></description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 23 Nov 2024 13:18:55 +0100</lastBuildDate>
-    <atom:link href="http://localhost:36781/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Prologue</title>
-      <link>http://localhost:36781/prologue/index.html</link>
+      <link>http://localhost:1313/prologue/index.html</link>
       <pubDate>Sun, 10 Nov 2024 12:19:21 +0100</pubDate>
-      <guid>http://localhost:36781/prologue/index.html</guid>
+      <guid>http://localhost:1313/prologue/index.html</guid>
       <description>Welcome back to the Geese Islands! Let’s help the elves pack up to return to the North Pole.&#xA;Talk to Jingle, Angel, and Poinsettia about their challenges.&#xA;This is a new chapter at the Frosty Beach&#xA;Jingle Ringford (Frosty’s Beach)&#xA;Welcome to the Geese Islands and the 2023 SANS Holiday Hack Challenge!&#xA;I’m Jingle Ringford, one of Santa’s many elves.&#xA;…&#xA;Just kidding! It’s actually the 2024 SANS Holiday Hack Challenge!</description>
     </item>
     <item>
       <title>Act1</title>
-      <link>http://localhost:36781/act1/index.html</link>
+      <link>http://localhost:1313/act1/index.html</link>
       <pubDate>Sun, 17 Nov 2024 14:19:45 +0100</pubDate>
-      <guid>http://localhost:36781/act1/index.html</guid>
+      <guid>http://localhost:1313/act1/index.html</guid>
       <description>This is a new chapter at the Front Yard.&#xA;With Santa away, Wombley Cube and Alabaster Snowball have each tried to lead. Surely they won’t mess up the naughty and nice list…&#xA;Help Bow, Morcel, and Jewell solve their challenges.</description>
     </item>
     <item>
       <title>Act2</title>
-      <link>http://localhost:36781/act2/index.html</link>
+      <link>http://localhost:1313/act2/index.html</link>
       <pubDate>Sat, 23 Nov 2024 13:18:55 +0100</pubDate>
-      <guid>http://localhost:36781/act2/index.html</guid>
+      <guid>http://localhost:1313/act2/index.html</guid>
       <description>This is a new chapter.</description>
     </item>
     <item>
       <title>Act3</title>
-      <link>http://localhost:36781/act3/index.html</link>
+      <link>http://localhost:1313/act3/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:36781/act3/index.html</guid>
+      <guid>http://localhost:1313/act3/index.html</guid>
       <description>This is a new chapter.</description>
     </item>
     <item>
       <title>About</title>
-      <link>http://localhost:36781/about/index.html</link>
+      <link>http://localhost:1313/about/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:36781/about/index.html</guid>
+      <guid>http://localhost:1313/about/index.html</guid>
       <description>This is a new chapter.</description>
     </item>
   </channel>

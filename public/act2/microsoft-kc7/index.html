@@ -27,19 +27,19 @@ Your next step is to meet with Eve Snowshoes, Cyber Engineer, at the at the Nort
 Your next step is to meet with Eve Snowshoes, Cyber Engineer, at the at the North Pole Cyber Defense Unit. Eve is known for unmatched expertise in KQL and has been eagerly awaiting your arrival. Alt text">
     <meta itemprop="datePublished" content="2024-11-23T13:18:55+01:00">
     <meta itemprop="dateModified" content="2024-11-23T13:18:55+01:00">
-    <meta itemprop="wordCount" content="3697">
+    <meta itemprop="wordCount" content="4650">
     <title>Microsoft Kc7 - HHC 2024</title>
-    <link href="/images/logo.png?1732469444" rel="icon" type="image/png">
-    <link href="/css/fontawesome-all.min.css?1732469444" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1732469444" rel="stylesheet"></noscript>
-    <link href="/css/nucleus.css?1732469444" rel="stylesheet">
-    <link href="/css/auto-complete.css?1732469444" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1732469444" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1732469444" rel="stylesheet">
-    <link href="/css/fonts.css?1732469444" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1732469444" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1732469444" rel="stylesheet">
-    <link href="/css/theme-christmas.css?1732469444" rel="stylesheet" id="R-variant-style">
-    <link href="/css/chroma-relearn-light.css?1732469444" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="/css/print.css?1732469444" rel="stylesheet" media="print">
-    <script src="/js/variant.js?1732469444"></script>
+    <link href="/images/logo.png?1733050724" rel="icon" type="image/png">
+    <link href="/css/fontawesome-all.min.css?1733050724" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1733050724" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1733050724" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733050724" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1733050724" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1733050724" rel="stylesheet">
+    <link href="/css/fonts.css?1733050724" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1733050724" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1733050724" rel="stylesheet">
+    <link href="/css/theme-christmas.css?1733050724" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-relearn-light.css?1733050724" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/print.css?1733050724" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1733050724"></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..\/..';
@@ -118,12 +118,19 @@ Your next step is to meet with Eve Snowshoes, Cyber Engineer, at the at the Nort
 <p>Eve greets you with a nod and gestures toward the terminal. &ldquo;KQL is like a key, unlocking the hidden secrets buried within the data.&rdquo;</p>
 </blockquote>
 <h3 id="section-1-kql-101">Section 1: KQL 101</h3>
+<h4 id="question-1">Question 1</h4>
+<blockquote>
+<p>Welcome to your mission to solve the The Great Elf Conflict! To do so, you&rsquo;ll need to harness the power of KQL (Kusto Query Language) to navigate through the data and uncover crucial evidence.</p>
+<p>Your next step is to meet with Eve Snowshoes, Cyber Engineer, at the at the North Pole Cyber Defense Unit. Eve is known for unmatched expertise in KQL and has been eagerly awaiting your arrival. Alt text</p>
+<p>Eve greets you with a nod and gestures toward the terminal. &ldquo;KQL is like a key, unlocking the hidden secrets buried within the data.&rdquo;</p>
+<p>Type let’s do this to begin your KQL training.</p>
+</blockquote>
 <h4 id="question-2">Question 2</h4>
 <blockquote>
 <p>The first command Eve Snowshoes teaches you is one of the most useful in querying data with KQL. It helps you peek inside each table, which is critical for understanding the structure and the kind of information you&rsquo;re dealing with. By knowing what&rsquo;s in each table, you’ll be able to create more precise queries and uncover exactly what you need.</p>
 </blockquote>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>Employees
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> take <span style="color:#ae81ff">10</span></span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> take <span style="color:#ae81ff">10</span></span></span></code></pre></div>
 <blockquote>
 <p>Eve has shared the first table with you. Now, run a take 10 on all the other tables to see what they contain.</p>
 <p>You can find the tables you have access to at the top of the ADX query window.</p>
@@ -181,18 +188,18 @@ Your next step is to meet with Eve Snowshoes, Cyber Engineer, at the at the Nort
 <p>Now, let’s gather more intelligence on the employees. To do this, we can use the count operator to quickly calculate the number of rows in a table. This is helpful for understanding the scale of the data you’re working with.</p>
 </blockquote>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>Employees
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">count</span> </span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">count</span> </span></span></code></pre></div>
 <p>How many elves did you find?</p>
 <p>Used the example query:</p>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>Employees
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">count</span> </span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">count</span> </span></span></code></pre></div>
 <p>The answer is 90</p>
 <h4 id="question-4">Question 4</h4>
 <blockquote>
 <p>You can use the where operator with the Employees table to locate a specific elf. Here’s a template you can follow:</p>
 </blockquote>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>Employees
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#f92672">&lt;</span>field<span style="color:#f92672">&gt;&lt;</span><span style="color:#66d9ef">operator</span><span style="color:#f92672">&gt;&lt;</span>value<span style="color:#f92672">&gt;</span></span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#f92672">&lt;</span>field<span style="color:#f92672">&gt;&lt;</span><span style="color:#66d9ef">operator</span><span style="color:#f92672">&gt;&lt;</span>value<span style="color:#f92672">&gt;</span></span></span></code></pre></div>
 <blockquote>
 <p><strong>Field:</strong> The column you want to filter by (e.g., role).
 <strong>Operator:</strong> The condition you’re applying (e.g., == for an exact match).
@@ -200,7 +207,7 @@ Your next step is to meet with Eve Snowshoes, Cyber Engineer, at the at the Nort
 </blockquote>
 <p>Can you find out the name of the Chief Toy Maker?</p>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>Employees
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">role</span> has <span style="color:#e6db74">&#34;toy&#34;</span></span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">role</span> has <span style="color:#e6db74">&#34;toy&#34;</span></span></span></code></pre></div>
 <p>Answer: Shinny Upatree</p>
 <h4 id="question-5">Question 5</h4>
 <blockquote>
@@ -217,8 +224,8 @@ Type operator to continue.</p>
 <p>We can learn more about an elf by cross-referencing information from other tables. Let’s take a look at Angel Candysalt’s correspondence. First, retrieve her email address from the Employees table, and then use it in a query in the Email table.</p>
 </blockquote>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>Email
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> recipient <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&lt;insert Angel Candysalt’s email address here&gt;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">count</span></span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> recipient <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&lt;insert Angel Candysalt’s email address here&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">count</span></span></span></code></pre></div>
 <p>How many emails did Angel Candysalt receive?</p>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>let EMAIL_LIST <span style="color:#f92672">=</span> Employees
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> name has <span style="color:#e6db74">&#34;Candysalt&#34;</span>
@@ -233,9 +240,9 @@ Type operator to continue.</p>
 Here&rsquo;s a start:</p>
 </blockquote>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>Email
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> sender has <span style="color:#e6db74">&#34;&lt;insert domain name here&gt;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">distinct</span> <span style="color:#f92672">&lt;</span>field you need<span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">count</span></span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> sender has <span style="color:#e6db74">&#34;&lt;insert domain name here&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">distinct</span> <span style="color:#f92672">&lt;</span>field you need<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">count</span></span></span></code></pre></div>
 <p>How many distinct recipients were seen in the email logs from <a href="mailto:twinkle_frostington@santaworkshopgeeseislands.org" rel="external" target="_blank">twinkle_frostington@santaworkshopgeeseislands.org</a>?</p>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>Email
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> sender has <span style="color:#e6db74">&#34;twinkle_frostington@santaworkshopgeeseislands.org&#34;</span>
@@ -247,9 +254,9 @@ Here&rsquo;s a start:</p>
 <p>It’s time to put everything we’ve learned into action!</p>
 </blockquote>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>OutboundNetworkEvents
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> src_ip <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&lt;insert IP here&gt;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">operator</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">&lt;</span>field<span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">operator</span><span style="color:#f92672">&gt;</span></span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> src_ip <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&lt;insert IP here&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">operator</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">&lt;</span>field<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">operator</span><span style="color:#f92672">&gt;</span></span></span></code></pre></div>
 <p>How many distinct websites did Twinkle Frostington visit?</p>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>let IPADDR <span style="color:#f92672">=</span> Employees
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> name has <span style="color:#e6db74">&#34;Twinkle Frostington&#34;</span>
@@ -263,9 +270,9 @@ Here&rsquo;s a start:</p>
 <p>How many distinct domains in the PassiveDns records contain the word green?</p>
 </blockquote>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>PassiveDns
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#f92672">&lt;</span>field<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">contains</span> <span style="color:#960050;background-color:#1e0010">“</span><span style="color:#f92672">&lt;</span>value<span style="color:#f92672">&gt;</span><span style="color:#960050;background-color:#1e0010">”</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">operator</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">&lt;</span>field<span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">operator</span><span style="color:#f92672">&gt;</span></span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#f92672">&lt;</span>field<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">contains</span> <span style="color:#960050;background-color:#1e0010">“</span><span style="color:#f92672">&lt;</span>value<span style="color:#f92672">&gt;</span><span style="color:#960050;background-color:#1e0010">”</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">operator</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">&lt;</span>field<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">operator</span><span style="color:#f92672">&gt;</span></span></span></code></pre></div>
 <blockquote>
 <p>You may have notice we’re using contains instead of has here. That’s because has will look for an exact match (the word on its own), while contains will look for the specified sequence of letters, regardless of what comes before or after it. You can try both on your query to see the difference!</p>
 </blockquote>
@@ -279,27 +286,31 @@ Here&rsquo;s a start:</p>
 <p>Let’s look at an example. To find the URLs they accessed, we’ll first need their IP addresses. But there are so many Twinkles! So we’ll save the IP addresses in a let statement, like this:</p>
 </blockquote>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>let twinkle_ips <span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>Employees
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> name has <span style="color:#e6db74">&#34;&lt;the name we’re looking for&gt;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">distinct</span> ip_addr;</span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>    Employees
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> name has <span style="color:#e6db74">&#34;&lt;the name we’re looking for&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">distinct</span> ip_addr
+</span></span><span style="display:flex;"><span>;</span></span></code></pre></div>
 <blockquote>
 <p>This saves the result of the query into a variable. Now, you can use that result easily in another query:</p>
 </blockquote>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>OutboundNetworkEvents  
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> src_ip <span style="color:#66d9ef">in</span> (twinkle_ips)  
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">distinct</span> <span style="color:#f92672">&lt;</span>field<span style="color:#f92672">&gt;</span></span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> src_ip <span style="color:#66d9ef">in</span> (twinkle_ips)  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">distinct</span> <span style="color:#f92672">&lt;</span>field<span style="color:#f92672">&gt;</span></span></span></code></pre></div>
 <p>How many distinct URLs did elves with the first name Twinkle visit?</p>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>let twinkle_ips <span style="color:#f92672">=</span>
 </span></span><span style="display:flex;"><span>    Employees
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> name has <span style="color:#e6db74">&#34;twinkle&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">distinct</span> ip_addr;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">distinct</span> ip_addr
+</span></span><span style="display:flex;"><span>;
 </span></span><span style="display:flex;"><span>OutboundNetworkEvents  
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> src_ip <span style="color:#66d9ef">in</span> (twinkle_ips)  
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">distinct</span> url
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> summarize <span style="color:#66d9ef">count</span>()</span></span></code></pre></div>
 <p>Answer: 8</p>
+<h4 id="flag">Flag</h4>
+<p>The flag is the last question answered. Thus, <code>8</code> is the flag.</p>
 <h3 id="section-2-operation-surrender-alabasters-espionage">Section 2: Operation Surrender: Alabaster&rsquo;s Espionage</h3>
-<h4 id="question-1">Question 1</h4>
+<h4 id="question-1-1">Question 1</h4>
 <blockquote>
 <p>Eve Snowshoes approaches with a focused expression. &ldquo;Welcome to Operation Surrender: Alabaster&rsquo;s Espionage. In this phase, Team Alabaster has executed a covert operation, and your mission is to unravel their tactics. You&rsquo;ll need to piece together the clues and analyze the data to understand how they gained an advantage.&rdquo;</p>
 <p>Type surrender to get started!</p>
@@ -346,25 +357,25 @@ Here&rsquo;s a start:</p>
 <p>Here’s an example query to help you:</p>
 </blockquote>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>Employees
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">join</span> kind<span style="color:#f92672">=</span><span style="color:#66d9ef">inner</span> (
-</span></span><span style="display:flex;"><span>    OutboundNetworkEvents
-</span></span><span style="display:flex;"><span>) <span style="color:#66d9ef">on</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#66d9ef">left</span>.ip_addr <span style="color:#f92672">==</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#66d9ef">right</span>.src_ip <span style="color:#f92672">//</span> condition <span style="color:#66d9ef">to</span> <span style="color:#66d9ef">match</span> <span style="color:#66d9ef">rows</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> url <span style="color:#66d9ef">contains</span> <span style="color:#e6db74">&#34;&lt; maybe a filename :) &gt;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> project name, ip_addr, url, <span style="color:#66d9ef">timestamp</span> <span style="color:#f92672">//</span> project <span style="color:#66d9ef">returns</span> <span style="color:#66d9ef">only</span> the information you <span style="color:#66d9ef">select</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> sort <span style="color:#66d9ef">by</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#66d9ef">asc</span> <span style="color:#f92672">//</span>sorts time ascending</span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">join</span> kind<span style="color:#f92672">=</span><span style="color:#66d9ef">inner</span> (
+</span></span><span style="display:flex;"><span>        OutboundNetworkEvents
+</span></span><span style="display:flex;"><span>    ) <span style="color:#66d9ef">on</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#66d9ef">left</span>.ip_addr <span style="color:#f92672">==</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#66d9ef">right</span>.src_ip <span style="color:#f92672">//</span> condition <span style="color:#66d9ef">to</span> <span style="color:#66d9ef">match</span> <span style="color:#66d9ef">rows</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> url <span style="color:#66d9ef">contains</span> <span style="color:#e6db74">&#34;&lt; maybe a filename :) &gt;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> project name, ip_addr, url, <span style="color:#66d9ef">timestamp</span> <span style="color:#f92672">//</span> project <span style="color:#66d9ef">returns</span> <span style="color:#66d9ef">only</span> the information you <span style="color:#66d9ef">select</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> sort <span style="color:#66d9ef">by</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#66d9ef">asc</span> <span style="color:#f92672">//</span>sorts time ascending</span></span></code></pre></div>
 <blockquote>
 <p>This query will give you a list of employees who clicked on the phishing URL. The first person to click will be at the top of the list!</p>
 </blockquote>
 <p>Who was the first person from Team Wombley to click the URL in the phishing email?</p>
 <p>Answer:</p>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>Employees
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">join</span> kind<span style="color:#f92672">=</span><span style="color:#66d9ef">inner</span> (
-</span></span><span style="display:flex;"><span>    OutboundNetworkEvents
-</span></span><span style="display:flex;"><span>) <span style="color:#66d9ef">on</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#66d9ef">left</span>.ip_addr <span style="color:#f92672">==</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#66d9ef">right</span>.src_ip <span style="color:#f92672">//</span> condition <span style="color:#66d9ef">to</span> <span style="color:#66d9ef">match</span> <span style="color:#66d9ef">rows</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> url <span style="color:#66d9ef">contains</span> <span style="color:#e6db74">&#34;Team_Wombley_Surrender.doc&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> project name, ip_addr, url, <span style="color:#66d9ef">timestamp</span> <span style="color:#f92672">//</span> project <span style="color:#66d9ef">returns</span> <span style="color:#66d9ef">only</span> the information you <span style="color:#66d9ef">select</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> sort <span style="color:#66d9ef">by</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#66d9ef">asc</span> <span style="color:#f92672">//</span>sorts time ascending
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> take <span style="color:#ae81ff">1</span></span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">join</span> kind<span style="color:#f92672">=</span><span style="color:#66d9ef">inner</span> (
+</span></span><span style="display:flex;"><span>        OutboundNetworkEvents
+</span></span><span style="display:flex;"><span>    ) <span style="color:#66d9ef">on</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#66d9ef">left</span>.ip_addr <span style="color:#f92672">==</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#66d9ef">right</span>.src_ip <span style="color:#f92672">//</span> condition <span style="color:#66d9ef">to</span> <span style="color:#66d9ef">match</span> <span style="color:#66d9ef">rows</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> url <span style="color:#66d9ef">contains</span> <span style="color:#e6db74">&#34;Team_Wombley_Surrender.doc&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> project name, ip_addr, url, <span style="color:#66d9ef">timestamp</span> <span style="color:#f92672">//</span> project <span style="color:#66d9ef">returns</span> <span style="color:#66d9ef">only</span> the information you <span style="color:#66d9ef">select</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> sort <span style="color:#66d9ef">by</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#66d9ef">asc</span> <span style="color:#f92672">//</span>sorts time ascending
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> take <span style="color:#ae81ff">1</span></span></span></code></pre></div>
 <p>The one that clicked the link first was: Joyelle Tinseltoe</p>
 <h4 id="question-6-1">Question 6</h4>
 <blockquote>
@@ -373,8 +384,8 @@ Here&rsquo;s a start:</p>
 <p>Focus on Joyelle Tinseltoe’s hostname and explore the ProcessEvents table. This table tracks which processes were started and by which machines. By filtering for Joyelle’s hostname and looking at the timestamps around the time the file was executed, you should find what you’re looking for. Here’s an example to help guide you:</p>
 </blockquote>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>ProcessEvents
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#66d9ef">between</span>(datetime(<span style="color:#e6db74">&#34;2024-11-25T09:00:37Z&#34;</span>) .. datetime(<span style="color:#e6db74">&#34;2024-11-26T17:20:37Z&#34;</span>)) <span style="color:#f92672">//</span>you<span style="color:#960050;background-color:#1e0010">’</span>ll need <span style="color:#66d9ef">to</span> <span style="color:#66d9ef">modify</span> this
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> hostname <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&lt;Joyelle&#39;s hostname&gt;&#34;</span></span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#66d9ef">between</span>(datetime(<span style="color:#e6db74">&#34;2024-11-25T09:00:37Z&#34;</span>) .. datetime(<span style="color:#e6db74">&#34;2024-11-26T17:20:37Z&#34;</span>)) <span style="color:#f92672">//</span>you<span style="color:#960050;background-color:#1e0010">’</span>ll need <span style="color:#66d9ef">to</span> <span style="color:#66d9ef">modify</span> this
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> hostname <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&lt;Joyelle&#39;s hostname&gt;&#34;</span></span></span></code></pre></div>
 <blockquote>
 <p>This query will show processes that ran on Joyelle Tinseltoe’s machine within the given timeframe.</p>
 </blockquote>
@@ -391,8 +402,8 @@ Here&rsquo;s a start:</p>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> project <span style="color:#66d9ef">timestamp</span>)
 </span></span><span style="display:flex;"><span>;
 </span></span><span style="display:flex;"><span>let HOSTNAME <span style="color:#f92672">=</span> toscalar(Employees
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span>  name <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Joyelle Tinseltoe&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> project hostname
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span>  name <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Joyelle Tinseltoe&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> project hostname
 </span></span><span style="display:flex;"><span>);
 </span></span><span style="display:flex;"><span>ProcessEvents
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#66d9ef">between</span>(TIMESTART .. TIMESTART<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>h) <span style="color:#f92672">//</span>you<span style="color:#960050;background-color:#1e0010">’</span>ll need <span style="color:#66d9ef">to</span> <span style="color:#66d9ef">modify</span> this
@@ -456,7 +467,9 @@ Here&rsquo;s a start:</p>
 </span></span><span style="display:flex;"><span>);
 </span></span><span style="display:flex;"><span>let base64_encoded <span style="color:#f92672">=</span> base64_encode_tostring(flag);
 </span></span><span style="display:flex;"><span>print base64_encoded</span></span></code></pre></div>
-<p>a2V5bG9nZ2VyLmV4ZQ==</p>
+<div class="highlight wrap-code"><pre tabindex="0"><code>a2V5bG9nZ2VyLmV4ZQ==</code></pre></div>
+<h4 id="flag-1">Flag</h4>
+<p>The flag is the last question answered. Thus, <code>a2V5bG9nZ2VyLmV4ZQ==</code> is the flag.</p>
 <h4 id="question-8-1">Question 8</h4>
 <blockquote>
 <p>&ldquo;Fantastic work on completing Section 2!&rdquo; Eve Snowshoes, Senior Security Analyst, says with a proud smile.</p>
@@ -471,19 +484,19 @@ Here&rsquo;s a start:</p>
 <p>Here’s a query to guide you:</p>
 </blockquote>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>AuthenticationEvents
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">result</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Failed Login&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> summarize FailedAttempts <span style="color:#f92672">=</span> <span style="color:#66d9ef">count</span>() <span style="color:#66d9ef">by</span> username, src_ip, <span style="color:#66d9ef">result</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> FailedAttempts <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">5</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> sort <span style="color:#66d9ef">by</span> FailedAttempts <span style="color:#66d9ef">desc</span></span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">result</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Failed Login&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> summarize FailedAttempts <span style="color:#f92672">=</span> <span style="color:#66d9ef">count</span>() <span style="color:#66d9ef">by</span> username, src_ip, <span style="color:#66d9ef">result</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> FailedAttempts <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> sort <span style="color:#66d9ef">by</span> FailedAttempts <span style="color:#66d9ef">desc</span></span></span></code></pre></div>
 <p>What was the IP address associated with the password spray?</p>
 <p>Solution</p>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>AuthenticationEvents
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">result</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Failed Login&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> summarize FailedAttempts <span style="color:#f92672">=</span> <span style="color:#66d9ef">count</span>() <span style="color:#66d9ef">by</span> username, src_ip, <span style="color:#66d9ef">result</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> FailedAttempts <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">5</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> sort <span style="color:#66d9ef">by</span> FailedAttempts <span style="color:#66d9ef">desc</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> summarize <span style="color:#66d9ef">count</span>() <span style="color:#66d9ef">by</span> src_ip
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">limit</span> <span style="color:#ae81ff">1</span></span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">result</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Failed Login&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> summarize FailedAttempts <span style="color:#f92672">=</span> <span style="color:#66d9ef">count</span>() <span style="color:#66d9ef">by</span> username, src_ip, <span style="color:#66d9ef">result</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> FailedAttempts <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> sort <span style="color:#66d9ef">by</span> FailedAttempts <span style="color:#66d9ef">desc</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> summarize <span style="color:#66d9ef">count</span>() <span style="color:#66d9ef">by</span> src_ip
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">limit</span> <span style="color:#ae81ff">1</span></span></span></code></pre></div>
 <p>59.171.58.12</p>
 <h4 id="question-2-2">Question 2</h4>
 <blockquote>
@@ -493,10 +506,10 @@ Here&rsquo;s a start:</p>
 </blockquote>
 <p>Solution</p>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>AuthenticationEvents
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> src_ip <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;59.171.58.12&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> description <span style="color:#f92672">!</span>has <span style="color:#e6db74">&#34;failed&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">distinct</span> username
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> summarize <span style="color:#66d9ef">count</span>()</span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> src_ip <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;59.171.58.12&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> description <span style="color:#f92672">!</span>has <span style="color:#e6db74">&#34;failed&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">distinct</span> username
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> summarize <span style="color:#66d9ef">count</span>()</span></span></code></pre></div>
 <p>23</p>
 <h4 id="question-3-2">Question 3</h4>
 <blockquote>
@@ -526,11 +539,11 @@ Here&rsquo;s a start:</p>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> project <span style="color:#66d9ef">timestamp</span>
 </span></span><span style="display:flex;"><span>);
 </span></span><span style="display:flex;"><span>ProcessEvents
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#f92672">&gt;=</span> TIMEWINDOW<span style="color:#f92672">+</span><span style="color:#ae81ff">10</span>m
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> hostname <span style="color:#f92672">==</span> HOSTNAME
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> extend filename <span style="color:#f92672">=</span> tostring(split(process_commandline, <span style="color:#e6db74">&#34;\\&#34;</span>)[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> summarize <span style="color:#66d9ef">count</span>() <span style="color:#66d9ef">by</span> filename
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> count_ <span style="color:#66d9ef">desc</span></span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#f92672">&gt;=</span> TIMEWINDOW<span style="color:#f92672">+</span><span style="color:#ae81ff">10</span>m
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> hostname <span style="color:#f92672">==</span> HOSTNAME
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> extend filename <span style="color:#f92672">=</span> tostring(split(process_commandline, <span style="color:#e6db74">&#34;\\&#34;</span>)[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> summarize <span style="color:#66d9ef">count</span>() <span style="color:#66d9ef">by</span> filename
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> count_ <span style="color:#66d9ef">desc</span></span></span></code></pre></div>
 <p>Secret_Files.zip</p>
 <h4 id="question-5-2">Question 5</h4>
 <blockquote>
@@ -551,11 +564,11 @@ Here&rsquo;s a start:</p>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> project <span style="color:#66d9ef">timestamp</span>
 </span></span><span style="display:flex;"><span>);
 </span></span><span style="display:flex;"><span>ProcessEvents
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#f92672">&gt;=</span> TIMEWINDOW<span style="color:#f92672">+</span><span style="color:#ae81ff">10</span>m
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> hostname <span style="color:#f92672">==</span> HOSTNAME
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> extend filename <span style="color:#f92672">=</span> tostring(split(process_commandline, <span style="color:#e6db74">&#34;\\&#34;</span>)[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> summarize <span style="color:#66d9ef">count</span>() <span style="color:#66d9ef">by</span> filename
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> count_ <span style="color:#66d9ef">desc</span></span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#f92672">&gt;=</span> TIMEWINDOW<span style="color:#f92672">+</span><span style="color:#ae81ff">10</span>m
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> hostname <span style="color:#f92672">==</span> HOSTNAME
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> extend filename <span style="color:#f92672">=</span> tostring(split(process_commandline, <span style="color:#e6db74">&#34;\\&#34;</span>)[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> summarize <span style="color:#66d9ef">count</span>() <span style="color:#66d9ef">by</span> filename
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> count_ <span style="color:#66d9ef">desc</span></span></span></code></pre></div>
 <p>EncryptEverything.exe</p>
 <h4 id="question-6-2">Question 6</h4>
 <blockquote>
@@ -570,9 +583,11 @@ Here&rsquo;s a start:</p>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>let flag <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;EncryptEverything.exe&#34;</span>;
 </span></span><span style="display:flex;"><span>let base64_encoded <span style="color:#f92672">=</span> base64_encode_tostring(flag);
 </span></span><span style="display:flex;"><span>print base64_encoded</span></span></code></pre></div>
-<p>RW5jcnlwdEV2ZXJ5dGhpbmcuZXhl</p>
+<div class="highlight wrap-code"><pre tabindex="0"><code>RW5jcnlwdEV2ZXJ5dGhpbmcuZXhl</code></pre></div>
+<h4 id="flag-2">Flag</h4>
+<p>The flag is the last question answered. Thus, <code>RW5jcnlwdEV2ZXJ5dGhpbmcuZXhl</code> is the flag.</p>
 <h3 id="section-4-echoes-in-the-frost-tracking-the-unknown-threat">Section 4: Echoes in the Frost: Tracking the Unknown Threat</h3>
-<h4 id="question-1-1">Question 1</h4>
+<h4 id="question-1-2">Question 1</h4>
 <blockquote>
 <p>As you close out the investigation into Team Wombley’s attack, Eve Snowshoes meets you with a serious expression. &ldquo;You’ve done an incredible job so far, but now we face our most elusive adversary yet. This isn’t just another team—it’s an unknown, highly skilled threat actor who has been operating in the shadows, leaving behind only whispers of their presence. We’ve seen traces of their activity, but they’ve covered their tracks well.&rdquo;</p>
 <p>She pauses, the weight of the challenge ahead clear. &ldquo;This is where things get even more difficult. We’re entering uncharted territory—prepare yourself for the toughest investigation yet. Follow the clues, stay sharp, and let’s uncover the truth behind these Echoes in the Frost.&rdquo;</p>
@@ -586,8 +601,8 @@ Here&rsquo;s a start:</p>
 </blockquote>
 <p>Solution</p>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>Email
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> subject <span style="color:#66d9ef">contains</span> <span style="color:#e6db74">&#34;breach&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#66d9ef">asc</span></span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> subject <span style="color:#66d9ef">contains</span> <span style="color:#e6db74">&#34;breach&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#66d9ef">asc</span></span></span></code></pre></div>
 <div class="highlight wrap-code"><pre tabindex="0"><code>2024-12-12T14:48:55Z</code></pre></div>
 <h4 id="question-3-3">Question 3</h4>
 <blockquote>
@@ -600,14 +615,14 @@ Here&rsquo;s a start:</p>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#66d9ef">asc</span>
 </span></span><span style="display:flex;"><span>);
 </span></span><span style="display:flex;"><span>let BOETIE_IP <span style="color:#f92672">=</span> toscalar(Employees
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> username <span style="color:#66d9ef">contains</span> <span style="color:#e6db74">&#34;boetie&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> project ip_addr
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> username <span style="color:#66d9ef">contains</span> <span style="color:#e6db74">&#34;boetie&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> project ip_addr
 </span></span><span style="display:flex;"><span>);
 </span></span><span style="display:flex;"><span>OutboundNetworkEvents
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#f92672">&gt;=</span> FIRST_TIMESTAMP
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> src_ip <span style="color:#f92672">==</span> BOETIE_IP
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#66d9ef">asc</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">limit</span> <span style="color:#ae81ff">1</span></span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#f92672">&gt;=</span> FIRST_TIMESTAMP
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> src_ip <span style="color:#f92672">==</span> BOETIE_IP
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#66d9ef">asc</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">limit</span> <span style="color:#ae81ff">1</span></span></span></code></pre></div>
 <div class="highlight wrap-code"><pre tabindex="0"><code>2024-12-12T15:13:55Z</code></pre></div>
 <h4 id="question-4-3">Question 4</h4>
 <blockquote>
@@ -616,24 +631,24 @@ Here&rsquo;s a start:</p>
 <p>What was the IP for the domain where the file was hosted?</p>
 </blockquote>
 <p>Solution</p>
-<div class="highlight wrap-code"><pre tabindex="0"><code>let FIRST_TIMESTAMP = toscalar(Email
-    | where subject contains &#34;breach&#34;
-    | order by timestamp asc
-);
-let BOETIE_IP = toscalar(Employees
-    | where username contains &#34;boetie&#34;
-    | project ip_addr
-);
-let MALWARE_IP = OutboundNetworkEvents
-    | where timestamp &gt;= FIRST_TIMESTAMP
-    | where src_ip == BOETIE_IP
-    | order by timestamp asc
-    | limit 1
-    | extend domain = tostring(split(url, &#34;/&#34;)[2])
-    | join PassiveDns on $left.domain == $right.domain
-    | distinct ip
-;
-MALWARE_IP</code></pre></div>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>let FIRST_TIMESTAMP <span style="color:#f92672">=</span> toscalar(Email
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> subject <span style="color:#66d9ef">contains</span> <span style="color:#e6db74">&#34;breach&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#66d9ef">asc</span>
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>let BOETIE_IP <span style="color:#f92672">=</span> toscalar(Employees
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> username <span style="color:#66d9ef">contains</span> <span style="color:#e6db74">&#34;boetie&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> project ip_addr
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>let MALWARE_IP <span style="color:#f92672">=</span> OutboundNetworkEvents
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#f92672">&gt;=</span> FIRST_TIMESTAMP
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> src_ip <span style="color:#f92672">==</span> BOETIE_IP
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#66d9ef">asc</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">limit</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> extend <span style="color:#66d9ef">domain</span> <span style="color:#f92672">=</span> tostring(split(url, <span style="color:#e6db74">&#34;/&#34;</span>)[<span style="color:#ae81ff">2</span>])
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">join</span> PassiveDns <span style="color:#66d9ef">on</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#66d9ef">left</span>.<span style="color:#66d9ef">domain</span> <span style="color:#f92672">==</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#66d9ef">right</span>.<span style="color:#66d9ef">domain</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">distinct</span> ip
+</span></span><span style="display:flex;"><span>;
+</span></span><span style="display:flex;"><span>MALWARE_IP</span></span></code></pre></div>
 <div class="highlight wrap-code"><pre tabindex="0"><code>182.56.23.122</code></pre></div>
 <h4 id="question-5-3">Question 5</h4>
 <blockquote>
@@ -671,7 +686,113 @@ MALWARE_IP</code></pre></div>
 <p>What was the script that was run to obtain credentials?</p>
 </blockquote>
 <p>Solution</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"></code></pre></div>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>let TIMEWINDOW <span style="color:#f92672">=</span> InboundNetworkEvents
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> src_ip <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;182.56.23.122&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#66d9ef">asc</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> summarize minTime <span style="color:#f92672">=</span> <span style="color:#66d9ef">min</span>(<span style="color:#66d9ef">timestamp</span>), maxTime <span style="color:#f92672">=</span> <span style="color:#66d9ef">max</span>(<span style="color:#66d9ef">timestamp</span>)<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>h
+</span></span><span style="display:flex;"><span>;
+</span></span><span style="display:flex;"><span>ProcessEvents
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#66d9ef">between</span> (toscalar(TIMEWINDOW <span style="color:#f92672">|</span> project minTime) .. toscalar(TIMEWINDOW <span style="color:#f92672">|</span> project maxTime) )
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> hostname has <span style="color:#e6db74">&#34;WebApp-ElvesWorkshop&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#66d9ef">asc</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> take <span style="color:#ae81ff">1</span></span></span></code></pre></div>
+<div class="highlight wrap-code"><pre tabindex="0"><code>Invoke-Mimikatz.ps1</code></pre></div>
+<h4 id="question-7-2">Question 7</h4>
+<blockquote>
+<p>Okay back to Noel, after downloading the file, Noel Boetie followed the instructions in the email and ran it, but mentioned that nothing appeared to happen.</p>
+<p>Since the email came from an internal source, Noel assumed it was safe - yet this may have been the moment the unknown threat actor silently gained access. We need to identify exactly when Noel executed the file to trace the beginning of the attack.</p>
+<p>Eve Snowshoes, &ldquo;It’s easy to see why Noel thought the email was harmless - it came from an internal account. But attackers often use compromised internal sources to make their phishing attempts more believable.&rdquo;</p>
+<p>What is the timestamp where Noel executed the file?</p>
+</blockquote>
+<p>Solution</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>let FIRST_TIMESTAMP <span style="color:#f92672">=</span> Email
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> subject <span style="color:#66d9ef">contains</span> <span style="color:#e6db74">&#34;breach&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#66d9ef">asc</span>
+</span></span><span style="display:flex;"><span>;
+</span></span><span style="display:flex;"><span>let BOETIE_DATA <span style="color:#f92672">=</span> Employees
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> username <span style="color:#66d9ef">contains</span> <span style="color:#e6db74">&#34;boetie&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> project ip_addr, username
+</span></span><span style="display:flex;"><span>;
+</span></span><span style="display:flex;"><span>ProcessEvents
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> username <span style="color:#f92672">==</span> toscalar(BOETIE_DATA <span style="color:#f92672">|</span> project username)
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#f92672">&gt;</span> toscalar(FIRST_TIMESTAMP <span style="color:#f92672">|</span> project <span style="color:#66d9ef">timestamp</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#66d9ef">asc</span></span></span></code></pre></div>
+<div class="highlight wrap-code"><pre tabindex="0"><code>2024-12-12T15:14:38Z</code></pre></div>
+<h4 id="question-9-1">Question 9</h4>
+<blockquote>
+<p>After Noel ran the file, strange activity began on the system, including the download of a file called holidaycandy.hta. Keep in mind that attackers often use multiple domains to host different pieces of malware.</p>
+<p>Eve explains, &ldquo;Attackers frequently spread their operations across several domains to evade detection.&rdquo;</p>
+<p>What domain was the holidaycandy.hta file downloaded from?</p>
+</blockquote>
+<p>Solution</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>OutboundNetworkEvents
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> url has <span style="color:#e6db74">&#34;holidaycandy.hta&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> extend <span style="color:#66d9ef">domain</span> <span style="color:#f92672">=</span> tostring(split(url, <span style="color:#e6db74">&#34;/&#34;</span>)[<span style="color:#ae81ff">2</span>])
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">distinct</span> <span style="color:#66d9ef">domain</span></span></span></code></pre></div>
+<div class="highlight wrap-code"><pre tabindex="0"><code>compromisedchristmastoys.com</code></pre></div>
+<h4 id="question-10-1">Question 10</h4>
+<blockquote>
+<p>An interesting series of events has occurred: the attacker downloaded a copy of frosty.txt, decoded it into a zip file, and used tar to extract the contents of frosty.zip into the Tasks directory.</p>
+<p>This suggests the possibility that additional payloads or tools were delivered to Noel’s laptop. We need to investigate if any additional files appeared after this sequence.</p>
+<p>Eve Snowshoes, &ldquo;When an attacker drops files like this, it’s often the prelude to more malicious actions. Let’s see if we can find out what else landed on Noel’s laptop.&rdquo;</p>
+<p>Did any additional files end up on Noel’s laptop after the attacker extracted frosty.zip?</p>
+<p>what was the first file that was created after extraction?</p>
+</blockquote>
+<p>Solution</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>let BOETIE_DATA <span style="color:#f92672">=</span> Employees
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> username <span style="color:#66d9ef">contains</span> <span style="color:#e6db74">&#34;boetie&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> project ip_addr, username, hostname
+</span></span><span style="display:flex;"><span>;
+</span></span><span style="display:flex;"><span>let TIMEWINDOW <span style="color:#f92672">=</span> ProcessEvents
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> hostname <span style="color:#66d9ef">in</span> (BOETIE_DATA <span style="color:#f92672">|</span> project hostname)
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> process_commandline <span style="color:#66d9ef">contains</span> <span style="color:#e6db74">&#34;frosty.zip&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> summarize maxTimestamp <span style="color:#f92672">=</span> <span style="color:#66d9ef">max</span>(<span style="color:#66d9ef">timestamp</span>)
+</span></span><span style="display:flex;"><span>;
+</span></span><span style="display:flex;"><span>FileCreationEvents
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> hostname <span style="color:#66d9ef">in</span> (BOETIE_DATA <span style="color:#f92672">|</span> project hostname)
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#f92672">&gt;=</span> toscalar(TIMEWINDOW <span style="color:#f92672">|</span> project maxTimestamp)</span></span></code></pre></div>
+<div class="highlight wrap-code"><pre tabindex="0"><code>sqlwriter.exe</code></pre></div>
+<h4 id="question-11">Question 11</h4>
+<blockquote>
+<p>In the previous question, we discovered that two files, sqlwriter.exe and frost.dll, were downloaded onto Noel’s laptop. Immediately after, a registry key was added that ensures sqlwriter.exe will run every time Noel’s computer boots.</p>
+<p>This persistence mechanism indicates the attacker’s intent to maintain long-term control over the system.</p>
+<p>Eve Snowshoes, &ldquo;Adding a registry key for persistence is a classic move by attackers to ensure their malicious software runs automatically. It’s crucial to understand how this persistence is set up to prevent further damage.&rdquo;</p>
+<p>What is the name of the property assigned to the new registry key?</p>
+</blockquote>
+<p>Solution</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>let BOETIE_DATA <span style="color:#f92672">=</span> Employees
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> username <span style="color:#66d9ef">contains</span> <span style="color:#e6db74">&#34;boetie&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> project ip_addr, username, hostname
+</span></span><span style="display:flex;"><span>;
+</span></span><span style="display:flex;"><span>let TIMEWINDOW <span style="color:#f92672">=</span> ProcessEvents
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> hostname <span style="color:#66d9ef">in</span> (BOETIE_DATA <span style="color:#f92672">|</span> project hostname)
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> process_commandline <span style="color:#66d9ef">contains</span> <span style="color:#e6db74">&#34;frosty.zip&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> summarize maxTimestamp <span style="color:#f92672">=</span> <span style="color:#66d9ef">max</span>(<span style="color:#66d9ef">timestamp</span>)
+</span></span><span style="display:flex;"><span>;
+</span></span><span style="display:flex;"><span>let FILECREATEDWINDOW <span style="color:#f92672">=</span> FileCreationEvents
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> hostname <span style="color:#66d9ef">in</span> (BOETIE_DATA <span style="color:#f92672">|</span> project hostname)
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#f92672">&gt;=</span> toscalar(TIMEWINDOW <span style="color:#f92672">|</span> project maxTimestamp)
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> take <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> project <span style="color:#66d9ef">timestamp</span>
+</span></span><span style="display:flex;"><span>;
+</span></span><span style="display:flex;"><span>ProcessEvents
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> hostname <span style="color:#66d9ef">in</span> (BOETIE_DATA <span style="color:#f92672">|</span> project hostname)
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">timestamp</span> <span style="color:#f92672">&gt;=</span> toscalar(FILECREATEDWINDOW <span style="color:#f92672">|</span> project <span style="color:#66d9ef">timestamp</span>)</span></span></code></pre></div>
+<div class="highlight wrap-code"><pre tabindex="0"><code>frosty</code></pre></div>
+<h4 id="question-12">Question 12</h4>
+<blockquote>
+<p>Congratulations! You&rsquo;ve successfully identified the threat actor&rsquo;s tactics. The attacker gained access to WebApp-ElvesWorkshop from the IP address 182.56.23.122, dumped credentials, and used those to send phishing emails internally to Noel.</p>
+<p>The malware family they used is called Wineloader, which employs a technique known as DLL sideloading. This technique works by placing a malicious DLL in the same directory as a legitimate executable (in this case, sqlwriter.exe).</p>
+<p>When Windows tries to load a referenced DLL without a full path, it checks the executable&rsquo;s current directory first, causing the malicious DLL to load automatically. Additionally, the attacker created a scheduled task to ensure sqlwriter.exe runs on system boot, allowing the malicious DLL to maintain persistence on the system.</p>
+<p>To obtain your FINAL flag use the KQL below with your last answer!</p>
+</blockquote>
+<p>Solution</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>let finalflag <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;frosty&#34;</span>;
+</span></span><span style="display:flex;"><span>let base64_encoded <span style="color:#f92672">=</span> base64_encode_tostring(finalflag);
+</span></span><span style="display:flex;"><span>print base64_encoded</span></span></code></pre></div>
+<div class="highlight wrap-code"><pre tabindex="0"><code>ZnJvc3R5</code></pre></div>
+<h4 id="flag-3">Flag</h4>
+<p>The flag is the last question answered. Thus, <code>ZnJvc3R5</code> is the flag.</p>
 
   <footer class="footline">
   </footer>
@@ -687,7 +808,7 @@ MALWARE_IP</code></pre></div>
 
         </div>
         <script>
-          window.index_js_url="/searchindex.en.js?1732469444";
+          window.index_js_url="/searchindex.en.js?1733050724";
         </script>
         <search><form action="/search/index.html" method="get">
           <div class="searchbox default-animation">
@@ -700,12 +821,12 @@ MALWARE_IP</code></pre></div>
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1732469444" defer></script>
-        <script src="/js/lunr/lunr.min.js?1732469444" defer></script>
-        <script src="/js/lunr/lunr.stemmer.support.min.js?1732469444" defer></script>
-        <script src="/js/lunr/lunr.multi.min.js?1732469444" defer></script>
-        <script src="/js/lunr/lunr.en.min.js?1732469444" defer></script>
-        <script src="/js/search.js?1732469444" defer></script>
+        <script src="/js/auto-complete.js?1733050724" defer></script>
+        <script src="/js/lunr/lunr.min.js?1733050724" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1733050724" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1733050724" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1733050724" defer></script>
+        <script src="/js/search.js?1733050724" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation">
         <hr class="padding">
@@ -776,22 +897,22 @@ MALWARE_IP</code></pre></div>
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1732469444" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1732469444" defer></script>
-    <script src="/js/d3/d3-color.min.js?1732469444" defer></script>
-    <script src="/js/d3/d3-dispatch.min.js?1732469444" defer></script>
-    <script src="/js/d3/d3-drag.min.js?1732469444" defer></script>
-    <script src="/js/d3/d3-ease.min.js?1732469444" defer></script>
-    <script src="/js/d3/d3-interpolate.min.js?1732469444" defer></script>
-    <script src="/js/d3/d3-selection.min.js?1732469444" defer></script>
-    <script src="/js/d3/d3-timer.min.js?1732469444" defer></script>
-    <script src="/js/d3/d3-transition.min.js?1732469444" defer></script>
-    <script src="/js/d3/d3-zoom.min.js?1732469444" defer></script>
-    <script src="/js/js-yaml.min.js?1732469444" defer></script>
-    <script src="/js/mermaid.min.js?1732469444" defer></script>
+    <script src="/js/clipboard.min.js?1733050724" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1733050724" defer></script>
+    <script src="/js/d3/d3-color.min.js?1733050724" defer></script>
+    <script src="/js/d3/d3-dispatch.min.js?1733050724" defer></script>
+    <script src="/js/d3/d3-drag.min.js?1733050724" defer></script>
+    <script src="/js/d3/d3-ease.min.js?1733050724" defer></script>
+    <script src="/js/d3/d3-interpolate.min.js?1733050724" defer></script>
+    <script src="/js/d3/d3-selection.min.js?1733050724" defer></script>
+    <script src="/js/d3/d3-timer.min.js?1733050724" defer></script>
+    <script src="/js/d3/d3-transition.min.js?1733050724" defer></script>
+    <script src="/js/d3/d3-zoom.min.js?1733050724" defer></script>
+    <script src="/js/js-yaml.min.js?1733050724" defer></script>
+    <script src="/js/mermaid.min.js?1733050724" defer></script>
     <script>
       window.themeUseMermaid = JSON.parse("{}");
     </script>
-    <script src="/js/theme.js?1732469444" defer></script>
+    <script src="/js/theme.js?1733050724" defer></script>
   </body>
 </html>
