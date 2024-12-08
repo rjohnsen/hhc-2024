@@ -1,7 +1,7 @@
 +++
 title = 'Mobile Analysis'
 date = 2024-11-23T13:18:24+01:00
-draft = true
+draft = false
 weight = 1
 +++
 
