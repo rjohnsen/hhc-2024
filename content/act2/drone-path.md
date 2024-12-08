@@ -81,7 +81,7 @@ Chimney Scissorsticks gives us a hint for Gold:
 
 The hint hints at looking at the the various calls, and for each call I had a look at what could possibly be affected by an injection flaw. I came up with this candidate:
 
-![Found text](/images/act2-drone-path-gold-1.png)
+![Found text](/images/act2/act2-drone-path-gold-1.png)
 
 Endpoint takes in drone name as GET parameter:
 
@@ -89,14 +89,18 @@ Endpoint takes in drone name as GET parameter:
 https://hhc24-dronepath.holidayhackchallenge.com/api/v1.0/drones?drone=test
 ```
 
-By testing using this statement, I provoked an error: 
+By testing using this statement, I provoked an error: ```https://hhc24-dronepath.holidayhackchallenge.com/api/v1.0/drones?drone=ELF-HAWK'```
 
-```
-Raw: https://hhc24-dronepath.holidayhackchallenge.com/api/v1.0/drones?drone=ELF-HAWK' or '1'='1
-Urlencoded: https://hhc24-dronepath.holidayhackchallenge.com/api/v1.0/drones?drone=ELF-HAWK%27%20or%20%271%27=%271
-```
+The error message looks like this:
 
-![500 error](/images/act2-drone-path-gold-2.png)
+![500 error](/images/act2/act2-drone-path-gold-2.png)
+
+By this I had found an SQL Injection fault - which I then exploited by:
+
+* Raw: ```https://hhc24-dronepath.holidayhackchallenge.com/api/v1.0/drones?drone=ELF-HAWK' or '1'='1```
+* Urlencoded: ```https://hhc24-dronepath.holidayhackchallenge.com/api/v1.0/drones?drone=ELF-HAWK%27%20or%20%271%27=%271```
+
+This enabled me to retrieve this list: 
 
 ```json
 [
@@ -131,7 +135,7 @@ https://hhc24-dronepath.holidayhackchallenge.com/api/v1.0/drones?drone=
 
 For drone "Pigeon-Lookalike-v4" I got the following hint: 
 
-![Drone comment](/images/act2-drone-path-gold-3.png)
+![Drone comment](/images/act2/act2-drone-path-gold-3.png)
 
 There is something interesting by this hint: 
 
@@ -163,11 +167,11 @@ with open("outdata", 'w') as f:
 
 In order to solve this riddle I took the output and opened it in Cyberchef like so: 
 
-![Cyberchef first try](/images/act2-drone-path-gold-4.png)
+![Cyberchef first try](/images/act2/act2-drone-path-gold-4.png)
 
 I could not find anything interesting - then it dawned on me. Lets pad it in front with "00" (on a whim):
 
-![Cyberchef second try](/images/act2-drone-path-gold-5.png)
+![Cyberchef second try](/images/act2/act2-drone-path-gold-5.png)
 
 The code word is: 
 
@@ -177,4 +181,4 @@ EXPERTTURKEYCARVERMEDAL
 
 Then submitting the code word:
 
-![Cyberchef first try](/images/act2-drone-path-gold-6.png)
+![Cyberchef first try](/images/act2/act2-drone-path-gold-6.png)
