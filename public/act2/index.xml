@@ -27,7 +27,7 @@
       <link>http://localhost:1313/act2/powershell/index.html</link>
       <pubDate>Sat, 23 Nov 2024 13:18:37 +0100</pubDate>
       <guid>http://localhost:1313/act2/powershell/index.html</guid>
-      <description>Silver Task 1 There is a file in the current directory called ‘welcome.txt’. Read the contents of this file Get-Content -Path &#34;.\welcome.txt&#34; Output&#xA;System Overview The Elf Weaponry Multi-Factor Authentication (MFA) system safeguards access to a classified armory containing elf weapons. This high-security system is equipped with advanced defense mechanisms, including canaries, retinal scanner and keystroke analyzing, to prevent unauthorized access. In the event of suspicious activity, the system automatically initiates a lockdown, restricting all access until manual override by authorized personnel.</description>
+      <description>Objecetive Team Wombley is developing snow weapons in preparation for conflict, but they’ve been locked out by their own defenses. Help Piney with regaining access to the weapon operations terminal.&#xA;Solution Silver Task 1 There is a file in the current directory called ‘welcome.txt’. Read the contents of this file Get-Content -Path &#34;.\welcome.txt&#34; Output&#xA;System Overview The Elf Weaponry Multi-Factor Authentication (MFA) system safeguards access to a classified armory containing elf weapons.</description>
     </item>
     <item>
       <title>Snowball Showdown</title>

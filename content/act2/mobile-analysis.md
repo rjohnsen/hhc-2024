@@ -51,8 +51,6 @@ For clarity, I have included the links from Eve Snowshoes in cleartext here:
 
 ## Solution
 
-
-
 ### Silver
 
 #### Getting the necessary files 
@@ -132,7 +130,7 @@ grep -i insert DatabaseHelper.smali
     const-string v0, "INSERT INTO NormalList (Item) VALUES (\'Edward, New Jersey, USA\');"
 ```
 
-Cleaned the output by some ````SED``` magic and stored it a CSV file: 
+Cleaned the output by some ```SED``` magic and stored it a CSV file: 
 
 ```bash
 grep -i insert DatabaseHelper.smali | sed -E "s/.*'([^']+), ([^,]+), ([^']+)'.*/\1, \2, \3/" | sed 's/\\$//' | sort > apk-list.txt
@@ -216,6 +214,12 @@ cd output
 From this folder I uploaded the extracted APK and loaded it into https://appetize.io/ and ran the APK there. By comparing the list in this APP (screenshot below) I found that the missing kid was ```Ellie```
 
 ![Mobile analysis silver](/images/act2/act2-mobile-analysis-silver.png)
+
+In retrospect, instead of following this overly long methodology, I could've just looked into the following file by just grepping for "NormalList":
+
+```bash
+MainActivity$WebAppInterface.smali:1090:    const-string v3, "SELECT Item FROM NormalList WHERE Item NOT LIKE \'%Ellie%\
+```
 
 ### Gold
 
