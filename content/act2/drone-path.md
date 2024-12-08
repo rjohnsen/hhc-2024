@@ -72,3 +72,109 @@ Heading back into the web app, I submitted this password from the "Admin Console
 ![Found text](/images/act2/act2-drone-path-13.png)
 
 ### Gold
+
+Chimney Scissorsticks gives us a hint for Gold: 
+
+> But I need you to dig deeper. Make sure you’re checking those file structures carefully, and remember—rumor has it there is some injection flaw that might just give you the upper hand. Keep your eyes sharp!
+
+#### Solution
+
+The hint hints at looking at the the various calls, and for each call I had a look at what could possibly be affected by an injection flaw. I came up with this candidate:
+
+![Found text](/images/act2-drone-path-gold-1.png)
+
+Endpoint takes in drone name as GET parameter:
+
+```
+https://hhc24-dronepath.holidayhackchallenge.com/api/v1.0/drones?drone=test
+```
+
+By testing using this statement, I provoked an error: 
+
+```
+Raw: https://hhc24-dronepath.holidayhackchallenge.com/api/v1.0/drones?drone=ELF-HAWK' or '1'='1
+Urlencoded: https://hhc24-dronepath.holidayhackchallenge.com/api/v1.0/drones?drone=ELF-HAWK%27%20or%20%271%27=%271
+```
+
+![500 error](/images/act2-drone-path-gold-2.png)
+
+```json
+[
+    {
+        "name": "ELF-HAWK",
+        "quantity": "40",
+        "weapons": "Snowball-launcher"
+    },
+    {
+        "name": "Pigeon-Lookalike-v4",
+        "quantity": "20",
+        "weapons": "Surveillance Camera"
+    },
+    {
+        "name": "FlyingZoomer",
+        "quantity": "4",
+        "weapons": "Snowball-Dropper"
+    },
+    {
+        "name": "Zapper",
+        "quantity": "5",
+        "weapons": "CarrotSpike"
+    }
+]
+```
+
+For each of these I passed their name through the endpoint: 
+
+```
+https://hhc24-dronepath.holidayhackchallenge.com/api/v1.0/drones?drone=
+```
+
+For drone "Pigeon-Lookalike-v4" I got the following hint: 
+
+![Drone comment](/images/act2-drone-path-gold-3.png)
+
+There is something interesting by this hint: 
+
+> I heard a rumor that there is something fishing with some of the files. There was some talk about only TRUE carvers would find secrets and that FALSE ones would never find it.
+
+We've downloaded a bunch of CSV files during this task, so I'll simply look into the files again in reverse - starting with the latest. The words TRUE and FALSE are highlighted, so I suppose these means boolean.
+
+This Python script does the following:
+
+1. Open the "ELF-HAWK-dump.csv" in Pandas, ensuring everyting is loaded as strings
+2. Removes all columns having not having text "TRUE" or "FALSE"
+3. Removed all rows having just "FALSE" values
+4. Replaces text "TRUE" with 1, and "FALSE" with 0
+5. Writes the data to a text file
+
+```python
+import pandas as pd
+
+df = pd.read_csv("ELF-HAWK-dump.csv", dtype=str)
+df = df.loc[:, df.applymap(lambda x: x in ['TRUE', 'FALSE']).all()]
+df = df[~df.apply(lambda row: (row == 'FALSE').all(), axis=1)]
+df = df.replace({'TRUE': '1', 'FALSE': '0'})
+
+with open("outdata", 'w') as f:
+    for _, row in df.iterrows():
+        row_values = ''.join(str(value) for value in row)
+        f.write(row_values)
+```
+
+In order to solve this riddle I took the output and opened it in Cyberchef like so: 
+
+![Cyberchef first try](/images/act2-drone-path-gold-4.png)
+
+I could not find anything interesting - then it dawned on me. Lets pad it in front with "00" (on a whim):
+
+![Cyberchef second try](/images/act2-drone-path-gold-5.png)
+
+The code word is: 
+
+```
+EXPERTTURKEYCARVERMEDAL
+```
+
+Then submitting the code word:
+
+![Cyberchef first try](/images/act2-drone-path-gold-6.png)

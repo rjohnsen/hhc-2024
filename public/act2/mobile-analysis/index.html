@@ -37,17 +37,17 @@ From Objective Description Eve Snowshoes Mobile Analysis Maybe look for what nam
     <meta itemprop="dateModified" content="2024-11-23T13:18:24+01:00">
     <meta itemprop="wordCount" content="1580">
     <title>Mobile Analysis - HHC 2024</title>
-    <link href="/images/logo.png?1733669799" rel="icon" type="image/png">
-    <link href="/css/fontawesome-all.min.css?1733669799" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1733669799" rel="stylesheet"></noscript>
-    <link href="/css/nucleus.css?1733669799" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733669799" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1733669799" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1733669799" rel="stylesheet">
-    <link href="/css/fonts.css?1733669799" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1733669799" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1733669799" rel="stylesheet">
-    <link href="/css/theme-christmas.css?1733669799" rel="stylesheet" id="R-variant-style">
-    <link href="/css/chroma-relearn-light.css?1733669799" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="/css/print.css?1733669799" rel="stylesheet" media="print">
-    <script src="/js/variant.js?1733669799"></script>
+    <link href="/images/logo.png?1733679507" rel="icon" type="image/png">
+    <link href="/css/fontawesome-all.min.css?1733679507" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1733679507" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1733679507" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733679507" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1733679507" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1733679507" rel="stylesheet">
+    <link href="/css/fonts.css?1733679507" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1733679507" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1733679507" rel="stylesheet">
+    <link href="/css/theme-christmas.css?1733679507" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-relearn-light.css?1733679507" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/print.css?1733679507" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1733679507"></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..\/..';
@@ -321,8 +321,8 @@ Yuna, Seoul, South Korea</code></pre></div>
 </span></span><span style="display:flex;"><span>unzip output.zip -d output
 </span></span><span style="display:flex;"><span>cd output</span></span></code></pre></div>
 <p>From this folder I uploaded the extracted APK and loaded it into <a href="https://appetize.io/" rel="external" target="_blank">https://appetize.io/</a> and ran the APK there. By comparing the list in this APP (screenshot below) I found that the missing kid was <code>Ellie</code></p>
-<p><a href="#R-image-9b7896df1e2b6690dad517d34c1a8056" class="lightbox-link"><img alt="Mobile analysis silver" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act2/act2-mobile-analysis-silver.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-9b7896df1e2b6690dad517d34c1a8056"><img alt="Mobile analysis silver" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act2/act2-mobile-analysis-silver.png"></a></p>
+<p><a href="#R-image-c947c1c54883b6152216654f1123d931" class="lightbox-link"><img alt="Mobile analysis silver" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act2/act2-mobile-analysis-silver.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-c947c1c54883b6152216654f1123d931"><img alt="Mobile analysis silver" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act2/act2-mobile-analysis-silver.png"></a></p>
 <p>In retrospect, instead of following this overly long methodology, I could&rsquo;ve just looked into the following file by just grepping for &ldquo;NormalList&rdquo;:</p>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MainActivity$WebAppInterface.smali:1090:    const-string v3, <span style="color:#e6db74">&#34;SELECT Item FROM NormalList WHERE Item NOT LIKE \&#39;%Ellie%</span><span style="color:#960050;background-color:#1e0010">\</span></span></span></code></pre></div>
 <h3 id="gold">Gold</h3>
@@ -444,7 +444,7 @@ MWfO0+M1t58yWdR3dN9wyQdrx9AS/R916miej6pBB+UB54ZZ1g==
 
         </div>
         <script>
-          window.index_js_url="/searchindex.en.js?1733669799";
+          window.index_js_url="/searchindex.en.js?1733679507";
         </script>
         <search><form action="/search/index.html" method="get">
           <div class="searchbox default-animation">
@@ -457,12 +457,12 @@ MWfO0+M1t58yWdR3dN9wyQdrx9AS/R916miej6pBB+UB54ZZ1g==
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1733669799" defer></script>
-        <script src="/js/lunr/lunr.min.js?1733669799" defer></script>
-        <script src="/js/lunr/lunr.stemmer.support.min.js?1733669799" defer></script>
-        <script src="/js/lunr/lunr.multi.min.js?1733669799" defer></script>
-        <script src="/js/lunr/lunr.en.min.js?1733669799" defer></script>
-        <script src="/js/search.js?1733669799" defer></script>
+        <script src="/js/auto-complete.js?1733679507" defer></script>
+        <script src="/js/lunr/lunr.min.js?1733679507" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1733679507" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1733679507" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1733679507" defer></script>
+        <script src="/js/search.js?1733679507" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation">
         <hr class="padding">
@@ -533,22 +533,22 @@ MWfO0+M1t58yWdR3dN9wyQdrx9AS/R916miej6pBB+UB54ZZ1g==
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1733669799" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1733669799" defer></script>
-    <script src="/js/d3/d3-color.min.js?1733669799" defer></script>
-    <script src="/js/d3/d3-dispatch.min.js?1733669799" defer></script>
-    <script src="/js/d3/d3-drag.min.js?1733669799" defer></script>
-    <script src="/js/d3/d3-ease.min.js?1733669799" defer></script>
-    <script src="/js/d3/d3-interpolate.min.js?1733669799" defer></script>
-    <script src="/js/d3/d3-selection.min.js?1733669799" defer></script>
-    <script src="/js/d3/d3-timer.min.js?1733669799" defer></script>
-    <script src="/js/d3/d3-transition.min.js?1733669799" defer></script>
-    <script src="/js/d3/d3-zoom.min.js?1733669799" defer></script>
-    <script src="/js/js-yaml.min.js?1733669799" defer></script>
-    <script src="/js/mermaid.min.js?1733669799" defer></script>
+    <script src="/js/clipboard.min.js?1733679507" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1733679507" defer></script>
+    <script src="/js/d3/d3-color.min.js?1733679507" defer></script>
+    <script src="/js/d3/d3-dispatch.min.js?1733679507" defer></script>
+    <script src="/js/d3/d3-drag.min.js?1733679507" defer></script>
+    <script src="/js/d3/d3-ease.min.js?1733679507" defer></script>
+    <script src="/js/d3/d3-interpolate.min.js?1733679507" defer></script>
+    <script src="/js/d3/d3-selection.min.js?1733679507" defer></script>
+    <script src="/js/d3/d3-timer.min.js?1733679507" defer></script>
+    <script src="/js/d3/d3-transition.min.js?1733679507" defer></script>
+    <script src="/js/d3/d3-zoom.min.js?1733679507" defer></script>
+    <script src="/js/js-yaml.min.js?1733679507" defer></script>
+    <script src="/js/mermaid.min.js?1733679507" defer></script>
     <script>
       window.themeUseMermaid = JSON.parse("{}");
     </script>
-    <script src="/js/theme.js?1733669799" defer></script>
+    <script src="/js/theme.js?1733679507" defer></script>
   </body>
 </html>
