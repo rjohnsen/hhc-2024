@@ -5,24 +5,34 @@
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.131.0">
     <meta name="generator" content="Relearn 7.1.1">
-    <meta name="description" content="This is a new chapter.">
+    <meta name="description" content="Objective Help the ElfSOC analysts track down a malicious attack against the North Pole domain.
+You are offered to either download the logs and do the excersices on your own, or download the ELK stack (logs included):
+https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_2.log.zip https://hhc24-elfstack.holidayhackchallenge.com/download_file/elf-stack-siem-with-logs.zip https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_1.log.zip Easy mode Hard mode">
     <meta name="author" content="Roger C.B. Johnsen">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Act3 - HHC 2024">
-    <meta name="twitter:description" content="This is a new chapter.">
-    <meta property="og:url" content="http://localhost:1313/act3/index.html">
+    <meta name="twitter:title" content="Elf Stack - HHC 2024">
+    <meta name="twitter:description" content="Objective Help the ElfSOC analysts track down a malicious attack against the North Pole domain.
+You are offered to either download the logs and do the excersices on your own, or download the ELK stack (logs included):
+https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_2.log.zip https://hhc24-elfstack.holidayhackchallenge.com/download_file/elf-stack-siem-with-logs.zip https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_1.log.zip Easy mode Hard mode">
+    <meta property="og:url" content="http://localhost:1313/act3/elf-stack/index.html">
     <meta property="og:site_name" content="HHC 2024">
-    <meta property="og:title" content="Act3 - HHC 2024">
-    <meta property="og:description" content="This is a new chapter.">
+    <meta property="og:title" content="Elf Stack - HHC 2024">
+    <meta property="og:description" content="Objective Help the ElfSOC analysts track down a malicious attack against the North Pole domain.
+You are offered to either download the logs and do the excersices on your own, or download the ELK stack (logs included):
+https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_2.log.zip https://hhc24-elfstack.holidayhackchallenge.com/download_file/elf-stack-siem-with-logs.zip https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_1.log.zip Easy mode Hard mode">
     <meta property="og:locale" content="en_us">
-    <meta property="og:type" content="website">
-    <meta itemprop="name" content="Act3 - HHC 2024">
-    <meta itemprop="description" content="This is a new chapter.">
-    <meta itemprop="datePublished" content="2024-12-14T14:54:27+01:00">
-    <meta itemprop="dateModified" content="2024-12-14T14:54:27+01:00">
-    <meta itemprop="wordCount" content="5">
-    <title>Act3 - HHC 2024</title>
-    <link href="/act3/index.xml" rel="alternate" type="application/rss+xml" title="Act3 - HHC 2024">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="Act3">
+    <meta property="article:published_time" content="2024-12-14T14:54:09+01:00">
+    <meta property="article:modified_time" content="2024-12-14T14:54:09+01:00">
+    <meta itemprop="name" content="Elf Stack - HHC 2024">
+    <meta itemprop="description" content="Objective Help the ElfSOC analysts track down a malicious attack against the North Pole domain.
+You are offered to either download the logs and do the excersices on your own, or download the ELK stack (logs included):
+https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_2.log.zip https://hhc24-elfstack.holidayhackchallenge.com/download_file/elf-stack-siem-with-logs.zip https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_1.log.zip Easy mode Hard mode">
+    <meta itemprop="datePublished" content="2024-12-14T14:54:09+01:00">
+    <meta itemprop="dateModified" content="2024-12-14T14:54:09+01:00">
+    <meta itemprop="wordCount" content="44">
+    <title>Elf Stack - HHC 2024</title>
     <link href="/images/logo.png?1734206907" rel="icon" type="image/png">
     <link href="/css/fontawesome-all.min.css?1734206907" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1734206907" rel="stylesheet"></noscript>
     <link href="/css/nucleus.css?1734206907" rel="stylesheet">
@@ -36,8 +46,8 @@
     <script src="/js/variant.js?1734206907"></script>
     <script>
       window.relearn = window.relearn || {};
-      window.relearn.relBasePath='..';
-      window.relearn.relBaseUri='..';
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..';
       window.relearn.absBaseUri='http:\/\/localhost:1313';
       window.relearn.disableAnchorCopy=false;
       window.relearn.disableAnchorScrolling=false;
@@ -54,7 +64,7 @@
       window.T_N_results_found = `{1} results found for "{0}"`;
     </script>
   </head>
-  <body class="mobile-support html" data-url="/act3/index.html">
+  <body class="mobile-support html" data-url="/act3/elf-stack/index.html">
     <div id="R-body" class="default-animation">
       <div id="R-body-overlay"></div>
       <nav id="R-topbar">
@@ -65,13 +75,20 @@
             </div>
             <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
               <div class="topbar-content">
-                <div class="topbar-content-wrapper"> 
+                <div class="topbar-content-wrapper">
+<nav class="TableOfContents">
+  <ul>
+    <li><a href="#objective">Objective</a></li>
+    <li><a href="#easy-mode">Easy mode</a></li>
+    <li><a href="#hard-mode">Hard mode</a></li>
+  </ul>
+</nav>
                 </div>
               </div>
             </div>
           </div>
           <span class="topbar-breadcrumbs highlightable">
-            Act3
+            Elf Stack
           </span>
           <div class="topbar-area topbar-area-end" data-area="end">
             <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
@@ -86,16 +103,26 @@
         </div>
       </nav>
       <div id="R-main-overlay"></div>
-      <main id="R-body-inner" class="highlightable chapter" tabindex="-1">
+      <main id="R-body-inner" class="highlightable act3" tabindex="-1">
         <div class="flex-block-wrapper">
-<article class="chapter narrow">
+<article class="default">
   <header class="headline">
   </header>
-<div class="article-subheading">Chapter 4</div>
 
-<h1 id="act3">Act3</h1>
+<h1 id="elf-stack">Elf Stack</h1>
 
-<p>This is a new chapter.</p>
+<h2 id="objective">Objective</h2>
+<blockquote>
+<p>Help the ElfSOC analysts track down a malicious attack against the North Pole domain.</p>
+</blockquote>
+<p>You are offered to either download the logs and do the excersices on your own, or download the ELK stack (logs included):</p>
+<ul>
+<li><a href="https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_2.log.zip" rel="external" target="_blank">https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_2.log.zip</a></li>
+<li><a href="https://hhc24-elfstack.holidayhackchallenge.com/download_file/elf-stack-siem-with-logs.zip" rel="external" target="_blank">https://hhc24-elfstack.holidayhackchallenge.com/download_file/elf-stack-siem-with-logs.zip</a></li>
+<li><a href="https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_1.log.zip" rel="external" target="_blank">https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_1.log.zip</a></li>
+</ul>
+<h2 id="easy-mode">Easy mode</h2>
+<h2 id="hard-mode">Hard mode</h2>
 
   <footer class="footline">
   </footer>
@@ -140,10 +167,10 @@
             <li class="" data-nav-id="/prologue/index.html"><a class="padding" href="/prologue/index.html">Prologue</a><ul id="R-subsections-79f8c3758567434c5ed9379b17ae831b" class="collapsible-menu"></ul></li>
             <li class="" data-nav-id="/act1/index.html"><a class="padding" href="/act1/index.html">Act1</a><ul id="R-subsections-8dc0c36ceefa45529ff4cf1f9bdc1f66" class="collapsible-menu"></ul></li>
             <li class="" data-nav-id="/act2/index.html"><a class="padding" href="/act2/index.html">Act2</a><ul id="R-subsections-9d3d8c898368693a495088de36411fa6" class="collapsible-menu"></ul></li>
-            <li class="active parent " data-nav-id="/act3/index.html"><a class="padding" href="/act3/index.html">Act3</a><ul id="R-subsections-0b6215c9fad834351813cc2ad0d4a335" class="collapsible-menu">
+            <li class="parent " data-nav-id="/act3/index.html"><a class="padding" href="/act3/index.html">Act3</a><ul id="R-subsections-0b6215c9fad834351813cc2ad0d4a335" class="collapsible-menu">
             <li class="" data-nav-id="/act3/elf-frostbit-deactivate/index.html"><a class="padding" href="/act3/elf-frostbit-deactivate/index.html">Elf Frostbit Deactivate</a></li>
             <li class="" data-nav-id="/act3/elf-frostbit-decrypt/index.html"><a class="padding" href="/act3/elf-frostbit-decrypt/index.html">Elf Frostbit Decrypt</a></li>
-            <li class="" data-nav-id="/act3/elf-stack/index.html"><a class="padding" href="/act3/elf-stack/index.html">Elf Stack</a></li>
+            <li class="active " data-nav-id="/act3/elf-stack/index.html"><a class="padding" href="/act3/elf-stack/index.html">Elf Stack</a></li>
             <li class="" data-nav-id="/act3/santa-vision/index.html"><a class="padding" href="/act3/santa-vision/index.html">Santa Vision</a></li></ul></li>
             <li class="" data-nav-id="/about/index.html"><a class="padding" href="/about/index.html">About</a></li>
           </ul>
@@ -161,7 +188,7 @@
                   <div class="control-style">
                     <label class="a11y-only" for="R-select-language">Language</label>
                     <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
-                      <option id="R-select-language-en" value="#R-select-language-en" data-url="/act3/index.html" lang="en-us" selected></option>
+                      <option id="R-select-language-en" value="#R-select-language-en" data-url="/act3/elf-stack/index.html" lang="en-us" selected></option>
                     </select>
                   </div>
                   <div class="clear"></div>

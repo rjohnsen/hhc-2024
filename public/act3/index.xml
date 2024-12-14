@@ -6,6 +6,35 @@
     <description>This is a new chapter.</description>
     <generator>Hugo</generator>
     <language>en-us</language>
+    <lastBuildDate>Sat, 14 Dec 2024 14:54:27 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/act3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Elf Frostbit Deactivate</title>
+      <link>http://localhost:1313/act3/elf-frostbit-deactivate/index.html</link>
+      <pubDate>Sat, 14 Dec 2024 14:54:27 +0100</pubDate>
+      <guid>http://localhost:1313/act3/elf-frostbit-deactivate/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Elf Frostbit Decrypt</title>
+      <link>http://localhost:1313/act3/elf-frostbit-decrypt/index.html</link>
+      <pubDate>Sat, 14 Dec 2024 14:54:19 +0100</pubDate>
+      <guid>http://localhost:1313/act3/elf-frostbit-decrypt/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Elf Stack</title>
+      <link>http://localhost:1313/act3/elf-stack/index.html</link>
+      <pubDate>Sat, 14 Dec 2024 14:54:09 +0100</pubDate>
+      <guid>http://localhost:1313/act3/elf-stack/index.html</guid>
+      <description>Objective Help the ElfSOC analysts track down a malicious attack against the North Pole domain.&#xA;You are offered to either download the logs and do the excersices on your own, or download the ELK stack (logs included):&#xA;https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_2.log.zip https://hhc24-elfstack.holidayhackchallenge.com/download_file/elf-stack-siem-with-logs.zip https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_1.log.zip Easy mode Hard mode</description>
+    </item>
+    <item>
+      <title>Santa Vision</title>
+      <link>http://localhost:1313/act3/santa-vision/index.html</link>
+      <pubDate>Sat, 14 Dec 2024 14:53:58 +0100</pubDate>
+      <guid>http://localhost:1313/act3/santa-vision/index.html</guid>
+      <description>Hints Ribb Bonbowford (The Front Yard (Act 3))&#xA;Hi, Ribb Bonbowford here, ready to guide you through the SantaVision dilemma!&#xA;The Santa Broadcast Network (SBN) has been hijacked by Wombley’s goons—they’re using it to spread propaganda and recruit elves! And Alabaster joined in out of necessity. Quite the predicament, isn’t it?&#xA;To access this challenge, use this terminal to access your own instance of the SantaVision infrastructure.&#xA;Once it’s done baking, you’ll see an IP address that you’ll need to scan for listening services.</description>
+    </item>
   </channel>
 </rss>
