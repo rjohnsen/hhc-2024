@@ -4,6 +4,10 @@ date = 2024-12-14T14:53:58+01:00
 draft = true
 +++
 
+## Objective
+
+> Alabaster and Wombley have poisoned the Santa Vision feeds! Knock them out to restore everyone back to their regularly scheduled programming.
+
 ## Hints
 
 Ribb Bonbowford (The Front Yard (Act 3))
@@ -33,12 +37,14 @@ Ribb Bonbowford (The Front Yard (Act 3))
 
 ## Solution
 
-### Santa vision A
+### Silver
+
+#### Santa vision A
 
 > What username logs you into the SantaVision portal?
 
 ```bash
-nmap -sS  34.67.56.14 -p 1-65535
+nmap -sS 34.72.28.246 -p 1-65535
 ```
 
 Output
@@ -53,8 +59,6 @@ Output
 | 9001/tcp  | open     | tor-orport  |
 | 18290/tcp | filtered | unknown     |
 | 48328/tcp | filtered | unknown     |
-
-#### Web page on port 8000
 
 Inspecting the HTML code on the landing page ```34.67.56.14:8000``` I found what seems like a ```mqtt``` credential:
 
@@ -80,7 +84,11 @@ Answer:
 elfanon:elfanon
 ```
 
-### Santa vision B
+Login: 
+
+![Login](/images/act3/act3-santa-vision-1.png)
+
+#### Santa vision B
 
 > Once logged on, authenticate further without using Wombley's or Alabaster's accounts to see the northpolefeeds on the monitors. What username worked here?
 
@@ -91,19 +99,22 @@ Available clients: 'elfmonitor', 'WomblyC', 'AlabasterS'
 ```
 
 Clicking on the "List Available Roles" button, I got this output:
+
 ```json
 Available roles: 'SiteDefaultPasswordRole', 'SiteElfMonitorRole', 'SiteAlabsterSAdminRole', 'SiteWomblyCAdminRole'
 ```
 
-In order to find the answer I tried to make a connection using MQTTX, trying various combination until landing: 
-
-Answer:
+In order to find the answer I tried to make a connection using MQTTX, trying various combination until landing on:
 
 ```
 elfmonitor:SiteElfMonitorRole
 ```
 
-### Santa vision C
+Turning on the monitors:
+
+![Login](/images/act3/act3-santa-vision-2.png)
+
+#### Santa vision C
 
 > Using the information available to you in the SantaVision platform, subscribe to the frostbitfeed MQTT topic. Are there any other feeds available? What is the code name for the elves' secret operation?
 
@@ -114,15 +125,127 @@ Topic: santafeedQoS: 0
 Sixteen elves launched operation: Idemcerybu
 ```
 
+Connect to MQTT using MQTTX: 
+
+![Connecting](/images/act3/act3-santa-vision-3.png)
+
+Finding the name of the secret operation in the "santafeed":
+
+![Findind the name of the secret operation](/images/act3/act3-santa-vision-4.png)
+
+Name of the secret operation:
+
 ```
 Idemcerybu
 ```
 
-### Santa vision D
+#### Santa vision D
 
 > There are too many admins. Demote Wombley and Alabaster with a single MQTT message to correct the northpolefeeds feed. What type of contraption do you see Santa on?
 
+Feeds:
 
-/api/v1/frostbitadmin/bot/<botuuid>/deactivate, authHeader: X-API-Key, status: Invalid Key, alert: Warning, recipient: Wombley
+* frostbitfeed
+* northpolefeeds
+* santafeed
 
-superAdminMode=true
+
+Send as Plaintext to Santafeed using the Html form:
+
+```html
+singleAdminMode=true&role=SiteElfMonitorRole&user=WombleyC
+```
+
+![Findind the name of the secret operation](/images/act3/act3-santa-vision-5.png)
+
+
+Answer:
+
+```
+pogo stick
+```
+
+### Gold
+
+#### Santa vision A
+
+I found a new topic by using BurpSuite navigating to the logon form site:
+
+* sitestatus
+
+By listening in on the logon process using BurpSuite I found a direct link for login:
+
+```
+<p>You should be redirected automatically to the target URL: <a href="/auth?id=viewer&amp;loginName=elfanon">/auth?id=viewer&amp;loginName=elfanon</a>. If not, click the link.
+```
+
+Investigating further on the ```sitestatus``` feed I found an interesting download:
+
+![Interesting download](/images/act3/act3-santa-vision-6.png)
+
+```
+/static/sv-application-2024-SuperTopSecret-9265193/applicationDefault.bin
+```
+
+On Kali, downloaded the file: 
+
+```bash
+wget http://34.72.28.246:8000/static/sv-application-2024-SuperTopSecret-9265193/applicationDefault.bin
+```
+
+Investigating what it is: 
+
+```bash
+file applicationDefault.bin
+    applicationDefault.bin: Linux jffs2 filesystem data little endian
+```
+
+According to the hints, we can use Jefferson to treat this file (including here the instruction setting it up):
+
+```bash
+python3 -m venv env
+source env/bin/activate
+pip install -U pip
+pip install jefferson
+```
+
+Using Jefferson, extracting results to folder "out":
+
+```bash
+jefferson -d out applicationDefault.bin
+```
+
+
+In file ```out/app/src/accounts/views.py``` I found a reference to a SQLite database:
+
+```python
+@accounts_bp.route("/static/sv-application-2024-SuperTopSecret-9265193/applicationDefault.bin", methods=["GET"])
+def firmware():
+    return send_from_directory("static", "sv-application-2024-SuperTopSecret-9265193/applicationDefault.bin", as_attachment=True)
+
+@accounts_bp.route("/sv2024DB-Santa/SantasTopSecretDB-2024-Z.sqlite", methods=["GET"])
+def db():
+    return send_from_directory("static", "sv2024DB-Santa/SantasTopSecretDB-2024-Z.sqlite", as_attachment=True)
+```
+
+Downloading the SQLite database: 
+
+```bash
+wget http://34.72.28.246:8000/sv2024DB-Santa/SantasTopSecretDB-2024-Z.sqlite
+```
+
+Opened it up in ```sqlitebrowser``` and found a user table: 
+
+![User table](/images/act3/act3-santa-vision-7.png)
+
+The credentials for gold in A is: 
+
+```
+santaSiteAdmin:S4n+4sr3411yC00Lp455wd
+```
+
+#### Santa vision B
+
+#### Santa vision C
+
+#### Santa vision D
