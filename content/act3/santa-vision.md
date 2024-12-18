@@ -246,6 +246,24 @@ santaSiteAdmin:S4n+4sr3411yC00Lp455wd
 
 #### Santa vision B
 
+While inspecting the HTTPS headers for the monitoring GUI, I found something interesting for call 
+
+```
+http://34.30.225.171:8000/auth?id=viewer&loginName=santaSiteAdmin
+```
+
+It appears that there's some credentials hidden in the response headers:
+
+![Hidden username in headers](/images/act3/act3-santa-vision-8.png)
+
+Found:
+
+```
+santashelper2024:playerSantaHelperPass8260607289
+```
+
+Note: the password changes whenever the environment is reset ...
+
 #### Santa vision C
 
 #### Santa vision D
