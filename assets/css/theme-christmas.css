@@ -107,3 +107,8 @@ a:hover {
 #sidebar a:hover {
     color: var(--MENU-SECTIONS-LINK-HOVER-color);
 }
+
+.cstyle.note {
+    --VARIABLE-BOX-TEXT-color: var(--MENU-SECTIONS-BG-color);
+    font-weight: bold;
+}
