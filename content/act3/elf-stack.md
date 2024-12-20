@@ -159,9 +159,116 @@ Answer: kriskring1e@northpole.local
 
 > Question 5: Our ElfSOC analysts need your help identifying the hostname of the domain computer that established a connection to the attacker after receiving the phishing email from the previous question. You can take a look at our GreenCoat proxy logs as an event source. Since it is a domain computer, we only need the hostname, not the fully qualified domain name (FQDN) of the system.
 
+Answer: SleighRider
+
+Finding information by using Lens:
+
+![Answer gold 5a](/images/act3/act3-elfstack-g5a.png)
+
+Narrowing down the resultset in Kibana:
+
+![Answer gold 5b](/images/act3/act3-elfstack-g5b.png)
+
+> Question 6: What was the IP address of the system you found in the previous question?
+
+Answer: 172.24.25.12
+
+![Answer gold 6](/images/act3/act3-elfstack-g6.png)
+
+> Question 7: A process was launched when the user executed the program AFTER they downloaded it. What was that Process ID number (digits only please)?
+
+Answer: 10014
+
+Query: 
+
+```sql
+(event.CommandLine:*user* AND event.CommandLine:*elf_user02*) OR (event.ParentCommandLine:*user* AND event.ParentCommandLine:*elf_user02*)
+```
+
+![Answer gold 7](/images/act3/act3-elfstack-g7.png)
+
+> Question 8: Did the attacker's payload make an outbound network connection? Our ElfSOC analysts need your help identifying the destination TCP port of this connection.
+
+IOC's extracted from the previous query:
+
+| IOC | Value |
+| --- | ----- |
+| Process ID | 10014 |
+| Download path | ```C:\Users\elf_user02\Downloads\howtosavexmas\howtosavexmas.pdf.exe``` |
+| Parent Process ID | 5680 |
+| Parent Process | Explorer.exe |
+| Download Time | Sep 15, 2024 @ 16:37:50.00 |
+| Execution Time | Sep 15, 2024 @ 16:38:34.000 | 
+| Event Hostname | SleighRider.northpole.local |
+
+Answer: 8443
+
+![Answer gold 8](/images/act3/act3-elfstack-g8.png)
+
+
+> Question 9: The attacker escalated their privileges to the SYSTEM account by creating an inter-process communication (IPC) channel. Submit the alpha-numeric name for the IPC channel used by the attacker.
+
+Answer: ddpvccdbr
+
+![Answer gold 9](/images/act3/act3-elfstack-g9.png)
+
+> Question 10: The attacker's process attempted to access a file. Submit the full and complete file path accessed by the attacker's process.
+
+Answer: C:\Users\elf_user02\Desktop\kkringl315@10.12.25.24.pem
+
+![Answer gold 10](/images/act3/act3-elfstack-g10.png)
+
+> Question 11: The attacker attempted to use a secure protocol to connect to a remote system. What is the hostname of the target server?
+
+Answer: kringleSSleigH
+
+![Answer gold 11](/images/act3/act3-elfstack-g11.png)
+
+> Question 12: The attacker created an account to establish their persistence on the Linux host. What is the name of the new account created by the attacker?
+
+Answer: ssdh
+
+![Answer gold 12](/images/act3/act3-elfstack-g12.png)
+
+> Question 13: The attacker wanted to maintain persistence on the Linux host they gained access to and executed multiple binaries to achieve their goal. What was the full CLI syntax of the binary the attacker executed after they created the new user account?
+
+Answer: ```/usr/sbin/usermod -a -G sudo ssdh```
+
+![Answer gold 13](/images/act3/act3-elfstack-g13.png)
+
+> Question 14: The attacker enumerated Active Directory using a well known tool to map our Active Directory domain over LDAP. Submit the full ISO8601 compliant timestamp when the first request of the data collection attack sequence was initially recorded against the domain controller.
+
+Answer: 2024-09-16T11:10:12-04:00
+
+I had issues finding the right timestamp. I retorted to creating a Lucene regex seach matching the format I needed, hopefully wishing it would match a timestmap. And it did:
+
+```sql
+/.*\d{4}\-\d{2}\-\d{2}T\d{2}:\d{2}:\d{2}\-\d{2}:\d{2}.*/ AND *dc01*
+```
+
+![Answer gold 14](/images/act3/act3-elfstack-g14.png)
+
+> Question 15: The attacker attempted to perform an ADCS ESC1 attack, but certificate services denied their certificate request. Submit the name of the software responsible for preventing this initial attack.
+
+Answer: KringleGuard
+
+![Answer gold 15](/images/act3/act3-elfstack-g15.png)
+
+> Question 16: We think the attacker successfully performed an ADCS ESC1 attack. Can you find the name of the user they successfully requested a certificate on behalf of?
+
+Answer: nutcrakr
+
+![Answer gold 16](/images/act3/act3-elfstack-g16.png)
+
+> Question 17: One of our file shares was accessed by the attacker using the elevated user account (from the ADCS attack). Submit the folder name of the share they accessed.
+
+Answer: WishLists
+
+![Answer gold 17](/images/act3/act3-elfstack-g17.png)
+
+> Question 18: The naughty attacker continued to use their privileged account to execute a PowerShell script to gain domain administrative privileges. What is the password for the account the attacker used in their attack payload?
+
 Answer: 
-
-
 
 
 
