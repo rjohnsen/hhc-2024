@@ -24,6 +24,49 @@ weight = 2
 
 ## Solution
 
+###
+
+Silver means playing the game using this cheat sheet: 
+
+Here’s the organized table with all groups:
+
+#### Round 1
+
+| **Category**                      | **Items**                                       |
+|-----------------------------------|------------------------------------------------|
+| **Reindeer Team**                 | Blitzen, Comet, Prancer, Vixen                 |
+| **Christmas Decorations**         | Lights, Garland, Tinsel, Star                 |
+| **Holiday Songs/Singers**         | Crosby, White Christmas, Jingle Bells, Belafonte |
+| **Santa's Equipment**             | Sleigh, Bag, Mittens, Gifts                   |
+
+#### Round 2
+
+| **Category**                      | **Items**                                       |
+|-----------------------------------|------------------------------------------------|
+| **Network Analysis Tools**        | Nmap, Wireshark, netcat, Nessus               |
+| **Mobile/Binary Analysis**        | Frida, apktool, Cycript, AppMon               |
+| **Web Application Testing**       | burp, OWASP zap, Nikto, wfuzz                 |
+| **Post-Exploitation/Red Team**    | Metasploit, Empire, Cobalt Strike, HAVOC      |
+
+#### Round 3
+
+| **Category**                      | **Items**                                       |
+|-----------------------------------|------------------------------------------------|
+| **Historical/Classical Ciphers**  | Caesar, Scytale, One-time Pad, Ottendorf      |
+| **Modern Symmetric Algorithms**   | AES, Blowfish, 3DES, RSA                      |
+| **Wireless Security Protocols**   | WPA2, WEP, TKIP, LEAP                         |
+| **General Crypto Concepts**       | Symmetric, Asymmetric, hash, hybrid           |
+
+#### Round 4
+| **Category**                      | **Items**                                       |
+|-----------------------------------|------------------------------------------------|
+| **Layer 2 (Data Link) Protocols** | ARP, Ethernet, PPP, IEEE 802.11              |
+| **Layer 3 (Network) Protocols**   | IP, ICMP, IGMP, IPX                           |
+| **Secure Communication Protocols**| SSH, SSL, TLS, IPSec                          |
+| **Application Layer Protocols**   | HTTP, FTP, SMTP, DNS                          |
+
+### Gold
+
 Based on the observation, this appears to be a straight and easy task to solve. Since we found the Javascript controlling the game, and observing what it does, we can create a short and sweet Javascript that simply loops through each sets in wordSets and maps it to the corresponding solution in correctSets. We also make sure to bump the topscore by simply setting it to a huge number to beat this game with gold.
 
 ```javascript
@@ -43,7 +86,7 @@ score = 10000000000000;
 console.log(mapWordsByCorrectSets(wordSets, correctSets));
 ```
 
-### Applying code
+#### Applying code
 
 Selecting the right iframe we are going to work in:
 

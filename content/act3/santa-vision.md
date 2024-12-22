@@ -259,7 +259,7 @@ It appears that there's some credentials hidden in the response headers:
 Found:
 
 ```
-santashelper2024:playerSantaHelperPass8260607289
+santashelper2024:playerSantaHelperPass8953643718
 ```
 
 Note: the password changes whenever the environment is reset ...
