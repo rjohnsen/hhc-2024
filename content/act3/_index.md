@@ -4,4 +4,6 @@ type = "chapter"
 weight = 4
 +++
 
-This is a new chapter.
+> Now Wombley's gone and gotten the Naughty-Nice list ransomwared! Santa is not pleased...
+> 
+> Maybe Fitzy, Ribb, and Tangle can help mend the situation.

@@ -27,19 +27,19 @@ Hints From Hint Dusty Giftwrap There must be a way to deactivate the ransomware 
 Hints From Hint Dusty Giftwrap There must be a way to deactivate the ransomware server’s data publication. Perhaps one of the other North Pole assets revealed something that could help us find the deactivation path. If so, we might be able to trick the Frostbit infrastructure into revealing more details.">
     <meta itemprop="datePublished" content="2024-12-14T14:54:27+01:00">
     <meta itemprop="dateModified" content="2024-12-14T14:54:27+01:00">
-    <meta itemprop="wordCount" content="189">
+    <meta itemprop="wordCount" content="404">
     <title>Elf Frostbit Deactivate - HHC 2024</title>
-    <link href="/images/logo.png?1734954294" rel="icon" type="image/png">
-    <link href="/css/fontawesome-all.min.css?1734954294" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1734954294" rel="stylesheet"></noscript>
-    <link href="/css/nucleus.css?1734954294" rel="stylesheet">
-    <link href="/css/auto-complete.css?1734954294" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1734954294" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1734954294" rel="stylesheet">
-    <link href="/css/fonts.css?1734954294" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1734954294" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1734954294" rel="stylesheet">
-    <link href="/css/theme-christmas.css?1734954294" rel="stylesheet" id="R-variant-style">
-    <link href="/css/chroma-relearn-light.css?1734954294" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="/css/print.css?1734954294" rel="stylesheet" media="print">
-    <script src="/js/variant.js?1734954294"></script>
+    <link href="/images/logo.png?1734966427" rel="icon" type="image/png">
+    <link href="/css/fontawesome-all.min.css?1734966427" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1734966427" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1734966427" rel="stylesheet">
+    <link href="/css/auto-complete.css?1734966427" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1734966427" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1734966427" rel="stylesheet">
+    <link href="/css/fonts.css?1734966427" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1734966427" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1734966427" rel="stylesheet">
+    <link href="/css/theme-christmas.css?1734966427" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-relearn-light.css?1734966427" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/print.css?1734966427" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1734966427"></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..\/..';
@@ -79,6 +79,7 @@ Hints From Hint Dusty Giftwrap There must be a way to deactivate the ransomware 
     <li><a href="#solution">Solution</a>
       <ul>
         <li><a href="#gold">Gold</a></li>
+        <li><a href="#overview-of-keywords-allowed-or-blocked">Overview of keywords allowed or blocked</a></li>
       </ul>
     </li>
   </ul>
@@ -137,19 +138,306 @@ Hints From Hint Dusty Giftwrap There must be a way to deactivate the ransomware 
 <h2 id="solution">Solution</h2>
 <h3 id="gold">Gold</h3>
 <p>From other objectives I have already found the deactivation endpoint:</p>
-<p><a href="#R-image-bd56d37bc5537ae3363c6b76572c83c7" class="lightbox-link"><img alt="Deactivation endpoint" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-4.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-bd56d37bc5537ae3363c6b76572c83c7"><img alt="Deactivation endpoint" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-4.png"></a></p>
+<p><a href="#R-image-0aa2213b7eac2b2ce2b3c1d245c911b1" class="lightbox-link"><img alt="Deactivation endpoint" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-4.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-0aa2213b7eac2b2ce2b3c1d245c911b1"><img alt="Deactivation endpoint" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-4.png"></a></p>
 <p>For clarity:</p>
 <div class="highlight wrap-code"><pre tabindex="0"><code>/api/v1/frostbitadmin/bot/&lt;botuuid&gt;/deactivate</code></pre></div>
 <p>It appears to requiring &ldquo;authHeader: X-API-Key&rdquo; set.</p>
 <p>Looking at what HTTP verbs the endpoint support I see:</p>
-<p><a href="#R-image-8fe8aee592b0fe50d7195c1089080b10" class="lightbox-link"><img alt="Supported HTTP verbs" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-deactivate-1.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-8fe8aee592b0fe50d7195c1089080b10"><img alt="Supported HTTP verbs" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-deactivate-1.png"></a></p>
+<p><a href="#R-image-bfa66755aef89c238cb3dd33b24bbe1d" class="lightbox-link"><img alt="Supported HTTP verbs" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-deactivate-1.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-bfa66755aef89c238cb3dd33b24bbe1d"><img alt="Supported HTTP verbs" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-deactivate-1.png"></a></p>
 <ul>
 <li>GET</li>
 <li>HEAD</li>
 <li>OPTIONS</li>
 </ul>
+<p>The tip mentions that the infratructure may reveal something about itself, let&rsquo;s try the debug trick from earlier objectives:</p>
+<p><a href="#R-image-9d329c966d7f50f6554cb95adfa42853" class="lightbox-link"><img alt="Debug mode" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-deactivate-2.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-9d329c966d7f50f6554cb95adfa42853"><img alt="Debug mode" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-deactivate-2.png"></a></p>
+<p>For clarity, here&rsquo;s the output:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;debug&#34;</span>:<span style="color:#66d9ef">true</span>,<span style="color:#f92672">&#34;error&#34;</span>:<span style="color:#e6db74">&#34;Timeout or error in query:\nFOR doc IN config\n    FILTER doc.&lt;key_name_omitted&gt; == &#39;{user_supplied_x_api_key}&#39;\n    &lt;other_query_lines_omitted&gt;\n    RETURN doc&#34;</span>}</span></span></code></pre></div>
+<p>This query language looks like ArangoDB, and ChatGPT think that as well. There&rsquo;s a mention of &ldquo;user_supplied_x_api_key&rdquo;. Let&rsquo;s see if I can trigger something by manipulating it:</p>
+<p><a href="#R-image-953454b5670214560f9b610a3c64390b" class="lightbox-link"><img alt="Debug mode" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-deactivate-3.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-953454b5670214560f9b610a3c64390b"><img alt="Debug mode" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-deactivate-3.png"></a></p>
+<p>For clarity, here&rsquo;s the output:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;debug&#34;</span>:<span style="color:#66d9ef">true</span>,<span style="color:#f92672">&#34;error&#34;</span>:<span style="color:#e6db74">&#34;Invalid Key&#34;</span>}</span></span></code></pre></div>
+<p>Setting header field:</p>
+<div class="highlight wrap-code"><pre tabindex="0"><code>X-Api-Key: &#39;OR 1 == 1 //</code></pre></div>
+<p>Yields this error:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;debug&#34;</span>:<span style="color:#66d9ef">true</span>,<span style="color:#f92672">&#34;error&#34;</span>:<span style="color:#e6db74">&#34;Request Blocked&#34;</span>}</span></span></code></pre></div>
+<h3 id="overview-of-keywords-allowed-or-blocked">Overview of keywords allowed or blocked</h3>
+<p>It appears that certain keywords are blocked, trying to map them out (according to <a href="https://docs.arangodb.com/stable/aql/fundamentals/syntax/)" rel="external" target="_blank">https://docs.arangodb.com/stable/aql/fundamentals/syntax/)</a>:</p>
+<table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Blocked</th>
+<th>Open</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AGGREGATE</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>ALL</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>ALL_SHORTEST_PATHS</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>AND</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>ANY</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>ASC</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>COLLECT</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>DESC</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>DISTINCT</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>FALSE</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>FILTER</td>
+<td>X</td>
+<td></td>
+</tr>
+<tr>
+<td>FOR</td>
+<td>X</td>
+<td></td>
+</tr>
+<tr>
+<td>GRAPH</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>IN</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>INBOUND</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>INSERT</td>
+<td>X</td>
+<td></td>
+</tr>
+<tr>
+<td>INTO</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>K_PATHS</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>K_SHORTEST_PATHS</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>LET</td>
+<td>X</td>
+<td></td>
+</tr>
+<tr>
+<td>LIKE</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>LIMIT</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>NONE</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>NOT</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>NULL</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>OR</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>OUTBOUND</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>REMOVE</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>REPLACE</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>RETURN</td>
+<td>X</td>
+<td></td>
+</tr>
+<tr>
+<td>SHORTEST_PATH</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>SORT</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>TRUE</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>UPDATE</td>
+<td>X</td>
+<td></td>
+</tr>
+<tr>
+<td>UPSERT</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>WINDOW</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>WITH</td>
+<td>X</td>
+<td></td>
+</tr>
+<tr>
+<td>FOR</td>
+<td>X</td>
+<td></td>
+</tr>
+<tr>
+<td>RETURN</td>
+<td>X</td>
+<td></td>
+</tr>
+<tr>
+<td>FILTER</td>
+<td>X</td>
+<td></td>
+</tr>
+<tr>
+<td>SEARCH</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>SORT</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>LIMIT</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>LET</td>
+<td>X</td>
+<td></td>
+</tr>
+<tr>
+<td>COLLECT</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>WINDOW</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>INSERT</td>
+<td>X</td>
+<td></td>
+</tr>
+<tr>
+<td>UPDATE</td>
+<td>X</td>
+<td></td>
+</tr>
+<tr>
+<td>REPLACE</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>REMOVE</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>UPSERT</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>WITH</td>
+<td>X</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
   <footer class="footline">
   </footer>
@@ -165,7 +453,7 @@ Hints From Hint Dusty Giftwrap There must be a way to deactivate the ransomware 
 
         </div>
         <script>
-          window.index_js_url="/searchindex.en.js?1734954294";
+          window.index_js_url="/searchindex.en.js?1734966427";
         </script>
         <search><form action="/search/index.html" method="get">
           <div class="searchbox default-animation">
@@ -178,12 +466,12 @@ Hints From Hint Dusty Giftwrap There must be a way to deactivate the ransomware 
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1734954294" defer></script>
-        <script src="/js/lunr/lunr.min.js?1734954294" defer></script>
-        <script src="/js/lunr/lunr.stemmer.support.min.js?1734954294" defer></script>
-        <script src="/js/lunr/lunr.multi.min.js?1734954294" defer></script>
-        <script src="/js/lunr/lunr.en.min.js?1734954294" defer></script>
-        <script src="/js/search.js?1734954294" defer></script>
+        <script src="/js/auto-complete.js?1734966427" defer></script>
+        <script src="/js/lunr/lunr.min.js?1734966427" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1734966427" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1734966427" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1734966427" defer></script>
+        <script src="/js/search.js?1734966427" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation">
         <hr class="padding">
@@ -253,22 +541,22 @@ Hints From Hint Dusty Giftwrap There must be a way to deactivate the ransomware 
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1734954294" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1734954294" defer></script>
-    <script src="/js/d3/d3-color.min.js?1734954294" defer></script>
-    <script src="/js/d3/d3-dispatch.min.js?1734954294" defer></script>
-    <script src="/js/d3/d3-drag.min.js?1734954294" defer></script>
-    <script src="/js/d3/d3-ease.min.js?1734954294" defer></script>
-    <script src="/js/d3/d3-interpolate.min.js?1734954294" defer></script>
-    <script src="/js/d3/d3-selection.min.js?1734954294" defer></script>
-    <script src="/js/d3/d3-timer.min.js?1734954294" defer></script>
-    <script src="/js/d3/d3-transition.min.js?1734954294" defer></script>
-    <script src="/js/d3/d3-zoom.min.js?1734954294" defer></script>
-    <script src="/js/js-yaml.min.js?1734954294" defer></script>
-    <script src="/js/mermaid.min.js?1734954294" defer></script>
+    <script src="/js/clipboard.min.js?1734966427" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1734966427" defer></script>
+    <script src="/js/d3/d3-color.min.js?1734966427" defer></script>
+    <script src="/js/d3/d3-dispatch.min.js?1734966427" defer></script>
+    <script src="/js/d3/d3-drag.min.js?1734966427" defer></script>
+    <script src="/js/d3/d3-ease.min.js?1734966427" defer></script>
+    <script src="/js/d3/d3-interpolate.min.js?1734966427" defer></script>
+    <script src="/js/d3/d3-selection.min.js?1734966427" defer></script>
+    <script src="/js/d3/d3-timer.min.js?1734966427" defer></script>
+    <script src="/js/d3/d3-transition.min.js?1734966427" defer></script>
+    <script src="/js/d3/d3-zoom.min.js?1734966427" defer></script>
+    <script src="/js/js-yaml.min.js?1734966427" defer></script>
+    <script src="/js/mermaid.min.js?1734966427" defer></script>
     <script>
       window.themeUseMermaid = JSON.parse("{}");
     </script>
-    <script src="/js/theme.js?1734954294" defer></script>
+    <script src="/js/theme.js?1734966427" defer></script>
   </body>
 </html>
