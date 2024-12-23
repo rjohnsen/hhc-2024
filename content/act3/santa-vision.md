@@ -2,6 +2,7 @@
 title = 'Santa Vision'
 date = 2024-12-14T14:53:58+01:00
 draft = true
+weight = 2
 +++
 
 ## Objective
@@ -259,7 +260,7 @@ It appears that there's some credentials hidden in the response headers:
 Found:
 
 ```
-santashelper2024:playerSantaHelperPass8953643718
+santashelper2024:playerSantaHelperPass7183926777
 ```
 
 Note: the password changes whenever the environment is reset ...

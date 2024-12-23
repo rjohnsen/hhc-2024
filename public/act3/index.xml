@@ -9,20 +9,6 @@
     <lastBuildDate>Sat, 14 Dec 2024 14:54:27 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/act3/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Elf Frostbit Deactivate</title>
-      <link>http://localhost:1313/act3/elf-frostbit-deactivate/index.html</link>
-      <pubDate>Sat, 14 Dec 2024 14:54:27 +0100</pubDate>
-      <guid>http://localhost:1313/act3/elf-frostbit-deactivate/index.html</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Elf Frostbit Decrypt</title>
-      <link>http://localhost:1313/act3/elf-frostbit-decrypt/index.html</link>
-      <pubDate>Sat, 14 Dec 2024 14:54:19 +0100</pubDate>
-      <guid>http://localhost:1313/act3/elf-frostbit-decrypt/index.html</guid>
-      <description>Objective Decrypt the Frostbit-encrypted Naughty-Nice list and submit the first and last name of the child at number 440 in the Naughty-Nice list.&#xA;Hints From Hint Dusty Giftwrap There’s a new ransomware spreading at the North Pole called Frostbit. Its infrastructure looks like code I worked on, but someone modified it to work with the ransomware. If it is our code and they didn’t disable dev mode, we might be able to pass extra options to reveal more information.</description>
-    </item>
-    <item>
       <title>Elf Stack</title>
       <link>http://localhost:1313/act3/elf-stack/index.html</link>
       <pubDate>Sat, 14 Dec 2024 14:54:09 +0100</pubDate>
@@ -35,6 +21,20 @@
       <pubDate>Sat, 14 Dec 2024 14:53:58 +0100</pubDate>
       <guid>http://localhost:1313/act3/santa-vision/index.html</guid>
       <description>Objective Alabaster and Wombley have poisoned the Santa Vision feeds! Knock them out to restore everyone back to their regularly scheduled programming.&#xA;Hints Ribb Bonbowford (The Front Yard (Act 3))&#xA;Hi, Ribb Bonbowford here, ready to guide you through the SantaVision dilemma!&#xA;The Santa Broadcast Network (SBN) has been hijacked by Wombley’s goons—they’re using it to spread propaganda and recruit elves! And Alabaster joined in out of necessity. Quite the predicament, isn’t it?</description>
+    </item>
+    <item>
+      <title>Elf Frostbit Decrypt</title>
+      <link>http://localhost:1313/act3/elf-frostbit-decrypt/index.html</link>
+      <pubDate>Sat, 14 Dec 2024 14:54:19 +0100</pubDate>
+      <guid>http://localhost:1313/act3/elf-frostbit-decrypt/index.html</guid>
+      <description>Objective Decrypt the Frostbit-encrypted Naughty-Nice list and submit the first and last name of the child at number 440 in the Naughty-Nice list.&#xA;Hints From Hint Dusty Giftwrap There’s a new ransomware spreading at the North Pole called Frostbit. Its infrastructure looks like code I worked on, but someone modified it to work with the ransomware. If it is our code and they didn’t disable dev mode, we might be able to pass extra options to reveal more information.</description>
+    </item>
+    <item>
+      <title>Elf Frostbit Deactivate</title>
+      <link>http://localhost:1313/act3/elf-frostbit-deactivate/index.html</link>
+      <pubDate>Sat, 14 Dec 2024 14:54:27 +0100</pubDate>
+      <guid>http://localhost:1313/act3/elf-frostbit-deactivate/index.html</guid>
+      <description>Objective Wombley’s ransomware server is threatening to publish the Naughty-Nice list. Find a way to deactivate the publication of the Naughty-Nice list by the ransomware server.</description>
     </item>
   </channel>
 </rss>

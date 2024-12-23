@@ -2,6 +2,7 @@
 title = 'Elf Frostbit Decrypt'
 date = 2024-12-14T14:54:19+01:00
 draft = true
+weight = 3
 +++
 
 ## Objective
@@ -390,7 +391,7 @@ With this script I got the following output:
 52685b92ec2ae608c3fe1eedc3789953,e998a50d979ee2d7
 ```
 
-Appear to be a Symmetric Key and IV Pair. Heading over to Cyberchef to solve it, as it appear to be AES based: 
+Appears to be a Symmetric Key and IV Pair. Heading over to Cyberchef to solve it, as it appear to be AES based: 
 
 ![Cyberched decode](/images/act3/act3-frostbit-decrypt-7.png)
 
