@@ -170,6 +170,8 @@ pogo stick
 
 #### Santa vision A
 
+> What username logs you into the SantaVision portal?
+
 I found a new topic by using BurpSuite navigating to the logon form site:
 
 * sitestatus
@@ -245,7 +247,15 @@ The credentials for gold in A is:
 santaSiteAdmin:S4n+4sr3411yC00Lp455wd
 ```
 
+I also found a reference to another user in the codebase: 
+
+```python
+core/views.py:54:        mqttPublish.single("$CONTROL/dynamic-security/v1","{\"commands\":[{\"command\": \"deleteClient\",\"username\": \""+name+"\"}]}",hostname="localhost",port=1883,auth={'username':"SantaBrokerAdmin", 'password':"8r0k3R4d1mp455wD"})
+```
+
 #### Santa vision B
+
+> Once logged on, authenticate further without using Wombley's or Alabaster's accounts to see the northpolefeeds on the monitors. What username worked here?
 
 While inspecting the HTTPS headers for the monitoring GUI, I found something interesting for call 
 
@@ -267,4 +277,22 @@ Note: the password changes whenever the environment is reset ...
 
 #### Santa vision C
 
+> Using the information available to you in the SantaVision platform, subscribe to the frostbitfeed MQTT topic. Are there any other feeds available? What is the code name for the elves' secret operation?
+
+Taking the answer for Silver C, "Idemcerybu" I asked ChatGPT what on earth this could be. It answered it was most likely ROT13. So I asked it to loop through every positions, ending up with a shift of 11. 
+
+Answer: Snowmobile
+
 #### Santa vision D
+
+> There are too many admins. Demote Wombley and Alabaster with a single MQTT message to correct the northpolefeeds feed. What type of contraption do you see Santa on?
+
+Anwer: Hovercraft
+
+In order to solve this I had to send the same message as in Silver D, but by using a client instead of the website: 
+
+![Sending request using MQTTX](/images/act3/act3-santa-vision-9.png)
+
+By obsering the monitors I now see what kind of vehicle santa is using: 
+
+![Hovercraft](/images/act3/act3-santa-vision-10.png)

