@@ -274,7 +274,7 @@ Appears this path might be important: ```/etc/nginx/certs/api.frostbit.app.key``
 
 ## Solution
 
-### Silver
+### Gold
 
 ```python
 import requests
@@ -310,7 +310,7 @@ print(url)
 print(res.text)
 ```
 
-Which gave an URL that upon visiting showed me: 
+Which gave an URL ```https://api.frostbit.app/view/%25e9%2598%25a5%250d%2597%259e%25e2%25d7%25e9%2598%25a5%250d%2597%259e%25e2%25d7%252F..%252F..%252F..%252F..%252F..%252Fetc%252Fnginx%252Fcerts%252Fapi.frostbit.app.key/15d977db-9fa9-48f8-be38-d36c2e21b12d/status?debug=1&digest=00000000000000000000000000000000``` that upon visiting showed me: 
 
 ![Feed message 6](/images/act3/act3-frostbit-decrypt-6.png)
 
@@ -370,5 +370,29 @@ jd6fDxOeVjU6usKzSeosoQCkEFvhlkVH6EK6Xfh6XDFatAnZyDNVP/PPihI=
 -----END RSA PRIVATE KEY-----
 ```
 
-### Gold
+I quickly tested decrypted the encrypted CSV file, but it wasn't doable. However, I found something interesting earlier on in one of the JSON replies. Namely an encrypted key: 
+
+```
+{"encryptedkey":"2ea5d786947ab4dbc462dc0d1fe878b07f46df032f17b43aeeedea7a2683996377d3b57cc2f94781deef9f81e966309e09e26577d5110836c4236b8dc3bec734ed0060168b30530b99d66cb4d33d9e87712dd71fb8ab6d311430b55743994400e9eb452a378a6c930225f69f46bdef91581a6325b4e873458d4fc9287a2f4af7bbc68a6f3db16b1e463982a815b2fc291b1013e880a2a8f077c1fed52a7673ec1bfc7a4bb6edba03ab670332fa3627f20116f6ceeed97a757bb220494cd696e8f5f05869b6f57f5aef18e204c7213d634b56fae8751b7521d86eb5f7d692313398ff70cded16d5eddef0ec655e7a5279d97a15d1c8efa8aac1c4b0073657007a96e34eeeaae9460629ae9ce5d219d512afef28736e6844f297c02e6cf992e36de5fdc8e0f79b71e92a3ecac6c1b703c84ecd7ca8deb52061441d0c30e3c8be30f3a8658be84a26bf7e7ce3d5b4637da157f7e87795fcfecc8411532ad0cc7c6a8a4de2861c2df429507f1909928cb735b4e3758c139b865e0b2ffceac950880219bdf644e6dca7545c03bff09194624a8fbb0ea54ee6ee3caf4749ca2165873b02e46548be0bbffea92cad7bd89606ed3f1f157d4fedc393007de842ab1e17e23f6fb4b4b963f328f1b55bf2fbe1ad57109a4a835308d6dfa0aaf98069bf44f0c8d50fe302205a82c181587d7fab4c1bf562109593a601f7b026e4236f71fc8f","nonce":"e998a50d979ee2d7"}
+```
+
+Whipping up a simple decoder script: 
+
+```bash
+echo -n "2ea5d786947ab4dbc462dc0d1fe878b07f46df032f17b43aeeedea7a2683996377d3b57cc2f94781deef9f81e966309e09e26577d5110836c4236b8dc3bec734ed0060168b30530b99d66cb4d33d9e87712dd71fb8ab6d311430b55743994400e9eb452a378a6c930225f69f46bdef91581a6325b4e873458d4fc9287a2f4af7bbc68a6f3db16b1e463982a815b2fc291b1013e880a2a8f077c1fed52a7673ec1bfc7a4bb6edba03ab670332fa3627f20116f6ceeed97a757bb220494cd696e8f5f05869b6f57f5aef18e204c7213d634b56fae8751b7521d86eb5f7d692313398ff70cded16d5eddef0ec655e7a5279d97a15d1c8efa8aac1c4b0073657007a96e34eeeaae9460629ae9ce5d219d512afef28736e6844f297c02e6cf992e36de5fdc8e0f79b71e92a3ecac6c1b703c84ecd7ca8deb52061441d0c30e3c8be30f3a8658be84a26bf7e7ce3d5b4637da157f7e87795fcfecc8411532ad0cc7c6a8a4de2861c2df429507f1909928cb735b4e3758c139b865e0b2ffceac950880219bdf644e6dca7545c03bff09194624a8fbb0ea54ee6ee3caf4749ca2165873b02e46548be0bbffea92cad7bd89606ed3f1f157d4fedc393007de842ab1e17e23f6fb4b4b963f328f1b55bf2fbe1ad57109a4a835308d6dfa0aaf98069bf44f0c8d50fe302205a82c181587d7fab4c1bf562109593a601f7b026e4236f71fc8f" | xxd -r -p > encrypted_data.bin
+
+openssl pkeyutl -decrypt -inkey key.pem -in encrypted_data.bin -out decrypted_data_1
+```
+
+With this script I got the following output: 
+
+```bash
+52685b92ec2ae608c3fe1eedc3789953,e998a50d979ee2d7
+```
+
+Appear to be a Symmetric Key and IV Pair. Heading over to Cyberchef to solve it, as it appear to be AES based: 
+
+![Cyberched decode](/images/act3/act3-frostbit-decrypt-7.png)
+
+Answer: Xena Xtreme
 
