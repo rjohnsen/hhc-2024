@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Closing - HHC 2024</title>
+    <link>http://localhost:1313/closing/index.html</link>
+    <description>After solving the last objective, I had to travel back to Santa in the courtyard to have a chat with him:&#xA;But no. He had not that much interesting to say. I noticed there were some yellow thingy behind him. I hurried over.&#xA;The yellow marking was a sign to enter the building. Inside the building I saw Santa standing there. Apparently he is a fast mover since he was out in the courtyard a couple of seconds ago.</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/closing/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

@@ -1,7 +1,7 @@
 +++
 title = "About"
 type = "chapter"
-weight = 6
+weight = 7
 +++
 
 ![Roger Johnsen](/images/about/roger-profile-small.png)
