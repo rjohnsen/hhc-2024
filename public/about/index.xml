@@ -3,7 +3,7 @@
   <channel>
     <title>About - HHC 2024</title>
     <link>http://localhost:1313/about/index.html</link>
-    <description>This is a new chapter.</description>
+    <description>Roger Johnsen is a dedicated Information Security Consultant specializing in enhancing Blue Team capabilities. His expertise includes educating analysts, developing threat hunting strategies, software development, and ensuring the quality assurance of processes and routines.&#xA;Roger actively participates in Capture The Flag (CTF) competitions on platforms like the SANS Holiday Hack Challenge and Hack The Box, integrating the knowledge gained into his daily practice. In 2022, he was recognized as the runner-up for the best “Technical Answer” in the SANS Holiday Hack Challenge 2021 edition, earning a challenge coin for his outstanding performance.</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <atom:link href="http://localhost:1313/about/index.xml" rel="self" type="application/rss+xml" />

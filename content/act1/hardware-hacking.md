@@ -15,7 +15,7 @@ weight = 3
 
 > Jingle all the wires and connect to Santa's Little Helper to reveal the merry secrets locked in his chest!
 
-### Solution for silver
+### Silver
 
 In the hint section I found this helpful hint: 
 
@@ -121,7 +121,7 @@ And by this silver was won!
 
 ![Hardware hacking 101 part 1 part 4](/images/act1/hardware-hacking-101-part-1-4.png)
 
-### Solution for gold
+### Gold
 
 For going for gold, I first found the Iframe source:
 

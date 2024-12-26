@@ -9,7 +9,17 @@ weight = 3
 
 > Assist Poinsettia McMittens with playing a game of Elf Minder 9000.
 
-## Solution pr. level.
+## Hints
+
+| From | Hint |
+| ---- | ---- |
+| Poinsettia McMittens | Be sure you read the "Help" section thoroughly! In doing so, you will learn how to use the tools necessary to safely guide your elf and collect all the crates. |
+| Poinsettia McMittens | Some levels will require you to click and rotate paths in order for your elf to collect all the crates. |
+| Poinsettia McMittens | When developing a video game—even a simple one—it's surprisingly easy to overlook an edge case in the game logic, which can lead to unexpected behavior. |
+
+## Solution pr level.
+
+Explanatory comments provided when necessary.
 
 ### Sandy Start
 
@@ -107,10 +117,7 @@ Then clicked restart:
 
 ---
 
-
-
-
-
+Found this gem in the source code: 
 
 https://hhc24-elfminder.holidayhackchallenge.com/game2.js
 
@@ -128,6 +135,8 @@ if (isEditor) {
 ```
 
 ## Mapping
+
+Prior to playing this game I spent a lot of time mapping out the technology that controls it. Here are my notes.
 
 ### Movement
 

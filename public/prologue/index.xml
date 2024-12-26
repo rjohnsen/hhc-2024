@@ -13,21 +13,21 @@
       <link>http://localhost:1313/prologue/orientation-challenge/index.html</link>
       <pubDate>Sun, 10 Nov 2024 09:59:39 +0100</pubDate>
       <guid>http://localhost:1313/prologue/orientation-challenge/index.html</guid>
-      <description>Objective Talk to Jingle Ringford on Christmas Island and get your bearings at Geese Islands&#xA;Question Answer</description>
+      <description>Objective Talk to Jingle Ringford on Christmas Island and get your bearings at Geese Islands&#xA;Question The question and what to do is pretty self explanatory.&#xA;Answer As I said …</description>
     </item>
     <item>
       <title>Elf Connect</title>
       <link>http://localhost:1313/prologue/elf-connect/index.html</link>
       <pubDate>Sun, 10 Nov 2024 10:51:56 +0100</pubDate>
       <guid>http://localhost:1313/prologue/elf-connect/index.html</guid>
-      <description>Objective Help Angel Candysalt connect the dots in a game of connections.&#xA;Observations # Observation 1 Inspected network traffic, game is hosted at https://hhc24-elfconnect.holidayhackchallenge.com/ 2 Playing game through Burpsuite we can get hold of the Javascript controlling the game 3 In Javascript, variable “wordSets” holds the words 4 In Javascript, variable “correctSets” holds the correct words for each round 5 Round is controlled by https://hhc24-elfconnect.holidayhackchallenge.com/?round=2 6 It appears that “correctSets” isn’t updated between rounds.</description>
+      <description>Objective Help Angel Candysalt connect the dots in a game of connections.&#xA;Hints From Hint Angel Candysalt WOW! A high score of 50,000 points! That’s way beyond the limit! With only four rounds and a max of 400 points per round, the top possible score should be 1,600 points. So, how did someone get to 50,000? Something unusual must be happening! If you’re curious, you might want to check under the hood.</description>
     </item>
     <item>
       <title>Elf Minder 9000</title>
       <link>http://localhost:1313/prologue/elf-minder-9000/index.html</link>
       <pubDate>Sun, 10 Nov 2024 12:19:21 +0100</pubDate>
       <guid>http://localhost:1313/prologue/elf-minder-9000/index.html</guid>
-      <description>Objective Assist Poinsettia McMittens with playing a game of Elf Minder 9000.&#xA;Solution pr. level. Sandy Start Waves and crates Tidal Treasures Dune Dash In order to solve this, we must turn the trajectory path for the elf once he has gone back into the tunnel, so that on the return he’ll hook up to the path leading to the goal flag.&#xA;Coral Cove Shell Seekers Palm Gove Shuffle Once the elf has gone through the tunnel, we change the trajectory path so upon return the elf will head for the spring instead.</description>
+      <description>Objective Assist Poinsettia McMittens with playing a game of Elf Minder 9000.&#xA;Hints From Hint Poinsettia McMittens Be sure you read the “Help” section thoroughly! In doing so, you will learn how to use the tools necessary to safely guide your elf and collect all the crates. Poinsettia McMittens Some levels will require you to click and rotate paths in order for your elf to collect all the crates. Poinsettia McMittens When developing a video game—even a simple one—it’s surprisingly easy to overlook an edge case in the game logic, which can lead to unexpected behavior.</description>
     </item>
   </channel>
 </rss>

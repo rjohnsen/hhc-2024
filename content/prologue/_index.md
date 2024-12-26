@@ -1,7 +1,7 @@
 +++
 title = "Prologue"
 type = "chapter"
-weight = 1
+weight = 2
 +++
 
 > Welcome back to the Geese Islands! Let's help the elves pack up to return to the North Pole.
@@ -35,3 +35,5 @@ Jingle Ringford (Frosty's Beach)
 > Click on the snowball on your avatar. That's where you will see your Objectives, Hints, resource links, and Conversations for the Holiday Hack Challenge.
 >
 > Now, click on the Cranberry Pi Terminal and follow the on-screen instructions.
+
+![Logo](/images/logo.png)

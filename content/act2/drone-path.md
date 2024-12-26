@@ -63,9 +63,8 @@ Tried to find alternative ways of rendering the positions from this list: ```htt
 
 ![Found text](/images/act2/act2-drone-path-12.png)
 
-```
-DroneDataAnalystExpertMedal
-```
+
+**Answer:** DroneDataAnalystExpertMedal
 
 Heading back into the web app, I submitted this password from the "Admin Console" endpoint:
 
@@ -175,9 +174,8 @@ I could not find anything interesting - then it dawned on me. Lets pad it in fro
 
 The code word is: 
 
-```
-EXPERTTURKEYCARVERMEDAL
-```
+
+**Answer:** EXPERTTURKEYCARVERMEDAL
 
 Then submitting the code word:
 

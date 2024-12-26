@@ -13,12 +13,11 @@
     <lastmod>2024-11-17T14:18:57+01:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/prologue/index.html</loc>
-    <lastmod>2024-11-10T12:19:21+01:00</lastmod>
-  </url>
-  <url>
     <loc>http://localhost:1313/prologue/orientation-challenge/index.html</loc>
     <lastmod>2024-11-10T09:59:39+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/foreword/index.html</loc>
   </url>
   <url>
     <loc>http://localhost:1313/act3/santa-vision/index.html</loc>
@@ -29,12 +28,12 @@
     <lastmod>2024-11-23T13:18:31+01:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/act1/index.html</loc>
-    <lastmod>2024-11-17T14:19:45+01:00</lastmod>
-  </url>
-  <url>
     <loc>http://localhost:1313/act1/frosty-keypad/index.html</loc>
     <lastmod>2024-11-17T14:19:14+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/prologue/index.html</loc>
+    <lastmod>2024-11-10T12:19:21+01:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/prologue/elf-connect/index.html</loc>
@@ -45,12 +44,12 @@
     <lastmod>2024-12-14T14:54:19+01:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/act2/index.html</loc>
-    <lastmod>2024-11-23T13:18:55+01:00</lastmod>
-  </url>
-  <url>
     <loc>http://localhost:1313/act2/powershell/index.html</loc>
     <lastmod>2024-11-23T13:18:37+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/act1/index.html</loc>
+    <lastmod>2024-11-17T14:19:45+01:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/act1/hardware-hacking/index.html</loc>
@@ -61,16 +60,20 @@
     <lastmod>2024-11-10T12:19:21+01:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/act3/index.html</loc>
-    <lastmod>2024-12-14T14:54:27+01:00</lastmod>
-  </url>
-  <url>
     <loc>http://localhost:1313/act3/elf-frostbit-deactivate/index.html</loc>
     <lastmod>2024-12-14T14:54:27+01:00</lastmod>
   </url>
   <url>
+    <loc>http://localhost:1313/act2/index.html</loc>
+    <lastmod>2024-11-23T13:18:55+01:00</lastmod>
+  </url>
+  <url>
     <loc>http://localhost:1313/act2/snowball-showdown/index.html</loc>
     <lastmod>2024-11-23T13:18:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/act3/index.html</loc>
+    <lastmod>2024-12-14T14:54:27+01:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/act2/microsoft-kc7/index.html</loc>

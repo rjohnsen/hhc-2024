@@ -9,6 +9,13 @@ weight = 2
 
 > Help Angel Candysalt connect the dots in a game of connections.
 
+## Hints
+
+| From | Hint |
+| ---- | ---- |
+| Angel Candysalt | WOW! A high score of 50,000 points! That’s way beyond the limit! With only four rounds and a max of 400 points per round, the top possible score should be 1,600 points. So, how did someone get to 50,000? Something unusual must be happening! If you're curious, you might want to check under the hood. Try opening the browser's developer tools console and looking around—there might even be a variable named 'score' that could give you some insights. Sometimes, games hold secrets for those who dig a little deeper. Give it a shot and see what you can discover! |
+| Angel Candysalt | I love brain games! This one is like the New York Times Connections game. Your goal here is to find groups of items that share something in common. Think of each group as having a hidden connection or theme—four items belong together, and there are multiple groups to find! See if you can spot patterns or common threads to make connections. Group all the items correctly to win! |
+
 ## Observations
 
 | # | Observation | 
@@ -24,11 +31,9 @@ weight = 2
 
 ## Solution
 
-###
+### Silver
 
-Silver means playing the game using this cheat sheet: 
-
-Here’s the organized table with all groups:
+Silver means playing the game using the following cheat sheet (I just pasted everything into ChatGPT and took whatever feedback I got).
 
 #### Round 1
 
@@ -99,6 +104,8 @@ Pasting and running the Javascript code:
 Then it is just a matter of selecting the first word set from the GUI and you have beaten the game with a new high score! 
 
 ## Javascript controlling the game
+
+This is the Javascript controlling the game and which I used to solve it.
 
 ```javascript
 let urlParams = new URLSearchParams(window.location.search);

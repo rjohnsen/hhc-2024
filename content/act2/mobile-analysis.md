@@ -11,30 +11,12 @@ weight = 1
 
 ## Hints
 
-**Mobile Analysis Easy - Tools**
-
-| From | Objective | Description |
-| ---- | --------- | ----------- |
-| Eve Snowshoes | Mobile Analysis | Try using apktool or jadx |
-
-**Mobile Analysis Easy - Missing**
-
-| From | Objective | Description |
-| ---- | --------- | ----------- |
-| Eve Snowshoes | Mobile Analysis | Maybe look for what names are included and work back from that? |
-
-**Mobile Analysis Hard - Format**
-
-| From | Objective | Description |
-| ---- | --------- | ----------- |
-| Eve Snowshoes | Mobile Analysis | So yeah, have you heard about this new [Android app](https://developer.android.com/guide/app-bundle/app-bundle-format) format? Want to [convert it to an APK](https://github.com/HackJJ/apk-sherlock/blob/main/aab2apk.md) file? |
-
-**Mobile Analysis Hard - Encryption and Obfuscation**
-
-| From | Objective | Description |
-| ---- | --------- | ----------- |
-| Eve Snowshoes | Mobile Analysis | Obfuscated and encrypted? Hmph. Shame you can't just run strings on the file. |
-
+| From | Hint |
+| ---- | ---- |
+| Eve Snowshoes | Try using apktool or jadx |
+| Eve Snowshoes | Maybe look for what names are included and work back from that? |
+| Eve Snowshoes | So yeah, have you heard about this new [Android app](https://developer.android.com/guide/app-bundle/app-bundle-format) format? Want to [convert it to an APK](https://github.com/HackJJ/apk-sherlock/blob/main/aab2apk.md) file? |
+| Eve Snowshoes | Obfuscated and encrypted? Hmph. Shame you can't just run strings on the file. |
 
 **Eve Snowshoes conversation**
 
@@ -213,6 +195,8 @@ cd output
 
 From this folder I uploaded the extracted APK and loaded it into https://appetize.io/ and ran the APK there. By comparing the list in this APP (screenshot below) I found that the missing kid was ```Ellie```
 
+**Answer:** Ellie
+
 ![Mobile analysis silver](/images/act2/act2-mobile-analysis-silver.png)
 
 In retrospect, instead of following this overly long methodology, I could've just looked into the following file by just grepping for "NormalList":
@@ -361,4 +345,4 @@ Decrypted: CREATE TRIGGER DeleteIfInsertedSpecificValue
 Decrypted: Joshua, Birmingham, United Kingdom
 ```
 
-The answer for gold is ```Joshua```
+**Answer:** Joshua

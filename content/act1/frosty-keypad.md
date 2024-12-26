@@ -55,7 +55,7 @@ Somehow I got "_SANTA_". After much thoughtwork I came up with a scheme on how I
 
 ## Solution
 
-### Silver solution
+### Silver
 
 #### Bruteforcer
 
@@ -89,7 +89,7 @@ As evident here, the pincode got accepted:
 
 ![Frosty Keypad 3](/images/act1/frosty-keypad-3.png)
 
-### Gold solution
+### Gold
 
 There's a second pincode to be found that doesn't fit the tips already given. Time to modify the above script and bruteforce the solution: 
 

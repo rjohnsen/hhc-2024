@@ -11,7 +11,14 @@ weight = 2
 
 ## Hints
 
-Ribb Bonbowford (The Front Yard (Act 3))
+| From | Hint |
+| ---- | ---- |
+| Ribb Bonbowford | jefferson is great for analyzing JFFS2 file systems. |
+| Ribb Bonbowford | See if any credentials you find allow you to subscribe to any MQTT feeds. |
+| Ribb Bonbowford | Consider checking any database files for credentials... |
+
+In addition, there were some interesting hints in the conversation with Ribb Bonbowford: 
+
 > Hi, Ribb Bonbowford here, ready to guide you through the SantaVision dilemma!
 > 
 > The Santa Broadcast Network (SBN) has been hijacked by Wombley's goons—they're using it to spread propaganda and recruit elves! And Alabaster joined in out of necessity. Quite the predicament, isn’t it?
@@ -44,11 +51,14 @@ Ribb Bonbowford (The Front Yard (Act 3))
 
 > What username logs you into the SantaVision portal?
 
+The very first thing I did was to portscan the given IP to learn more what my next steps should be: 
+
 ```bash
 nmap -sS 34.72.28.246 -p 1-65535
 ```
 
-Output
+These were the ports I found: 
+
 
 | PORT      | STATE    | SERVICE     | 
 | --------- | -------- | ----------- | 
@@ -61,7 +71,7 @@ Output
 | 18290/tcp | filtered | unknown     |
 | 48328/tcp | filtered | unknown     |
 
-Inspecting the HTML code on the landing page ```34.67.56.14:8000``` I found what seems like a ```mqtt``` credential:
+Inspecting the HTML code on the landing page ```34.67.56.14:8000``` I found what seemed like a ```mqtt``` credential:
 
 ```html
 <div class="footer" id="footer">
@@ -79,13 +89,13 @@ Inspecting the HTML code on the landing page ```34.67.56.14:8000``` I found what
 </html>
 ```
 
-Answer:
+**Answer:**
 
 ```
 elfanon:elfanon
 ```
 
-Login: 
+Logging in:
 
 ![Login](/images/act3/act3-santa-vision-1.png)
 
@@ -93,19 +103,25 @@ Login:
 
 > Once logged on, authenticate further without using Wombley's or Alabaster's accounts to see the northpolefeeds on the monitors. What username worked here?
 
+When logged in, I was greeted with this dashboard: 
+
+![Logged in](/images/act3/act3-santa-vision-11.png)
+
 Clicking on the "List Available Clients" button, I got this output:
 
-```json
+```
 Available clients: 'elfmonitor', 'WomblyC', 'AlabasterS'
 ```
 
 Clicking on the "List Available Roles" button, I got this output:
 
-```json
+```
 Available roles: 'SiteDefaultPasswordRole', 'SiteElfMonitorRole', 'SiteAlabsterSAdminRole', 'SiteWomblyCAdminRole'
 ```
 
-In order to find the answer I tried to make a connection using MQTTX, trying various combination until landing on:
+**Answer:**
+
+In order to find the answer I tried to make a connection using MQTTX using the options in the dashboard, trying various combination of roles until landing on:
 
 ```
 elfmonitor:SiteElfMonitorRole
@@ -119,14 +135,7 @@ Turning on the monitors:
 
 > Using the information available to you in the SantaVision platform, subscribe to the frostbitfeed MQTT topic. Are there any other feeds available? What is the code name for the elves' secret operation?
 
-
-From Santafeed: 
-```bash
-Topic: santafeedQoS: 0
-Sixteen elves launched operation: Idemcerybu
-```
-
-Connect to MQTT using MQTTX: 
+By connecting to the feed I saw an reference to "santafeed". Trying my luck I downloaded a MQTT client (MQTTX) and connected to the Santafeed:
 
 ![Connecting](/images/act3/act3-santa-vision-3.png)
 
@@ -134,7 +143,15 @@ Finding the name of the secret operation in the "santafeed":
 
 ![Findind the name of the secret operation](/images/act3/act3-santa-vision-4.png)
 
-Name of the secret operation:
+From Santafeed: 
+
+```bash
+Sixteen elves launched operation: Idemcerybu
+```
+
+**Answer:**
+
+From this message the name of the secret operation is:
 
 ```
 Idemcerybu
@@ -144,23 +161,23 @@ Idemcerybu
 
 > There are too many admins. Demote Wombley and Alabaster with a single MQTT message to correct the northpolefeeds feed. What type of contraption do you see Santa on?
 
-Feeds:
-
+During this assignment I found several feeds.
 * frostbitfeed
 * northpolefeeds
 * santafeed
 
-
-Send as Plaintext to Santafeed using the Html form:
+Nesting together the hints from the GUI and MQTT messages, I found out the message format I should send: 
 
 ```html
 singleAdminMode=true&role=SiteElfMonitorRole&user=WombleyC
 ```
 
+Using the web dashboard I sent this as plaintext to Santafeed, and then paid attention to the monitors as they changed:
+
 ![Findind the name of the secret operation](/images/act3/act3-santa-vision-5.png)
 
 
-Answer:
+**Answer:**
 
 ```
 pogo stick
@@ -190,20 +207,20 @@ Investigating further on the ```sitestatus``` feed I found an interesting downlo
 /static/sv-application-2024-SuperTopSecret-9265193/applicationDefault.bin
 ```
 
-On Kali, downloaded the file: 
+Using Kali, I downloaded the file: 
 
 ```bash
 wget http://34.72.28.246:8000/static/sv-application-2024-SuperTopSecret-9265193/applicationDefault.bin
 ```
 
-Investigating what it is: 
+Investigating what it was:
 
 ```bash
 file applicationDefault.bin
     applicationDefault.bin: Linux jffs2 filesystem data little endian
 ```
 
-According to the hints, we can use Jefferson to treat this file (including here the instruction setting it up):
+According to the hints, Jefferson could be used to treat this file (including here the instruction setting it up):
 
 ```bash
 python3 -m venv env
@@ -241,6 +258,8 @@ Opened it up in ```sqlitebrowser``` and found a user table:
 
 ![User table](/images/act3/act3-santa-vision-7.png)
 
+**Answer:** 
+
 The credentials for gold in A is: 
 
 ```
@@ -267,13 +286,13 @@ It appears that there's some credentials hidden in the response headers:
 
 ![Hidden username in headers](/images/act3/act3-santa-vision-8.png)
 
-Found:
+**Answer:**
 
 ```
 santashelper2024:playerSantaHelperPass7183926777
 ```
 
-Note: the password changes whenever the environment is reset ...
+Note: the password changes whenever the environment is reset ... Thus, any references to this password from hereon may be somewhat off due to this.
 
 #### Santa vision C
 
@@ -281,13 +300,13 @@ Note: the password changes whenever the environment is reset ...
 
 Taking the answer for Silver C, "Idemcerybu" I asked ChatGPT what on earth this could be. It answered it was most likely ROT13. So I asked it to loop through every positions, ending up with a shift of 11. 
 
-Answer: Snowmobile
+**Answer:** Snowmobile
 
 #### Santa vision D
 
 > There are too many admins. Demote Wombley and Alabaster with a single MQTT message to correct the northpolefeeds feed. What type of contraption do you see Santa on?
 
-Anwer: Hovercraft
+**Answer:** Hovercraft
 
 In order to solve this I had to send the same message as in Silver D, but by using a client instead of the website: 
 
@@ -296,3 +315,5 @@ In order to solve this I had to send the same message as in Silver D, but by usi
 By obsering the monitors I now see what kind of vehicle santa is using: 
 
 ![Hovercraft](/images/act3/act3-santa-vision-10.png)
+
+**Answer:** Hovercraft

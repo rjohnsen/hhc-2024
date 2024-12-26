@@ -11,8 +11,12 @@ weight = 1
 
 ## Question
 
+The question and what to do is pretty self explanatory.
+
 ![Welcome orientation](/images/prologue/prologue-cranberry-welcome-orientation.png)
 
 ## Answer
+
+As I said ...
 
 ![Welcome orientation answer](/images/prologue/prologue-cranberry-welcome-orientation-answer.png)

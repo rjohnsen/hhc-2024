@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Foreword - HHC 2024</title>
+    <link>http://localhost:1313/foreword/index.html</link>
+    <description>As the SANS Holiday Hack Challenge approaches each year, a sense of excitement and anticipation builds within me. For me, this challenge has become a highly anticipated tradition, one that I take so seriously that I set aside vacation time specifically to immerse myself in it. Each year, I look forward to solving complex puzzles, exploring new challenges, and competing alongside some of the brightest minds in cybersecurity. The journey is always one of growth and learning, filled with moments of both frustration and triumph.</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/foreword/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
