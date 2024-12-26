@@ -24,3 +24,4 @@ After completing the game I checked my scoreboard stats:
 
 ![Closing 4](/images/closing/closing-scoreboard.png)
 
+![Logo](/images/logo.png)
